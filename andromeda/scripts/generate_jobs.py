@@ -167,7 +167,7 @@ def main() -> None:
             time="5-00:00:00",
             mem="128G",
         )
-        write_job(f"merge_{prefix}", f"python3 scripts/search_merge_weights.py --config configs/merge/{prefix}.yaml --limit 64", gpu=False, cpus=4, mem="32G")
+        write_job(f"merge_{prefix}", f"python3 scripts/search_merge_weights.py --config configs/merge/{prefix}.yaml --limit 64", gpu=False, cpus=8, mem="128G")
         write_job(f"polish_{prefix}", f"python3 scripts/train_format_polish.py --config configs/train/{track}/final_polish.yaml", partition="short", time="12:00:00", mem="96G")
         write_job(f"eval_{prefix}_final", f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model checkpoints/{prefix}/final_polished --output results/{prefix}_final_eval.json", partition="short", time="12:00:00", mem="96G")
 

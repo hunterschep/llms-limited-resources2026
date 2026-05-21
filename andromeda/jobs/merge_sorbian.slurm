@@ -4,8 +4,8 @@
 #SBATCH --time=12:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=32G
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=128G
 #SBATCH --job-name=merge_sorbian
 #SBATCH --output=/home/%u/logs/%x-%j.out
 #SBATCH --error=/home/%u/logs/%x-%j.err
