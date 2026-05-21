@@ -21,5 +21,16 @@ else
 fi
 
 python -m pip install --upgrade pip wheel setuptools
-python -m pip install torch transformers accelerate peft bitsandbytes datasets pyyaml scikit-learn sacrebleu sentencepiece protobuf wandb tensorboard
+
+# Andromeda's current NVIDIA driver advertises CUDA 12.9. The default PyPI
+# torch wheel may move ahead of that driver, which leaves torch.cuda unusable
+# on GPU nodes. Pin a CUDA 12.8 build that is compatible with the cluster
+# driver, then install the rest of the stack without letting pip replace it.
+python -m pip install --upgrade --index-url https://download.pytorch.org/whl/cu128 torch==2.8.0
+python -m pip install --upgrade transformers accelerate peft bitsandbytes datasets pyyaml scikit-learn sacrebleu sentencepiece protobuf wandb tensorboard "kernels>=0.11.1"
 python -m pip install -e .
+
+python - <<'PY'
+import torch
+print(f"torch={torch.__version__} torch_cuda={torch.version.cuda}")
+PY

@@ -81,6 +81,7 @@ def main() -> None:
     JOBS.mkdir(parents=True, exist_ok=True)
     write_create_env_job()
     write_job("00_validate_env", "bash andromeda/scripts/andromeda_probe.sh", gpu=False, cpus=2, mem="8G")
+    write_job("00_validate_gpu_env", "bash andromeda/scripts/validate_gpu_env.sh", gpu=True, cpus=4, mem="32G")
     write_job("01_prepare_data", "make validate inspect-data prepare-data smoke-test", gpu=False, cpus=4, mem="32G")
     write_job("02_download_external_data", "python3 scripts/download_external_data.py --execute", gpu=False, cpus=2, mem="16G")
     write_job("03_filter_external_data", "python3 scripts/filter_external_data.py && python3 scripts/deduplicate_external_data.py && python3 scripts/check_dev_overlap.py", gpu=False, cpus=4, mem="32G")
