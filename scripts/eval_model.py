@@ -79,15 +79,19 @@ def row_to_prompt(tokenizer, row: dict) -> str:
         return "\n".join(f"{m['role']}: {m['content']}" for m in prompt_messages)
 
 
-def generate_predictions(bundle, rows: list[dict], max_new_tokens: int, batch_size: int) -> list[str]:
+def generate_predictions(bundle, rows: list[dict], max_new_tokens: int, batch_size: int, task: str | None = None) -> list[str]:
     import torch
 
     tokenizer, model = bundle
     outputs = []
     prompts = [row_to_prompt(tokenizer, row) for row in rows]
     batch_size = max(1, int(batch_size))
+    total_batches = (len(prompts) + batch_size - 1) // batch_size
     for start in range(0, len(prompts), batch_size):
         batch_prompts = prompts[start : start + batch_size]
+        batch_index = start // batch_size + 1
+        label = f" task={task}" if task else ""
+        print(f"eval_batch{label} batch={batch_index}/{total_batches} rows={len(batch_prompts)}", flush=True)
         encoded = tokenizer(batch_prompts, return_tensors="pt", padding=True).to(model.device)
         with torch.inference_mode():
             generated = model.generate(
@@ -170,12 +174,15 @@ def main() -> int:
             rows.extend(read_jsonl(ROOT / rel, args.limit))
         if args.limit:
             rows = rows[: args.limit]
+        print(f"eval_task_start task={task} rows={len(rows)} oracle={args.oracle}", flush=True)
         if not rows:
             task_scores[task] = score_task(task, [], [])
+            print(f"eval_task_done task={task} empty=true scores={task_scores[task]}", flush=True)
             continue
         references = [str(row["target"]) for row in rows]
-        predictions = oracle_predictions(rows) if args.oracle else generate_predictions(generation_bundle, rows, max_new_tokens, batch_size)
+        predictions = oracle_predictions(rows) if args.oracle else generate_predictions(generation_bundle, rows, max_new_tokens, batch_size, task=task)
         task_scores[task] = score_task(task, predictions, references)
+        print(f"eval_task_done task={task} scores={json.dumps(task_scores[task], sort_keys=True)}", flush=True)
     result = {
         "track": config.get("track"),
         "split": config.get("split", "locked_validation"),
