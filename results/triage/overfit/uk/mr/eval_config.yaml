@@ -1,0 +1,10 @@
+track: ukrainian
+model: checkpoints/triage/overfit/uk/mr
+max_new_tokens: 128
+batch_size: 4
+datasets:
+  MR:
+  - results/triage/overfit/uk/mr/train_eval.jsonl
+scoring:
+  convention: 0-100
+  overall: single_task_overfit

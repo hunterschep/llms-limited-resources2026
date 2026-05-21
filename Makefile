@@ -1,4 +1,4 @@
-.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-overfit-dry-run triage-raw-oracle
+.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-data-sanity triage-overfit-dry-run triage-raw-oracle
 
 validate:
 	python3 scripts/validate_data_governance.py
@@ -52,6 +52,9 @@ build-andromeda-jobs:
 
 triage-oracle:
 	WMT26_RECORD_RUNS=0 python3 scripts/triage_eval_oracle.py
+
+triage-data-sanity:
+	WMT26_RECORD_RUNS=0 python3 scripts/triage_data_sanity.py
 
 triage-raw-oracle:
 	WMT26_RECORD_RUNS=0 python3 scripts/dump_raw_predictions.py --config configs/eval/uk.yaml --oracle --per-task 5 --output results/triage/raw_predictions/uk_oracle.jsonl

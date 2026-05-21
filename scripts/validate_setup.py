@@ -70,6 +70,7 @@ REQUIRED_PATHS = [
     "scripts/train_sft.py",
     "scripts/eval_model.py",
     "scripts/triage_eval_oracle.py",
+    "scripts/triage_data_sanity.py",
     "scripts/dump_raw_predictions.py",
     "scripts/diagnose_prediction_dump.py",
     "scripts/check_checkpoint_loading.py",

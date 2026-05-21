@@ -1,0 +1,26 @@
+run_name: triage_overfit_uk_mr
+track: ukrainian
+method: single_batch_overfit
+specialist: mr
+model_config: configs/model/qwen35_2b.yaml
+base_model_path: null
+fallback_to_base_if_missing: true
+train_files:
+- results/triage/overfit/uk/mr/train_eval.jsonl
+output_dir: checkpoints/triage/overfit/uk/mr
+adapter: lora
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.0
+target_modules:
+- q_proj
+- k_proj
+- v_proj
+- o_proj
+learning_rate: 0.0005
+batch_size: 1
+gradient_accumulation_steps: 1
+max_steps: 60
+max_length: 1024
+log_every: 10
+seed: 2603

@@ -1,0 +1,287 @@
+{
+  "GC": {
+    "confusion": {
+      "correction_exact": 0,
+      "detection_fn": 0,
+      "detection_fp": 12,
+      "detection_tn": 0,
+      "detection_tp": 8,
+      "gold_correct": 12,
+      "gold_error": 8,
+      "pred_correct": 0,
+      "pred_error": 20,
+      "total": 20,
+      "wrong_word_exact": 0
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 12,
+      "ERROR": 8
+    },
+    "predicted_label_counts": {
+      "ERROR": 20
+    },
+    "rows": 20,
+    "scores": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.5714285714285715
+    }
+  },
+  "MR": {
+    "accuracy": 0.15,
+    "rows": 20,
+    "wrong_examples": [
+      {
+        "gold": "18",
+        "id": "ukr_mr_dev:low-ukr-0",
+        "normalized_prediction": "128",
+        "normalized_reference": "18",
+        "prediction": "128"
+      },
+      {
+        "gold": "70000",
+        "id": "ukr_mr_dev:low-ukr-2",
+        "normalized_prediction": "60",
+        "normalized_reference": "70000",
+        "prediction": "150% = 1.5\nВартість будинку після ремонту = 80 000 + (80 000 * 1.5) = 80 000 + 120 000 = 200 000 $\nВартість будинку до ремонту = 80 000 $\nВідсоток втрати = (80 000 / 200 000) * 100% = 40%\nВідсоток втрати = 100% - 40% = 60%\nВідповідь: Джош отримав 60% втрату.\n\n60%"
+      },
+      {
+        "gold": "540",
+        "id": "ukr_mr_dev:low-ukr-3",
+        "normalized_prediction": "180",
+        "normalized_reference": "540",
+        "prediction": "180"
+      },
+      {
+        "gold": "20",
+        "id": "ukr_mr_dev:low-ukr-4",
+        "normalized_prediction": "100",
+        "normalized_reference": "20",
+        "prediction": "100"
+      },
+      {
+        "gold": "64",
+        "id": "ukr_mr_dev:low-ukr-5",
+        "normalized_prediction": "10.4",
+        "normalized_reference": "64",
+        "prediction": "10.40"
+      },
+      {
+        "gold": "260",
+        "id": "ukr_mr_dev:low-ukr-6",
+        "normalized_prediction": "240",
+        "normalized_reference": "260",
+        "prediction": "240"
+      },
+      {
+        "gold": "160",
+        "id": "ukr_mr_dev:low-ukr-7",
+        "normalized_prediction": "1200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "normalized_reference": "160",
+        "prediction": "1200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "gold": "45",
+        "id": "ukr_mr_dev:low-ukr-8",
+        "normalized_prediction": "120",
+        "normalized_reference": "45",
+        "prediction": "120 миль"
+      },
+      {
+        "gold": "460",
+        "id": "ukr_mr_dev:low-ukr-9",
+        "normalized_prediction": "454",
+        "normalized_reference": "460",
+        "prediction": "10 * 40 + 1,2 * 45 = 400 + 54 = 454"
+      },
+      {
+        "gold": "694",
+        "id": "ukr_mr_dev:low-ukr-11",
+        "normalized_prediction": "1000",
+        "normalized_reference": "694",
+        "prediction": "1000"
+      },
+      {
+        "gold": "$\\frac{\\pi}{3}$",
+        "id": "ukr_mr_dev:medium-ukr-0",
+        "normalized_prediction": "2",
+        "normalized_reference": "3",
+        "prediction": "1. Розв'яжемо рівняння, що містить синуси кутів:\n   $(a+c)(\\sin A - \\sin C) = b(\\sin A - \\sin B)$\n\n2. Застосуємо формулу для суми синусів: $\\sin A - \\sin C = 2\\sin\\frac{A-C}{2}\\cos\\frac{A+C}{2}$ та $\\sin A - \\sin B = 2\\sin\\frac{A-B}{2}\\cos\\frac{A+B}{2}$.\n   Оскільки $A+B+C = \\pi$, то $\\frac{A+B}{2} = \\frac{\\pi-C}{2}$, а $\\cos\\frac{A+B}{2} = \\sin\\frac{C}{2}$.\n   Також $\\frac{A+C}{2} = \\frac{\\pi-B}{2}$, а $\\cos\\frac{A+C}{2} = \\sin\\frac{B}{2}$.\n\n   Підставимо це в рівняння:\n   $(a+c) \\cdot 2\\sin\\frac{A-C}{2}\\sin\\frac{B}{2"
+      },
+      {
+        "gold": "$b \\geq $-\\frac{2}{3}$",
+        "id": "ukr_mr_dev:medium-ukr-1",
+        "normalized_prediction": "1",
+        "normalized_reference": "3",
+        "prediction": "To find the range of values for $b$, we analyze the given function:\n$$f(x) = \\ln \\frac{x}{2-x} + ax + b(x-1)^2$$\n\nThe condition is that $f(x) > -2$ holds **only** for the interval $1 < x < 2$. This implies two things:\n1.  For all $x$ in $(1, 2)$, $f(x) > -2$.\n2.  For all $x$ outside $(1, 2)$, $f(x) \\le -2$.\n\nLet's simplify the expression inside the logarithm. Let $u = \\frac{x}{2-x}$.\nNote that if $1 < x < 2$, then $0 < 2-x < 1$, so $u > 0$.\nAlso, $u = \\frac{x}{2-x} = \\frac{x-2+2}{2-x} = -1 + \\frac{2}{2-x}$.\nAs $x$ ranges from $1$ to $2$:\n- When $x \\to 1^+$, $u \\to -1 + \\frac{2}{1}"
+      },
+      {
+        "gold": "-85",
+        "id": "ukr_mr_dev:medium-ukr-3",
+        "normalized_prediction": "-5",
+        "normalized_reference": "-85",
+        "prediction": "-5"
+      },
+      {
+        "gold": "${2, -2, \\frac{1}{2}, -\\frac{1}{2}}$",
+        "id": "ukr_mr_dev:medium-ukr-4",
+        "normalized_prediction": "5",
+        "normalized_reference": "2",
+        "prediction": "2/5"
+      },
+      {
+        "gold": "$\\frac{1}{9}$",
+        "id": "ukr_mr_dev:medium-ukr-5",
+        "normalized_prediction": "2",
+        "normalized_reference": "9",
+        "prediction": "-1/2"
+      },
+      {
+        "gold": "$[2,3)$",
+        "id": "ukr_mr_dev:medium-ukr-6",
+        "normalized_prediction": "1",
+        "normalized_reference": "3",
+        "prediction": "To find the range of values for $\\omega$, we first determine the zeros of the function $f(x) = \\cos(\\omega x) - 1$.\n\nThe equation is:\n$$ \\cos(\\omega x) - 1 = 0 $$\n$$ \\cos(\\omega x) = 1 $$\n\nThe general solution for $\\cos(\\theta) = 1$ is $\\theta = 2k\\pi$, where $k$ is an integer.\nSubstituting $\\theta = \\omega x$, we get:\n$$ \\omega x = 2k\\pi $$\n$$ x = \\frac{2k\\pi}{\\omega} $$\n\nWe are looking for the number of solutions in the interval $[0, 2\\pi]$. Let's analyze the possible values of $k$ based on the interval boundaries.\nSince $x \\ge 0$ and $\\omega > 0$, we must have $k \\ge 0$.\nSince $x \\le 2\\pi$, we have:\n$$ \\frac{2k\\pi}{\\omega} \\le 2\\pi $$\n$$ \\frac{k}{\\omega} \\le 1 $$\n$$ k \\le"
+      },
+      {
+        "gold": "$\\frac{3\\sqrt{5}}{5}$",
+        "id": "ukr_mr_dev:medium-ukr-7",
+        "normalized_prediction": "0",
+        "normalized_reference": "5",
+        "prediction": "1.  **Визначення параметрів гіперболи:**\n    Рівняння гіперболи: $\\frac{x^{2}}{a^{2}} - \\frac{y^{2}}{b^{2}} = 1$.\n    Ексцентриситет $e = \\frac{c}{a}$, де $c = \\sqrt{a^2 + b^2}$.\n    Фокальні точки: $F_1 = (-c, 0)$, $F_2 = (c, 0)$.\n\n2.  **Аналіз умови перпендикулярності:**\n    $\\overrightarrow{F_{1}A} \\perp \\overrightarrow{F_{1}B}$.\n    Нехай координати точки $A$ дорівнюють $(x_0, y_0)$.\n    $\\overrightarrow{F_{1}A} = (x_0 + c, y_0)$.\n    $\\overrightarrow{F_{1}B} = (x_0 + c, y_0 - 0) = (x_0 + c, y_0)$."
+      }
+    ]
+  },
+  "MT": {
+    "rows": 20
+  },
+  "QA": {
+    "accuracy": 0.25,
+    "prediction_counts": {
+      "0": 18,
+      "2": 1,
+      "3": 1
+    },
+    "rows": 20,
+    "wrong_examples": [
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000001",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000002",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000004",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000006",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000015",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000016",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000020",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000026",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000027",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "0",
+        "id": "ukr_qa_dev:000028",
+        "normalized_prediction": "2",
+        "prediction": "2"
+      },
+      {
+        "gold": "1",
+        "id": "ukr_qa_dev:000031",
+        "normalized_prediction": "3",
+        "prediction": "3"
+      },
+      {
+        "gold": "4",
+        "id": "ukr_qa_dev:000034",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000037",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "1",
+        "id": "ukr_qa_dev:000043",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "4",
+        "id": "ukr_qa_dev:000050",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      }
+    ]
+  },
+  "SC": {
+    "confusion": {
+      "correction_exact": 0,
+      "detection_fn": 0,
+      "detection_fp": 8,
+      "detection_tn": 0,
+      "detection_tp": 12,
+      "gold_correct": 8,
+      "gold_error": 12,
+      "pred_correct": 0,
+      "pred_error": 20,
+      "total": 20,
+      "wrong_word_exact": 0
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 8,
+      "ERROR": 12
+    },
+    "predicted_label_counts": {
+      "ERROR": 20
+    },
+    "rows": 20,
+    "scores": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.7499999999999999
+    }
+  }
+}

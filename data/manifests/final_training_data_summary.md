@@ -4,9 +4,9 @@
 
 - `mt_train_final`: 35478
 - `qa_train_final`: 12707
-- `sc_train_final`: 4546
-- `gc_train_final`: 3571
-- `mr_train_final`: 316
+- `sc_train_final`: 9009
+- `gc_train_final`: 7062
+- `mr_train_final`: 315
 - `lang_curriculum_external`: 3996
 - `format_polish_final`: 815
 
@@ -14,8 +14,8 @@
 
 - `mt_train_final`: 120000
 - `qa_train_final`: 2376
-- `sc_train_final`: 3075
-- `gc_train_final`: 1035
+- `sc_train_final`: 5757
+- `gc_train_final`: 1875
 - `mr_train_final`: 312
 - `lang_curriculum_external`: 4997
 - `format_polish_final`: 972

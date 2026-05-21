@@ -12,6 +12,11 @@ Status: active triage. Full training/merge execution is paused until evaluator, 
 
 ## Current Notes
 
+- Detailed triage results are recorded in `docs/34_phase3_triage_findings.md`.
+- Phase 3 remains paused, but the most likely root causes are now identified: imbalanced edit training mixtures, overly strict MR answer normalization in the earlier eval pass, and still-weak MR preservation/output formatting.
+- The final SC/GC mixtures were rebuilt with clean no-error counterparts. Ukrainian SC/GC are now near 50/50 error/clean; Sorbian SC/GC are also near balanced.
+- A bad Ukrainian MR target from ASDiv (`Mrs.`) was filtered from the final MR mixture.
+- Same-set overfit sanity passed for Ukrainian MR and SC, so the trainer, checkpoint save/load, and evaluator can learn tiny task slices.
 - Specialist training completed for both tracks.
 - Prompt-only base evaluations are complete for Ukrainian and Sorbian.
 - Remaining Ukrainian/Sorbian eval jobs and all merge/polish/final-eval jobs were canceled on 2026-05-21 to avoid optimizing against suspicious metrics.
@@ -32,8 +37,9 @@ Status: active triage. Full training/merge execution is paused until evaluator, 
 
 ## Required Remediation Evidence
 
-- Raw prediction dumps for base, official-only, external-enhanced, M_lang, M_mt, M_edit, M_qa, and M_mr.
-- MR normalized/raw output audit for verbose, boxed, translated, decimal/integer, and answer-label variants.
-- SC/GC confusion matrices with gold-error versus predicted-error counts.
-- 50-example single-batch overfit result for each task.
-- Checkpoint-loading comparison showing trained checkpoints change outputs relative to base.
+- Completed: Ukrainian raw prediction dumps for base, official-only, external-enhanced, M_lang, M_mt, M_edit, M_qa, and M_mr.
+- Completed: compact Sorbian raw prediction dumps for base, official-only, M_lang, M_edit, and M_mr.
+- Completed: MR normalized/raw output audit on dumped examples.
+- Completed: SC/GC confusion matrices showing always-error behavior on sampled model outputs.
+- Completed: compact Ukrainian same-set overfit for MR and SC.
+- Still useful before restart: Sorbian SC/MR same-set overfit and full checkpoint-loading comparison.

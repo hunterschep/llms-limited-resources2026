@@ -61,10 +61,17 @@ def load_generation_bundle(model_name: str):
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "left"
+    if torch.cuda.is_available():
+        try:
+            dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+        except Exception:
+            dtype = torch.float16
+    else:
+        dtype = torch.float32
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         trust_remote_code=True,
-        torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
+        torch_dtype=dtype,
         device_map="auto" if torch.cuda.is_available() else None,
     )
     model.eval()

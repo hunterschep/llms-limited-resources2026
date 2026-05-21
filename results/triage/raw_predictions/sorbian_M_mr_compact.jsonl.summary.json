@@ -1,0 +1,65 @@
+{
+  "model": "checkpoints/sorbian/specialists/mr",
+  "output": "/home/scheppat/workspace/projects/wmt26_lrllm/results/triage/raw_predictions/sorbian_M_mr_compact.jsonl",
+  "summary": {
+    "GC": {
+      "diagnostics": {
+        "correction_exact": 0,
+        "detection_fn": 0,
+        "detection_fp": 3,
+        "detection_tn": 0,
+        "detection_tp": 2,
+        "gold_correct": 3,
+        "gold_error": 2,
+        "pred_correct": 0,
+        "pred_error": 5,
+        "total": 5,
+        "wrong_word_exact": 0
+      },
+      "rows": 5,
+      "scores": {
+        "correction_f1": 0.0,
+        "detection_f1": 0.5714285714285715
+      }
+    },
+    "MR": {
+      "rows": 5,
+      "scores": {
+        "accuracy": 0.0
+      }
+    },
+    "MT": {
+      "rows": 5,
+      "scores": {
+        "bleu": 1.0190554932301723,
+        "chrf++": 10.467894301030483
+      }
+    },
+    "QA": {
+      "rows": 5,
+      "scores": {
+        "accuracy": 0.6
+      }
+    },
+    "SC": {
+      "diagnostics": {
+        "correction_exact": 0,
+        "detection_fn": 0,
+        "detection_fp": 3,
+        "detection_tn": 0,
+        "detection_tp": 2,
+        "gold_correct": 3,
+        "gold_error": 2,
+        "pred_correct": 0,
+        "pred_error": 5,
+        "total": 5,
+        "wrong_word_exact": 0
+      },
+      "rows": 5,
+      "scores": {
+        "correction_f1": 0.0,
+        "detection_f1": 0.5714285714285715
+      }
+    }
+  }
+}

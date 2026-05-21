@@ -1,0 +1,244 @@
+{
+  "GC": {
+    "confusion": {
+      "correction_exact": 0,
+      "detection_fn": 0,
+      "detection_fp": 12,
+      "detection_tn": 0,
+      "detection_tp": 8,
+      "gold_correct": 12,
+      "gold_error": 8,
+      "pred_correct": 0,
+      "pred_error": 20,
+      "total": 20,
+      "wrong_word_exact": 0
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 12,
+      "ERROR": 8
+    },
+    "predicted_label_counts": {
+      "ERROR": 20
+    },
+    "rows": 20,
+    "scores": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.5714285714285715
+    }
+  },
+  "MR": {
+    "accuracy": 0.3,
+    "rows": 20,
+    "wrong_examples": [
+      {
+        "gold": "18",
+        "id": "ukr_mr_dev:low-ukr-0",
+        "normalized_prediction": "128",
+        "normalized_reference": "18",
+        "prediction": "128"
+      },
+      {
+        "gold": "70000",
+        "id": "ukr_mr_dev:low-ukr-2",
+        "normalized_prediction": "50",
+        "normalized_reference": "70000",
+        "prediction": "150% від 50 000 $ = 75 000 $.\nВідсоткова вигода = (75 000 - 50 000) / 50 000 = 25 000 / 50 000 = 0.5 = 50%.\nВідповідь: 50%"
+      },
+      {
+        "gold": "540",
+        "id": "ukr_mr_dev:low-ukr-3",
+        "normalized_prediction": "180",
+        "normalized_reference": "540",
+        "prediction": "3 * 60 = 180"
+      },
+      {
+        "gold": "64",
+        "id": "ukr_mr_dev:low-ukr-5",
+        "normalized_prediction": "100",
+        "normalized_reference": "64",
+        "prediction": "100$"
+      },
+      {
+        "gold": "260",
+        "id": "ukr_mr_dev:low-ukr-6",
+        "normalized_prediction": "240",
+        "normalized_reference": "260",
+        "prediction": "240"
+      },
+      {
+        "gold": "160",
+        "id": "ukr_mr_dev:low-ukr-7",
+        "normalized_prediction": "120",
+        "normalized_reference": "160",
+        "prediction": "120 хвилин"
+      },
+      {
+        "gold": "45",
+        "id": "ukr_mr_dev:low-ukr-8",
+        "normalized_prediction": "100",
+        "normalized_reference": "45",
+        "prediction": "100 миль"
+      },
+      {
+        "gold": "460",
+        "id": "ukr_mr_dev:low-ukr-9",
+        "normalized_prediction": "406",
+        "normalized_reference": "460",
+        "prediction": "10 * 40 + 1,2 * 5 = 400 + 6 = 406"
+      },
+      {
+        "gold": "$\\frac{\\pi}{3}$",
+        "id": "ukr_mr_dev:medium-ukr-0",
+        "normalized_prediction": "2",
+        "normalized_reference": "3",
+        "prediction": "1. Розв'яжемо рівняння, що містить трикутник:\n   $(a+c)(\\sin A - \\sin C) = b(\\sin A - \\sin B)$\n\n2. Використаємо формулу для суми синусів: $\\sin A - \\sin C = 2\\sin\\frac{A-C}{2}\\cos\\frac{A+C}{2}$ та $\\sin A - \\sin B = 2\\sin\\frac{A-B}{2}\\cos\\frac{A+B}{2}$.\n\n   Підставимо це в рівняння:\n   $(a+c) \\cdot 2\\sin\\frac{A-C}{2}\\cos\\frac{A+C}{2} = b \\cdot 2\\sin\\frac{A-B}{2}\\cos\\frac{A+B}{2}$\n\n3. Застосовуємо теорему синусів трикутника: $a = 2R\\sin A$, $b = 2R\\sin B$, $c = 2R\\sin C$.\n   Замінимо $a, b, c$ у рівнянні:\n   $("
+      },
+      {
+        "gold": "$b \\geq $-\\frac{2}{3}$",
+        "id": "ukr_mr_dev:medium-ukr-1",
+        "normalized_prediction": "2",
+        "normalized_reference": "3",
+        "prediction": "Для знаходження діапазону значень параметра $b$ спочатку проаналізуємо умову функції.\n\nДано: $f(x) = \\ln \\frac{x}{2-x} + ax + b(x-1)^2$.\nУмова: $f(x) > -2$ виконується тільки за $1 < x < 2$.\n\nПозначимо $g(x) = \\ln \\frac{x}{2-x}$. Тоді $f(x) = g(x) + ax + b(x-1)^2$.\nРозглянемо похідну функції $g(x)$:\n$$g'(x) = \\frac{d}{dx} \\left( \\ln x - \\ln(2-x) \\right) = \\frac{1}{x} - \\frac{1}{2-x} \\cdot (-1) = \\frac{1}{x} + \\frac{1}{2-x} = \\frac{2-x+x}{x(2-x)} = \\frac{2}{x(2-x)}.$$\nПідставимо це в вираз для $f'(x)$:\n$$f'(x"
+      },
+      {
+        "gold": "-85",
+        "id": "ukr_mr_dev:medium-ukr-3",
+        "normalized_prediction": "-5",
+        "normalized_reference": "-85",
+        "prediction": "-5"
+      },
+      {
+        "gold": "$\\frac{1}{9}$",
+        "id": "ukr_mr_dev:medium-ukr-5",
+        "normalized_prediction": "1.25",
+        "normalized_reference": "9",
+        "prediction": "1.25"
+      },
+      {
+        "gold": "$[2,3)$",
+        "id": "ukr_mr_dev:medium-ukr-6",
+        "normalized_prediction": "0",
+        "normalized_reference": "3",
+        "prediction": "Для знаходження діапазону значень $\\omega$ розглянемо рівняння $\\cos \\omega x - 1 = 0$, тобто $\\cos \\omega x = 1$.\nКорені цієї рівняння відповідають значенням $\\omega x = 2k\\pi$, де $k \\in \\mathbb{Z}$.\nОтже, корені мають вигляд $x_k = \\frac{2k\\pi}{\\omega}$.\n\nЗа умовою, корені повинні лежати на інтервалі $[0, 2\\pi]$.\nПерший корінь ($k=0$): $x_0 = 0$. Це завжди лежить у інтервалі.\nДругий корінь ($k=1$): $x_1 = \\frac{2\\pi}{\\omega}$. Потрібно, щоб $0 \\le \\frac{2\\pi}{\\omega} \\le 2\\pi$.\nТретій корінь ($k=2$): $x_2 = \\frac{4\\pi}{\\omega}$. Потрібно, щоб $0 \\"
+      },
+      {
+        "gold": "$\\frac{3\\sqrt{5}}{5}$",
+        "id": "ukr_mr_dev:medium-ukr-7",
+        "normalized_prediction": "2",
+        "normalized_reference": "5",
+        "prediction": "1. **Аналіз умови задачі:**\n   - Гіпербола $C$ має рівняння $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ ($a>0, b>0$).\n   - Фокальні точки: $F_1(-c, 0)$, $F_2(c, 0)$, де $c = \\sqrt{a^2+b^2}$.\n   - Точка $A$ лежить на гіперболі.\n   - Точка $B$ лежить на осі $y$.\n   - Вектори $\\overrightarrow{F_1A}$ та $\\overrightarrow{F_1B}$ перпендикулярні ($\\overrightarrow{F_1A} \\perp \\overrightarrow{F_1B}$).\n   - Відношення векторів $\\overrightarrow{F_2A} = -\\frac{2}{3}\\overrightarrow{F_2B}$.\n\n2. **Використання умови перпендикулярності:**\n   Оскільки $F_"
+      }
+    ]
+  },
+  "MT": {
+    "rows": 20
+  },
+  "QA": {
+    "accuracy": 0.45,
+    "prediction_counts": {
+      "0": 8,
+      "1": 4,
+      "2": 5,
+      "3": 2,
+      "4": 1
+    },
+    "rows": 20,
+    "wrong_examples": [
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000002",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000004",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000006",
+        "normalized_prediction": "2",
+        "prediction": "2"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000015",
+        "normalized_prediction": "1",
+        "prediction": "1"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000020",
+        "normalized_prediction": "1",
+        "prediction": "1"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000026",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000027",
+        "normalized_prediction": "2",
+        "prediction": "2"
+      },
+      {
+        "gold": "0",
+        "id": "ukr_qa_dev:000028",
+        "normalized_prediction": "3",
+        "prediction": "3"
+      },
+      {
+        "gold": "1",
+        "id": "ukr_qa_dev:000031",
+        "normalized_prediction": "2",
+        "prediction": "2"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000037",
+        "normalized_prediction": "1",
+        "prediction": "1"
+      },
+      {
+        "gold": "4",
+        "id": "ukr_qa_dev:000050",
+        "normalized_prediction": "3",
+        "prediction": "3"
+      }
+    ]
+  },
+  "SC": {
+    "confusion": {
+      "correction_exact": 0,
+      "detection_fn": 0,
+      "detection_fp": 8,
+      "detection_tn": 0,
+      "detection_tp": 12,
+      "gold_correct": 8,
+      "gold_error": 12,
+      "pred_correct": 0,
+      "pred_error": 20,
+      "total": 20,
+      "wrong_word_exact": 0
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 8,
+      "ERROR": 12
+    },
+    "predicted_label_counts": {
+      "ERROR": 20
+    },
+    "rows": 20,
+    "scores": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.7499999999999999
+    }
+  }
+}

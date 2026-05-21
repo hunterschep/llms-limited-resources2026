@@ -179,10 +179,17 @@ def real_train(config: dict, examples: list[dict], max_examples: int | None) -> 
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=model_cfg.get("trust_remote_code", True))
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
+    if torch.cuda.is_available():
+        try:
+            dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+        except Exception:
+            dtype = torch.float16
+    else:
+        dtype = torch.float32
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         trust_remote_code=model_cfg.get("trust_remote_code", True),
-        torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
+        torch_dtype=dtype,
         device_map="auto" if torch.cuda.is_available() else None,
     )
     try:

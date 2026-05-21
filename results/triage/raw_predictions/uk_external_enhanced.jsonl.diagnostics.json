@@ -1,0 +1,262 @@
+{
+  "GC": {
+    "confusion": {
+      "correction_exact": 0,
+      "detection_fn": 0,
+      "detection_fp": 12,
+      "detection_tn": 0,
+      "detection_tp": 8,
+      "gold_correct": 12,
+      "gold_error": 8,
+      "pred_correct": 0,
+      "pred_error": 20,
+      "total": 20,
+      "wrong_word_exact": 2
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 12,
+      "ERROR": 8
+    },
+    "predicted_label_counts": {
+      "ERROR": 20
+    },
+    "rows": 20,
+    "scores": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.5714285714285715
+    }
+  },
+  "MR": {
+    "accuracy": 0.3,
+    "rows": 20,
+    "wrong_examples": [
+      {
+        "gold": "18",
+        "id": "ukr_mr_dev:low-ukr-0",
+        "normalized_prediction": "8",
+        "normalized_reference": "18",
+        "prediction": "16 * 4 = 64 (яєць)\n64 / 16 = 4 (деньів)\n4 * 2 = 8 ($)\n\nВона заробляє 8 доларів на фермерському ринку щодня."
+      },
+      {
+        "gold": "3",
+        "id": "ukr_mr_dev:low-ukr-1",
+        "normalized_prediction": "2",
+        "normalized_reference": "3",
+        "prediction": "1. Нехай $x$ — кількість мотків синьої пряжі.\n2. Тоді кількість мотків білої пряжі дорівнює $\\frac{x}{2}$.\n3. За умовою, кількість мотків білої пряжі наполовину менша за кількість мотків синьої, тобто $\\frac{x}{2} = \\frac{x}{2} - \\text{нехильна частина}$? Ні, це означає, що кількість білої пряжі менша за кількість синьої на половину.\n   Формула: $x - \\frac{x}{2} = \\text{кількість білої}$.\n   Але за умовою сказано: \"наполовину менше\". Це означає, що кількість білої пряжі дорівнює половині кількості синьої.\n   Отже, $x - \\frac{x}{2} = \\text{кількість білої}$.\n   Перевіримо: якщо синього 2 мотки, то білого наполовину менше, то"
+      },
+      {
+        "gold": "70000",
+        "id": "ukr_mr_dev:low-ukr-2",
+        "normalized_prediction": "0",
+        "normalized_reference": "70000",
+        "prediction": "1. Вартість будинку до ремонту: $80\\,000$.\n2. Вартість будинку після ремонту: $80\\,000 \\times (1 + 1.5) = 80\\,000 \\times 2.5 = 200\\,000$ $.\n3. Вартість будинку після перепродажу: $200\\,000 \\times 1.5 = 300\\,000$ $.\n4. Вартість будинку після ремонту: $200\\,000 - 80\\,000 = 120\\,000$ $.\n5. Вартість будинку після ремонту + ремонт: $120\\,000 + 50\\,000 = 170\\,000$ $.\n6. Вартість будинку після ремонту + ремонт + перепродажа: $170\\,000 + 300\\,000 = 470\\,000$ $."
+      },
+      {
+        "gold": "20",
+        "id": "ukr_mr_dev:low-ukr-4",
+        "normalized_prediction": "40",
+        "normalized_reference": "20",
+        "prediction": "15 + 25 = 40"
+      },
+      {
+        "gold": "64",
+        "id": "ukr_mr_dev:low-ukr-5",
+        "normalized_prediction": "15",
+        "normalized_reference": "64",
+        "prediction": "16 склянок.\n\nПояснення:\n1.  **Перший раз:** Купити 1 склянку за 5 $.\n2.  **Другий раз:** Купити 1 склянку за 60 % від 5 $.\n    *   0.6 * 5 = 3 $.\n3.  **Третій раз:** Купити 1 склянку за 60 % від 3 $.\n    *   0.6 * 3 = 1.8 $.\n4.  **Четвертий раз:** Купити 1 склянку за 60 % від 1.8 $.\n    *   0.6 * 1.8 = 1.08 $.\n\nЗагальна сума: 5 + 3 + 1.8 + 1.08 = 10.88 $.\n\nАльтернативний спосіб:\nВсього склянок: 16.\nПерший раз: 1 склянка за 5 $.\nОстанні 15 склянок: 15 *"
+      },
+      {
+        "gold": "45",
+        "id": "ukr_mr_dev:low-ukr-8",
+        "normalized_prediction": "280",
+        "normalized_reference": "45",
+        "prediction": "1. **Перший етап (3 години зі швидкістю 60 миль/год):**\n   $3 \\times 60 = 180$ миль.\n\n2. **Відновлення часу:**\n   $4 - 3 = 1$ година.\n\n3. **Другий етап (2 години в заторі зі швидкістю 30 миль/год):**\n   $2 \\times 30 = 60$ миль.\n\n4. **Третій етап (0.5 години зі швидкістю 80 миль/год):**\n   $0.5 \\times 80 = 40$ миль.\n\n5. **Розрахунок загальної відстані:**\n   $180 + 60 + 40 = 280$ миль.\n\nВідстань до дому становить 280 миль."
+      },
+      {
+        "gold": "460",
+        "id": "ukr_mr_dev:low-ukr-9",
+        "normalized_prediction": "5",
+        "normalized_reference": "460",
+        "prediction": "1. Розрахунок звичайної погодинної ставки:\n   10 $ / 40 хв = 0,25 $ / хв.\n\n2. Розрахунок заробітку за нормальну роботу (40 хв):\n   0,25 $ / хв * 40 хв = 10 $.\n\n3. Розрахунок заробітку за понаднормову роботу (5 хв):\n   1,2 * 0,25 $ / хв * 5 хв = 1,5 $.\n\n4. Сума заробітку:\n   10 + 1,5 = 11,5 $.\n\n11,5"
+      },
+      {
+        "gold": "$\\frac{\\pi}{3}$",
+        "id": "ukr_mr_dev:medium-ukr-0",
+        "normalized_prediction": "2",
+        "normalized_reference": "3",
+        "prediction": "З умови задачі:\n$(a+c)(\\sin A - \\sin C) = b(\\sin A - \\sin B)$\n\nЗастосуємо формулу Сінуса для трикутника:\n$\\sin A = \\frac{a}{2R}$, $\\sin B = \\frac{b}{2R}$, $\\sin C = \\frac{c}{2R}$, де $R$ — радіус описаного кола.\n\nПідставимо ці вирази в рівняння:\n$(a+c)(\\frac{a}{2R} - \\frac{c}{2R}) = b(\\frac{a}{2R} - \\frac{b}{2R})$\n\nСпростимо дужки:\n$(a+c) \\cdot \\frac{a-c}{2R} = b \\cdot \\frac{a-b}{2R}$\n\nПомножимо обидві частини рівняння на $2R$ (оскільки $R \\neq 0$):\n$(a+c)(a-c) = b(a-b)$\n\nВідкриємо дужки:\n$a^2 - c^2 = ab"
+      },
+      {
+        "gold": "$b \\geq $-\\frac{2}{3}$",
+        "id": "ukr_mr_dev:medium-ukr-1",
+        "normalized_prediction": "0",
+        "normalized_reference": "3",
+        "prediction": "Для знаходження діапазону значень $b$ спочатку проаналізуємо умову задачі. Функція $f(x)$ визначена на проміжку $(1, 2)$, оскільки в знаменнику дробу $\\frac{x}{2-x}$ не може бути нулем або дорівнювати нулю, а в знаменнику дробу $\\frac{x}{2-x}$ не може бути нулем.\n\nУмова $f(x) > -2$ виконується тільки за $1 < x < 2$. Це означає, що на цьому проміжку функція завжди більша за $-2$, і на всьому іншому проміжку (в тому числі на $(-\\infty, 1] \\cup [2, \\infty)$) вона не більша за $-2$.\n\nРозглянемо функцію $g(x) = \\ln \\frac{x}{2-x} + ax + b(x-1)^2$.\nВизначення логарифму $\\ln u$ вимагає $u > 0$.\nУ нашому випадку $u = \\frac"
+      },
+      {
+        "gold": "-85",
+        "id": "ukr_mr_dev:medium-ukr-3",
+        "normalized_prediction": "1",
+        "normalized_reference": "-85",
+        "prediction": "Позначимо сумою перших $n$ членів геометричної послідовності як $S_n$.\nЗа умовою:\n1) $S_4 = -5$\n2) $S_6 = 21 S_2$\n\nВизначимо співвідношення між $S_n$ та $a_n$.\nВідомо, що $S_n = a_1 + a_2 + \\dots + a_n$.\nТоді $S_6 = S_4 + a_5 + a_6$.\nОскільки $a_5 = a_1 q^4$ і $a_6 = a_1 q^5$, то $S_6 = S_4 + a_1 q^4 (1+q)$.\nЗ іншого боку, $S_6 = 21 S_2 = 21 (a_1 + a_1 q) = 21 a_1 (1+q)$.\n\nЗнайдемо $q$.\nЗ умови $S_6 = 21 S_2$ маємо:\n$S_4 + a_1 q"
+      },
+      {
+        "gold": "${2, -2, \\frac{1}{2}, -\\frac{1}{2}}$",
+        "id": "ukr_mr_dev:medium-ukr-4",
+        "normalized_prediction": "3",
+        "normalized_reference": "2",
+        "prediction": "To find the possible value of $m$, let's analyze the geometric properties given in the problem.\n\n1.  **Identify the circle and its center/radius:**\n    The equation of the circle $\\odot C$ is $(x - 1)^2 + y^2 = 4$.\n    From this, we can determine:\n    *   Center $C = (1, 0)$.\n    *   Radius $R = \\sqrt{4} = 2$.\n\n2.  **Identify the line and its intersection points:**\n    The equation of the line $l$ is $x - my + 1 = 0$.\n    Let $A$ and $B$ be the intersection points of line $l$ and the circle.\n    The problem states that the area of triangle $\\triangle ABC$ is $\\frac{8}{5}$.\n    Here, $C$ is the center of the circle, and $A, B$ are points on the circle. Thus, $\\triangle ABC$ is an isosceles triangle with sides $CA = CB = R = 2$.\n\n3.  **Relate the area to the distance from the center to the chord:**"
+      },
+      {
+        "gold": "$\\frac{1}{9}$",
+        "id": "ukr_mr_dev:medium-ukr-5",
+        "normalized_prediction": "1",
+        "normalized_reference": "9",
+        "prediction": "Знайдемо значення $\\cos(2\\alpha + 2\\beta)$.\n\n1.  Розкриємо дужки за формулою косинуса суми двох кутів:\n    $$ \\cos(2\\alpha + 2\\beta) = \\cos(2\\alpha)\\cos(2\\beta) - \\sin(2\\alpha)\\sin(2\\beta) $$\n\n2.  Використаємо формули для двократних синусів та косинусів:\n    $$ \\cos(2\\alpha) = 2\\cos^2\\alpha - 1, \\quad \\sin(2\\alpha) = 2\\sin\\alpha\\cos\\alpha $$\n    $$ \\cos(2\\beta) = 2\\cos^2\\beta - 1, \\quad \\sin(2\\beta) = 2\\sin\\beta\\cos\\beta $$\n\n3.  Підставимо ці вирази в рівняння:\n    $$ \\cos(2\\alpha + 2\\beta) = (2\\cos^2\\alpha - 1)(2\\cos^2\\beta - 1)"
+      },
+      {
+        "gold": "$[2,3)$",
+        "id": "ukr_mr_dev:medium-ukr-6",
+        "normalized_prediction": "2",
+        "normalized_reference": "3",
+        "prediction": "Для знаходження діапазону значень $\\omega$ розглянемо рівняння $\\cos \\omega x - 1 = 0$, яке має корені на інтервалі $[0, 2\\pi]$.\n\n1.  Перепишемо рівняння:\n    $$ \\cos \\omega x = 1 $$\n\n2.  Знайдемо загальне розв'язання цього рівняння:\n    $$ \\omega x = 2k\\pi, \\quad k \\in \\mathbb{Z} $$\n    Тобто, корені мають вигляд $x_k = \\frac{2k\\pi}{\\omega}$.\n\n3.  Визначимо кількість коренів у інтервалі $[0, 2\\pi]$.\n    Нам потрібно знайти кількість значень $k$, для яких $0 \\le \\frac{2k\\pi}{\\omega} \\le 2\\pi$.\n    Поділимо всі частини рівності на $\\pi$ (оскільки $\\omega > 0$):\n    $$ 0 \\le \\frac{2k}{\\omega} \\"
+      },
+      {
+        "gold": "$\\frac{3\\sqrt{5}}{5}$",
+        "id": "ukr_mr_dev:medium-ukr-7",
+        "normalized_prediction": "2",
+        "normalized_reference": "5",
+        "prediction": "Для знаходження ексцентриситету гіперболи $C$ використаємо дані про вектори та властивості гіперболи.\n\nРівняння гіперболи: $\\frac{x^{2}}{a^{2}} - \\frac{y^{2}}{b^{2}} = 1$, де $a > 0, b > 0$.\nФокальні точки: $F_1(-c, 0)$, $F_2(c, 0)$, де $c = \\sqrt{a^2 + b^2}$.\nЕксцентриситет: $e = \\frac{c}{a}$.\n\nДано:\n1. $\\overrightarrow{F_{1}A} \\perp \\overrightarrow{F_{1}B}$. Це означає, що кут $\\angle AF_1B = 90^\\circ$.\n2. $\\overrightarrow{F_{2}A} = -\\frac{2}{3}\\overrightarrow{F_{2}B}$. Це означає, що вектори $\\overrightarrow{F_{2}A}$ та $\\overrightarrow{F_{2}B}$ парал"
+      }
+    ]
+  },
+  "MT": {
+    "rows": 20
+  },
+  "QA": {
+    "accuracy": 0.3,
+    "prediction_counts": {
+      "0": 12,
+      "1": 1,
+      "2": 4,
+      "3": 2,
+      "4": 1
+    },
+    "rows": 20,
+    "wrong_examples": [
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000002",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000004",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000006",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000015",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000016",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000020",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000026",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000027",
+        "normalized_prediction": "2",
+        "prediction": "2"
+      },
+      {
+        "gold": "0",
+        "id": "ukr_qa_dev:000028",
+        "normalized_prediction": "2",
+        "prediction": "2"
+      },
+      {
+        "gold": "1",
+        "id": "ukr_qa_dev:000031",
+        "normalized_prediction": "2",
+        "prediction": "2"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000037",
+        "normalized_prediction": "1",
+        "prediction": "1"
+      },
+      {
+        "gold": "1",
+        "id": "ukr_qa_dev:000043",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "0",
+        "id": "ukr_qa_dev:000044",
+        "normalized_prediction": "3",
+        "prediction": "3"
+      },
+      {
+        "gold": "4",
+        "id": "ukr_qa_dev:000050",
+        "normalized_prediction": "3",
+        "prediction": "3"
+      }
+    ]
+  },
+  "SC": {
+    "confusion": {
+      "correction_exact": 4,
+      "detection_fn": 0,
+      "detection_fp": 8,
+      "detection_tn": 0,
+      "detection_tp": 12,
+      "gold_correct": 8,
+      "gold_error": 12,
+      "pred_correct": 0,
+      "pred_error": 20,
+      "total": 20,
+      "wrong_word_exact": 7
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 8,
+      "ERROR": 12
+    },
+    "predicted_label_counts": {
+      "ERROR": 20
+    },
+    "rows": 20,
+    "scores": {
+      "correction_f1": 0.5,
+      "detection_f1": 0.7499999999999999
+    }
+  }
+}
