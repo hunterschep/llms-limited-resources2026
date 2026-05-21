@@ -26,4 +26,21 @@ mkdir -p /home/"$USER"/logs "$SCRATCH_ROOT"/{data,checkpoints,logs,results,tmp}
 #   sbatch --gres=gpu:a100:1 this_job.slurm
 #   sbatch --gres=gpu:l40s:1 this_job.slurm
 
-andromeda/scripts/run_step.sh bash -lc 'python3 scripts/triage_raw_predictions.py --config configs/eval/uk.yaml --model Qwen/Qwen3.5-2B --per-task 10 --output results/triage/raw_predictions/phase3_fixed_uk_base.jsonl && python3 scripts/diagnose_prediction_dump.py --input results/triage/raw_predictions/phase3_fixed_uk_base.jsonl && python3 scripts/report_scgc_confusion.py --input results/triage/raw_predictions/phase3_fixed_uk_base.jsonl && python3 scripts/report_mr_raw_errors.py --input results/triage/raw_predictions/phase3_fixed_uk_base.jsonl'
+andromeda/scripts/run_step.sh bash -lc '
+models=(
+  "base|Qwen/Qwen3.5-2B"
+  "edit|checkpoints/phase3_fixed/uk/edit"
+  "mr|checkpoints/phase3_fixed/uk/mr"
+  "task_balanced|checkpoints/phase3_fixed/uk/task_balanced"
+  "external_enhanced|checkpoints/phase3_fixed/uk/external_enhanced"
+)
+for item in "${models[@]}"; do
+  name="${item%%|*}"
+  model="${item#*|}"
+  output="results/phase3_fixed/raw_predictions/uk_${name}.jsonl"
+  python3 scripts/triage_raw_predictions.py --config configs/eval/uk.yaml --model "$model" --per-task 10 --output "$output" --batch-size 10
+  python3 scripts/diagnose_prediction_dump.py --input "$output"
+  python3 scripts/report_scgc_confusion.py --input "$output"
+  python3 scripts/report_mr_raw_errors.py --input "$output"
+done
+'

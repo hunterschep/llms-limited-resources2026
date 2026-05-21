@@ -1,0 +1,34 @@
+{
+  "aggregate": {
+    "GC_score": 33.08423913043478,
+    "MR_score": 8.333333333333332,
+    "MT_score": 27.47689647534206,
+    "QA_score": 43.39622641509434,
+    "SC_score": 33.68476383569873,
+    "overall_score": 29.19509183798065
+  },
+  "model": "Qwen/Qwen3.5-2B",
+  "oracle": false,
+  "split": "locked_validation",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.6616847826086957
+    },
+    "MR": {
+      "accuracy": 0.08333333333333333
+    },
+    "MT": {
+      "bleu": 5.3187398063459215,
+      "chrf++": 27.47689647534206
+    },
+    "QA": {
+      "accuracy": 0.4339622641509434
+    },
+    "SC": {
+      "correction_f1": 0.017391304347826087,
+      "detection_f1": 0.6563039723661486
+    }
+  },
+  "track": "sorbian"
+}

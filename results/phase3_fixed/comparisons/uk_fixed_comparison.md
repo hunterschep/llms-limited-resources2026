@@ -1,0 +1,9 @@
+| report | track | model | MT_chrF | MT_BLEU | QA_accuracy | SC_detection_F1 | SC_correction_F1 | GC_detection_F1 | GC_correction_F1 | MR_accuracy | MT_score | QA_score | SC_score | GC_score | MR_score | overall_equal_weighted_score | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| results/baselines/base_qwen35_2b_uk.json | ukrainian | Qwen/Qwen3.5-2B | 41.135 | 18.226 | 33.994 | 66.667 | 26.667 | 65.993 | 5.941 | 4.167 | 41.135 | 33.994 | 46.667 | 35.967 | 4.167 | 32.386 |  |
+| results/phase3_fixed/uk/base_qwen35_2b.json | ukrainian | Qwen/Qwen3.5-2B | 40.990 | 18.101 | 34.278 | 66.667 | 27.168 | 65.993 | 5.298 | 29.167 | 40.990 | 34.278 | 46.917 | 35.646 | 29.167 | 37.399 |  |
+| results/phase3_fixed/uk/edit.json | ukrainian | checkpoints/phase3_fixed/uk/edit | 39.487 | 16.118 | 29.178 | 61.488 | 17.683 | 29.187 | 0.000 | 20.833 | 39.487 | 29.178 | 39.585 | 14.593 | 20.833 | 28.736 |  |
+| results/phase3_fixed/uk/external_enhanced.json | ukrainian | checkpoints/phase3_fixed/uk/external_enhanced | 39.892 | 16.535 | 37.677 | 24.561 | 10.159 | 4.000 | 0.000 | 20.833 | 39.892 | 37.677 | 17.360 | 2.000 | 20.833 | 23.552 |  |
+| results/phase3_fixed/uk/mr.json | ukrainian | checkpoints/phase3_fixed/uk/mr | 40.997 | 17.651 | 38.810 | 66.667 | 1.329 | 65.993 | 0.000 | 20.833 | 40.997 | 38.810 | 33.998 | 32.997 | 20.833 | 33.527 |  |
+| results/phase3_fixed/uk/oracle_smoke.json | ukrainian | Qwen/Qwen3.5-2B | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | oracle |
+| results/phase3_fixed/uk/task_balanced.json | ukrainian | checkpoints/phase3_fixed/uk/task_balanced | 40.000 | 16.426 | 37.960 | 42.752 | 18.237 | 5.643 | 0.000 | 8.333 | 40.000 | 37.960 | 30.494 | 2.821 | 8.333 | 23.922 |  |

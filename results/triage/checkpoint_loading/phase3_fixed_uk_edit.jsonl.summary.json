@@ -1,0 +1,7 @@
+{
+  "base_model": "Qwen/Qwen3.5-2B",
+  "checkpoint": "checkpoints/phase3_fixed/uk/edit",
+  "identical_outputs": 0,
+  "identical_rate": 0.0,
+  "rows": 10
+}

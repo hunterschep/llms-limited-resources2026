@@ -1,0 +1,5 @@
+{"base_hash": "6b51d431df5d7f14", "base_prediction": "12", "checkpoint_hash": "6b51d431df5d7f14", "checkpoint_prediction": "12", "id": "hsb_mr_dev:low-hsb-0", "identical": true, "target": "18", "task": "MR"}
+{"base_hash": "c2356069e9d1e79c", "base_prediction": "24", "checkpoint_hash": "4a44dc15364204a8", "checkpoint_prediction": "10", "id": "hsb_mr_dev:low-hsb-1", "identical": false, "target": "3", "task": "MR"}
+{"base_hash": "a0337a650ec85c55", "base_prediction": "130000", "checkpoint_hash": "3bb78535cc9555ff", "checkpoint_prediction": "100000", "id": "hsb_mr_dev:low-hsb-2", "identical": false, "target": "70000", "task": "MR"}
+{"base_hash": "39fa9ec190eee7b6", "base_prediction": "60", "checkpoint_hash": "7b69759630f869f2", "checkpoint_prediction": "180", "id": "hsb_mr_dev:low-hsb-3", "identical": false, "target": "540", "task": "MR"}
+{"base_hash": "716afc652032dfca", "base_prediction": "15 + 25 = 40", "checkpoint_hash": "4a44dc15364204a8", "checkpoint_prediction": "10", "id": "hsb_mr_dev:low-hsb-4", "identical": false, "target": "20", "task": "MR"}

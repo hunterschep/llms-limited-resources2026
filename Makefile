@@ -118,4 +118,6 @@ eval-phase3-fixed-sorbian:
 	WMT26_RECORD_RUNS=0 python3 scripts/eval_model.py --config configs/eval/sorbian.yaml --oracle --limit 5 --output results/phase3_fixed/sorbian/oracle_smoke.json
 
 report-phase3-fixed:
-	python3 scripts/report_phase3_sanity.py --output results/phase3_fixed/phase3_fixed_summary.md
+	mkdir -p results/phase3_fixed/comparisons
+	python3 scripts/report_eval_comparison.py results/baselines/base_qwen35_2b_uk.json results/phase3_fixed/uk/*.json --format markdown --output results/phase3_fixed/comparisons/uk_fixed_comparison.md
+	python3 scripts/report_eval_comparison.py results/baselines/base_qwen35_2b_sorbian.json results/phase3_fixed/sorbian/*.json --format markdown --output results/phase3_fixed/comparisons/sorbian_fixed_comparison.md

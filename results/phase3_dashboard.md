@@ -9,9 +9,9 @@ Last updated: 2026-05-21.
 - Remote revision for the remediation retrain wave: `787aab3d45b4162d592def8040d01aab52b416ea`.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
 - Completed specialist checkpoints from the first Phase 3 pass were deleted from Andromeda scratch after triage because they were trained/evaluated against known-bad edit mixtures and overly strict MR scoring.
-- Active jobs: fixed retraining is queued on the `short` partition with L40S fallback. Current IDs are `2462264`-`2462271`, with dependent eval jobs `2462272` and `2462273`, and checkpoint-loading verification `2462274`.
-- Latest retained results: prompt-only base evaluations, triage evidence, and local remediation sanity outputs only. The stale first-pass tuned-model result JSONs and interference matrices were removed locally and remotely so the next run starts with clean experiment records.
-- Queued next: normalized fixed evaluations after retraining. Merge search remains blocked until fixed evaluations clear the gates in `docs/42_phase3_resume_or_block_merge_decision.md`.
+- Active jobs: fixed Ukrainian evaluation `2462292` completed; fixed Sorbian evaluation `2462293` is still running on L40S.
+- Latest retained results: prompt-only normalized fixed baselines, completed Ukrainian fixed retrain evaluations, Sorbian normalized prompt-only baseline, triage evidence, and local remediation sanity outputs.
+- Current decision: Ukrainian merge remains blocked because all fixed Ukrainian retrains underperform the normalized prompt-only baseline. Sorbian merge decision remains pending fixed candidate results.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
 - Fixed retraining was submitted to `short` after the `medium` queue had no start estimate. H200 was draining and A100/L40S were not idle; compact sanity used V100 as allowed, while fixed retraining uses L40S fallback.
 
@@ -24,19 +24,21 @@ Last updated: 2026-05-21.
 | phase3_triage_data_sanity | 2462241 | CPU | completed | Data sanity passed. |
 | phase3_triage_overfit_uk | 2462249 | V100 | completed | UK SC/GC/MR same-set overfit passed. |
 | phase3_triage_overfit_sorbian | 2462250 | V100 | completed | Sorbian SC/GC/MR same-set overfit passed. |
-| retrain_uk_edit_fixed | 2462264 | L40S | queued | Fixed balanced SC/GC edit specialist. |
-| retrain_uk_mr_fixed | 2462265 | L40S | queued | Fixed MR final-answer preservation specialist. |
-| retrain_uk_task_balanced_fixed | 2462266 | L40S | queued | Task-balanced baseline with fixed edit/MR mixtures. |
-| retrain_uk_external_enhanced_fixed | 2462267 | L40S | queued | External-enhanced baseline with fixed edit/MR mixtures. |
-| retrain_sorbian_edit_fixed | 2462268 | L40S | queued | Fixed balanced SC/GC edit specialist. |
-| retrain_sorbian_mr_fixed | 2462269 | L40S | queued | Fixed MR final-answer preservation specialist. |
-| retrain_sorbian_task_balanced_fixed | 2462270 | L40S | queued | Task-balanced baseline with fixed edit/MR mixtures. |
-| retrain_sorbian_external_enhanced_fixed | 2462271 | L40S | queued | External-enhanced baseline with fixed edit/MR mixtures. |
+| retrain_uk_edit_fixed | 2462264 | L40S | completed | Fixed balanced SC/GC edit specialist. |
+| retrain_uk_mr_fixed | 2462265 | L40S | completed | Fixed MR final-answer preservation specialist. |
+| retrain_uk_task_balanced_fixed | 2462266 | L40S | completed | Task-balanced baseline with fixed edit/MR mixtures. |
+| retrain_uk_external_enhanced_fixed | 2462267 | L40S | completed | External-enhanced baseline with fixed edit/MR mixtures. |
+| retrain_sorbian_edit_fixed | 2462268 | L40S | completed | Fixed balanced SC/GC edit specialist. |
+| retrain_sorbian_mr_fixed | 2462269 | L40S | completed | Fixed MR final-answer preservation specialist. |
+| retrain_sorbian_task_balanced_fixed | 2462270 | L40S | completed | Task-balanced baseline with fixed edit/MR mixtures. |
+| retrain_sorbian_external_enhanced_fixed | 2462271 | L40S | completed | External-enhanced baseline with fixed edit/MR mixtures. |
 | eval_phase3_fixed_uk | 2462272 | L40S | canceled | Canceled during MT generation because eval `batch_size: 4` was too slow. |
 | eval_phase3_fixed_sorbian | 2462273 | L40S | canceled | Canceled during MT generation because eval `batch_size: 4` was too slow. |
-| phase3_check_checkpoint_loading | 2462274 | L40S | dependency | Runs after fixed edit/MR specialists exist. |
-| eval_phase3_fixed_uk | 2462292 | L40S | queued | Resubmitted after raising eval `batch_size` to 16. |
-| eval_phase3_fixed_sorbian | 2462293 | L40S | queued | Resubmitted after raising eval `batch_size` to 16. |
+| phase3_check_checkpoint_loading | 2462274 | L40S | completed | Confirmed fixed edit/MR outputs differ from base. |
+| eval_phase3_fixed_uk | 2462292 | L40S | completed | All fixed Ukrainian retrains are blocked; prompt-only normalized baseline is best so far. |
+| eval_phase3_fixed_sorbian | 2462293 | L40S | running | Sorbian prompt-only normalized baseline completed; fixed candidates still evaluating. |
+| phase3_triage_raw_predictions_uk | 2462365 | L40S | dependency: 2462293 | Queued after Sorbian fixed eval to avoid competing for GPU. Dumps base plus fixed Ukrainian checkpoints. |
+| phase3_triage_raw_predictions_sorbian | 2462366 | L40S | dependency: 2462293 | Queued after Sorbian fixed eval to avoid competing for GPU. Dumps base plus fixed Sorbian checkpoints. |
 
 ## Remote Jobs
 
