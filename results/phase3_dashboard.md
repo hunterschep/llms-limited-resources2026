@@ -9,7 +9,8 @@ Status: initialized.
 | 00_create_env | 2461442 | completed | Created/updated `wmt26-lrllm` on Andromeda. |
 | 00_validate_env | 2461449 | completed | Environment and governance validation passed. |
 | 01_prepare_data | 2461453 | completed | Data preparation and smoke tests passed on Andromeda. |
-| 00_validate_gpu_env |  | ready to submit | Added after detecting a PyTorch CUDA-driver mismatch in first L40S jobs. |
+| 00_create_env repair | 2461496 | completed | Reinstalled `torch==2.8.0+cu128`; env reports `torch_cuda=12.8`. |
+| 00_validate_gpu_env | 2461500 | completed | CUDA smoke test passed on V100; this validated the repaired torch build against Andromeda's driver. |
 | train_uk_all |  | planned | Train Ukrainian specialists, merge, and polish if stable. |
 | train_sorbian_all |  | planned | Train Sorbian specialists, merge, and polish if stable. |
 
@@ -37,6 +38,31 @@ Status: initialized.
 | eval_sorbian_baselines | 2461483 | L40S, 4 CPU, 64G | canceled dependency chain |
 | eval_uk_specialists | 2461484 | L40S, 4 CPU, 64G | canceled dependency chain |
 | eval_sorbian_specialists | 2461485 | L40S, 4 CPU, 64G | canceled dependency chain |
+
+## Relaunched Phase 3 Jobs
+
+| Job | ID | GPU Request | Status |
+|---|---:|---|---|
+| eval_base_uk | 2461502 | L40S, 4 CPU, 64G | queued |
+| eval_base_sorbian | 2461503 | L40S, 4 CPU, 64G | queued |
+| train_uk_baselines | 2461504 | L40S, 4 CPU, 64G | queued |
+| train_sorbian_baselines | 2461505 | L40S, 4 CPU, 64G | queued |
+| train_uk_lang | 2461506 | L40S, 4 CPU, 64G | queued |
+| train_uk_mt | 2461507 | L40S, 4 CPU, 64G | queued |
+| train_uk_edit | 2461508 | L40S, 4 CPU, 64G | queued |
+| train_uk_qa | 2461509 | L40S, 4 CPU, 64G | queued |
+| train_uk_mr | 2461510 | L40S, 4 CPU, 64G | queued |
+| train_uk_format | 2461511 | L40S, 4 CPU, 64G | queued |
+| train_sorbian_lang | 2461512 | L40S, 4 CPU, 64G | queued |
+| train_sorbian_mt | 2461513 | L40S, 4 CPU, 64G | queued |
+| train_sorbian_edit | 2461514 | L40S, 4 CPU, 64G | queued |
+| train_sorbian_qa | 2461515 | L40S, 4 CPU, 64G | queued |
+| train_sorbian_mr | 2461516 | L40S, 4 CPU, 64G | queued |
+| train_sorbian_format | 2461517 | L40S, 4 CPU, 64G | queued |
+| eval_uk_baselines | 2461518 | L40S, 4 CPU, 64G | dependency: 2461504 |
+| eval_sorbian_baselines | 2461519 | L40S, 4 CPU, 64G | dependency: 2461505 |
+| eval_uk_specialists | 2461520 | L40S, 4 CPU, 64G | dependency: Ukrainian specialists |
+| eval_sorbian_specialists | 2461521 | L40S, 4 CPU, 64G | dependency: Sorbian specialists |
 
 ## Current Decision State
 
