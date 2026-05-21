@@ -1,0 +1,34 @@
+{
+  "aggregate": {
+    "GC_score": 33.70158065597632,
+    "MR_score": 0.0,
+    "MT_score": 39.13639183880613,
+    "QA_score": 36.827195467422094,
+    "SC_score": 51.71433488846681,
+    "overall_score": 32.27590057013427
+  },
+  "model": "checkpoints/uk/baselines/task_balanced",
+  "oracle": false,
+  "split": "locked_validation",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.03344481605351171,
+      "detection_f1": 0.6405867970660147
+    },
+    "MR": {
+      "accuracy": 0.0
+    },
+    "MT": {
+      "bleu": 15.858677973568502,
+      "chrf++": 39.13639183880613
+    },
+    "QA": {
+      "accuracy": 0.36827195467422097
+    },
+    "SC": {
+      "correction_f1": 0.36612021857923494,
+      "detection_f1": 0.6681664791901012
+    }
+  },
+  "track": "ukrainian"
+}

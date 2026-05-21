@@ -10,7 +10,7 @@ Last updated: 2026-05-20.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
 - Completed specialist checkpoints: all six Ukrainian specialists and all six Sorbian specialists.
 - Active jobs: Ukrainian baseline eval 2461540, Sorbian baseline eval 2461542, Ukrainian specialist eval 2461547, and Sorbian specialist eval 2461551.
-- Latest completed partial results: Sorbian prompt-only has overall 27.539. Ukrainian official-only SFT has overall 29.857, naive multitask has 31.726, M_lang has 32.940, M_mt has 34.541, and M_edit has 30.088. M_mt is currently the best measured Ukrainian candidate, but it lowers MT chrF++ and collapses MR.
+- Latest completed partial results: Sorbian prompt-only has overall 27.539 and Sorbian M_lang has 26.669. Ukrainian official-only SFT has overall 29.857, naive multitask has 31.726, task-balanced has 32.276, M_lang has 32.940, M_mt has 34.541, and M_edit has 30.088. M_mt is currently the best measured Ukrainian candidate, but it lowers MT chrF++ and collapses MR.
 - Queued next: merge, polish, and final eval chains.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
 - All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
@@ -98,11 +98,11 @@ Last updated: 2026-05-20.
 | eval_base_uk | 2461528 | completed | Overall 32.386 on locked validation. |
 | eval_base_sorbian | 2461529 | completed | Overall 27.539 on locked validation. |
 | train_uk_baselines | 2461539 | completed | Four baseline checkpoints written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/baselines/`. |
-| eval_uk_baselines | 2461540 | running | Official-only and naive multitask results landed; remaining Ukrainian baselines still evaluating. |
+| eval_uk_baselines | 2461540 | running | Official-only, naive multitask, and task-balanced results landed; remaining Ukrainian baselines still evaluating. |
 | train_sorbian_baselines | 2461541 | completed | Four baseline checkpoints written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/baselines/`. |
 | eval_sorbian_baselines | 2461542 | running | Started after 2461541 completed. |
 | eval_uk_specialists | 2461547 | running | M_lang, M_mt, and M_edit results landed; remaining Ukrainian specialists still evaluating. |
-| eval_sorbian_specialists | 2461551 | running | Clean L40S resubmission with no excluded GPU nodes. |
+| eval_sorbian_specialists | 2461551 | running | M_lang result landed; remaining Sorbian specialists still evaluating. |
 | merge_uk | 2461548 | dependency | Depends on 2461547. |
 | merge_sorbian | 2461552 | dependency | Depends on 2461551. |
 | polish_uk | 2461549 | dependency | Depends on 2461548. |

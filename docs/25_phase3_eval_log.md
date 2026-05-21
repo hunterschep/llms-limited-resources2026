@@ -46,10 +46,12 @@ This file records evaluation events. Machine-readable evaluation records live in
 | uk_baselines | Ukrainian | baseline checkpoints | locked validation | running job 2461540 | Started after baseline training job 2461539 completed. |
 | uk_baseline_official_only | Ukrainian | checkpoints/uk/baselines/official_only | locked validation | completed within job 2461540 | Overall 29.857; QA improves to 40.793, but SC correction drops to 1.987, GC correction to 0.000, and MR to 0.000. |
 | uk_baseline_naive_multitask | Ukrainian | checkpoints/uk/baselines/naive_multitask | locked validation | completed within job 2461540 | Overall 31.726; SC improves to 53.812 and QA to 36.827, but MT, GC, and MR regress relative to prompt-only. |
+| uk_baseline_task_balanced | Ukrainian | checkpoints/uk/baselines/task_balanced | locked validation | completed within job 2461540 | Overall 32.276; closer to prompt-only than naive multitask, but still below base due to MT/MR losses. |
 | uk_specialist_lang | Ukrainian | checkpoints/uk/specialists/lang | locked validation | completed within job 2461547 | Overall 32.940; MT and SC improve over prompt-only, QA and MR regress. |
 | uk_specialist_mt | Ukrainian | checkpoints/uk/specialists/mt | locked validation | completed within job 2461547 | Overall 34.541; despite lower MT chrF++ 38.358, it improves QA/SC/GC relative to prompt-only and again collapses MR to 0.000. |
 | uk_specialist_edit_scgc | Ukrainian | checkpoints/uk/specialists/edit_scgc | locked validation | completed within job 2461547 | Overall 30.088; SC score roughly matches prompt-only, but MT, QA, GC, and MR are lower. |
 | sorbian_baselines | Sorbian | baseline checkpoints | locked validation | running job 2461542 | Started after baseline training job 2461541 completed. |
+| sorbian_specialist_lang | Sorbian | checkpoints/sorbian/specialists/lang | locked validation | completed within job 2461551 | Overall 26.669; MT improves to 30.818, but QA/SC losses pull overall below prompt-only. |
 
 ## Required Metrics
 
