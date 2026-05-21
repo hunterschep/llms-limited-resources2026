@@ -8,10 +8,10 @@ Last updated: 2026-05-21.
 
 - Remote revision: `57cfa94a9ba877c95df4ba13e87da38b47292816`.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
-- Completed specialist checkpoints: all six Ukrainian specialists and all six Sorbian specialists.
+- Completed specialist checkpoints from the first Phase 3 pass were deleted from Andromeda scratch after triage because they were trained/evaluated against known-bad edit mixtures and overly strict MR scoring.
 - Active jobs: none. The remaining eval, merge, polish, and final-eval jobs were canceled for triage on 2026-05-21.
-- Latest completed partial results: Sorbian prompt-only has overall 27.539, Sorbian official-only has 27.563, and Sorbian M_lang has 26.669. Ukrainian baselines are complete: official-only 29.857, naive multitask 31.726, task-balanced 32.276, external-enhanced 32.839. Ukrainian specialists so far: M_lang 32.940, M_mt 34.541, M_edit 30.088, M_qa 33.410, and M_mr 28.961. M_mt is currently the best measured Ukrainian candidate, while M_qa is more MT-preserving; all evaluated tuned Ukrainian candidates collapse MR.
-- Queued next: no full training or merge search. Required next work is evaluator/raw-output/overfit/checkpoint-loading triage.
+- Latest retained results: prompt-only base evaluations and triage evidence only. The stale first-pass tuned-model result JSONs and interference matrices were removed locally and remotely so the next run starts with clean experiment records.
+- Queued next: no full training or merge search. Required next work is retraining from the balanced edit mixtures, normalized evaluator, and strengthened MR preservation setup.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
 - All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
 
@@ -112,8 +112,8 @@ Last updated: 2026-05-21.
 
 ## Current Decision State
 
-- Ukrainian final model: paused pending triage.
-- Sorbian final model: paused pending triage.
+- Ukrainian final model: none selected; first-pass trained artifacts were discarded.
+- Sorbian final model: none selected; first-pass trained artifacts were discarded.
 - Official evaluator reconciliation: pending organizer release/check.
 
 ## Triage Snapshot
@@ -121,7 +121,21 @@ Last updated: 2026-05-21.
 - `make triage-oracle` passes locally.
 - Gold-target oracle checks give 100 for QA, MR, SC, and GC on both tracks.
 - MT oracle sanity is high: Ukrainian chrF++ 99.793, Sorbian chrF++ 100.000.
-- Next required checks: raw prediction dumps, MR answer normalization inspection, SC/GC confusion matrices, single-batch overfit, and checkpoint-loading comparison.
+- Raw prediction dumps, SC/GC diagnostics, MR normalization inspection, and Ukrainian same-set overfit checks have run.
+- Root cause found: first-pass SC/GC mixtures were almost all error cases, producing an always-error detector prior that matches the observed ~66% detection F1 plateau.
+- MR zero scores were partly a parser/normalization artifact, but MR remains genuinely weak and needs a better final-answer-only preservation setup.
+- Same-set Ukrainian overfit checks passed: MR reached 100% on 20 examples; SC reached 93.3% detection/correction F1 on 20 examples.
+
+## Artifact Cleanup
+
+Cleanup date: 2026-05-21.
+
+- Removed remote stale checkpoints under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/{baselines,specialists}` and `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/{baselines,specialists}`.
+- Removed remote triage overfit checkpoints after retaining the summarized evidence under `results/triage/`.
+- Removed stale first-pass local/remote tuned-model eval JSONs, `training_runs.jsonl`, `eval_runs.jsonl`, `merge_runs.jsonl`, `final_model_selection.json`, and specialist interference matrices.
+- Removed old non-triage Slurm logs for canceled/bad first-pass Phase 3 jobs.
+- Preserved prompt-only base result JSONs and all triage reports/raw diagnostics.
+- Remote cleanup manifest: `/home/scheppat/workspace/projects/wmt26_lrllm/results/triage/cleanup_manifest_20260521T060636Z.txt`.
 
 ## Local Gate Baseline
 

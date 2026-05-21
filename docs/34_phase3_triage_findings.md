@@ -12,6 +12,24 @@ Phase 3 training remains paused. The current evidence points to pipeline/data-mi
 - `2462225` `triage_raw_sorb5`: completed on V100. Dumped compact 5-example Sorbian diagnostics for base, official-only, `M_lang`, `M_edit`, and `M_mr`.
 - `2462228` `triage_overfit_uk`: completed on V100. Ran same-set overfit tests for Ukrainian MR and SC.
 
+## Artifact Cleanup
+
+The first-pass Phase 3 tuned-model artifacts should not be reused. They were trained against a known-bad edit mixture and evaluated before MR answer normalization was repaired.
+
+Cleanup performed on 2026-05-21:
+
+- Removed Andromeda scratch checkpoints for first-pass Ukrainian and Sorbian baselines/specialists.
+- Removed Andromeda scratch triage overfit checkpoints after retaining the summarized overfit evidence in `results/triage/`.
+- Removed stale first-pass tuned-model result JSONs, training/eval/merge run logs, final-selection placeholder, and specialist interference matrices from the local repo and remote workspace.
+- Removed old non-triage Slurm logs for canceled or bad first-pass Phase 3 jobs.
+- Preserved prompt-only base result JSONs and all triage reports/raw diagnostics.
+
+The remote deletion manifest is:
+
+```text
+/home/scheppat/workspace/projects/wmt26_lrllm/results/triage/cleanup_manifest_20260521T060636Z.txt
+```
+
 ## Sanity Gates
 
 - Oracle evaluator gate passes for MT, QA, SC, GC, and MR on both tracks.

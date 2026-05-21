@@ -1,6 +1,0 @@
-{
-  "status": "paused_for_triage",
-  "ukrainian": null,
-  "sorbian": null,
-  "notes": "Phase 3 model selection is paused. MR collapse and suspicious SC/GC detection behavior must be triaged before merge search, polish, or final selection resumes."
-}

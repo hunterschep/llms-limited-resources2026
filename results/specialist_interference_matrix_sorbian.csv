@@ -1,4 +1,0 @@
-model,MT,QA,SC,GC,MR,overall,delta_MT,delta_QA,delta_SC,delta_GC,delta_MR,delta_overall,failure_notes
-base_qwen35_2b,27.527,43.396,33.685,33.084,0.000,27.539,0.000,0.000,0.000,0.000,0.000,0.000,prompt-only reference
-official_only,27.261,44.654,32.795,33.107,0.000,27.563,-0.267,1.258,-0.889,0.022,0.000,0.025,QA gain barely offsets MT and SC regression
-M_lang,30.818,36.478,32.990,33.061,0.000,26.669,3.290,-6.918,-0.694,-0.023,0.000,-0.869,MT improves but QA loss dominates overall
