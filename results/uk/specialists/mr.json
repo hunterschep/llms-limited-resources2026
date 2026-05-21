@@ -1,0 +1,34 @@
+{
+  "aggregate": {
+    "GC_score": 33.33561604748046,
+    "MR_score": 0.0,
+    "MT_score": 40.795306949677396,
+    "QA_score": 35.69405099150141,
+    "SC_score": 34.978070175438596,
+    "overall_score": 28.96060883281957
+  },
+  "model": "checkpoints/uk/specialists/mr",
+  "oracle": false,
+  "split": "locked_validation",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.006779661016949153,
+      "detection_f1": 0.6599326599326599
+    },
+    "MR": {
+      "accuracy": 0.0
+    },
+    "MT": {
+      "bleu": 17.886172847940607,
+      "chrf++": 40.795306949677396
+    },
+    "QA": {
+      "accuracy": 0.35694050991501414
+    },
+    "SC": {
+      "correction_f1": 0.03289473684210526,
+      "detection_f1": 0.6666666666666666
+    }
+  },
+  "track": "ukrainian"
+}

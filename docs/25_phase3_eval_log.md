@@ -52,6 +52,7 @@ This file records evaluation events. Machine-readable evaluation records live in
 | uk_specialist_mt | Ukrainian | checkpoints/uk/specialists/mt | locked validation | completed within job 2461547 | Overall 34.541; despite lower MT chrF++ 38.358, it improves QA/SC/GC relative to prompt-only and again collapses MR to 0.000. |
 | uk_specialist_edit_scgc | Ukrainian | checkpoints/uk/specialists/edit_scgc | locked validation | completed within job 2461547 | Overall 30.088; SC score roughly matches prompt-only, but MT, QA, GC, and MR are lower. |
 | uk_specialist_qa | Ukrainian | checkpoints/uk/specialists/qa | locked validation | completed within job 2461547 | Overall 33.410; preserves MT near prompt-only while improving QA/SC, but MR remains 0.000. |
+| uk_specialist_mr | Ukrainian | checkpoints/uk/specialists/mr | locked validation | completed within job 2461547 | Overall 28.961; MR remains 0.000 and SC correction collapses, so this vector is not providing the intended math-preservation behavior yet. |
 | uk_baselines | Ukrainian | baseline checkpoints | locked validation | completed job 2461540 | All four Ukrainian baselines evaluated. |
 | sorbian_baselines | Sorbian | baseline checkpoints | locked validation | running job 2461542 | Started after baseline training job 2461541 completed. |
 | sorbian_baseline_official_only | Sorbian | checkpoints/sorbian/baselines/official_only | locked validation | completed within job 2461542 | Overall 27.563; slightly above prompt-only through QA gain, but MT/SC dip and MR remains 0.000. |

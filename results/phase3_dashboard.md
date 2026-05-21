@@ -10,7 +10,7 @@ Last updated: 2026-05-20.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
 - Completed specialist checkpoints: all six Ukrainian specialists and all six Sorbian specialists.
 - Active jobs: Sorbian baseline eval 2461542, Ukrainian specialist eval 2461547, and Sorbian specialist eval 2461551.
-- Latest completed partial results: Sorbian prompt-only has overall 27.539, Sorbian official-only has 27.563, and Sorbian M_lang has 26.669. Ukrainian baselines are complete: official-only 29.857, naive multitask 31.726, task-balanced 32.276, external-enhanced 32.839. Ukrainian specialists so far: M_lang 32.940, M_mt 34.541, M_edit 30.088, and M_qa 33.410. M_mt is currently the best measured Ukrainian candidate, while M_qa is more MT-preserving; both collapse MR.
+- Latest completed partial results: Sorbian prompt-only has overall 27.539, Sorbian official-only has 27.563, and Sorbian M_lang has 26.669. Ukrainian baselines are complete: official-only 29.857, naive multitask 31.726, task-balanced 32.276, external-enhanced 32.839. Ukrainian specialists so far: M_lang 32.940, M_mt 34.541, M_edit 30.088, M_qa 33.410, and M_mr 28.961. M_mt is currently the best measured Ukrainian candidate, while M_qa is more MT-preserving; all evaluated tuned Ukrainian candidates collapse MR.
 - Queued next: merge, polish, and final eval chains.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
 - All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
@@ -101,7 +101,7 @@ Last updated: 2026-05-20.
 | eval_uk_baselines | 2461540 | completed | All four Ukrainian baselines evaluated; external-enhanced is the best baseline so far at 32.839 overall. |
 | train_sorbian_baselines | 2461541 | completed | Four baseline checkpoints written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/baselines/`. |
 | eval_sorbian_baselines | 2461542 | running | Official-only result landed at 27.563 overall; remaining Sorbian baselines still evaluating. |
-| eval_uk_specialists | 2461547 | running | M_lang, M_mt, M_edit, and M_qa results landed; remaining Ukrainian specialists still evaluating. |
+| eval_uk_specialists | 2461547 | running | M_lang, M_mt, M_edit, M_qa, and M_mr results landed; M_format still evaluating. |
 | eval_sorbian_specialists | 2461551 | running | M_lang result landed; remaining Sorbian specialists still evaluating. |
 | merge_uk | 2461548 | dependency | Depends on 2461547. |
 | merge_sorbian | 2461552 | dependency | Depends on 2461551. |

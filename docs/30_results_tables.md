@@ -22,6 +22,7 @@ Status: partial remote evaluation in progress.
 | Ukrainian | M_mt | 38.358 | 38.810 | 56.470 | 39.067 | 0.000 | 34.541 | Improves overall through QA/SC/GC transfer, but MT chrF++ drops below prompt-only and MR collapses. |
 | Ukrainian | M_edit | 39.204 | 30.312 | 46.917 | 34.007 | 0.000 | 30.088 | Does not improve the intended edit aggregate over prompt-only enough to offset MT/QA/MR loss. |
 | Ukrainian | M_qa | 40.995 | 36.827 | 54.233 | 34.997 | 0.000 | 33.410 | Improves overall and preserves MT better than M_mt, but still collapses MR. |
+| Ukrainian | M_mr | 40.795 | 35.694 | 34.978 | 33.336 | 0.000 | 28.961 | Does not preserve MR on locked validation and damages SC correction. |
 | Sorbian | M_lang | 30.818 | 36.478 | 32.990 | 33.061 | 0.000 | 26.669 | Improves MT over prompt-only but loses QA/SC enough to lower overall. |
 
 ## Merge Search

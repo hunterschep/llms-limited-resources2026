@@ -8,3 +8,4 @@ M_lang,41.583,30.878,56.271,35.967,0.000,32.940,0.449,-3.116,9.605,0.000,-4.167,
 M_mt,38.358,38.810,56.470,39.067,0.000,34.541,-2.776,4.816,9.803,3.100,-4.167,2.155,overall improves through QA/SC/GC but MT and MR need merge control
 M_edit,39.204,30.312,46.917,34.007,0.000,30.088,-1.930,-3.683,0.250,-1.960,-4.167,-2.298,edit specialist does not offset MT/QA/MR regression
 M_qa,40.995,36.827,54.233,34.997,0.000,33.410,-0.140,2.833,7.566,-0.970,-4.167,1.024,overall improves while preserving MT better than M_mt but MR remains zero
+M_mr,40.795,35.694,34.978,33.336,0.000,28.961,-0.339,1.700,-11.689,-2.631,-4.167,-3.425,MR preservation failed and SC correction drops sharply
