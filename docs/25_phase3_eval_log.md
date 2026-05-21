@@ -41,6 +41,9 @@ This file records evaluation events. Machine-readable evaluation records live in
 | polish_sorbian | Sorbian | best merged checkpoint | locked validation follow-up | resubmitted as 2461553 | Depends on 2461552. |
 | eval_uk_final | Ukrainian | final polished checkpoint | locked validation | resubmitted as 2461550 | Depends on 2461549. |
 | eval_sorbian_final | Sorbian | final polished checkpoint | locked validation | resubmitted as 2461554 | Depends on 2461553. |
+| base_prompt_uk | Ukrainian | Qwen/Qwen3.5-2B | locked validation | completed job 2461528 | Overall 32.386; MT chrF++ 41.135, QA 33.994, SC score 46.667, GC score 35.967, MR 4.167. |
+| uk_baselines | Ukrainian | baseline checkpoints | locked validation | running job 2461540 | Started after baseline training job 2461539 completed. |
+| sorbian_baselines | Sorbian | baseline checkpoints | locked validation | running job 2461542 | Started after baseline training job 2461541 completed. |
 
 ## Required Metrics
 

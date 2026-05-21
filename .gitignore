@@ -12,6 +12,7 @@ data/external/raw/
 checkpoints/**
 !checkpoints/.gitkeep
 results/**
+!results/**/
 !results/.gitkeep
 !results/**/*.csv
 !results/**/*.json

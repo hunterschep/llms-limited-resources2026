@@ -16,3 +16,4 @@ Status: pending evaluation outputs. Specialist checkpoints are trained, but fail
 - Prompt-only base evaluations are running.
 - Ukrainian and Sorbian specialist all-task evaluations are running.
 - Failure cases will be collected after `results/eval_runs.jsonl` and per-model result JSONs are available.
+- Preliminary Ukrainian language specialist result: MT and SC improve slightly over prompt-only, but MR accuracy drops to 0 on locked validation. This suggests the language skill vector should receive a controlled merge weight and MR preservation must be monitored closely.
