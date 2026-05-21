@@ -37,7 +37,7 @@ Compact overfit results:
 | eval_phase3_fixed_sorbian | 2462273 | dependency |
 | phase3_check_checkpoint_loading | 2462274 | dependency |
 
-Note: eval jobs `2462272` and `2462273` were canceled during MT generation because `batch_size: 4` was too slow for full locked validation. Evaluation configs were updated to `batch_size: 16` for L40S and should be resubmitted against the same completed checkpoints.
+Note: eval jobs `2462272` and `2462273` were canceled during MT generation because `batch_size: 4` was too slow for full locked validation. Evaluation configs were updated to `batch_size: 16` for L40S and resubmitted against the same completed checkpoints as `2462292` and `2462293`.
 
 Expected result paths:
 

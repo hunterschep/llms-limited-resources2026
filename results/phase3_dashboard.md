@@ -35,6 +35,8 @@ Last updated: 2026-05-21.
 | eval_phase3_fixed_uk | 2462272 | L40S | canceled | Canceled during MT generation because eval `batch_size: 4` was too slow. |
 | eval_phase3_fixed_sorbian | 2462273 | L40S | canceled | Canceled during MT generation because eval `batch_size: 4` was too slow. |
 | phase3_check_checkpoint_loading | 2462274 | L40S | dependency | Runs after fixed edit/MR specialists exist. |
+| eval_phase3_fixed_uk | 2462292 | L40S | queued | Resubmitted after raising eval `batch_size` to 16. |
+| eval_phase3_fixed_sorbian | 2462293 | L40S | queued | Resubmitted after raising eval `batch_size` to 16. |
 
 ## Remote Jobs
 
