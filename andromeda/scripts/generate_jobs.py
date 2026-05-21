@@ -99,6 +99,7 @@ def main() -> None:
         "rm -rf \"$SCRATCH_ROOT/checkpoints/uk/baselines\" \"$SCRATCH_ROOT/checkpoints/uk/specialists\" "
         "\"$SCRATCH_ROOT/checkpoints/sorbian/baselines\" \"$SCRATCH_ROOT/checkpoints/sorbian/specialists\" "
         "\"$SCRATCH_ROOT/checkpoints/phase3_invalid\" results/uk results/sorbian results/merge_search && "
+        "find scripts src -type d -name __pycache__ -prune -exec rm -rf {} + && "
         "find /home/$USER/logs -maxdepth 1 -type f \\( -name 'train_uk_*24615*' -o -name 'train_sorbian_*24615*' -o -name 'eval_uk_*24615*' -o -name 'eval_sorbian_*24615*' \\) -delete && "
         "echo \"storage_after\" >> \"$MAN\" && du -sh \"$SCRATCH_ROOT\" /home/$USER/logs results 2>/dev/null >> \"$MAN\" || true && "
         "printf '# Phase 3 Cleanup Summary\\n\\nManifest: `%s`\\n' \"$MAN\" > \"$SUMMARY\" && "
