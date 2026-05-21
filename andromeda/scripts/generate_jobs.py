@@ -125,8 +125,8 @@ def main() -> None:
         write_job(
             f"eval_base_{prefix}",
             f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model Qwen/Qwen3.5-2B --output results/baselines/base_qwen35_2b_{prefix}.json",
-            partition="short",
-            time="12:00:00",
+            partition="medium",
+            time="2-00:00:00",
             mem="96G",
         )
         for baseline_name, config_path in baseline_configs[prefix]:
