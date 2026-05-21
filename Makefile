@@ -24,10 +24,10 @@ prepare-data:
 
 smoke-test:
 	python3 scripts/smoke_test_data.py
-	python3 scripts/smoke_test_eval.py
-	python3 scripts/smoke_test_training.py
-	python3 scripts/merge_task_vectors.py --config configs/merge/uk.yaml --dry-run
-	python3 scripts/search_merge_weights.py --config configs/merge/sorbian.yaml --dry-run --limit 2
+	WMT26_RECORD_RUNS=0 python3 scripts/smoke_test_eval.py
+	WMT26_RECORD_RUNS=0 python3 scripts/smoke_test_training.py
+	WMT26_RECORD_RUNS=0 python3 scripts/merge_task_vectors.py --config configs/merge/uk.yaml --dry-run
+	WMT26_RECORD_RUNS=0 python3 scripts/search_merge_weights.py --config configs/merge/sorbian.yaml --dry-run --limit 2
 
 report-data-quality:
 	python3 scripts/report_external_data_quality.py

@@ -53,6 +53,8 @@ def save_state(state, output_dir: Path) -> None:
 
 
 def append_merge_record(config: dict, config_path: str, method: str, weights: dict[str, float], output_dir: Path, status: str, notes: str = "") -> None:
+    if os.environ.get("WMT26_RECORD_RUNS", "1") == "0":
+        return
     record = {
         "merge_id": f"{config.get('track')}_{method}_{dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')}",
         "track": config.get("track"),

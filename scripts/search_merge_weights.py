@@ -29,6 +29,8 @@ def candidate_weights(grid: dict[str, list[float]], limit: int) -> list[dict[str
 
 
 def append_search_record(config: dict, config_path: str, out_dir: Path, rows: list[dict]) -> None:
+    if os.environ.get("WMT26_RECORD_RUNS", "1") == "0":
+        return
     record = {
         "merge_id": f"{config.get('track')}_search_{dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')}",
         "track": config.get("track"),

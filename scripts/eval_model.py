@@ -71,6 +71,8 @@ def score_task(task: str, predictions: list[str], references: list[str]) -> dict
 
 
 def append_eval_record(config_path: str, model_name: str | None, result: dict, output: str | None, limit: int | None) -> None:
+    if os.environ.get("WMT26_RECORD_RUNS", "1") == "0":
+        return
     aggregate = result.get("aggregate", {})
     task_scores = result.get("task_scores", {})
     record = {

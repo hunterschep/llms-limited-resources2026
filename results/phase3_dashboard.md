@@ -6,8 +6,8 @@ Status: initialized.
 
 | Job | ID | Status | Notes |
 |---|---:|---|---|
-| 00_create_env | 2461442 | submitted | Create or update `wmt26-lrllm` on Andromeda. |
-| 00_validate_env |  | planned | Validate modules, Python environment, Slurm context, and governance. |
+| 00_create_env | 2461442 | completed | Created/updated `wmt26-lrllm` on Andromeda. |
+| 00_validate_env | 2461449 | completed | Environment and governance validation passed. |
 | 01_prepare_data |  | planned | Rebuild or verify final data on Andromeda. |
 | train_uk_all |  | planned | Train Ukrainian specialists, merge, and polish if stable. |
 | train_sorbian_all |  | planned | Train Sorbian specialists, merge, and polish if stable. |

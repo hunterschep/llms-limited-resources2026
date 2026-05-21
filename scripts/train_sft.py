@@ -50,6 +50,8 @@ def revision() -> str:
 
 
 def append_training_record(config: dict, config_path: str, status: str, checkpoint_path: Path | None, num_examples: int, notes: str = "") -> None:
+    if os.environ.get("WMT26_RECORD_RUNS", "1") == "0":
+        return
     record = {
         "run_id": config.get("run_name"),
         "track": config.get("track"),
