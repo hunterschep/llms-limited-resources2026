@@ -10,7 +10,7 @@ Last updated: 2026-05-20.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
 - Completed specialist checkpoints: all six Ukrainian specialists and all six Sorbian specialists.
 - Active jobs: base Sorbian eval 2461529, Ukrainian baseline eval 2461540, Sorbian baseline eval 2461542, Ukrainian specialist eval 2461547, and Sorbian specialist eval 2461551.
-- Latest completed partial result: Ukrainian official-only SFT has overall 29.857, with QA gain but SC/GC correction and MR regression.
+- Latest completed partial results: Ukrainian official-only SFT has overall 29.857, M_lang has 32.940, and M_mt has 34.541. M_mt improves overall through QA/SC/GC gains but lowers MT chrF++ and collapses MR.
 - Queued next: merge, polish, and final eval chains.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
 - All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
@@ -101,7 +101,7 @@ Last updated: 2026-05-20.
 | eval_uk_baselines | 2461540 | running | Official-only result landed; remaining Ukrainian baselines still evaluating. |
 | train_sorbian_baselines | 2461541 | completed | Four baseline checkpoints written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/baselines/`. |
 | eval_sorbian_baselines | 2461542 | running | Started after 2461541 completed. |
-| eval_uk_specialists | 2461547 | running | Clean L40S resubmission with no excluded GPU nodes. |
+| eval_uk_specialists | 2461547 | running | M_lang and M_mt results landed; remaining Ukrainian specialists still evaluating. |
 | eval_sorbian_specialists | 2461551 | running | Clean L40S resubmission with no excluded GPU nodes. |
 | merge_uk | 2461548 | dependency | Depends on 2461547. |
 | merge_sorbian | 2461552 | dependency | Depends on 2461551. |

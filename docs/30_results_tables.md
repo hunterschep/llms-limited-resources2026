@@ -1,6 +1,6 @@
 # Results Tables
 
-Status: pending remote training and evaluation.
+Status: partial remote evaluation in progress.
 
 ## Baselines
 
@@ -14,6 +14,7 @@ Status: pending remote training and evaluation.
 | Track | Model | MT | QA | SC | GC | MR | Overall | Notes |
 |---|---|---:|---:|---:|---:|---:|---:|---|
 | Ukrainian | M_lang | 41.583 | 30.878 | 56.271 | 35.967 | 0.000 | 32.940 | Improves MT/SC over prompt-only but MR collapses on this local eval. |
+| Ukrainian | M_mt | 38.358 | 38.810 | 56.470 | 39.067 | 0.000 | 34.541 | Improves overall through QA/SC/GC transfer, but MT chrF++ drops below prompt-only and MR collapses. |
 
 ## Merge Search
 
