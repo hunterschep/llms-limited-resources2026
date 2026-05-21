@@ -4,8 +4,8 @@ specialist: lang
 model_config: configs/model/qwen35_2b.yaml
 output_dir: checkpoints/sorbian/specialists/lang
 train_files:
-  - data/processed/sorbian/lang_train.jsonl
-  - data/processed/sorbian/mt_train.jsonl
+  - data/processed/final/sorbian/lang_curriculum_external.jsonl
+  - data/processed/final/sorbian/mt_train_final.jsonl
 method: qlora
 adapter: lora
 max_steps: 900

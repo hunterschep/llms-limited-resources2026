@@ -1,0 +1,58 @@
+track: sorbian
+mixture_id: sorbian_external_enhanced_v1
+sources:
+  - file: data/processed/sorbian/mt_train.jsonl
+    task: MT
+    sampling_weight: 1.0
+    cap: 120000
+    reason: official bidirectional Sorbian MT backbone
+  - file: data/processed/external/sorbian/mt_prior_wmt.jsonl
+    task: MT
+    sampling_weight: 0.4
+    cap: 20000
+    reason: prior WMT support path, excluding test sets
+  - file: data/processed/external/sorbian/qa_generated_public_hsb.jsonl
+    task: QA
+    sampling_weight: 0.8
+    cap: 1500
+    reason: generated public hsb reading-comprehension QA
+  - file: data/processed/external/sorbian/qa_generated_public_dsb.jsonl
+    task: QA
+    sampling_weight: 0.8
+    cap: 1500
+    reason: generated public dsb reading-comprehension QA
+  - file: data/processed/external/sorbian/sc_synthetic_hsb.jsonl
+    task: SC
+    sampling_weight: 0.6
+    cap: 2500
+    reason: hsb typo robustness
+  - file: data/processed/external/sorbian/sc_synthetic_dsb.jsonl
+    task: SC
+    sampling_weight: 0.6
+    cap: 2500
+    reason: dsb typo robustness
+  - file: data/processed/external/sorbian/gc_synthetic_hsb.jsonl
+    task: GC
+    sampling_weight: 0.6
+    cap: 2500
+    reason: hsb morphology minimal pairs
+  - file: data/processed/external/sorbian/gc_synthetic_dsb.jsonl
+    task: GC
+    sampling_weight: 0.6
+    cap: 2500
+    reason: dsb morphology minimal pairs
+  - file: data/processed/external/sorbian/mr_non_benchmark_hsb.jsonl
+    task: MR
+    sampling_weight: 0.2
+    cap: 200
+    reason: hsb final-answer math preservation
+  - file: data/processed/external/sorbian/mr_non_benchmark_dsb.jsonl
+    task: MR
+    sampling_weight: 0.2
+    cap: 200
+    reason: dsb final-answer math preservation
+  - file: data/processed/external/sorbian/monolingual_public.jsonl
+    task: LANG
+    sampling_weight: 0.5
+    cap: 10000
+    reason: hsb/dsb instruction-preserving language acquisition

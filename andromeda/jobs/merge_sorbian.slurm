@@ -25,4 +25,4 @@ mkdir -p /home/"$USER"/logs "$SCRATCH_ROOT"/{data,checkpoints,logs,results,tmp}
 #   sbatch --gres=gpu:a100:1 this_job.slurm
 #   sbatch --gres=gpu:l40s:1 this_job.slurm
 
-andromeda/scripts/run_step.sh python3 scripts/search_merge_weights.py --config configs/merge/sorbian.yaml --limit 64
+andromeda/scripts/run_step.sh bash -lc 'python3 scripts/search_merge_weights.py --config configs/merge/sorbian.yaml --limit 64'

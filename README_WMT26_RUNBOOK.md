@@ -25,6 +25,10 @@ make inspect-data
 make prepare-data
 make smoke-test
 make build-andromeda-jobs
+make report-data-quality
+make check-governance
+make check-overlap
+make build-final-mixtures
 ```
 
 ## Data
@@ -44,8 +48,18 @@ Processed canonical data:
 
 - `data/processed/uk/*.jsonl`
 - `data/processed/sorbian/*.jsonl`
+- `data/processed/external/**/*.jsonl`
+- `data/processed/final/**/*.jsonl`
 
 External data must be registered with `scripts/register_external_data.py`, validated, then downloaded through a documented source-specific path.
+
+Second-stage executable sources:
+
+- OPUS Tatoeba en-uk/cs-uk for Ukrainian MT.
+- UA-GEC train M2 for Ukrainian SC/GC.
+- UD Ukrainian IU train for Ukrainian language, QA, and morphology.
+- UniMorph hsb for Sorbian morphology expansion.
+- GSM8K/ASDiv/SVAMP for small non-benchmark MR preservation.
 
 ## Models Trained
 
@@ -115,6 +129,10 @@ Launch:
 ```bash
 ssh andromeda 'cd /home/scheppat/workspace/projects/wmt26_lrllm && sbatch andromeda/jobs/00_validate_env.slurm'
 ssh andromeda 'cd /home/scheppat/workspace/projects/wmt26_lrllm && sbatch andromeda/jobs/01_prepare_data.slurm'
+ssh andromeda 'cd /home/scheppat/workspace/projects/wmt26_lrllm && sbatch andromeda/jobs/02_download_external_data.slurm'
+ssh andromeda 'cd /home/scheppat/workspace/projects/wmt26_lrllm && sbatch andromeda/jobs/03_filter_external_data.slurm'
+ssh andromeda 'cd /home/scheppat/workspace/projects/wmt26_lrllm && sbatch andromeda/jobs/04_compile_external_data.slurm'
+ssh andromeda 'cd /home/scheppat/workspace/projects/wmt26_lrllm && sbatch andromeda/jobs/05_report_data_quality.slurm'
 ssh andromeda 'cd /home/scheppat/workspace/projects/wmt26_lrllm && sbatch andromeda/jobs/train_uk_all.slurm'
 ssh andromeda 'cd /home/scheppat/workspace/projects/wmt26_lrllm && sbatch andromeda/jobs/train_sorbian_all.slurm'
 ssh andromeda 'cd /home/scheppat/workspace/projects/wmt26_lrllm && sbatch andromeda/jobs/eval_uk_final.slurm'

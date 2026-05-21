@@ -5,7 +5,7 @@ base_model_path: checkpoints/sorbian/merged/best
 fallback_to_base_if_missing: true
 output_dir: checkpoints/sorbian/final_polished
 train_files:
-  - data/processed/sorbian/format_preferences.jsonl
+  - data/processed/final/sorbian/format_polish_final.jsonl
 method: dpo_or_contrastive_sft
 adapter: lora
 max_steps: 120

@@ -1,38 +1,10 @@
 policy: register_before_download
-sources:
-  - source_id: external:candidate_opus_en_uk
-    status: candidate
-    source_name: OPUS English-Ukrainian parallel corpora
-    source_url: https://opus.nlpl.eu/
-    license: mixed
-    track: ukrainian
-    task: MT
-    contamination_risk: low_after_filtering
-    enabled: false
-  - source_id: external:candidate_opus_cs_uk
-    status: candidate
-    source_name: OPUS Czech-Ukrainian parallel corpora
-    source_url: https://opus.nlpl.eu/
-    license: mixed
-    track: ukrainian
-    task: MT
-    contamination_risk: low_after_filtering
-    enabled: false
-  - source_id: external:candidate_prior_wmt_sorbian_train
-    status: candidate
-    source_name: Prior WMT Sorbian training resources
-    source_url: https://www2.statmt.org/wmt26/limited-resources-llm.html
-    license: check_per_file
-    track: sorbian
-    task: MT
-    contamination_risk: must_exclude_wmt2025_test_sets
-    enabled: false
-  - source_id: external:candidate_non_polymath_math
-    status: candidate
-    source_name: Public non-PolyMath math datasets
-    source_url: TBD
-    license: TBD
-    track: ukrainian|sorbian
-    task: MR
-    contamination_risk: must_not_be_polymath_or_derived
-    enabled: false
+default_raw_root: data/external/raw
+default_filtered_root: data/external/filtered
+notes:
+  - This file indexes all candidate sources.
+  - Enabled executable seed sources live in external_sources_uk.yaml and external_sources_sorbian.yaml.
+  - Large corpora are scripted for Andromeda-scale acquisition, not downloaded by local smoke tests.
+source_groups:
+  ukrainian: configs/data/external_sources_uk.yaml
+  sorbian: configs/data/external_sources_sorbian.yaml

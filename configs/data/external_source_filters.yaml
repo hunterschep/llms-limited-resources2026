@@ -1,0 +1,35 @@
+seed: 2606
+parallel_mt:
+  min_chars: 3
+  max_chars: 500
+  max_length_ratio: 3.0
+  min_cyrillic_fraction_target_uk: 0.35
+  max_url_count: 1
+  max_digit_fraction: 0.45
+  max_punctuation_fraction: 0.45
+  cap_per_source:
+    external:opus_tatoeba_en_uk: 30000
+    external:opus_tatoeba_cs_uk: 5000
+text:
+  min_chars: 20
+  max_chars: 800
+  max_repeated_char_run: 6
+  max_url_count: 0
+qa:
+  min_options: 4
+  max_options: 5
+  generated_per_language: 600
+scgc:
+  synthetic_per_language: 1200
+  clean_ratio: 0.25
+mr:
+  cap_per_language: 250
+  allowed_sources:
+    - external:gsm8k_train
+    - external:asdiv
+    - external:svamp
+overlap:
+  exact_normalized: true
+  check_against_splits:
+    - locked_validation
+    - tune

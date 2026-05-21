@@ -37,6 +37,8 @@ TRUTHY = {"true", "1", "yes", "y"}
 POLYMATH_RE = re.compile(r"(?<!non[- ])(?:poly\s*math|polymath)", re.IGNORECASE)
 SORBIAN_CERT_RE = re.compile(r"sorbian.*certificate|certificate.*sorbian|language certificate", re.IGNORECASE)
 WMT2025_TEST_RE = re.compile(r"wmt\s*2025.*test|wmt2025.*test", re.IGNORECASE)
+TEST_SPLIT_RE = re.compile(r"(mmlu|unlp|zno).*test|test.*(mmlu|unlp|zno)|hidden test", re.IGNORECASE)
+UNKNOWN_LICENSE = {"", "unknown", "tbd", "none"}
 
 
 def truthy(value: str | None) -> bool:
@@ -60,8 +62,9 @@ def validate_row(row: dict[str, str], index: int) -> list[str]:
     source_id = row.get("source_id", "")
     is_external = source_id.startswith("external:") or row.get("download_method", "").startswith("external")
     if is_external:
-        if not row.get("license"):
-            errors.append(f"row {index}: external data must have license")
+        license_value = row.get("license", "").strip().lower()
+        if license_value in UNKNOWN_LICENSE and "LICENSE_RISK:" not in row.get("notes", ""):
+            errors.append(f"row {index}: external data with unknown license requires LICENSE_RISK note")
         if not row.get("source_url"):
             errors.append(f"row {index}: external data must have source_url")
     used_train = truthy(row.get("used_for_train"))
@@ -79,6 +82,8 @@ def validate_row(row: dict[str, str], index: int) -> list[str]:
         errors.append(f"row {index}: external Sorbian certificate material marked for training")
     if WMT2025_TEST_RE.search(text) and (used_train or used_final or truthy(row.get("used_for_tune"))):
         errors.append(f"row {index}: WMT2025 test material marked for use")
+    if TEST_SPLIT_RE.search(text) and (used_train or used_final or truthy(row.get("used_for_tune"))):
+        errors.append(f"row {index}: known test/hidden-test pattern marked for use")
     return errors
 
 

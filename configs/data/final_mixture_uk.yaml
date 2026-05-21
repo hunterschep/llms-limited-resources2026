@@ -1,0 +1,48 @@
+track: ukrainian
+mixture_id: uk_external_enhanced_v1
+sources:
+  - file: data/processed/external/uk/mt_train.jsonl
+    task: MT
+    sampling_weight: 1.0
+    cap: 35000
+    reason: public OPUS MT fills missing Ukrainian MT train
+  - file: data/processed/external/uk/mt_doc_train.jsonl
+    task: MT
+    sampling_weight: 1.5
+    cap: 5000
+    reason: document/anti-summarization MT
+  - file: data/processed/uk/qa_train.jsonl
+    task: QA
+    sampling_weight: 1.0
+    cap: 12000
+    reason: official QA backbone
+  - file: data/processed/external/uk/qa_generated_public.jsonl
+    task: QA
+    sampling_weight: 0.35
+    cap: 2000
+    reason: public passage-generated QA augmentation
+  - file: data/processed/external/uk/sc_synthetic_public.jsonl
+    task: SC
+    sampling_weight: 0.8
+    cap: 3000
+    reason: typo robustness
+  - file: data/processed/external/uk/gc_real.jsonl
+    task: GC
+    sampling_weight: 0.8
+    cap: 3000
+    reason: UA-GEC one-token corrections
+  - file: data/processed/external/uk/gc_synthetic_public.jsonl
+    task: GC
+    sampling_weight: 0.5
+    cap: 3000
+    reason: UD morphology minimal pairs
+  - file: data/processed/external/uk/mr_non_benchmark.jsonl
+    task: MR
+    sampling_weight: 0.2
+    cap: 250
+    reason: small math preservation curriculum
+  - file: data/processed/external/uk/monolingual_train.jsonl
+    task: LANG
+    sampling_weight: 0.3
+    cap: 4000
+    reason: light instruction-preserving language acquisition

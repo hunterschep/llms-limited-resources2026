@@ -31,11 +31,22 @@ REQUIRED_PATHS = [
     "docs/13_format_polish.md",
     "docs/14_final_execution_plan.md",
     "docs/15_expected_ablation_table.md",
+    "docs/16_public_data_acquisition_plan.md",
+    "docs/17_data_source_risk_assessment.md",
+    "docs/18_external_data_filtering.md",
+    "docs/19_final_data_mixture.md",
+    "docs/20_second_stage_training_readiness.md",
+    "docs/21_data_ablation_plan.md",
+    "docs/22_expected_second_stage_ablation_table.md",
     "README_WMT26_RUNBOOK.md",
     "data/manifests/official_data_inventory.jsonl",
     "data/manifests/data_governance_registry.csv",
     "data/manifests/data_governance_registry.schema.json",
     "data/manifests/local_split_manifest.jsonl",
+    "data/manifests/external_data_inventory.jsonl",
+    "data/manifests/external_data_filter_report.jsonl",
+    "data/manifests/external_data_quality_report.md",
+    "data/manifests/final_training_data_summary.md",
     "src/wmt26/data/schema.py",
     "src/wmt26/prompts/templates.py",
     "src/wmt26/compilers/common.py",
@@ -43,6 +54,12 @@ REQUIRED_PATHS = [
     "src/wmt26/eval/metrics.py",
     "scripts/inspect_repo_data.py",
     "scripts/validate_data_governance.py",
+    "scripts/download_external_data.py",
+    "scripts/filter_external_data.py",
+    "scripts/deduplicate_external_data.py",
+    "scripts/check_dev_overlap.py",
+    "scripts/build_external_training_sets.py",
+    "scripts/report_external_data_quality.py",
     "scripts/create_local_splits.py",
     "scripts/compile_mt_data.py",
     "scripts/compile_sc_data.py",
@@ -90,8 +107,8 @@ def check_prompt_templates() -> list[str]:
 
 def check_canonical_samples() -> list[str]:
     errors = []
-    for path in sorted((ROOT / "data/processed").glob("*/*.jsonl")):
-        if path.name == "format_preferences.jsonl":
+    for path in sorted((ROOT / "data/processed").glob("**/*.jsonl")):
+        if path.name == "format_preferences.jsonl" or "format_preferences" in path.name or path.name == "format_polish_final.jsonl":
             continue
         with path.open("r", encoding="utf-8") as handle:
             for idx, line in enumerate(handle):

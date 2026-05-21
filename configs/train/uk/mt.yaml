@@ -4,7 +4,7 @@ specialist: mt
 model_config: configs/model/qwen35_2b.yaml
 output_dir: checkpoints/uk/specialists/mt
 train_files:
-  - data/processed/uk/mt_train.jsonl
+  - data/processed/final/uk/mt_train_final.jsonl
 allow_empty_train: true
 eval_files:
   - data/processed/uk/mt_tune.jsonl

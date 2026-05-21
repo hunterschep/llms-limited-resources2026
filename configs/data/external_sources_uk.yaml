@@ -1,0 +1,137 @@
+policy: governance_first
+sources:
+  - source_id: external:opus_tatoeba_en_uk
+    source_name: OPUS Tatoeba English-Ukrainian
+    source_url: https://opus.nlpl.eu/Tatoeba/corpus/version/Tatoeba
+    track: ukrainian
+    task: MT
+    language: ukr
+    language_pair: en-ukr
+    license: CC-BY 2.0 / mixed OPUS metadata
+    allowed_status: allowed
+    enabled: true
+    local_path: data/external/raw/external__opus_tatoeba_en_uk
+    download:
+      type: opus
+      opus_corpus: Tatoeba
+      source_language: en
+      target_language: uk
+  - source_id: external:opus_tatoeba_cs_uk
+    source_name: OPUS Tatoeba Czech-Ukrainian
+    source_url: https://opus.nlpl.eu/Tatoeba/corpus/version/Tatoeba
+    track: ukrainian
+    task: MT
+    language: ukr
+    language_pair: cs-ukr
+    license: CC-BY 2.0 / mixed OPUS metadata
+    allowed_status: allowed
+    enabled: true
+    local_path: data/external/raw/external__opus_tatoeba_cs_uk
+    download:
+      type: opus
+      opus_corpus: Tatoeba
+      source_language: cs
+      target_language: uk
+  - source_id: external:ua_gec_train
+    source_name: UA-GEC train M2
+    source_url: https://github.com/grammarly/ua-gec
+    track: ukrainian
+    task: GC
+    language: ukr
+    language_pair: ""
+    license: CC BY-SA 4.0
+    allowed_status: allowed
+    enabled: true
+    local_path: data/external/raw/external__ua_gec_train/gec-only.train.m2
+    download:
+      type: url
+      url: https://raw.githubusercontent.com/grammarly/ua-gec/main/data/gec-only/train/gec-only.train.m2
+      filename: gec-only.train.m2
+  - source_id: external:ud_uk_iu
+    source_name: Universal Dependencies Ukrainian IU train
+    source_url: https://universaldependencies.org/treebanks/uk_iu/index.html
+    track: ukrainian
+    task: GC
+    language: ukr
+    language_pair: ""
+    license: CC BY-SA 4.0
+    allowed_status: allowed
+    enabled: true
+    local_path: data/external/raw/external__ud_uk_iu/uk_iu-ud-train.conllu
+    download:
+      type: url
+      url: https://raw.githubusercontent.com/UniversalDependencies/UD_Ukrainian-IU/master/uk_iu-ud-train.conllu
+      filename: uk_iu-ud-train.conllu
+  - source_id: external:gsm8k_train
+    source_name: GSM8K train
+    source_url: https://github.com/openai/grade-school-math
+    track: ukrainian|sorbian
+    task: MR
+    language: en
+    language_pair: ""
+    license: MIT
+    allowed_status: allowed
+    enabled: true
+    local_path: data/external/raw/external__gsm8k_train/train.jsonl
+    download:
+      type: url
+      url: https://raw.githubusercontent.com/openai/grade-school-math/master/grade_school_math/data/train.jsonl
+      filename: train.jsonl
+  - source_id: external:asdiv
+    source_name: ASDiv arithmetic dataset
+    source_url: https://github.com/chaochun/nlu-asdiv-dataset
+    track: ukrainian|sorbian
+    task: MR
+    language: en
+    language_pair: ""
+    license: research-public
+    allowed_status: risky
+    enabled: true
+    local_path: data/external/raw/external__asdiv/ASDiv.xml
+    download:
+      type: url
+      url: https://raw.githubusercontent.com/chaochun/nlu-asdiv-dataset/master/dataset/ASDiv.xml
+      filename: ASDiv.xml
+  - source_id: external:svamp
+    source_name: SVAMP arithmetic dataset
+    source_url: https://github.com/arkilpatel/SVAMP
+    track: ukrainian|sorbian
+    task: MR
+    language: en
+    language_pair: ""
+    license: MIT-like research-public
+    allowed_status: risky
+    enabled: true
+    local_path: data/external/raw/external__svamp/SVAMP.json
+    download:
+      type: url
+      url: https://raw.githubusercontent.com/arkilpatel/SVAMP/main/SVAMP.json
+      filename: SVAMP.json
+  - source_id: external:opus_large_en_uk_scripted
+    source_name: OPUS large English-Ukrainian candidates
+    source_url: https://opus.nlpl.eu/
+    track: ukrainian
+    task: MT
+    language: ukr
+    language_pair: en-ukr
+    license: mixed per OPUS corpus
+    allowed_status: risky
+    enabled: true
+    local_path: data/external/raw/scripted/opus_large_en_uk
+    download:
+      type: scripted_only
+      notes: ParaCrawl, WikiMatrix, CCMatrix, OpenSubtitles, GNOME, KDE, Ubuntu, TED/TED2020 to be pulled on Andromeda after corpus-specific license check.
+  - source_id: external:hplt_uk_scripted
+    source_name: HPLT Ukrainian monolingual scripted sample
+    source_url: https://huggingface.co/datasets/HPLT/hplt_monolingual_v1_2
+    track: ukrainian
+    task: LANG
+    language: ukr
+    language_pair: ""
+    license: mixed web-crawl metadata
+    allowed_status: risky
+    enabled: true
+    local_path: data/external/raw/scripted/hplt_uk
+    download:
+      type: scripted_only
+      notes: Use sampled, filtered, license-audited subset only.

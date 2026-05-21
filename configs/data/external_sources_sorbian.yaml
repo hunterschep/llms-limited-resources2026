@@ -1,0 +1,87 @@
+policy: governance_first
+sources:
+  - source_id: external:unimorph_hsb
+    source_name: UniMorph Upper Sorbian
+    source_url: https://github.com/unimorph/hsb
+    track: sorbian
+    task: GC
+    language: hsb
+    language_pair: ""
+    license: CC BY-SA 3.0
+    allowed_status: allowed
+    enabled: true
+    local_path: data/external/raw/external__unimorph_hsb/hsb
+    download:
+      type: url
+      url: https://raw.githubusercontent.com/unimorph/hsb/master/hsb
+      filename: hsb
+  - source_id: external:wmt22_sorbian_data_scripted
+    source_name: WMT20-22 Sorbian very-low-resource train/support data
+    source_url: https://github.com/mariondimarco/WMT22_UnsupVeryLowResMT_Data
+    track: sorbian
+    task: MT
+    language: hsb/dsb
+    language_pair: de-hsb|de-dsb|hsb-dsb
+    license: mixed per file
+    allowed_status: risky
+    enabled: true
+    local_path: data/external/raw/scripted/wmt22_sorbian
+    download:
+      type: scripted_only
+      notes: Exclude all test sets; use train/dev/support only after file-level review.
+  - source_id: external:leipzig_hsb_scripted
+    source_name: Leipzig Upper Sorbian corpus scripted sample
+    source_url: https://corpora.uni-leipzig.de/en?corpusId=hsb_mixed_2012
+    track: sorbian
+    task: LANG
+    language: hsb
+    language_pair: ""
+    license: Leipzig Corpora Collection terms
+    allowed_status: risky
+    enabled: true
+    local_path: data/external/raw/scripted/leipzig_hsb
+    download:
+      type: scripted_only
+      notes: Download on Andromeda only after license/terms review; sampled text for QA/SC/GC generation.
+  - source_id: external:leipzig_dsb_scripted
+    source_name: Leipzig Lower Sorbian corpus scripted sample
+    source_url: https://corpora.wortschatz-leipzig.de/en?corpusId=dsb_wikipedia_2021
+    track: sorbian
+    task: LANG
+    language: dsb
+    language_pair: ""
+    license: Leipzig Corpora Collection terms
+    allowed_status: risky
+    enabled: true
+    local_path: data/external/raw/scripted/leipzig_dsb
+    download:
+      type: scripted_only
+      notes: Download on Andromeda only after license/terms review; sampled text for QA/SC/GC generation.
+  - source_id: external:opus_cs_pl_transfer_scripted
+    source_name: OPUS Czech/Polish transfer candidates
+    source_url: https://opus.nlpl.eu/
+    track: sorbian
+    task: MT
+    language: cs/pl
+    language_pair: cs-hsb|pl-dsb|cs-de|pl-de
+    license: mixed per OPUS corpus
+    allowed_status: risky
+    enabled: true
+    local_path: data/external/raw/scripted/opus_cs_pl_transfer
+    download:
+      type: scripted_only
+      notes: Auxiliary transfer only; capped so Czech/Polish do not dominate Sorbian.
+  - source_id: external:hunspell_dsb_candidate
+    source_name: Lower Sorbian Hunspell package candidate
+    source_url: https://packages.altlinux.org/en/p11/srpms/hunspell-dsb/
+    track: sorbian
+    task: SC
+    language: dsb
+    language_pair: ""
+    license: package metadata required
+    allowed_status: unknown
+    enabled: false
+    local_path: data/external/raw/scripted/hunspell_dsb
+    download:
+      type: scripted_only
+      notes: Do not use until license and package contents are manually reviewed.

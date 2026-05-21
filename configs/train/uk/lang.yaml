@@ -4,7 +4,7 @@ specialist: lang
 model_config: configs/model/qwen35_2b.yaml
 output_dir: checkpoints/uk/specialists/lang
 train_files:
-  - data/processed/uk/lang_train.jsonl
+  - data/processed/final/uk/lang_curriculum_external.jsonl
   - data/processed/uk/qa_train.jsonl
 method: qlora
 adapter: lora

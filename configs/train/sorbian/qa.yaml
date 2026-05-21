@@ -4,7 +4,7 @@ specialist: qa
 model_config: configs/model/qwen35_2b.yaml
 output_dir: checkpoints/sorbian/specialists/qa
 train_files:
-  - data/processed/sorbian/qa_train.jsonl
+  - data/processed/final/sorbian/qa_train_final.jsonl
 allow_empty_train: true
 eval_files:
   - data/processed/sorbian/qa_tune.jsonl

@@ -1,0 +1,3 @@
+{"filtering_steps": ["length", "target_cyrillic_fraction", "length_ratio", "deduplicate_exact_pair"], "row_count_after_filtering": 30000, "row_count_raw": 30016, "source_id": "external:opus_tatoeba_en_uk"}
+{"filtering_steps": ["length", "target_cyrillic_fraction", "length_ratio", "deduplicate_exact_pair"], "row_count_after_filtering": 2980, "row_count_raw": 2989, "source_id": "external:opus_tatoeba_cs_uk"}
+{"filtering_steps": ["one_token_span", "single_token_correction", "split_train_only"], "row_count_after_filtering": 6000, "row_count_raw": 32743, "source_id": "external:ua_gec_train"}

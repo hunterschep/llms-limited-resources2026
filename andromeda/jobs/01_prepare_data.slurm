@@ -25,4 +25,4 @@ mkdir -p /home/"$USER"/logs "$SCRATCH_ROOT"/{data,checkpoints,logs,results,tmp}
 #   sbatch --gres=gpu:a100:1 this_job.slurm
 #   sbatch --gres=gpu:l40s:1 this_job.slurm
 
-andromeda/scripts/run_step.sh make validate inspect-data prepare-data smoke-test
+andromeda/scripts/run_step.sh bash -lc 'make validate inspect-data prepare-data smoke-test'

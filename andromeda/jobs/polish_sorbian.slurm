@@ -26,4 +26,4 @@ mkdir -p /home/"$USER"/logs "$SCRATCH_ROOT"/{data,checkpoints,logs,results,tmp}
 #   sbatch --gres=gpu:a100:1 this_job.slurm
 #   sbatch --gres=gpu:l40s:1 this_job.slurm
 
-andromeda/scripts/run_step.sh python3 scripts/train_format_polish.py --config configs/train/sorbian/final_polish.yaml
+andromeda/scripts/run_step.sh bash -lc 'python3 scripts/train_format_polish.py --config configs/train/sorbian/final_polish.yaml'

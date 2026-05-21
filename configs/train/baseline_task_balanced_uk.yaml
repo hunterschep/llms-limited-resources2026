@@ -3,11 +3,11 @@ track: ukrainian
 model_config: configs/model/qwen35_2b.yaml
 output_dir: checkpoints/uk/baselines/task_balanced
 train_files:
-  - data/processed/uk/mt_train.jsonl
-  - data/processed/uk/qa_train.jsonl
-  - data/processed/uk/sc_train.jsonl
-  - data/processed/uk/gc_train.jsonl
-  - data/processed/uk/mr_train.jsonl
+  - data/processed/final/uk/mt_train_final.jsonl
+  - data/processed/final/uk/qa_train_final.jsonl
+  - data/processed/final/uk/sc_train_final.jsonl
+  - data/processed/final/uk/gc_train_final.jsonl
+  - data/processed/final/uk/mr_train_final.jsonl
 sampling: task_balanced
 max_examples_per_task: 5000
 method: sft

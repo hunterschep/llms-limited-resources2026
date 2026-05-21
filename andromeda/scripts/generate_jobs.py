@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import shlex
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -39,7 +40,8 @@ andromeda/scripts/run_step.sh {command}
 
 def write_job(name: str, command: str, gpu: bool = True, partition: str = "short", time: str = "12:00:00", cpus: int = 8, mem: str = "64G") -> None:
     gres_line = "#SBATCH --gres=gpu:h200:1\n" if gpu else ""
-    text = COMMON.format(name=name, command=command, gres_line=gres_line, partition=partition, time=time, cpus=cpus, mem=mem)
+    wrapped_command = f"bash -lc {shlex.quote(command)}"
+    text = COMMON.format(name=name, command=wrapped_command, gres_line=gres_line, partition=partition, time=time, cpus=cpus, mem=mem)
     path = JOBS / f"{name}.slurm"
     path.write_text(text, encoding="utf-8")
     path.chmod(0o755)
@@ -49,9 +51,13 @@ def main() -> None:
     JOBS.mkdir(parents=True, exist_ok=True)
     write_job("00_validate_env", "bash andromeda/scripts/andromeda_probe.sh", gpu=False, cpus=2, mem="8G")
     write_job("01_prepare_data", "make validate inspect-data prepare-data smoke-test", gpu=False, cpus=4, mem="32G")
+    write_job("02_download_external_data", "python3 scripts/download_external_data.py --execute", gpu=False, cpus=2, mem="16G")
+    write_job("03_filter_external_data", "python3 scripts/filter_external_data.py && python3 scripts/deduplicate_external_data.py && python3 scripts/check_dev_overlap.py", gpu=False, cpus=4, mem="32G")
+    write_job("04_compile_external_data", "python3 scripts/build_external_training_sets.py", gpu=False, cpus=4, mem="32G")
+    write_job("05_report_data_quality", "python3 scripts/report_external_data_quality.py", gpu=False, cpus=2, mem="8G")
 
     for track, prefix in [("uk", "uk"), ("sorbian", "sorbian")]:
-        write_job(f"train_{prefix}_baselines", f"python3 scripts/train_sft.py --config configs/train/baseline_task_balanced_{prefix}.yaml", partition="medium", time="2-00:00:00", mem="96G")
+        write_job(f"train_{prefix}_baselines", f"python3 scripts/train_sft.py --config configs/train/{track}/external_enhanced_multitask.yaml", partition="medium", time="2-00:00:00", mem="96G")
         for specialist, config_name in [
             ("lang", "lang"),
             ("mt", "mt"),
