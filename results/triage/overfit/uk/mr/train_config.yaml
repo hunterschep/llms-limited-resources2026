@@ -20,7 +20,7 @@ target_modules:
 learning_rate: 0.0005
 batch_size: 1
 gradient_accumulation_steps: 1
-max_steps: 60
+max_steps: 80
 max_length: 1024
 log_every: 10
 seed: 2603

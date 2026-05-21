@@ -1,13 +1,9 @@
 track: ukrainian
 base_model: Qwen/Qwen3.5-2B
 specialists:
-  lang: checkpoints/uk/specialists/lang
-  mt: checkpoints/uk/specialists/mt
-  edit: checkpoints/uk/specialists/edit_scgc
-  qa: checkpoints/uk/specialists/qa
-  mr: checkpoints/uk/specialists/mr
-  format: checkpoints/uk/specialists/format
-output_dir: checkpoints/uk/merged
+  edit: checkpoints/phase3_fixed/uk/edit
+  mr: checkpoints/phase3_fixed/uk/mr
+output_dir: checkpoints/phase3_fixed/uk/merged
 validation_config: configs/eval/uk.yaml
 objective: equal_weighted_wmt26
 methods:
@@ -16,18 +12,10 @@ methods:
   - greedy_soup
   - ties
 candidate_weights:
-  - {lang: 0.5, mt: 0.75, edit: 0.75, qa: 0.5, mr: 0.25, format: 0.25}
-  - {lang: 0.5, mt: 1.0, edit: 0.5, qa: 0.25, mr: 0.1, format: 0.25}
-  - {lang: 0.25, mt: 0.5, edit: 0.5, qa: 0.25, mr: 0.1, format: 0.1}
-  - {lang: 0.75, mt: 0.75, edit: 0.75, qa: 0.75, mr: 0.25, format: 0.25}
-  - {lang: 0.5, mt: 0.5, edit: 1.0, qa: 0.5, mr: 0.1, format: 0.25}
-  - {lang: 0.5, mt: 0.5, edit: 0.5, qa: 1.0, mr: 0.25, format: 0.25}
-  - {lang: 0.5, mt: 0.75, edit: 0.75, qa: 0.5, mr: 0.5, format: 0.25}
-  - {lang: 0.5, mt: 0.75, edit: 0.75, qa: 0.5, mr: 0.25, format: 0.1}
+  - {edit: 0.5, mr: 0.25}
+  - {edit: 0.75, mr: 0.25}
+  - {edit: 1.0, mr: 0.25}
+  - {edit: 0.75, mr: 0.5}
 search_grid:
-  lang: [0.25, 0.5, 0.75, 1.0]
-  mt: [0.25, 0.5, 0.75, 1.0]
   edit: [0.25, 0.5, 0.75, 1.0]
-  qa: [0.25, 0.5, 0.75, 1.0]
   mr: [0.1, 0.25, 0.5]
-  format: [0.1, 0.25, 0.5]

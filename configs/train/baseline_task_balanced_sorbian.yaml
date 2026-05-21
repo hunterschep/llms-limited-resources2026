@@ -1,19 +1,20 @@
-run_name: baseline_task_balanced_sorbian
+run_name: phase3_fixed_baseline_task_balanced_sorbian
 track: sorbian
 model_config: configs/model/qwen35_2b.yaml
-output_dir: checkpoints/sorbian/baselines/task_balanced
+output_dir: checkpoints/phase3_fixed/sorbian/task_balanced
 train_files:
   - data/processed/final/sorbian/mt_train_final.jsonl
   - data/processed/final/sorbian/qa_train_final.jsonl
   - data/processed/final/sorbian/sc_train_final.jsonl
   - data/processed/final/sorbian/gc_train_final.jsonl
   - data/processed/final/sorbian/mr_train_final.jsonl
+  - data/processed/final/sorbian/mr_format_preservation.jsonl
 sampling: task_balanced
-max_examples_per_task: 10000
+max_examples_per_task: 8000
 method: sft
 adapter: lora
 max_steps: 700
-learning_rate: 0.0002
+learning_rate: 0.00015
 batch_size: 1
 gradient_accumulation_steps: 16
 seed: 2606

@@ -1,9 +1,9 @@
 run_name: uk_final_polish
 track: ukrainian
 model_config: configs/model/qwen35_2b.yaml
-base_model_path: checkpoints/uk/merged/best
+base_model_path: checkpoints/phase3_fixed/uk/merged/best
 fallback_to_base_if_missing: true
-output_dir: checkpoints/uk/final_polished
+output_dir: checkpoints/phase3_fixed/uk/final_polished
 train_files:
   - data/processed/final/uk/format_polish_final.jsonl
 method: dpo_or_contrastive_sft

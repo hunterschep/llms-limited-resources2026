@@ -51,8 +51,8 @@ def synthetic_examples(config: dict) -> list[dict]:
                     source_id="synthetic:mr_arithmetic_preservation",
                     source_type="synthetic",
                     license_name="MIT",
-                    generation_method="non_polymath_arithmetic_template",
-                    metadata={"poly_math_policy": "not_used_not_derived"},
+                    generation_method="public_arithmetic_template",
+                    metadata={"forbidden_benchmark_policy": "not_used_not_derived"},
                 )
             )
     return rows
@@ -80,7 +80,7 @@ def official_dev_examples() -> list[dict]:
                     metadata={
                         "relative_path": rel,
                         "policy": "format inspection and locked validation only",
-                        "poly_math_policy": "official dev examples are not used for training",
+                        "forbidden_benchmark_policy": "official dev examples are not used for training",
                     },
                 )
             )

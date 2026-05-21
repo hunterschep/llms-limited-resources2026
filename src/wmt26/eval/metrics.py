@@ -5,6 +5,7 @@ import re
 from collections import Counter
 from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
+from fractions import Fraction
 from typing import Iterable
 
 
@@ -39,19 +40,36 @@ def normalize_choice_answer(value: object) -> str:
     return token.strip().strip(".:;,()[]{}\"'").upper()
 
 
-def _normalize_numeric_token(token: str) -> str:
-    token = token.strip().replace("−", "-").replace("–", "-").replace("—", "-")
-    token = re.sub(r"(?<=\d)[\s_](?=\d{3}\b)", "", token)
-    token = token.replace(",", "")
-    if token.endswith(".0"):
-        token = token[:-2]
-    try:
-        value = Decimal(token)
-    except InvalidOperation:
-        return token
+def _decimal_to_text(value: Decimal) -> str:
     if value == value.to_integral_value():
         return str(int(value))
     return format(value.normalize(), "f").rstrip("0").rstrip(".")
+
+
+def _normalize_numeric_token(token: str) -> str:
+    token = token.strip().replace("−", "-").replace("–", "-").replace("—", "-")
+    token = token.strip().strip(".:;,()[]{}\"'")
+    is_percent = token.endswith("%")
+    if is_percent:
+        token = token[:-1].strip()
+    fraction_match = re.fullmatch(r"([-+]?\d+)\s*/\s*([1-9]\d*)", token)
+    if fraction_match:
+        try:
+            value = Decimal(Fraction(int(fraction_match.group(1)), int(fraction_match.group(2))).numerator) / Decimal(
+                Fraction(int(fraction_match.group(1)), int(fraction_match.group(2))).denominator
+            )
+            text = _decimal_to_text(value)
+            return f"{text}%" if is_percent else text
+        except Exception:
+            return f"{token}%" if is_percent else token
+    token = re.sub(r"(?<=\d)[\s_](?=\d{3}\b)", "", token)
+    token = token.replace(",", "")
+    try:
+        value = Decimal(token)
+    except InvalidOperation:
+        return f"{token}%" if is_percent else token
+    text = _decimal_to_text(value)
+    return f"{text}%" if is_percent else text
 
 
 def normalize_mr_answer(value: object) -> str:
@@ -60,12 +78,16 @@ def normalize_mr_answer(value: object) -> str:
         return ""
     text = re.sub(r"\\boxed\{([^{}]+)\}", r"\1", text)
     text = re.sub(r"\bboxed\{([^{}]+)\}", r"\1", text, flags=re.IGNORECASE)
+    text = text.replace(" percent", "%").replace(" per cent", "%")
     text = re.sub(
         r"(?i)(?:final answer|answer|the answer is|відповідь|відповiдь|результат|відповідь така)\s*(?:is|=|:|-)?",
         " ",
         text,
     )
-    numeric = re.findall(r"[-+]?\d+(?:[\s_,]\d{3})*(?:\.\d+)?|[-+]?\d+(?:\.\d+)?", text)
+    numeric = re.findall(
+        r"[-+]?\d+\s*/\s*[1-9]\d*%?|[-+]?\d+(?:[\s_,]\d{3})*(?:\.\d+)?%?|[-+]?\d+(?:\.\d+)?%?",
+        text,
+    )
     if numeric:
         return _normalize_numeric_token(numeric[-1])
     return text.strip().strip(".:;,()[]{}\"'").lower()

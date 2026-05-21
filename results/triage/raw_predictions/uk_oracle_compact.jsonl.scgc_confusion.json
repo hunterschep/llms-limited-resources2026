@@ -1,0 +1,22 @@
+{
+  "GC": {
+    "category_counts": {
+      "correct_error_correction": 7,
+      "correct_no_error": 3
+    },
+    "malformed_output_rate": 0.0,
+    "no_error_accuracy": 1.0,
+    "rows": 10,
+    "sample_failures": []
+  },
+  "SC": {
+    "category_counts": {
+      "correct_error_correction": 4,
+      "correct_no_error": 6
+    },
+    "malformed_output_rate": 0.0,
+    "no_error_accuracy": 1.0,
+    "rows": 10,
+    "sample_failures": []
+  }
+}

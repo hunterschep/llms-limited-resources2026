@@ -1,0 +1,8 @@
+{
+  "category_counts": {
+    "exact_normalized_match": 10
+  },
+  "malformed_output_rate": 0.0,
+  "rows": 10,
+  "wrong_examples": []
+}

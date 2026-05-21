@@ -1,0 +1,9 @@
+{
+  "checkpoint": "checkpoints/triage/overfit/sorbian/gc",
+  "dry_run": true,
+  "eval_config": "results/triage/overfit/sorbian/gc/eval_config.yaml",
+  "execute": false,
+  "rows": 20,
+  "train_config": "results/triage/overfit/sorbian/gc/train_config.yaml",
+  "train_jsonl": "results/triage/overfit/sorbian/gc/train_eval.jsonl"
+}

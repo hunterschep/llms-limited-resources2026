@@ -1,0 +1,9 @@
+{
+  "checkpoint": "checkpoints/triage/overfit/uk/gc",
+  "dry_run": true,
+  "eval_config": "results/triage/overfit/uk/gc/eval_config.yaml",
+  "execute": false,
+  "rows": 20,
+  "train_config": "results/triage/overfit/uk/gc/train_config.yaml",
+  "train_jsonl": "results/triage/overfit/uk/gc/train_eval.jsonl"
+}

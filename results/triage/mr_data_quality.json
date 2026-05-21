@@ -1,0 +1,100 @@
+{
+  "normalization_probes": [
+    {
+      "expected": "42",
+      "input": "42",
+      "normalized": "42",
+      "pass": true
+    },
+    {
+      "expected": "42",
+      "input": "42.0",
+      "normalized": "42",
+      "pass": true
+    },
+    {
+      "expected": "42",
+      "input": "The answer is 42.",
+      "normalized": "42",
+      "pass": true
+    },
+    {
+      "expected": "42",
+      "input": "Answer: 42",
+      "normalized": "42",
+      "pass": true
+    },
+    {
+      "expected": "42",
+      "input": "Відповідь: 42",
+      "normalized": "42",
+      "pass": true
+    },
+    {
+      "expected": "42",
+      "input": "\\boxed{42}",
+      "normalized": "42",
+      "pass": true
+    },
+    {
+      "expected": "-3",
+      "input": "  -3.0  ",
+      "normalized": "-3",
+      "pass": true
+    },
+    {
+      "expected": "0.5",
+      "input": "1/2",
+      "normalized": "0.5",
+      "pass": true
+    },
+    {
+      "expected": "50%",
+      "input": "50%",
+      "normalized": "50%",
+      "pass": true
+    }
+  ],
+  "tracks": {
+    "sorbian": {
+      "data/processed/final/sorbian/mr_format_preservation.jsonl": {
+        "bad_parse_count": 0,
+        "bad_parse_examples": [],
+        "forbidden_examples": [],
+        "forbidden_metadata_count": 0,
+        "parseable_rows": 312,
+        "rows": 312,
+        "status": "pass"
+      },
+      "data/processed/final/sorbian/mr_train_final.jsonl": {
+        "bad_parse_count": 0,
+        "bad_parse_examples": [],
+        "forbidden_examples": [],
+        "forbidden_metadata_count": 0,
+        "parseable_rows": 312,
+        "rows": 312,
+        "status": "pass"
+      }
+    },
+    "uk": {
+      "data/processed/final/uk/mr_format_preservation.jsonl": {
+        "bad_parse_count": 0,
+        "bad_parse_examples": [],
+        "forbidden_examples": [],
+        "forbidden_metadata_count": 0,
+        "parseable_rows": 315,
+        "rows": 315,
+        "status": "pass"
+      },
+      "data/processed/final/uk/mr_train_final.jsonl": {
+        "bad_parse_count": 0,
+        "bad_parse_examples": [],
+        "forbidden_examples": [],
+        "forbidden_metadata_count": 0,
+        "parseable_rows": 315,
+        "rows": 315,
+        "status": "pass"
+      }
+    }
+  }
+}

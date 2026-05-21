@@ -10,8 +10,8 @@ Last updated: 2026-05-21.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
 - Completed specialist checkpoints from the first Phase 3 pass were deleted from Andromeda scratch after triage because they were trained/evaluated against known-bad edit mixtures and overly strict MR scoring.
 - Active jobs: none. The remaining eval, merge, polish, and final-eval jobs were canceled for triage on 2026-05-21.
-- Latest retained results: prompt-only base evaluations and triage evidence only. The stale first-pass tuned-model result JSONs and interference matrices were removed locally and remotely so the next run starts with clean experiment records.
-- Queued next: no full training or merge search. Required next work is retraining from the balanced edit mixtures, normalized evaluator, and strengthened MR preservation setup.
+- Latest retained results: prompt-only base evaluations, triage evidence, and local remediation sanity outputs only. The stale first-pass tuned-model result JSONs and interference matrices were removed locally and remotely so the next run starts with clean experiment records.
+- Queued next: fixed retraining only: `M_edit`, `M_mr`, task-balanced, and external-enhanced for each track. Merge search remains blocked until fixed evaluations clear the gates in `docs/42_phase3_resume_or_block_merge_decision.md`.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
 - All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
 
@@ -125,6 +125,9 @@ Last updated: 2026-05-21.
 - Root cause found: first-pass SC/GC mixtures were almost all error cases, producing an always-error detector prior that matches the observed ~66% detection F1 plateau.
 - MR zero scores were partly a parser/normalization artifact, but MR remains genuinely weak and needs a better final-answer-only preservation setup.
 - Same-set Ukrainian overfit checks passed: MR reached 100% on 20 examples; SC reached 93.3% detection/correction F1 on 20 examples.
+- Local remediation gates now pass: `make validate`, `make check-governance`, `make check-overlap`, `make triage-oracle`, `make triage-data-sanity`, `make report-edit-data-balance`, `make report-mr-data-quality`, and `make smoke-test`.
+- MR preservation data now includes final-answer-only SFT rows in `data/processed/final/*/mr_format_preservation.jsonl`.
+- Active train configs write to `checkpoints/phase3_fixed/...` and no longer write into invalid first-pass checkpoint paths.
 
 ## Artifact Cleanup
 

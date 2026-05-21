@@ -1,0 +1,33 @@
+# Phase 3 local cleanup 20260521T062819Z
+git_before=0f595e821e5477c7a61f105dc15ce964cdb8aa5e
+
+## Local files deleted
+scripts/__pycache__
+src/wmt26/__pycache__
+src/wmt26/compilers/__pycache__
+src/wmt26/data/__pycache__
+src/wmt26/eval/__pycache__
+src/wmt26/prompts/__pycache__
+src/wmt26/train/__pycache__
+
+## Remote cleanup
+Previous remote stale checkpoint cleanup manifest: /home/scheppat/workspace/projects/wmt26_lrllm/results/triage/cleanup_manifest_20260521T060636Z.txt
+A fresh remote cleanup job is available at andromeda/jobs/phase3_remediation_cleanup.slurm before retraining.
+
+## Preserved
+results/baselines/
+results/triage/
+data/manifests/
+configs/
+scripts/
+docs/
+
+## Storage before
+1.8M	results
+ 48K	checkpoints
+
+## Storage after
+1.8M	results
+
+## Commands
+Removed Python __pycache__ directories under scripts/ and src/.

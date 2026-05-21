@@ -18,6 +18,7 @@ results/**
 !results/**/*.json
 !results/**/*.jsonl
 !results/**/*.md
+!results/cleanup/*.txt
 logs/
 
 andromeda/logs/*

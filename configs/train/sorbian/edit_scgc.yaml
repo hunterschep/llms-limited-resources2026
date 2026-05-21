@@ -1,8 +1,8 @@
-run_name: sorbian_edit_scgc
+run_name: phase3_fixed_sorbian_edit_scgc
 track: sorbian
 specialist: edit
 model_config: configs/model/qwen35_2b.yaml
-output_dir: checkpoints/sorbian/specialists/edit_scgc
+output_dir: checkpoints/phase3_fixed/sorbian/edit
 train_files:
   - data/processed/final/sorbian/sc_train_final.jsonl
   - data/processed/final/sorbian/gc_train_final.jsonl
@@ -15,5 +15,7 @@ max_steps: 600
 learning_rate: 0.0002
 batch_size: 1
 gradient_accumulation_steps: 16
+sampling: task_balanced
+max_examples_per_task: 8000
 seed: 2606
 dry_run: false

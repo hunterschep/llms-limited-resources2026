@@ -1,0 +1,65 @@
+{
+  "model": "Qwen/Qwen3.5-2B",
+  "output": "/Users/hunterschep/llms-limited-resources2026/results/triage/raw_predictions/sorbian_oracle_compact.jsonl",
+  "summary": {
+    "GC": {
+      "diagnostics": {
+        "correction_exact": 4,
+        "detection_fn": 0,
+        "detection_fp": 0,
+        "detection_tn": 6,
+        "detection_tp": 4,
+        "gold_correct": 6,
+        "gold_error": 4,
+        "pred_correct": 6,
+        "pred_error": 4,
+        "total": 10,
+        "wrong_word_exact": 4
+      },
+      "rows": 10,
+      "scores": {
+        "correction_f1": 1.0,
+        "detection_f1": 1.0
+      }
+    },
+    "MR": {
+      "rows": 10,
+      "scores": {
+        "accuracy": 1.0
+      }
+    },
+    "MT": {
+      "rows": 10,
+      "scores": {
+        "bleu": 100.0,
+        "chrf++": 100.0
+      }
+    },
+    "QA": {
+      "rows": 10,
+      "scores": {
+        "accuracy": 1.0
+      }
+    },
+    "SC": {
+      "diagnostics": {
+        "correction_exact": 5,
+        "detection_fn": 0,
+        "detection_fp": 0,
+        "detection_tn": 5,
+        "detection_tp": 5,
+        "gold_correct": 5,
+        "gold_error": 5,
+        "pred_correct": 5,
+        "pred_error": 5,
+        "total": 10,
+        "wrong_word_exact": 5
+      },
+      "rows": 10,
+      "scores": {
+        "correction_f1": 1.0,
+        "detection_f1": 1.0
+      }
+    }
+  }
+}

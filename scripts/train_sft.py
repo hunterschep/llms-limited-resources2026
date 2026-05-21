@@ -5,6 +5,7 @@ import argparse
 import datetime as dt
 import json
 import os
+import random
 import sys
 import traceback
 from pathlib import Path
@@ -36,16 +37,73 @@ def read_jsonl(path: Path, limit: int | None = None) -> list[dict]:
     return rows
 
 
-def collect_examples(files: list[str], max_examples: int | None = None) -> list[dict]:
+def _task_from_rows(rows: list[dict], rel: str) -> str:
+    for row in rows:
+        task = row.get("task")
+        if task:
+            return str(task)
+    name = Path(rel).name.lower()
+    for task in ("mt", "qa", "sc", "gc", "mr", "lang", "format"):
+        if task in name:
+            return task.upper()
+    return "UNKNOWN"
+
+
+def _mixture_caps(config: dict) -> dict[str, int]:
+    caps: dict[str, int] = {}
+    mixture = config.get("mixture_config")
+    if not mixture:
+        return caps
+    path = ROOT / str(mixture)
+    if not path.exists():
+        return caps
+    cfg = load_yaml(path)
+    for source in cfg.get("sources", []) or []:
+        task = str(source.get("task", "UNKNOWN")).upper()
+        cap = source.get("cap")
+        if cap is None:
+            continue
+        caps[task] = max(caps.get(task, 0), int(cap))
+    return caps
+
+
+def collect_examples(files: list[str], max_examples: int | None = None, config: dict | None = None) -> list[dict]:
     rows: list[dict] = []
+    config = config or {}
+    seed = int(config.get("seed", 2606))
+    rng = random.Random(seed)
+    task_buckets: dict[str, list[dict]] = {}
     for rel in files:
         path = ROOT / rel
         if not path.exists():
             raise FileNotFoundError(f"Missing train file: {path}")
-        remaining = None if max_examples is None else max_examples - len(rows)
-        if remaining is not None and remaining <= 0:
-            break
-        rows.extend(read_jsonl(path, remaining))
+        file_rows = read_jsonl(path)
+        task = _task_from_rows(file_rows, rel)
+        task_buckets.setdefault(task, []).extend(file_rows)
+
+    sampling = str(config.get("sampling", "direct_files"))
+    max_per_task = config.get("max_examples_per_task")
+    mixture_caps = _mixture_caps(config)
+    if sampling in {"task_balanced", "task_balanced_with_caps"} or max_per_task or mixture_caps:
+        for task, task_rows in sorted(task_buckets.items()):
+            cap_candidates = []
+            if max_per_task:
+                cap_candidates.append(int(max_per_task))
+            if mixture_caps.get(task):
+                cap_candidates.append(int(mixture_caps[task]))
+            cap = min(cap_candidates) if cap_candidates else len(task_rows)
+            selected = list(task_rows)
+            rng.shuffle(selected)
+            rows.extend(selected[:cap])
+        rng.shuffle(rows)
+    else:
+        for rel in files:
+            path = ROOT / rel
+            file_rows = read_jsonl(path)
+            rows.extend(file_rows)
+
+    if max_examples is not None:
+        rows = rows[:max_examples]
     return rows
 
 
@@ -147,14 +205,18 @@ def skipped_run(config: dict, reason: str) -> None:
 
 
 def example_to_text(tokenizer, row: dict) -> str:
+    if "chosen" in row:
+        messages = [dict(message) for message in row.get("messages", [])]
+        messages.append({"role": "assistant", "content": str(row["chosen"])})
+        try:
+            return tokenizer.apply_chat_template(messages, tokenize=False)
+        except Exception:
+            return "\n".join(f"{m['role']}: {m['content']}" for m in messages)
     if "messages" in row and row["messages"]:
         try:
             return tokenizer.apply_chat_template(row["messages"], tokenize=False)
         except Exception:
             return "\n".join(f"{m['role']}: {m['content']}" for m in row["messages"])
-    if "chosen" in row:
-        prompt = "\n".join(m["content"] for m in row.get("messages", []))
-        return f"{prompt}\n{row['chosen']}"
     return f"{row.get('input', '')}\n{row.get('target', '')}"
 
 
@@ -282,7 +344,7 @@ def main() -> int:
     max_examples = args.max_examples if args.max_examples is not None else config.get("max_examples")
     examples: list[dict] = []
     try:
-        examples = collect_examples(config.get("train_files", []), max_examples)
+        examples = collect_examples(config.get("train_files", []), max_examples, config)
         if not examples and config.get("allow_empty_train", False):
             out = skipped_run(config, "no training examples; waiting for registered external/public data")
             append_training_record(config, args.config, "skipped", out, len(examples), "no training examples")

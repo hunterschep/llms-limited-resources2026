@@ -87,6 +87,137 @@ def main() -> None:
     write_job("03_filter_external_data", "python3 scripts/filter_external_data.py && python3 scripts/deduplicate_external_data.py && python3 scripts/check_dev_overlap.py", gpu=False, cpus=4, mem="32G")
     write_job("04_compile_external_data", "python3 scripts/build_external_training_sets.py", gpu=False, cpus=4, mem="32G")
     write_job("05_report_data_quality", "python3 scripts/report_external_data_quality.py", gpu=False, cpus=2, mem="8G")
+    write_job(
+        "phase3_remediation_cleanup",
+        "mkdir -p results/cleanup && TS=$(date -u +%Y%m%dT%H%M%SZ) && "
+        "MAN=results/cleanup/phase3_cleanup_manifest_${TS}.txt && "
+        "SUMMARY=results/cleanup/phase3_cleanup_summary_${TS}.md && "
+        "echo \"# Phase 3 remediation cleanup ${TS}\" > \"$MAN\" && "
+        "echo \"git_before=$(git rev-parse HEAD)\" >> \"$MAN\" && "
+        "echo \"queue_before\" >> \"$MAN\" && squeue -u \"$USER\" >> \"$MAN\" && "
+        "echo \"storage_before\" >> \"$MAN\" && du -sh \"$SCRATCH_ROOT\" /home/$USER/logs results 2>/dev/null >> \"$MAN\" || true && "
+        "rm -rf \"$SCRATCH_ROOT/checkpoints/uk/baselines\" \"$SCRATCH_ROOT/checkpoints/uk/specialists\" "
+        "\"$SCRATCH_ROOT/checkpoints/sorbian/baselines\" \"$SCRATCH_ROOT/checkpoints/sorbian/specialists\" "
+        "\"$SCRATCH_ROOT/checkpoints/phase3_invalid\" results/uk results/sorbian results/merge_search && "
+        "find /home/$USER/logs -maxdepth 1 -type f \\( -name 'train_uk_*24615*' -o -name 'train_sorbian_*24615*' -o -name 'eval_uk_*24615*' -o -name 'eval_sorbian_*24615*' \\) -delete && "
+        "echo \"storage_after\" >> \"$MAN\" && du -sh \"$SCRATCH_ROOT\" /home/$USER/logs results 2>/dev/null >> \"$MAN\" || true && "
+        "printf '# Phase 3 Cleanup Summary\\n\\nManifest: `%s`\\n' \"$MAN\" > \"$SUMMARY\" && "
+        "echo \"$MAN\"",
+        gpu=False,
+        partition="short",
+        time="01:00:00",
+        cpus=2,
+        mem="8G",
+    )
+    write_job("phase3_triage_oracle", "make triage-oracle", gpu=False, cpus=2, mem="8G")
+    write_job("phase3_triage_data_sanity", "make triage-data-sanity report-edit-data-balance report-mr-data-quality report-phase3-sanity", gpu=False, cpus=2, mem="8G")
+    write_job(
+        "phase3_triage_raw_predictions_uk",
+        "python3 scripts/triage_raw_predictions.py --config configs/eval/uk.yaml --model Qwen/Qwen3.5-2B --per-task 10 --output results/triage/raw_predictions/phase3_fixed_uk_base.jsonl && "
+        "python3 scripts/diagnose_prediction_dump.py --input results/triage/raw_predictions/phase3_fixed_uk_base.jsonl && "
+        "python3 scripts/report_scgc_confusion.py --input results/triage/raw_predictions/phase3_fixed_uk_base.jsonl && "
+        "python3 scripts/report_mr_raw_errors.py --input results/triage/raw_predictions/phase3_fixed_uk_base.jsonl",
+        partition="short",
+        time="12:00:00",
+        mem="96G",
+    )
+    write_job(
+        "phase3_triage_raw_predictions_sorbian",
+        "python3 scripts/triage_raw_predictions.py --config configs/eval/sorbian.yaml --model Qwen/Qwen3.5-2B --per-task 5 --output results/triage/raw_predictions/phase3_fixed_sorbian_base.jsonl && "
+        "python3 scripts/diagnose_prediction_dump.py --input results/triage/raw_predictions/phase3_fixed_sorbian_base.jsonl && "
+        "python3 scripts/report_scgc_confusion.py --input results/triage/raw_predictions/phase3_fixed_sorbian_base.jsonl && "
+        "python3 scripts/report_mr_raw_errors.py --input results/triage/raw_predictions/phase3_fixed_sorbian_base.jsonl",
+        partition="short",
+        time="12:00:00",
+        mem="96G",
+    )
+    write_job(
+        "phase3_triage_overfit_uk",
+        "python3 scripts/triage_single_task_overfit.py --track uk --task SC --examples 20 --steps 60 --execute && "
+        "python3 scripts/triage_single_task_overfit.py --track uk --task GC --examples 20 --steps 60 --execute && "
+        "python3 scripts/triage_single_task_overfit.py --track uk --task MR --examples 20 --steps 60 --execute",
+        partition="short",
+        time="12:00:00",
+        mem="96G",
+    )
+    write_job(
+        "phase3_triage_overfit_sorbian",
+        "python3 scripts/triage_single_task_overfit.py --track sorbian --task SC --examples 20 --steps 60 --execute && "
+        "python3 scripts/triage_single_task_overfit.py --track sorbian --task GC --examples 20 --steps 60 --execute && "
+        "python3 scripts/triage_single_task_overfit.py --track sorbian --task MR --examples 20 --steps 60 --execute",
+        partition="short",
+        time="12:00:00",
+        mem="96G",
+    )
+    write_job(
+        "phase3_check_checkpoint_loading",
+        "python3 scripts/check_checkpoint_loading.py --config configs/eval/uk.yaml --checkpoint checkpoints/phase3_fixed/uk/edit --tasks SC GC --per-task 5 --output results/triage/checkpoint_loading/phase3_fixed_uk_edit.jsonl && "
+        "python3 scripts/check_checkpoint_loading.py --config configs/eval/uk.yaml --checkpoint checkpoints/phase3_fixed/uk/mr --tasks MR --per-task 5 --output results/triage/checkpoint_loading/phase3_fixed_uk_mr.jsonl && "
+        "python3 scripts/check_checkpoint_loading.py --config configs/eval/sorbian.yaml --checkpoint checkpoints/phase3_fixed/sorbian/edit --tasks SC GC --per-task 5 --output results/triage/checkpoint_loading/phase3_fixed_sorbian_edit.jsonl && "
+        "python3 scripts/check_checkpoint_loading.py --config configs/eval/sorbian.yaml --checkpoint checkpoints/phase3_fixed/sorbian/mr --tasks MR --per-task 5 --output results/triage/checkpoint_loading/phase3_fixed_sorbian_mr.jsonl",
+        partition="short",
+        time="12:00:00",
+        mem="96G",
+    )
+
+    fixed_train = {
+        "uk_edit": "configs/train/uk/edit_scgc.yaml",
+        "uk_mr": "configs/train/uk/mr.yaml",
+        "uk_task_balanced": "configs/train/baseline_task_balanced_uk.yaml",
+        "uk_external_enhanced": "configs/train/uk/external_enhanced_multitask.yaml",
+        "sorbian_edit": "configs/train/sorbian/edit_scgc.yaml",
+        "sorbian_mr": "configs/train/sorbian/mr.yaml",
+        "sorbian_task_balanced": "configs/train/baseline_task_balanced_sorbian.yaml",
+        "sorbian_external_enhanced": "configs/train/sorbian/external_enhanced_multitask.yaml",
+    }
+    for job_key, config_path in fixed_train.items():
+        write_job(
+            f"retrain_{job_key}_fixed",
+            f"make check-governance check-overlap triage-oracle triage-data-sanity report-edit-data-balance report-mr-data-quality && "
+            f"sha256sum data/manifests/final_training_data_summary.md {config_path} && "
+            f"python3 scripts/train_sft.py --config {config_path}",
+            partition="medium",
+            time="2-00:00:00",
+            mem="128G",
+        )
+    write_job(
+        "eval_phase3_fixed_uk",
+        "python3 scripts/eval_model.py --config configs/eval/uk.yaml --model Qwen/Qwen3.5-2B --output results/phase3_fixed/uk/base_qwen35_2b.json && "
+        "python3 scripts/eval_model.py --config configs/eval/uk.yaml --model checkpoints/phase3_fixed/uk/edit --output results/phase3_fixed/uk/edit.json && "
+        "python3 scripts/eval_model.py --config configs/eval/uk.yaml --model checkpoints/phase3_fixed/uk/mr --output results/phase3_fixed/uk/mr.json && "
+        "python3 scripts/eval_model.py --config configs/eval/uk.yaml --model checkpoints/phase3_fixed/uk/task_balanced --output results/phase3_fixed/uk/task_balanced.json && "
+        "python3 scripts/eval_model.py --config configs/eval/uk.yaml --model checkpoints/phase3_fixed/uk/external_enhanced --output results/phase3_fixed/uk/external_enhanced.json",
+        partition="medium",
+        time="2-00:00:00",
+        mem="128G",
+    )
+    write_job(
+        "eval_phase3_fixed_sorbian",
+        "python3 scripts/eval_model.py --config configs/eval/sorbian.yaml --model Qwen/Qwen3.5-2B --output results/phase3_fixed/sorbian/base_qwen35_2b.json && "
+        "python3 scripts/eval_model.py --config configs/eval/sorbian.yaml --model checkpoints/phase3_fixed/sorbian/edit --output results/phase3_fixed/sorbian/edit.json && "
+        "python3 scripts/eval_model.py --config configs/eval/sorbian.yaml --model checkpoints/phase3_fixed/sorbian/mr --output results/phase3_fixed/sorbian/mr.json && "
+        "python3 scripts/eval_model.py --config configs/eval/sorbian.yaml --model checkpoints/phase3_fixed/sorbian/task_balanced --output results/phase3_fixed/sorbian/task_balanced.json && "
+        "python3 scripts/eval_model.py --config configs/eval/sorbian.yaml --model checkpoints/phase3_fixed/sorbian/external_enhanced --output results/phase3_fixed/sorbian/external_enhanced.json",
+        partition="medium",
+        time="2-00:00:00",
+        mem="128G",
+    )
+    write_job(
+        "merge_phase3_fixed_uk",
+        "python3 scripts/search_merge_weights.py --config configs/merge/uk.yaml --limit 4 --execute --eval-limit 256",
+        partition="medium",
+        time="2-00:00:00",
+        mem="128G",
+    )
+    write_job(
+        "merge_phase3_fixed_sorbian",
+        "python3 scripts/search_merge_weights.py --config configs/merge/sorbian.yaml --limit 4 --execute --eval-limit 256",
+        partition="medium",
+        time="2-00:00:00",
+        mem="128G",
+    )
+    write_job("polish_phase3_fixed_uk", "python3 scripts/train_format_polish.py --config configs/train/uk/final_polish.yaml", partition="medium", time="2-00:00:00", mem="96G")
+    write_job("polish_phase3_fixed_sorbian", "python3 scripts/train_format_polish.py --config configs/train/sorbian/final_polish.yaml", partition="medium", time="2-00:00:00", mem="96G")
 
     baseline_configs = {
         "uk": [

@@ -108,6 +108,48 @@ def numeric_mr_rows(rows: list[dict]) -> list[dict]:
     return [row for row in rows if NUMERIC_TARGET_RE.match(str(row.get("target", "")))]
 
 
+def mr_format_preservation_rows(rows: list[dict], track: str) -> list[dict]:
+    preservation = []
+    for idx, row in enumerate(rows):
+        target = str(row.get("target", "")).strip()
+        if not NUMERIC_TARGET_RE.match(target):
+            continue
+        messages = [dict(message) for message in row.get("messages", []) if message.get("role") != "assistant"]
+        if not messages:
+            messages = [
+                {"role": "system", "content": "You solve math problems and return only the final answer. Do not include explanation."},
+                {"role": "user", "content": f"Problem:\n{row.get('input', '')}\n\nFinal answer only:"},
+            ]
+        preservation.append(
+            {
+                "id": f"mr-format-preservation-{track}-{idx:06d}",
+                "track": row.get("track"),
+                "task": "FORMAT",
+                "source_task": "MR",
+                "language": row.get("language"),
+                "source_language": row.get("source_language"),
+                "target_language": row.get("target_language"),
+                "input": row.get("input", ""),
+                "target": target,
+                "messages": messages,
+                "chosen": target,
+                "rejected": f"The answer is {target} because this follows from the arithmetic.",
+                "source_id": row.get("source_id", "synthetic:mr_format_preservation"),
+                "source_type": row.get("source_type", "synthetic"),
+                "license": row.get("license", "derived-from-source-license"),
+                "split": "train",
+                "is_synthetic": row.get("is_synthetic", True),
+                "generation_method": "mr_final_answer_only_format_preservation",
+                "contamination_checked": row.get("contamination_checked", True),
+                "metadata": {
+                    "derived_from": row.get("id"),
+                    "forbidden_benchmark_policy": "not_used_not_derived",
+                },
+            }
+        )
+    return preservation
+
+
 def build_uk() -> dict[str, int]:
     out = ROOT / "data/processed/final/uk"
     ext = ROOT / "data/processed/external/uk"
@@ -118,7 +160,9 @@ def build_uk() -> dict[str, int]:
     uk_gc = read_jsonl(ROOT / "data/processed/uk/gc_train.jsonl") + read_jsonl(ext / "gc_real.jsonl") + read_jsonl(ext / "gc_synthetic_public.jsonl")
     counts["sc_train_final"] = write_jsonl(out / "sc_train_final.jsonl", add_clean_counterparts(uk_sc))
     counts["gc_train_final"] = write_jsonl(out / "gc_train_final.jsonl", add_clean_counterparts(uk_gc))
-    counts["mr_train_final"] = write_jsonl(out / "mr_train_final.jsonl", numeric_mr_rows(read_jsonl(ROOT / "data/processed/uk/mr_train.jsonl") + read_jsonl(ext / "mr_non_benchmark.jsonl")))
+    uk_mr = numeric_mr_rows(read_jsonl(ROOT / "data/processed/uk/mr_train.jsonl") + read_jsonl(ext / "mr_non_benchmark.jsonl"))
+    counts["mr_train_final"] = write_jsonl(out / "mr_train_final.jsonl", uk_mr)
+    counts["mr_format_preservation"] = write_jsonl(out / "mr_format_preservation.jsonl", mr_format_preservation_rows(uk_mr, "uk"))
     counts["lang_curriculum_external"] = write_jsonl(out / "lang_curriculum_external.jsonl", read_jsonl(ROOT / "data/processed/uk/lang_train.jsonl") + read_jsonl(ext / "monolingual_train.jsonl"))
     counts["format_polish_final"] = write_jsonl(out / "format_polish_final.jsonl", read_jsonl(ROOT / "data/processed/uk/format_preferences.jsonl"))
     return counts
@@ -134,7 +178,9 @@ def build_sorbian() -> dict[str, int]:
     sorb_gc = read_jsonl(ROOT / "data/processed/sorbian/gc_train.jsonl") + read_jsonl(ext / "gc_synthetic_hsb.jsonl") + read_jsonl(ext / "gc_synthetic_dsb.jsonl")
     counts["sc_train_final"] = write_jsonl(out / "sc_train_final.jsonl", add_clean_counterparts(sorb_sc))
     counts["gc_train_final"] = write_jsonl(out / "gc_train_final.jsonl", add_clean_counterparts(sorb_gc))
-    counts["mr_train_final"] = write_jsonl(out / "mr_train_final.jsonl", numeric_mr_rows(read_jsonl(ROOT / "data/processed/sorbian/mr_train.jsonl") + read_jsonl(ext / "mr_non_benchmark_hsb.jsonl") + read_jsonl(ext / "mr_non_benchmark_dsb.jsonl")))
+    sorbian_mr = numeric_mr_rows(read_jsonl(ROOT / "data/processed/sorbian/mr_train.jsonl") + read_jsonl(ext / "mr_non_benchmark_hsb.jsonl") + read_jsonl(ext / "mr_non_benchmark_dsb.jsonl"))
+    counts["mr_train_final"] = write_jsonl(out / "mr_train_final.jsonl", sorbian_mr)
+    counts["mr_format_preservation"] = write_jsonl(out / "mr_format_preservation.jsonl", mr_format_preservation_rows(sorbian_mr, "sorbian"))
     counts["lang_curriculum_external"] = write_jsonl(out / "lang_curriculum_external.jsonl", read_jsonl(ROOT / "data/processed/sorbian/lang_train.jsonl") + read_jsonl(ext / "monolingual_public.jsonl"))
     counts["format_polish_final"] = write_jsonl(out / "format_polish_final.jsonl", read_jsonl(ROOT / "data/processed/sorbian/format_preferences.jsonl"))
     return counts

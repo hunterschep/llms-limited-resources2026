@@ -1,17 +1,20 @@
-run_name: sorbian_mr
+run_name: phase3_fixed_sorbian_mr
 track: sorbian
 specialist: mr
 model_config: configs/model/qwen35_2b.yaml
-output_dir: checkpoints/sorbian/specialists/mr
+output_dir: checkpoints/phase3_fixed/sorbian/mr
 train_files:
   - data/processed/final/sorbian/mr_train_final.jsonl
+  - data/processed/final/sorbian/mr_format_preservation.jsonl
 eval_files:
   - data/processed/sorbian/mr_locked_validation.jsonl
 method: qlora
 adapter: lora
-max_steps: 150
-learning_rate: 0.0001
+max_steps: 300
+learning_rate: 0.00005
 batch_size: 1
-gradient_accumulation_steps: 8
+gradient_accumulation_steps: 4
+sampling: task_balanced
+max_examples_per_task: 1000
 seed: 2606
 dry_run: false

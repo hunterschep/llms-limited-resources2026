@@ -7,6 +7,7 @@
 - `sc_train_final`: 9009
 - `gc_train_final`: 7062
 - `mr_train_final`: 315
+- `mr_format_preservation`: 315
 - `lang_curriculum_external`: 3996
 - `format_polish_final`: 815
 
@@ -17,6 +18,7 @@
 - `sc_train_final`: 5757
 - `gc_train_final`: 1875
 - `mr_train_final`: 312
+- `mr_format_preservation`: 312
 - `lang_curriculum_external`: 4997
 - `format_polish_final`: 972
 
