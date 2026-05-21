@@ -93,7 +93,7 @@ def main() -> None:
         "MAN=results/cleanup/phase3_cleanup_manifest_${TS}.txt && "
         "SUMMARY=results/cleanup/phase3_cleanup_summary_${TS}.md && "
         "echo \"# Phase 3 remediation cleanup ${TS}\" > \"$MAN\" && "
-        "echo \"git_before=$(git rev-parse HEAD)\" >> \"$MAN\" && "
+        "echo \"git_before=$(cat REVISION 2>/dev/null || git rev-parse HEAD 2>/dev/null || echo unknown)\" >> \"$MAN\" && "
         "echo \"queue_before\" >> \"$MAN\" && squeue -u \"$USER\" >> \"$MAN\" && "
         "echo \"storage_before\" >> \"$MAN\" && du -sh \"$SCRATCH_ROOT\" /home/$USER/logs results 2>/dev/null >> \"$MAN\" || true && "
         "rm -rf \"$SCRATCH_ROOT/checkpoints/uk/baselines\" \"$SCRATCH_ROOT/checkpoints/uk/specialists\" "

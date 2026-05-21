@@ -1,0 +1,15 @@
+# Phase 3 remediation cleanup 20260521T063217Z
+git_before=
+queue_before
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           2462241     short phase3_t scheppat PD       0:00      1 (Dependency)
+           2462240     short phase3_t scheppat PD       0:00      1 (Dependency)
+           2462239     short phase3_r scheppat  R       0:04      1 c035
+storage_before
+0	/scratch/scheppat/projects/wmt26_lrllm
+288K	/home/scheppat/logs
+2.3M	results
+storage_after
+0	/scratch/scheppat/projects/wmt26_lrllm
+288K	/home/scheppat/logs
+2.3M	results
