@@ -1,0 +1,3 @@
+run_id,track,stage,model_type,config_path,data_mixture_id,checkpoint_path,status,andromeda_job_id,notes
+base_prompt_uk,ukrainian,baseline,prompt_only,configs/eval/uk.yaml,none,Qwen/Qwen3.5-2B,planned,,Evaluate base Qwen3.5-2B with current prompts.
+base_prompt_sorbian,sorbian,baseline,prompt_only,configs/eval/sorbian.yaml,none,Qwen/Qwen3.5-2B,planned,,Evaluate base Qwen3.5-2B with current prompts.
