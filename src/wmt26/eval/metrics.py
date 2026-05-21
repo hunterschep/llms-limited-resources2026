@@ -4,6 +4,7 @@ import math
 import re
 from collections import Counter
 from dataclasses import dataclass
+from decimal import Decimal, InvalidOperation
 from typing import Iterable
 
 
@@ -16,6 +17,70 @@ def exact_accuracy(predictions: Iterable[object], references: Iterable[object]) 
     if not pairs:
         return 0.0
     correct = sum(normalize_text(p) == normalize_text(r) for p, r in pairs)
+    return correct / len(pairs)
+
+
+def normalize_choice_answer(value: object) -> str:
+    text = normalize_text(value).strip()
+    if not text:
+        return ""
+    text = text.replace("`", "").strip()
+    answer_pattern = re.compile(
+        r"(?:answer|option|choice|відповідь|відповiдь|варіант|вариант)\s*(?:is|=|:|-)?\s*([A-Za-zА-Яа-яІіЇїЄєҐґ]|\d+)",
+        re.IGNORECASE,
+    )
+    match = answer_pattern.search(text)
+    if match:
+        token = match.group(1)
+    else:
+        first_line = next((line.strip() for line in str(value).splitlines() if line.strip()), text)
+        lead = re.match(r"^\s*[\(\[]?([A-Za-zА-Яа-яІіЇїЄєҐґ]|\d+)[\)\]\.\:,\s]*", first_line)
+        token = lead.group(1) if lead else text
+    return token.strip().strip(".:;,()[]{}\"'").upper()
+
+
+def _normalize_numeric_token(token: str) -> str:
+    token = token.strip().replace("−", "-").replace("–", "-").replace("—", "-")
+    token = re.sub(r"(?<=\d)[\s_](?=\d{3}\b)", "", token)
+    token = token.replace(",", "")
+    if token.endswith(".0"):
+        token = token[:-2]
+    try:
+        value = Decimal(token)
+    except InvalidOperation:
+        return token
+    if value == value.to_integral_value():
+        return str(int(value))
+    return format(value.normalize(), "f").rstrip("0").rstrip(".")
+
+
+def normalize_mr_answer(value: object) -> str:
+    text = normalize_text(value)
+    if not text:
+        return ""
+    text = re.sub(r"\\boxed\{([^{}]+)\}", r"\1", text)
+    text = re.sub(r"\bboxed\{([^{}]+)\}", r"\1", text, flags=re.IGNORECASE)
+    text = re.sub(
+        r"(?i)(?:final answer|answer|the answer is|відповідь|відповiдь|результат|відповідь така)\s*(?:is|=|:|-)?",
+        " ",
+        text,
+    )
+    numeric = re.findall(r"[-+]?\d+(?:[\s_,]\d{3})*(?:\.\d+)?|[-+]?\d+(?:\.\d+)?", text)
+    if numeric:
+        return _normalize_numeric_token(numeric[-1])
+    return text.strip().strip(".:;,()[]{}\"'").lower()
+
+
+def normalized_accuracy(predictions: Iterable[object], references: Iterable[object], task: str) -> float:
+    pairs = list(zip(predictions, references))
+    if not pairs:
+        return 0.0
+    if task == "QA":
+        correct = sum(normalize_choice_answer(p) == normalize_choice_answer(r) for p, r in pairs)
+    elif task == "MR":
+        correct = sum(normalize_mr_answer(p) == normalize_mr_answer(r) for p, r in pairs)
+    else:
+        correct = sum(normalize_text(p) == normalize_text(r) for p, r in pairs)
     return correct / len(pairs)
 
 
@@ -99,19 +164,59 @@ def binary_f1(predictions: Iterable[bool], references: Iterable[bool]) -> Binary
     return BinaryF1(precision=precision, recall=recall, f1=f1)
 
 
+def _normalize_edit_token(value: str) -> str:
+    token = normalize_text(value).strip().strip("`\"'.,;:()[]{}")
+    return "CORRECT" if token.upper() == "CORRECT" else token
+
+
 def parse_edit_output(text: str) -> tuple[str, str]:
     wrong = ""
     correct = ""
     for line in str(text).splitlines():
-        if line.lower().startswith("wrong word:"):
-            wrong = line.split(":", 1)[1].strip()
-        elif line.lower().startswith("correct word:"):
-            correct = line.split(":", 1)[1].strip()
+        normalized = line.strip()
+        wrong_match = re.match(r"(?i)^\s*(?:wrong word|wrong|incorrect word|incorrect|помилкове слово|неправильне слово)\s*[:=-]\s*(.+?)\s*$", normalized)
+        correct_match = re.match(r"(?i)^\s*(?:correct word|correct|correction|правильне слово|виправлення)\s*[:=-]\s*(.+?)\s*$", normalized)
+        if wrong_match:
+            wrong = wrong_match.group(1).strip()
+        elif correct_match:
+            correct = correct_match.group(1).strip()
     if not wrong and not correct:
         stripped = normalize_text(text)
-        if stripped == "CORRECT":
+        if stripped.upper() == "CORRECT":
             return "CORRECT", "CORRECT"
-    return wrong or "CORRECT", correct or "CORRECT"
+    return _normalize_edit_token(wrong or "CORRECT"), _normalize_edit_token(correct or "CORRECT")
+
+
+def scgc_diagnostics(predictions: list[str], references: list[str]) -> dict[str, int]:
+    pred_pairs = [parse_edit_output(p) for p in predictions]
+    ref_pairs = [parse_edit_output(r) for r in references]
+    pred_has_error = [wrong != "CORRECT" for wrong, _ in pred_pairs]
+    ref_has_error = [wrong != "CORRECT" for wrong, _ in ref_pairs]
+    tp = sum(p and r for p, r in zip(pred_has_error, ref_has_error))
+    fp = sum(p and not r for p, r in zip(pred_has_error, ref_has_error))
+    fn = sum((not p) and r for p, r in zip(pred_has_error, ref_has_error))
+    tn = sum((not p) and (not r) for p, r in zip(pred_has_error, ref_has_error))
+    wrong_exact = sum(
+        p_wrong == r_wrong and r_wrong != "CORRECT"
+        for (p_wrong, _), (r_wrong, _) in zip(pred_pairs, ref_pairs)
+    )
+    correction_exact = sum(
+        p_wrong == r_wrong and p_correct == r_correct and r_wrong != "CORRECT"
+        for (p_wrong, p_correct), (r_wrong, r_correct) in zip(pred_pairs, ref_pairs)
+    )
+    return {
+        "total": len(ref_pairs),
+        "gold_error": sum(ref_has_error),
+        "gold_correct": len(ref_has_error) - sum(ref_has_error),
+        "pred_error": sum(pred_has_error),
+        "pred_correct": len(pred_has_error) - sum(pred_has_error),
+        "detection_tp": tp,
+        "detection_fp": fp,
+        "detection_fn": fn,
+        "detection_tn": tn,
+        "wrong_word_exact": wrong_exact,
+        "correction_exact": correction_exact,
+    }
 
 
 def scgc_scores(predictions: list[str], references: list[str]) -> dict[str, float]:

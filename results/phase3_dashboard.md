@@ -1,17 +1,17 @@
 # Phase 3 Dashboard
 
-Status: training in progress on Andromeda. The Phase 3 goal is not complete yet.
+Status: paused for triage/remediation. The Phase 3 goal is not complete yet.
 
 ## Current Snapshot
 
-Last updated: 2026-05-20.
+Last updated: 2026-05-21.
 
 - Remote revision: `57cfa94a9ba877c95df4ba13e87da38b47292816`.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
 - Completed specialist checkpoints: all six Ukrainian specialists and all six Sorbian specialists.
-- Active jobs: Sorbian baseline eval 2461542, Ukrainian specialist eval 2461547, and Sorbian specialist eval 2461551.
+- Active jobs: none. The remaining eval, merge, polish, and final-eval jobs were canceled for triage on 2026-05-21.
 - Latest completed partial results: Sorbian prompt-only has overall 27.539, Sorbian official-only has 27.563, and Sorbian M_lang has 26.669. Ukrainian baselines are complete: official-only 29.857, naive multitask 31.726, task-balanced 32.276, external-enhanced 32.839. Ukrainian specialists so far: M_lang 32.940, M_mt 34.541, M_edit 30.088, M_qa 33.410, and M_mr 28.961. M_mt is currently the best measured Ukrainian candidate, while M_qa is more MT-preserving; all evaluated tuned Ukrainian candidates collapse MR.
-- Queued next: merge, polish, and final eval chains.
+- Queued next: no full training or merge search. Required next work is evaluator/raw-output/overfit/checkpoint-loading triage.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
 - All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
 
@@ -100,21 +100,28 @@ Last updated: 2026-05-20.
 | train_uk_baselines | 2461539 | completed | Four baseline checkpoints written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/baselines/`. |
 | eval_uk_baselines | 2461540 | completed | All four Ukrainian baselines evaluated; external-enhanced is the best baseline so far at 32.839 overall. |
 | train_sorbian_baselines | 2461541 | completed | Four baseline checkpoints written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/baselines/`. |
-| eval_sorbian_baselines | 2461542 | running | Official-only result landed at 27.563 overall; remaining Sorbian baselines still evaluating. |
-| eval_uk_specialists | 2461547 | running | M_lang, M_mt, M_edit, M_qa, and M_mr results landed; M_format still evaluating. |
-| eval_sorbian_specialists | 2461551 | running | M_lang result landed; remaining Sorbian specialists still evaluating. |
-| merge_uk | 2461548 | dependency | Depends on 2461547. |
-| merge_sorbian | 2461552 | dependency | Depends on 2461551. |
-| polish_uk | 2461549 | dependency | Depends on 2461548. |
-| polish_sorbian | 2461553 | dependency | Depends on 2461552. |
-| eval_uk_final | 2461550 | dependency | Depends on 2461549. |
-| eval_sorbian_final | 2461554 | dependency | Depends on 2461553. |
+| eval_sorbian_baselines | 2461542 | canceled | Paused for triage after official-only result landed at 27.563 overall. |
+| eval_uk_specialists | 2461547 | canceled | Paused for triage after M_lang, M_mt, M_edit, M_qa, and M_mr results landed; M_format did not finish. |
+| eval_sorbian_specialists | 2461551 | canceled | Paused for triage after M_lang result landed. |
+| merge_uk | 2461548 | canceled | Canceled before start; merge search paused until MR and SC/GC triage passes. |
+| merge_sorbian | 2461552 | canceled | Canceled before start; merge search paused until MR and SC/GC triage passes. |
+| polish_uk | 2461549 | canceled | Canceled before start. |
+| polish_sorbian | 2461553 | canceled | Canceled before start. |
+| eval_uk_final | 2461550 | canceled | Canceled before start. |
+| eval_sorbian_final | 2461554 | canceled | Canceled before start. |
 
 ## Current Decision State
 
-- Ukrainian final model: pending.
-- Sorbian final model: pending.
+- Ukrainian final model: paused pending triage.
+- Sorbian final model: paused pending triage.
 - Official evaluator reconciliation: pending organizer release/check.
+
+## Triage Snapshot
+
+- `make triage-oracle` passes locally.
+- Gold-target oracle checks give 100 for QA, MR, SC, and GC on both tracks.
+- MT oracle sanity is high: Ukrainian chrF++ 99.793, Sorbian chrF++ 100.000.
+- Next required checks: raw prediction dumps, MR answer normalization inspection, SC/GC confusion matrices, single-batch overfit, and checkpoint-loading comparison.
 
 ## Local Gate Baseline
 

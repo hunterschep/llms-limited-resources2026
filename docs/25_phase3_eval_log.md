@@ -57,6 +57,8 @@ This file records evaluation events. Machine-readable evaluation records live in
 | sorbian_baselines | Sorbian | baseline checkpoints | locked validation | running job 2461542 | Started after baseline training job 2461541 completed. |
 | sorbian_baseline_official_only | Sorbian | checkpoints/sorbian/baselines/official_only | locked validation | completed within job 2461542 | Overall 27.563; slightly above prompt-only through QA gain, but MT/SC dip and MR remains 0.000. |
 | sorbian_specialist_lang | Sorbian | checkpoints/sorbian/specialists/lang | locked validation | completed within job 2461551 | Overall 26.669; MT improves to 30.818, but QA/SC losses pull overall below prompt-only. |
+| phase3_pause | all | remaining eval/merge/polish/final jobs | locked validation / merge search | canceled on 2026-05-21 | Jobs 2461542, 2461547, 2461551, 2461548, 2461549, 2461550, 2461552, 2461553, and 2461554 canceled. Main campaign paused for MR/SC/GC/checkpoint-loading triage. |
+| triage_oracle | all | gold targets as predictions | locked validation | completed locally | QA/MR/SC/GC oracle checks pass at 100 for both tracks; MT oracle sanity is high. |
 
 ## Required Metrics
 

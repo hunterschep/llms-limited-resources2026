@@ -1,0 +1,65 @@
+{
+  "model": "Qwen/Qwen3.5-2B",
+  "output": "/Users/hunterschep/llms-limited-resources2026/results/triage/raw_predictions/uk_oracle.jsonl",
+  "summary": {
+    "GC": {
+      "diagnostics": {
+        "correction_exact": 3,
+        "detection_fn": 0,
+        "detection_fp": 0,
+        "detection_tn": 2,
+        "detection_tp": 3,
+        "gold_correct": 2,
+        "gold_error": 3,
+        "pred_correct": 2,
+        "pred_error": 3,
+        "total": 5,
+        "wrong_word_exact": 3
+      },
+      "rows": 5,
+      "scores": {
+        "correction_f1": 1.0,
+        "detection_f1": 1.0
+      }
+    },
+    "MR": {
+      "rows": 5,
+      "scores": {
+        "accuracy": 1.0
+      }
+    },
+    "MT": {
+      "rows": 5,
+      "scores": {
+        "bleu": 100.0,
+        "chrf++": 100.0
+      }
+    },
+    "QA": {
+      "rows": 5,
+      "scores": {
+        "accuracy": 1.0
+      }
+    },
+    "SC": {
+      "diagnostics": {
+        "correction_exact": 1,
+        "detection_fn": 0,
+        "detection_fp": 0,
+        "detection_tn": 4,
+        "detection_tp": 1,
+        "gold_correct": 4,
+        "gold_error": 1,
+        "pred_correct": 4,
+        "pred_error": 1,
+        "total": 5,
+        "wrong_word_exact": 1
+      },
+      "rows": 5,
+      "scores": {
+        "correction_f1": 1.0,
+        "detection_f1": 1.0
+      }
+    }
+  }
+}

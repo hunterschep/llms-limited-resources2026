@@ -1,6 +1,6 @@
 # Phase 3 Model Selection
 
-Status: pending merge search and polish.
+Status: paused pending triage. Merge search and polish are blocked until evaluator/raw-output/overfit/checkpoint-loading remediation passes.
 
 ## Selection Rule
 
@@ -22,3 +22,7 @@ Tie-breakers:
 |---|---|---|---|
 | Ukrainian |  | pending | Awaiting baselines, specialists, merge search, and polish. |
 | Sorbian |  | pending | Awaiting baselines, specialists, merge search, and polish. |
+
+## Pause Rationale
+
+Do not select or merge a final model from the current partial results. Ukrainian M_mt is promising overall, and Sorbian M_lang improves MT, but systematic MR collapse and suspicious SC/GC detection behavior make the current objective signal unreliable. Resume model selection only after the triage gates in `docs/33_phase3_triage_remediation.md` pass.

@@ -1,0 +1,255 @@
+{
+  "passed": true,
+  "reports": [
+    {
+      "config": "configs/eval/uk.yaml",
+      "failures": [],
+      "passed": true,
+      "tasks": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 294,
+            "detection_fn": 0,
+            "detection_fp": 0,
+            "detection_tn": 303,
+            "detection_tp": 294,
+            "gold_correct": 303,
+            "gold_error": 294,
+            "pred_correct": 303,
+            "pred_error": 294,
+            "total": 597,
+            "wrong_word_exact": 294
+          },
+          "rows": 597,
+          "scores": {
+            "correction_f1": 1.0,
+            "detection_f1": 1.0
+          }
+        },
+        "MR": {
+          "exact_accuracy": 1.0,
+          "normalized_accuracy": 1.0,
+          "rows": 24,
+          "sample_normalized": [
+            {
+              "id": "ukr_mr_dev:low-ukr-0",
+              "normalized": "18",
+              "target": "18"
+            },
+            {
+              "id": "ukr_mr_dev:low-ukr-1",
+              "normalized": "3",
+              "target": "3"
+            },
+            {
+              "id": "ukr_mr_dev:low-ukr-2",
+              "normalized": "70000",
+              "target": "70000"
+            },
+            {
+              "id": "ukr_mr_dev:low-ukr-3",
+              "normalized": "540",
+              "target": "540"
+            },
+            {
+              "id": "ukr_mr_dev:low-ukr-4",
+              "normalized": "20",
+              "target": "20"
+            }
+          ],
+          "scores": {
+            "accuracy": 1.0
+          }
+        },
+        "MT": {
+          "rows": 3465,
+          "scores": {
+            "bleu": 99.65770313524179,
+            "chrf++": 99.79316979316981
+          }
+        },
+        "QA": {
+          "exact_accuracy": 1.0,
+          "normalized_accuracy": 1.0,
+          "rows": 353,
+          "sample_normalized": [
+            {
+              "id": "ukr_qa_dev:000001",
+              "normalized": "2",
+              "target": "2"
+            },
+            {
+              "id": "ukr_qa_dev:000002",
+              "normalized": "2",
+              "target": "2"
+            },
+            {
+              "id": "ukr_qa_dev:000004",
+              "normalized": "3",
+              "target": "3"
+            },
+            {
+              "id": "ukr_qa_dev:000006",
+              "normalized": "3",
+              "target": "3"
+            },
+            {
+              "id": "ukr_qa_dev:000015",
+              "normalized": "3",
+              "target": "3"
+            }
+          ],
+          "scores": {
+            "accuracy": 1.0
+          }
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 299,
+            "detection_fn": 0,
+            "detection_fp": 0,
+            "detection_tn": 299,
+            "detection_tp": 299,
+            "gold_correct": 299,
+            "gold_error": 299,
+            "pred_correct": 299,
+            "pred_error": 299,
+            "total": 598,
+            "wrong_word_exact": 299
+          },
+          "rows": 598,
+          "scores": {
+            "correction_f1": 1.0,
+            "detection_f1": 1.0
+          }
+        }
+      },
+      "track": "ukrainian"
+    },
+    {
+      "config": "configs/eval/sorbian.yaml",
+      "failures": [],
+      "passed": true,
+      "tasks": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 487,
+            "detection_fn": 0,
+            "detection_fp": 0,
+            "detection_tn": 498,
+            "detection_tp": 487,
+            "gold_correct": 498,
+            "gold_error": 487,
+            "pred_correct": 498,
+            "pred_error": 487,
+            "total": 985,
+            "wrong_word_exact": 487
+          },
+          "rows": 985,
+          "scores": {
+            "correction_f1": 1.0,
+            "detection_f1": 1.0
+          }
+        },
+        "MR": {
+          "exact_accuracy": 1.0,
+          "normalized_accuracy": 1.0,
+          "rows": 48,
+          "sample_normalized": [
+            {
+              "id": "hsb_mr_dev:low-hsb-0",
+              "normalized": "18",
+              "target": "18"
+            },
+            {
+              "id": "hsb_mr_dev:low-hsb-1",
+              "normalized": "3",
+              "target": "3"
+            },
+            {
+              "id": "hsb_mr_dev:low-hsb-2",
+              "normalized": "70000",
+              "target": "70000"
+            },
+            {
+              "id": "hsb_mr_dev:low-hsb-3",
+              "normalized": "540",
+              "target": "540"
+            },
+            {
+              "id": "hsb_mr_dev:low-hsb-4",
+              "normalized": "20",
+              "target": "20"
+            }
+          ],
+          "scores": {
+            "accuracy": 1.0
+          }
+        },
+        "MT": {
+          "rows": 7204,
+          "scores": {
+            "bleu": 99.91212456362375,
+            "chrf++": 100.0
+          }
+        },
+        "QA": {
+          "exact_accuracy": 1.0,
+          "normalized_accuracy": 1.0,
+          "rows": 159,
+          "sample_normalized": [
+            {
+              "id": "hsb_qa_dev:A1.1.H01",
+              "normalized": "1",
+              "target": "1"
+            },
+            {
+              "id": "hsb_qa_dev:A1.1.H1",
+              "normalized": "2",
+              "target": "2"
+            },
+            {
+              "id": "hsb_qa_dev:A1.1.H5",
+              "normalized": "1",
+              "target": "1"
+            },
+            {
+              "id": "hsb_qa_dev:A1.1.H6",
+              "normalized": "1",
+              "target": "1"
+            },
+            {
+              "id": "hsb_qa_dev:A1.1.H9",
+              "normalized": "1",
+              "target": "1"
+            }
+          ],
+          "scores": {
+            "accuracy": 1.0
+          }
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 570,
+            "detection_fn": 0,
+            "detection_fp": 0,
+            "detection_tn": 597,
+            "detection_tp": 570,
+            "gold_correct": 597,
+            "gold_error": 570,
+            "pred_correct": 597,
+            "pred_error": 570,
+            "total": 1167,
+            "wrong_word_exact": 570
+          },
+          "rows": 1167,
+          "scores": {
+            "correction_f1": 1.0,
+            "detection_f1": 1.0
+          }
+        }
+      },
+      "track": "sorbian"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "GC": {
+    "confusion": {
+      "correction_exact": 2,
+      "detection_fn": 0,
+      "detection_fp": 0,
+      "detection_tn": 3,
+      "detection_tp": 2,
+      "gold_correct": 3,
+      "gold_error": 2,
+      "pred_correct": 3,
+      "pred_error": 2,
+      "total": 5,
+      "wrong_word_exact": 2
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 3,
+      "ERROR": 2
+    },
+    "predicted_label_counts": {
+      "CORRECT": 3,
+      "ERROR": 2
+    },
+    "rows": 5,
+    "scores": {
+      "correction_f1": 1.0,
+      "detection_f1": 1.0
+    }
+  },
+  "MR": {
+    "accuracy": 1.0,
+    "rows": 5,
+    "wrong_examples": []
+  },
+  "MT": {
+    "rows": 5
+  },
+  "QA": {
+    "accuracy": 1.0,
+    "prediction_counts": {
+      "1": 4,
+      "2": 1
+    },
+    "rows": 5,
+    "wrong_examples": []
+  },
+  "SC": {
+    "confusion": {
+      "correction_exact": 2,
+      "detection_fn": 0,
+      "detection_fp": 0,
+      "detection_tn": 3,
+      "detection_tp": 2,
+      "gold_correct": 3,
+      "gold_error": 2,
+      "pred_correct": 3,
+      "pred_error": 2,
+      "total": 5,
+      "wrong_word_exact": 2
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 3,
+      "ERROR": 2
+    },
+    "predicted_label_counts": {
+      "CORRECT": 3,
+      "ERROR": 2
+    },
+    "rows": 5,
+    "scores": {
+      "correction_f1": 1.0,
+      "detection_f1": 1.0
+    }
+  }
+}

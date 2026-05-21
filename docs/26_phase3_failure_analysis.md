@@ -1,6 +1,6 @@
 # Phase 3 Failure Analysis
 
-Status: pending evaluation outputs. Specialist checkpoints are trained, but failure analysis requires completed all-five-task evaluations.
+Status: active triage. Full training/merge execution is paused until evaluator, parser, raw-output, overfit, and checkpoint-loading checks are sane.
 
 ## Taxonomy
 
@@ -14,8 +14,9 @@ Status: pending evaluation outputs. Specialist checkpoints are trained, but fail
 
 - Specialist training completed for both tracks.
 - Prompt-only base evaluations are complete for Ukrainian and Sorbian.
-- Ukrainian and Sorbian specialist all-task evaluations are running.
-- Failure cases will be collected after `results/eval_runs.jsonl` and per-model result JSONs are available.
+- Remaining Ukrainian/Sorbian eval jobs and all merge/polish/final-eval jobs were canceled on 2026-05-21 to avoid optimizing against suspicious metrics.
+- Failure cases must now be collected through raw prediction dumps before any merge search is relaunched.
+- Oracle evaluator sanity passes for QA/MR/SC/GC on both tracks. This rules out a gross gold-target parser failure, but does not rule out model-output parser mismatch.
 - Sorbian prompt-only baseline is weak overall at 27.539, with QA as the strongest task and MR at 0. This gives the Sorbian merge/polish pipeline a low but clear baseline.
 - Preliminary Ukrainian language specialist result: MT and SC improve slightly over prompt-only, but MR accuracy drops to 0 on locked validation. This suggests the language skill vector should receive a controlled merge weight and MR preservation must be monitored closely.
 - Preliminary Ukrainian official-only baseline result: QA improves over prompt-only, but SC/GC correction and MR collapse. This is the first measured negative-transfer signal from supervised tuning and supports keeping official-only SFT as a comparison baseline rather than a likely final candidate.
@@ -28,3 +29,11 @@ Status: pending evaluation outputs. Specialist checkpoints are trained, but fail
 - Preliminary Ukrainian MR specialist result: M_mr does not preserve MR on locked validation; MR remains 0 and SC correction drops sharply, producing only 28.961 overall. This vector should be downweighted or excluded unless merge search shows complementary behavior.
 - Preliminary Sorbian official-only baseline result: overall is 27.563, only 0.025 above prompt-only. QA improves by 1.258 points, but MT and SC decline and MR remains 0, so official-only SFT is not yet a strong final candidate.
 - Preliminary Sorbian language specialist result: M_lang improves MT by 3.290 chrF++ but loses 6.918 QA points and is below base overall. This vector should be considered for low MT-support weight rather than as a dominant Sorbian merge component.
+
+## Required Remediation Evidence
+
+- Raw prediction dumps for base, official-only, external-enhanced, M_lang, M_mt, M_edit, M_qa, and M_mr.
+- MR normalized/raw output audit for verbose, boxed, translated, decimal/integer, and answer-label variants.
+- SC/GC confusion matrices with gold-error versus predicted-error counts.
+- 50-example single-batch overfit result for each task.
+- Checkpoint-loading comparison showing trained checkpoints change outputs relative to base.

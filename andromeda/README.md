@@ -50,6 +50,27 @@ sbatch andromeda/jobs/04_compile_external_data.slurm
 sbatch andromeda/jobs/05_report_data_quality.slurm
 ```
 
+## Phase 3 Pause / Triage
+
+The Phase 3 merge and polish campaign is paused as of 2026-05-21. Do not submit additional full training, merge, polish, or final-eval jobs until `docs/33_phase3_triage_remediation.md` gates pass.
+
+Use these triage jobs first after syncing the current repo:
+
+```bash
+sbatch andromeda/jobs/triage_oracle.slurm
+sbatch andromeda/jobs/triage_raw_predictions_uk.slurm
+sbatch andromeda/jobs/triage_raw_predictions_sorbian.slurm
+sbatch andromeda/jobs/triage_checkpoint_loading_uk.slurm
+sbatch andromeda/jobs/triage_checkpoint_loading_sorbian.slurm
+```
+
+The raw-prediction and checkpoint-loading jobs request H200 by default. If H200 queue time is too long, use:
+
+```bash
+sbatch --gres=gpu:a100:1 andromeda/jobs/triage_raw_predictions_uk.slurm
+sbatch --gres=gpu:l40s:1 andromeda/jobs/triage_raw_predictions_uk.slurm
+```
+
 ## Launch Sequence
 
 ```bash

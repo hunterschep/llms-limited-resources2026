@@ -13,7 +13,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from wmt26.eval.metrics import aggregate_wmt_scores, exact_accuracy, mt_scores, scgc_scores
+from wmt26.eval.metrics import aggregate_wmt_scores, mt_scores, normalized_accuracy, scgc_scores
 
 
 def resolve_model_name(model_name: str | None) -> str | None:
@@ -110,7 +110,7 @@ def score_task(task: str, predictions: list[str], references: list[str]) -> dict
     if task == "MT":
         return mt_scores(predictions, references)
     if task in {"QA", "MR"}:
-        return {"accuracy": exact_accuracy(predictions, references)}
+        return {"accuracy": normalized_accuracy(predictions, references, task)}
     if task in {"SC", "GC"}:
         return scgc_scores(predictions, references)
     return {}

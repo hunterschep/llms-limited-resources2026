@@ -1,4 +1,4 @@
-.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs
+.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-overfit-dry-run triage-raw-oracle
 
 validate:
 	python3 scripts/validate_data_governance.py
@@ -49,3 +49,19 @@ eval-base-sorbian:
 
 build-andromeda-jobs:
 	python3 andromeda/scripts/generate_jobs.py
+
+triage-oracle:
+	WMT26_RECORD_RUNS=0 python3 scripts/triage_eval_oracle.py
+
+triage-raw-oracle:
+	WMT26_RECORD_RUNS=0 python3 scripts/dump_raw_predictions.py --config configs/eval/uk.yaml --oracle --per-task 5 --output results/triage/raw_predictions/uk_oracle.jsonl
+	WMT26_RECORD_RUNS=0 python3 scripts/diagnose_prediction_dump.py --input results/triage/raw_predictions/uk_oracle.jsonl
+	WMT26_RECORD_RUNS=0 python3 scripts/dump_raw_predictions.py --config configs/eval/sorbian.yaml --oracle --per-task 5 --output results/triage/raw_predictions/sorbian_oracle.jsonl
+	WMT26_RECORD_RUNS=0 python3 scripts/diagnose_prediction_dump.py --input results/triage/raw_predictions/sorbian_oracle.jsonl
+
+triage-overfit-dry-run:
+	python3 scripts/run_single_batch_overfit.py --track uk --task QA --examples 5 --dry-run
+	python3 scripts/run_single_batch_overfit.py --track uk --task SC --examples 5 --dry-run
+	python3 scripts/run_single_batch_overfit.py --track uk --task GC --examples 5 --dry-run
+	python3 scripts/run_single_batch_overfit.py --track uk --task MR --examples 5 --dry-run
+	python3 scripts/run_single_batch_overfit.py --track uk --task MT --examples 5 --dry-run
