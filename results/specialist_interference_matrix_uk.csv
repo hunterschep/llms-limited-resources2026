@@ -3,6 +3,7 @@ base_qwen35_2b,41.135,33.994,46.667,35.967,4.167,32.386,0.000,0.000,0.000,0.000,
 official_only,41.169,40.793,34.327,32.997,0.000,29.857,0.034,6.799,-12.340,-2.970,-4.167,-2.529,QA gain but SC/GC correction and MR regress
 naive_multitask,39.616,36.827,53.812,28.376,0.000,31.726,-1.518,2.833,7.145,-7.591,-4.167,-0.660,SC/QA gains are offset by MT/GC/MR regression
 task_balanced,39.136,36.827,51.714,33.702,0.000,32.276,-1.998,2.833,5.048,-2.265,-4.167,-0.110,near base overall but still loses MT and MR
+external_enhanced,39.505,37.394,52.957,34.339,0.000,32.839,-1.630,3.399,6.290,-1.628,-4.167,0.453,best baseline so far but still loses MT and MR
 M_lang,41.583,30.878,56.271,35.967,0.000,32.940,0.449,-3.116,9.605,0.000,-4.167,0.554,MT/SC gains with QA regression and MR collapse
 M_mt,38.358,38.810,56.470,39.067,0.000,34.541,-2.776,4.816,9.803,3.100,-4.167,2.155,overall improves through QA/SC/GC but MT and MR need merge control
 M_edit,39.204,30.312,46.917,34.007,0.000,30.088,-1.930,-3.683,0.250,-1.960,-4.167,-2.298,edit specialist does not offset MT/QA/MR regression
