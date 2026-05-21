@@ -29,12 +29,12 @@ This file records training launch and diagnosis notes. Machine-readable run reco
 | 2026-05-20 | sorbian | format specialist | 2461517 | completed | Completed in 1m14s and wrote `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/format`. |
 | 2026-05-20 | uk | specialist eval/merge chain | 2461520, 2461531-2461533 | canceled/resubmitted | Old submissions carried an L40S-blocking exclusion list; resubmitted cleanly as 2461547-2461550. |
 | 2026-05-20 | sorbian | specialist eval/merge chain | 2461521, 2461534-2461536 | canceled/resubmitted | Old submissions carried an L40S-blocking exclusion list; resubmitted cleanly as 2461551-2461554. |
-| 2026-05-20 | uk | baseline suite | 2461539 | running | Official-only checkpoint completed; naive multitask baseline is in progress. |
 | 2026-05-20 | all | scheduler adjustment | 83e1826 | synced | Regenerated Phase 3 baseline, eval, merge, polish, and final-eval jobs on `medium` to avoid the short-partition node availability issue. |
 | 2026-05-20 | uk | baseline suite | 2461504 | canceled/resubmitted | Old submission carried an exclusion list that made L40S placement impossible; resubmitted cleanly as 2461539. |
 | 2026-05-20 | sorbian | baseline suite | 2461505 | canceled/resubmitted | Old submission carried an exclusion list that made L40S placement impossible; resubmitted cleanly as 2461541. |
-| 2026-05-20 | uk | baseline suite | 2461539 | queued | Clean L40S fallback submission with no excluded GPU nodes. |
-| 2026-05-20 | sorbian | baseline suite | 2461541 | queued | Clean L40S fallback submission with no excluded GPU nodes. |
+| 2026-05-20 | uk | baseline suite | 2461539 | running | Official-only, naive multitask, and task-balanced checkpoints have completed; external-enhanced is in progress. |
+| 2026-05-20 | sorbian | baseline suite | 2461541 | running | Official-only and naive multitask checkpoints have completed; task-balanced/external-enhanced are in progress. |
+| 2026-05-20 | all | eval progress logging | ee33882 | synced | Future eval jobs print task and batch progress; running eval jobs that started earlier will not show these progress lines. |
 
 ## Run Fields
 

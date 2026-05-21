@@ -49,7 +49,7 @@ def collect_examples(files: list[str], max_examples: int | None = None) -> list[
     return rows
 
 
-def revision() -> str:
+def detect_revision() -> str:
     git_rev = os.popen("git rev-parse HEAD 2>/dev/null").read().strip()
     if git_rev:
         return git_rev
@@ -57,6 +57,13 @@ def revision() -> str:
     if rev_file.exists():
         return rev_file.read_text(encoding="utf-8").strip()
     return "unknown"
+
+
+RUN_REVISION = os.environ.get("WMT26_RUN_REVISION") or detect_revision()
+
+
+def revision() -> str:
+    return RUN_REVISION
 
 
 def append_training_record(config: dict, config_path: str, status: str, checkpoint_path: Path | None, num_examples: int, notes: str = "") -> None:

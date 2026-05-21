@@ -6,11 +6,11 @@ Status: training in progress on Andromeda. The Phase 3 goal is not complete yet.
 
 Last updated: 2026-05-20.
 
-- Remote revision: `83e18263dcd0e58c47777cd8d2268143ac71cb48`.
+- Remote revision: `ee338827cbf359a8ec96a99c0045dd4293b21fa9`.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
 - Completed specialist checkpoints: all six Ukrainian specialists and all six Sorbian specialists.
-- Active jobs: base Ukrainian eval 2461528, base Sorbian eval 2461529, and Ukrainian baseline suite 2461539.
-- Queued next: Sorbian baseline suite, clean specialist evals, merge, polish, and final eval chains.
+- Active jobs: base Ukrainian eval 2461528, base Sorbian eval 2461529, Ukrainian baseline suite 2461539, Sorbian baseline suite 2461541, Ukrainian specialist eval 2461547, and Sorbian specialist eval 2461551.
+- Queued next: baseline evals, merge, polish, and final eval chains.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
 - All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
 
@@ -96,12 +96,12 @@ Last updated: 2026-05-20.
 | train_sorbian_format | 2461517 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/format`. |
 | eval_base_uk | 2461528 | running | L40S fallback on `g012`; model loaded successfully. |
 | eval_base_sorbian | 2461529 | running | L40S fallback on `g014`; model loaded successfully. |
-| train_uk_baselines | 2461539 | running | Official-only checkpoint completed; naive multitask baseline is in progress. |
+| train_uk_baselines | 2461539 | running | Official-only, naive multitask, and task-balanced checkpoints completed; external-enhanced in progress. |
 | eval_uk_baselines | 2461540 | dependency | Depends on 2461539. |
-| train_sorbian_baselines | 2461541 | queued | Clean resubmission with no excluded GPU nodes. |
+| train_sorbian_baselines | 2461541 | running | Official-only and naive multitask checkpoints completed; task-balanced/external-enhanced in progress. |
 | eval_sorbian_baselines | 2461542 | dependency | Depends on 2461541. |
-| eval_uk_specialists | 2461547 | queued | Clean L40S resubmission with no excluded GPU nodes. |
-| eval_sorbian_specialists | 2461551 | queued | Clean L40S resubmission with no excluded GPU nodes. |
+| eval_uk_specialists | 2461547 | running | Clean L40S resubmission with no excluded GPU nodes. |
+| eval_sorbian_specialists | 2461551 | running | Clean L40S resubmission with no excluded GPU nodes. |
 | merge_uk | 2461548 | dependency | Depends on 2461547. |
 | merge_sorbian | 2461552 | dependency | Depends on 2461551. |
 | polish_uk | 2461549 | dependency | Depends on 2461548. |

@@ -1,6 +1,6 @@
 # Phase 3 Failure Analysis
 
-Status: pending trained checkpoints and evaluation outputs.
+Status: pending evaluation outputs. Specialist checkpoints are trained, but failure analysis requires completed all-five-task evaluations.
 
 ## Taxonomy
 
@@ -12,4 +12,7 @@ Status: pending trained checkpoints and evaluation outputs.
 
 ## Current Notes
 
-No trained checkpoints have been evaluated yet in Phase 3.
+- Specialist training completed for both tracks.
+- Prompt-only base evaluations are running.
+- Ukrainian and Sorbian specialist all-task evaluations are running.
+- Failure cases will be collected after `results/eval_runs.jsonl` and per-model result JSONs are available.
