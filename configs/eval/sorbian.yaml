@@ -1,7 +1,7 @@
 track: sorbian
 model: Qwen/Qwen3.5-2B
 max_new_tokens: 256
-batch_size: 4
+batch_size: 16
 datasets:
   MT:
     - data/processed/sorbian/mt_locked_validation.jsonl

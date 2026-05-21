@@ -32,8 +32,8 @@ Last updated: 2026-05-21.
 | retrain_sorbian_mr_fixed | 2462269 | L40S | queued | Fixed MR final-answer preservation specialist. |
 | retrain_sorbian_task_balanced_fixed | 2462270 | L40S | queued | Task-balanced baseline with fixed edit/MR mixtures. |
 | retrain_sorbian_external_enhanced_fixed | 2462271 | L40S | queued | External-enhanced baseline with fixed edit/MR mixtures. |
-| eval_phase3_fixed_uk | 2462272 | L40S | dependency | Runs after all four fixed UK retrains. |
-| eval_phase3_fixed_sorbian | 2462273 | L40S | dependency | Runs after all four fixed Sorbian retrains. |
+| eval_phase3_fixed_uk | 2462272 | L40S | canceled | Canceled during MT generation because eval `batch_size: 4` was too slow. |
+| eval_phase3_fixed_sorbian | 2462273 | L40S | canceled | Canceled during MT generation because eval `batch_size: 4` was too slow. |
 | phase3_check_checkpoint_loading | 2462274 | L40S | dependency | Runs after fixed edit/MR specialists exist. |
 
 ## Remote Jobs
