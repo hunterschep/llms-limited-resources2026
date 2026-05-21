@@ -23,6 +23,24 @@ This file records evaluation events. Machine-readable evaluation records live in
 | sorbian_baselines | Sorbian | baseline checkpoints | locked validation | queued as 2461519 | Depends on 2461505. |
 | uk_specialists | Ukrainian | specialist checkpoints | locked validation | queued as 2461520 | Depends on 2461506-2461511. |
 | sorbian_specialists | Sorbian | specialist checkpoints | locked validation | queued as 2461521 | Depends on 2461512-2461517. |
+| base_prompt_uk | Ukrainian | Qwen/Qwen3.5-2B | locked validation | queued as 2461528 | Relaunched on `medium` after short-partition placement issue. |
+| base_prompt_sorbian | Sorbian | Qwen/Qwen3.5-2B | locked validation | queued as 2461529 | Relaunched on `medium` after short-partition placement issue. |
+| uk_baselines | Ukrainian | baseline checkpoints | locked validation | queued as 2461540 | Depends on clean resubmission 2461539. |
+| sorbian_baselines | Sorbian | baseline checkpoints | locked validation | queued as 2461542 | Depends on clean resubmission 2461541. |
+| uk_specialists | Ukrainian | specialist checkpoints | locked validation | queued as 2461520 | Ukrainian specialist prerequisites are complete; waits only on priority/resources. |
+| sorbian_specialists | Sorbian | specialist checkpoints | locked validation | queued as 2461521 | Depends on Sorbian specialist jobs 2461512-2461517. |
+| merge_uk | Ukrainian | specialist task vectors | capped validation during search | queued as 2461531 | Depends on 2461520. |
+| merge_sorbian | Sorbian | specialist task vectors | capped validation during search | queued as 2461534 | Depends on 2461521. |
+| polish_uk | Ukrainian | best merged checkpoint | locked validation follow-up | queued as 2461532 | Moved to `medium`; depends on 2461531. |
+| polish_sorbian | Sorbian | best merged checkpoint | locked validation follow-up | queued as 2461535 | Moved to `medium`; depends on 2461534. |
+| uk_specialists | Ukrainian | specialist checkpoints | locked validation | resubmitted as 2461547 | Clean L40S submission with no excluded GPU nodes. |
+| sorbian_specialists | Sorbian | specialist checkpoints | locked validation | resubmitted as 2461551 | Clean L40S submission with no excluded GPU nodes. |
+| merge_uk | Ukrainian | specialist task vectors | capped validation during search | resubmitted as 2461548 | Depends on 2461547. |
+| merge_sorbian | Sorbian | specialist task vectors | capped validation during search | resubmitted as 2461552 | Depends on 2461551. |
+| polish_uk | Ukrainian | best merged checkpoint | locked validation follow-up | resubmitted as 2461549 | Depends on 2461548. |
+| polish_sorbian | Sorbian | best merged checkpoint | locked validation follow-up | resubmitted as 2461553 | Depends on 2461552. |
+| eval_uk_final | Ukrainian | final polished checkpoint | locked validation | resubmitted as 2461550 | Depends on 2461549. |
+| eval_sorbian_final | Sorbian | final polished checkpoint | locked validation | resubmitted as 2461554 | Depends on 2461553. |
 
 ## Required Metrics
 

@@ -20,6 +20,21 @@ This file records training launch and diagnosis notes. Machine-readable run reco
 | 2026-05-20 | sorbian | baseline suite | 2461505 | queued | L40S fallback request; runs official-only, naive, task-balanced, and external-enhanced baselines sequentially. |
 | 2026-05-20 | uk | specialists | 2461506-2461511 | queued | Individual language, MT, edit, QA, MR, and format specialist jobs on L40S fallback. |
 | 2026-05-20 | sorbian | specialists | 2461512-2461517 | queued | Individual language, MT, edit, QA, MR, and format specialist jobs on L40S fallback. |
+| 2026-05-20 | uk | specialists | 2461506-2461511 | completed | All six Ukrainian specialists completed and wrote checkpoints under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/specialists/`. |
+| 2026-05-20 | sorbian | language specialist | 2461512 | completed | Completed in 4m30s and wrote `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/lang`. |
+| 2026-05-20 | sorbian | MT specialist | 2461513 | completed | Completed in 5m08s and wrote `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/mt`. |
+| 2026-05-20 | sorbian | edit specialist | 2461514 | completed | Completed in 3m05s and wrote `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/edit_scgc`. |
+| 2026-05-20 | sorbian | QA specialist | 2461515 | completed | Completed in 1m36s and wrote `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/qa`. |
+| 2026-05-20 | sorbian | MR specialist | 2461516 | completed | Completed in 1m02s and wrote `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/mr`. |
+| 2026-05-20 | sorbian | format specialist | 2461517 | completed | Completed in 1m14s and wrote `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/format`. |
+| 2026-05-20 | uk | specialist eval/merge chain | 2461520, 2461531-2461533 | canceled/resubmitted | Old submissions carried an L40S-blocking exclusion list; resubmitted cleanly as 2461547-2461550. |
+| 2026-05-20 | sorbian | specialist eval/merge chain | 2461521, 2461534-2461536 | canceled/resubmitted | Old submissions carried an L40S-blocking exclusion list; resubmitted cleanly as 2461551-2461554. |
+| 2026-05-20 | uk | baseline suite | 2461539 | running | Official-only checkpoint completed; naive multitask baseline is in progress. |
+| 2026-05-20 | all | scheduler adjustment | 83e1826 | synced | Regenerated Phase 3 baseline, eval, merge, polish, and final-eval jobs on `medium` to avoid the short-partition node availability issue. |
+| 2026-05-20 | uk | baseline suite | 2461504 | canceled/resubmitted | Old submission carried an exclusion list that made L40S placement impossible; resubmitted cleanly as 2461539. |
+| 2026-05-20 | sorbian | baseline suite | 2461505 | canceled/resubmitted | Old submission carried an exclusion list that made L40S placement impossible; resubmitted cleanly as 2461541. |
+| 2026-05-20 | uk | baseline suite | 2461539 | queued | Clean L40S fallback submission with no excluded GPU nodes. |
+| 2026-05-20 | sorbian | baseline suite | 2461541 | queued | Clean L40S fallback submission with no excluded GPU nodes. |
 
 ## Run Fields
 

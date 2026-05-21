@@ -1,6 +1,18 @@
 # Phase 3 Dashboard
 
-Status: initialized.
+Status: training in progress on Andromeda. The Phase 3 goal is not complete yet.
+
+## Current Snapshot
+
+Last updated: 2026-05-20.
+
+- Remote revision: `83e18263dcd0e58c47777cd8d2268143ac71cb48`.
+- Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
+- Completed specialist checkpoints: all six Ukrainian specialists and all six Sorbian specialists.
+- Active jobs: base Ukrainian eval 2461528, base Sorbian eval 2461529, and Ukrainian baseline suite 2461539.
+- Queued next: Sorbian baseline suite, clean specialist evals, merge, polish, and final eval chains.
+- Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
+- All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
 
 ## Remote Jobs
 
@@ -65,6 +77,37 @@ Status: initialized.
 | eval_sorbian_baselines | 2461519 | L40S, 4 CPU, 64G | dependency: 2461505 |
 | eval_uk_specialists | 2461520 | L40S, 4 CPU, 64G | dependency: Ukrainian specialists |
 | eval_sorbian_specialists | 2461521 | L40S, 4 CPU, 64G | dependency: Sorbian specialists |
+
+## Updated Active Queue Records
+
+| Job | ID | Status | Notes |
+|---|---:|---|---|
+| train_uk_lang | 2461506 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/specialists/lang`. |
+| train_uk_mt | 2461507 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/specialists/mt`. |
+| train_uk_edit | 2461508 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/specialists/edit_scgc`. |
+| train_uk_qa | 2461509 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/specialists/qa`. |
+| train_uk_mr | 2461510 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/specialists/mr`. |
+| train_uk_format | 2461511 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/specialists/format`. |
+| train_sorbian_lang | 2461512 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/lang`. |
+| train_sorbian_mt | 2461513 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/mt`. |
+| train_sorbian_edit | 2461514 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/edit_scgc`. |
+| train_sorbian_qa | 2461515 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/qa`. |
+| train_sorbian_mr | 2461516 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/mr`. |
+| train_sorbian_format | 2461517 | completed | Checkpoint written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/specialists/format`. |
+| eval_base_uk | 2461528 | running | L40S fallback on `g012`; model loaded successfully. |
+| eval_base_sorbian | 2461529 | running | L40S fallback on `g014`; model loaded successfully. |
+| train_uk_baselines | 2461539 | running | Official-only checkpoint completed; naive multitask baseline is in progress. |
+| eval_uk_baselines | 2461540 | dependency | Depends on 2461539. |
+| train_sorbian_baselines | 2461541 | queued | Clean resubmission with no excluded GPU nodes. |
+| eval_sorbian_baselines | 2461542 | dependency | Depends on 2461541. |
+| eval_uk_specialists | 2461547 | queued | Clean L40S resubmission with no excluded GPU nodes. |
+| eval_sorbian_specialists | 2461551 | queued | Clean L40S resubmission with no excluded GPU nodes. |
+| merge_uk | 2461548 | dependency | Depends on 2461547. |
+| merge_sorbian | 2461552 | dependency | Depends on 2461551. |
+| polish_uk | 2461549 | dependency | Depends on 2461548. |
+| polish_sorbian | 2461553 | dependency | Depends on 2461552. |
+| eval_uk_final | 2461550 | dependency | Depends on 2461549. |
+| eval_sorbian_final | 2461554 | dependency | Depends on 2461553. |
 
 ## Current Decision State
 
