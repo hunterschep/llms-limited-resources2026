@@ -4,6 +4,11 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 
+# Reproducible generated data. Keep manifests/configs in Git; rebuild these
+# locally or on Andromeda with `make prepare-data`.
+data/processed/
+data/external/raw/
+
 checkpoints/**
 !checkpoints/.gitkeep
 results/
