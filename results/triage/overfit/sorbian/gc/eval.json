@@ -1,0 +1,20 @@
+{
+  "aggregate": {
+    "GC_score": 91.82795698924731,
+    "MR_score": 0.0,
+    "MT_score": 0.0,
+    "QA_score": 0.0,
+    "SC_score": 0.0,
+    "overall_score": 18.365591397849464
+  },
+  "model": "checkpoints/triage/overfit/sorbian/gc",
+  "oracle": false,
+  "split": "locked_validation",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.9333333333333333,
+      "detection_f1": 0.9032258064516129
+    }
+  },
+  "track": "sorbian"
+}

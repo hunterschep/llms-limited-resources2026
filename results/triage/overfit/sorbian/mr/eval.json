@@ -1,0 +1,19 @@
+{
+  "aggregate": {
+    "GC_score": 0.0,
+    "MR_score": 100.0,
+    "MT_score": 0.0,
+    "QA_score": 0.0,
+    "SC_score": 0.0,
+    "overall_score": 20.0
+  },
+  "model": "checkpoints/triage/overfit/sorbian/mr",
+  "oracle": false,
+  "split": "locked_validation",
+  "task_scores": {
+    "MR": {
+      "accuracy": 1.0
+    }
+  },
+  "track": "sorbian"
+}

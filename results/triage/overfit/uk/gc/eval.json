@@ -1,0 +1,20 @@
+{
+  "aggregate": {
+    "GC_score": 92.38095238095238,
+    "MR_score": 0.0,
+    "MT_score": 0.0,
+    "QA_score": 0.0,
+    "SC_score": 0.0,
+    "overall_score": 18.476190476190474
+  },
+  "model": "checkpoints/triage/overfit/uk/gc",
+  "oracle": false,
+  "split": "locked_validation",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.9333333333333333,
+      "detection_f1": 0.9142857142857143
+    }
+  },
+  "track": "ukrainian"
+}

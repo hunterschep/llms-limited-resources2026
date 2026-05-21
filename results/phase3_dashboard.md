@@ -6,14 +6,35 @@ Status: paused for triage/remediation. The Phase 3 goal is not complete yet.
 
 Last updated: 2026-05-21.
 
-- Remote revision: `57cfa94a9ba877c95df4ba13e87da38b47292816`.
+- Remote revision for the remediation retrain wave: `787aab3d45b4162d592def8040d01aab52b416ea`.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
 - Completed specialist checkpoints from the first Phase 3 pass were deleted from Andromeda scratch after triage because they were trained/evaluated against known-bad edit mixtures and overly strict MR scoring.
-- Active jobs: none. The remaining eval, merge, polish, and final-eval jobs were canceled for triage on 2026-05-21.
+- Active jobs: fixed retraining is queued on the `short` partition with L40S fallback. Current IDs are `2462264`-`2462271`, with dependent eval jobs `2462272` and `2462273`, and checkpoint-loading verification `2462274`.
 - Latest retained results: prompt-only base evaluations, triage evidence, and local remediation sanity outputs only. The stale first-pass tuned-model result JSONs and interference matrices were removed locally and remotely so the next run starts with clean experiment records.
-- Queued next: fixed retraining only: `M_edit`, `M_mr`, task-balanced, and external-enhanced for each track. Merge search remains blocked until fixed evaluations clear the gates in `docs/42_phase3_resume_or_block_merge_decision.md`.
+- Queued next: normalized fixed evaluations after retraining. Merge search remains blocked until fixed evaluations clear the gates in `docs/42_phase3_resume_or_block_merge_decision.md`.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
-- All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
+- Fixed retraining was submitted to `short` after the `medium` queue had no start estimate. H200 was draining and A100/L40S were not idle; compact sanity used V100 as allowed, while fixed retraining uses L40S fallback.
+
+## Current Fixed Retrain Wave
+
+| Job | ID | GPU Request | Status | Notes |
+|---|---:|---|---|---|
+| phase3_remediation_cleanup | 2462239 | CPU | completed | Wrote cleanup manifest `results/cleanup/phase3_cleanup_manifest_20260521T063217Z.txt`. |
+| phase3_triage_oracle | 2462240 | CPU | completed | Oracle evaluator passed. |
+| phase3_triage_data_sanity | 2462241 | CPU | completed | Data sanity passed. |
+| phase3_triage_overfit_uk | 2462249 | V100 | completed | UK SC/GC/MR same-set overfit passed. |
+| phase3_triage_overfit_sorbian | 2462250 | V100 | completed | Sorbian SC/GC/MR same-set overfit passed. |
+| retrain_uk_edit_fixed | 2462264 | L40S | queued | Fixed balanced SC/GC edit specialist. |
+| retrain_uk_mr_fixed | 2462265 | L40S | queued | Fixed MR final-answer preservation specialist. |
+| retrain_uk_task_balanced_fixed | 2462266 | L40S | queued | Task-balanced baseline with fixed edit/MR mixtures. |
+| retrain_uk_external_enhanced_fixed | 2462267 | L40S | queued | External-enhanced baseline with fixed edit/MR mixtures. |
+| retrain_sorbian_edit_fixed | 2462268 | L40S | queued | Fixed balanced SC/GC edit specialist. |
+| retrain_sorbian_mr_fixed | 2462269 | L40S | queued | Fixed MR final-answer preservation specialist. |
+| retrain_sorbian_task_balanced_fixed | 2462270 | L40S | queued | Task-balanced baseline with fixed edit/MR mixtures. |
+| retrain_sorbian_external_enhanced_fixed | 2462271 | L40S | queued | External-enhanced baseline with fixed edit/MR mixtures. |
+| eval_phase3_fixed_uk | 2462272 | L40S | dependency | Runs after all four fixed UK retrains. |
+| eval_phase3_fixed_sorbian | 2462273 | L40S | dependency | Runs after all four fixed Sorbian retrains. |
+| phase3_check_checkpoint_loading | 2462274 | L40S | dependency | Runs after fixed edit/MR specialists exist. |
 
 ## Remote Jobs
 
@@ -121,10 +142,11 @@ Last updated: 2026-05-21.
 - `make triage-oracle` passes locally.
 - Gold-target oracle checks give 100 for QA, MR, SC, and GC on both tracks.
 - MT oracle sanity is high: Ukrainian chrF++ 99.793, Sorbian chrF++ 100.000.
-- Raw prediction dumps, SC/GC diagnostics, MR normalization inspection, and Ukrainian same-set overfit checks have run.
+- Raw prediction dumps, SC/GC diagnostics, MR normalization inspection, and same-set overfit checks have run.
 - Root cause found: first-pass SC/GC mixtures were almost all error cases, producing an always-error detector prior that matches the observed ~66% detection F1 plateau.
 - MR zero scores were partly a parser/normalization artifact, but MR remains genuinely weak and needs a better final-answer-only preservation setup.
-- Same-set Ukrainian overfit checks passed: MR reached 100% on 20 examples; SC reached 93.3% detection/correction F1 on 20 examples.
+- Same-set Ukrainian overfit checks passed: SC detection/correction F1 100.0/89.7, GC detection/correction F1 91.4/93.3, MR accuracy 100.0 on 20 examples.
+- Same-set Sorbian overfit checks passed: SC detection/correction F1 86.7/89.7, GC detection/correction F1 90.3/93.3, MR accuracy 100.0 on 20 examples.
 - Local remediation gates now pass: `make validate`, `make check-governance`, `make check-overlap`, `make triage-oracle`, `make triage-data-sanity`, `make report-edit-data-balance`, `make report-mr-data-quality`, and `make smoke-test`.
 - MR preservation data now includes final-answer-only SFT rows in `data/processed/final/*/mr_format_preservation.jsonl`.
 - Active train configs write to `checkpoints/phase3_fixed/...` and no longer write into invalid first-pass checkpoint paths.
@@ -134,7 +156,7 @@ Last updated: 2026-05-21.
 Cleanup date: 2026-05-21.
 
 - Removed remote stale checkpoints under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/{baselines,specialists}` and `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/{baselines,specialists}`.
-- Removed remote triage overfit checkpoints after retaining the summarized evidence under `results/triage/`.
+- Remote triage overfit checkpoints are temporarily retained under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/triage/overfit/` for checkpoint-loading sanity and will be pruned after fixed retraining/evaluation evidence is captured.
 - Removed stale first-pass local/remote tuned-model eval JSONs, `training_runs.jsonl`, `eval_runs.jsonl`, `merge_runs.jsonl`, `final_model_selection.json`, and specialist interference matrices.
 - Removed old non-triage Slurm logs for canceled/bad first-pass Phase 3 jobs.
 - Preserved prompt-only base result JSONs and all triage reports/raw diagnostics.

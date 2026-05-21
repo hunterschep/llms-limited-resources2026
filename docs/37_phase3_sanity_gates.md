@@ -6,10 +6,10 @@ Status reflects local/parser/data gates. GPU overfit/checkpoint-loading gates ar
 - Data sanity: `PASS` Final SC/GC balance and MR target parseability must pass.
 - Edit balance: `PASS` Clean/error SC/GC mixtures must be close to balanced.
 - MR data quality: `PASS` MR normalization probes and train targets must pass.
+- Compact overfit: `PASS` Same-set SC/GC/MR overfit must pass for both tracks.
 
 Required remote gates before merge search:
 
-- Compact SC/GC/MR overfit for both tracks.
 - Checkpoint-loading comparison for retrained candidates.
 - Raw prediction dumps for retrained candidates before final evaluation.
 
@@ -21,3 +21,12 @@ Required remote gates before merge search:
 - `uk GC`: rows=7062 error=3531 clean=3531 clean_ratio=0.500
 - `uk MR`: rows=315 non_numeric_targets=0
 - `uk SC`: rows=9009 error=4506 clean=4503 clean_ratio=0.500
+
+## Compact Overfit Gate
+
+- `uk SC`: `PASS` detection_f1=1.000 correction_f1=0.897
+- `uk GC`: `PASS` detection_f1=0.914 correction_f1=0.933
+- `uk MR`: `PASS` accuracy=1.000
+- `sorbian SC`: `PASS` detection_f1=0.867 correction_f1=0.897
+- `sorbian GC`: `PASS` detection_f1=0.903 correction_f1=0.933
+- `sorbian MR`: `PASS` accuracy=1.000
