@@ -6,10 +6,11 @@ Status: training in progress on Andromeda. The Phase 3 goal is not complete yet.
 
 Last updated: 2026-05-20.
 
-- Remote revision: `ee338827cbf359a8ec96a99c0045dd4293b21fa9`.
+- Remote revision: `57cfa94a9ba877c95df4ba13e87da38b47292816`.
 - Environment, governance validation, data preparation, and GPU smoke validation have passed on Andromeda.
 - Completed specialist checkpoints: all six Ukrainian specialists and all six Sorbian specialists.
 - Active jobs: base Sorbian eval 2461529, Ukrainian baseline eval 2461540, Sorbian baseline eval 2461542, Ukrainian specialist eval 2461547, and Sorbian specialist eval 2461551.
+- Latest completed partial result: Ukrainian official-only SFT has overall 29.857, with QA gain but SC/GC correction and MR regression.
 - Queued next: merge, polish, and final eval chains.
 - Baseline suites were resubmitted as 2461539 and 2461541 because the earlier queued jobs carried an L40S-blocking exclusion list.
 - All Phase 3 train/eval/merge/polish job templates now use the `medium` partition for better placement reliability.
@@ -97,7 +98,7 @@ Last updated: 2026-05-20.
 | eval_base_uk | 2461528 | completed | Overall 32.386 on locked validation. |
 | eval_base_sorbian | 2461529 | running | L40S fallback on `g014`; model loaded successfully. |
 | train_uk_baselines | 2461539 | completed | Four baseline checkpoints written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/uk/baselines/`. |
-| eval_uk_baselines | 2461540 | running | Started after 2461539 completed. |
+| eval_uk_baselines | 2461540 | running | Official-only result landed; remaining Ukrainian baselines still evaluating. |
 | train_sorbian_baselines | 2461541 | completed | Four baseline checkpoints written under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/sorbian/baselines/`. |
 | eval_sorbian_baselines | 2461542 | running | Started after 2461541 completed. |
 | eval_uk_specialists | 2461547 | running | Clean L40S resubmission with no excluded GPU nodes. |
