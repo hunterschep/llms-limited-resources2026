@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --account=prudlab
-#SBATCH --partition=short
-#SBATCH --time=12:00:00
+#SBATCH --partition=medium
+#SBATCH --time=2-00:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8

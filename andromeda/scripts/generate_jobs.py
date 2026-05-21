@@ -134,8 +134,8 @@ def main() -> None:
         write_job(
             f"train_{prefix}_baselines",
             " && ".join(f"python3 scripts/train_sft.py --config {config_path}" for _, config_path in baseline_configs[prefix]),
-            partition="long",
-            time="5-00:00:00",
+            partition="medium",
+            time="2-00:00:00",
             mem="128G",
         )
         write_job(
@@ -144,8 +144,8 @@ def main() -> None:
                 f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model {model_path} --output results/{prefix}/baselines/{baseline_name}.json"
                 for baseline_name, model_path in eval_baseline_models[prefix]
             ),
-            partition="long",
-            time="5-00:00:00",
+            partition="medium",
+            time="2-00:00:00",
             mem="128G",
         )
         for specialist, config_name in [
@@ -163,21 +163,21 @@ def main() -> None:
                 f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model checkpoints/{prefix}/specialists/{name} --output results/{prefix}/specialists/{name}.json"
                 for name in specialist_models[prefix]
             ),
-            partition="long",
-            time="5-00:00:00",
+            partition="medium",
+            time="2-00:00:00",
             mem="128G",
         )
         write_job(
             f"merge_{prefix}",
             f"python3 scripts/search_merge_weights.py --config configs/merge/{prefix}.yaml --limit 8 --execute --eval-limit 256",
             gpu=True,
-            partition="long",
-            time="5-00:00:00",
+            partition="medium",
+            time="2-00:00:00",
             cpus=8,
             mem="128G",
         )
-        write_job(f"polish_{prefix}", f"python3 scripts/train_format_polish.py --config configs/train/{track}/final_polish.yaml", partition="short", time="12:00:00", mem="96G")
-        write_job(f"eval_{prefix}_final", f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model checkpoints/{prefix}/final_polished --output results/{prefix}_final_eval.json", partition="short", time="12:00:00", mem="96G")
+        write_job(f"polish_{prefix}", f"python3 scripts/train_format_polish.py --config configs/train/{track}/final_polish.yaml", partition="medium", time="2-00:00:00", mem="96G")
+        write_job(f"eval_{prefix}_final", f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model checkpoints/{prefix}/final_polished --output results/{prefix}_final_eval.json", partition="medium", time="2-00:00:00", mem="96G")
 
     write_job(
         "train_uk_all",
