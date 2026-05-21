@@ -50,7 +50,7 @@ def oracle_predictions(rows: list[dict]) -> list[str]:
     return [str(row.get("target", "")) for row in rows]
 
 
-def generate_predictions(model_name: str, rows: list[dict], max_new_tokens: int) -> list[str]:
+def load_generation_bundle(model_name: str):
     try:
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -58,23 +58,47 @@ def generate_predictions(model_name: str, rows: list[dict], max_new_tokens: int)
         raise RuntimeError("Install torch and transformers for model evaluation, or use --oracle for smoke tests.") from exc
     model_name = resolve_model_name(model_name) or model_name
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.padding_side = "left"
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         trust_remote_code=True,
         torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
         device_map="auto" if torch.cuda.is_available() else None,
     )
+    model.eval()
+    return tokenizer, model
+
+
+def row_to_prompt(tokenizer, row: dict) -> str:
+    prompt_messages = [m for m in row["messages"] if m["role"] != "assistant"]
+    try:
+        return tokenizer.apply_chat_template(prompt_messages, tokenize=False, add_generation_prompt=True)
+    except Exception:
+        return "\n".join(f"{m['role']}: {m['content']}" for m in prompt_messages)
+
+
+def generate_predictions(bundle, rows: list[dict], max_new_tokens: int, batch_size: int) -> list[str]:
+    import torch
+
+    tokenizer, model = bundle
     outputs = []
-    for row in rows:
-        prompt_messages = [m for m in row["messages"] if m["role"] != "assistant"]
-        try:
-            prompt = tokenizer.apply_chat_template(prompt_messages, tokenize=False, add_generation_prompt=True)
-        except Exception:
-            prompt = "\n".join(f"{m['role']}: {m['content']}" for m in prompt_messages)
-        encoded = tokenizer(prompt, return_tensors="pt").to(model.device)
-        generated = model.generate(**encoded, max_new_tokens=max_new_tokens, do_sample=False)
-        text = tokenizer.decode(generated[0][encoded["input_ids"].shape[-1] :], skip_special_tokens=True).strip()
-        outputs.append(text)
+    prompts = [row_to_prompt(tokenizer, row) for row in rows]
+    batch_size = max(1, int(batch_size))
+    for start in range(0, len(prompts), batch_size):
+        batch_prompts = prompts[start : start + batch_size]
+        encoded = tokenizer(batch_prompts, return_tensors="pt", padding=True).to(model.device)
+        with torch.inference_mode():
+            generated = model.generate(
+                **encoded,
+                max_new_tokens=max_new_tokens,
+                do_sample=False,
+                pad_token_id=tokenizer.pad_token_id,
+            )
+        prompt_width = encoded["input_ids"].shape[-1]
+        decoded = tokenizer.batch_decode(generated[:, prompt_width:], skip_special_tokens=True)
+        outputs.extend(text.strip() for text in decoded)
     return outputs
 
 
@@ -137,7 +161,9 @@ def main() -> int:
     config = yaml.safe_load((ROOT / args.config).read_text(encoding="utf-8")) or {}
     model_name = args.model or config.get("model")
     max_new_tokens = int(config.get("max_new_tokens", 256))
+    batch_size = int(config.get("batch_size", config.get("eval_batch_size", 4)))
     task_scores: dict[str, dict[str, float]] = {}
+    generation_bundle = None if args.oracle else load_generation_bundle(model_name)
     for task, files in config.get("datasets", {}).items():
         rows: list[dict] = []
         for rel in files:
@@ -148,7 +174,7 @@ def main() -> int:
             task_scores[task] = score_task(task, [], [])
             continue
         references = [str(row["target"]) for row in rows]
-        predictions = oracle_predictions(rows) if args.oracle else generate_predictions(model_name, rows, max_new_tokens)
+        predictions = oracle_predictions(rows) if args.oracle else generate_predictions(generation_bundle, rows, max_new_tokens, batch_size)
         task_scores[task] = score_task(task, predictions, references)
     result = {
         "track": config.get("track"),
