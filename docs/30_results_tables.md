@@ -12,6 +12,7 @@ Status: partial remote evaluation in progress.
 | Ukrainian | naive multitask SFT | 39.616 | 15.943 | 36.827 | 66.667 | 40.957 | 55.401 | 1.351 | 0.000 | 31.726 |
 | Ukrainian | task-balanced SFT | 39.136 | 15.859 | 36.827 | 66.817 | 36.612 | 64.059 | 3.344 | 0.000 | 32.276 |
 | Ukrainian | external-enhanced multitask SFT | 39.505 | 16.309 | 37.394 | 66.667 | 39.247 | 65.993 | 2.685 | 0.000 | 32.839 |
+| Sorbian | official-only SFT | 27.261 | 5.524 | 44.654 | 65.591 | 0.000 | 66.213 | 0.000 | 0.000 | 27.563 |
 
 ## Specialists
 
