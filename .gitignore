@@ -25,3 +25,4 @@ andromeda/checkpoints/*
 !andromeda/checkpoints/.gitkeep
 
 .DS_Store
+REVISION
