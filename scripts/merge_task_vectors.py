@@ -107,14 +107,14 @@ def append_merge_record(config: dict, config_path: str, method: str, weights: di
         handle.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
 
 
-def linear_task_vector_merge(config: dict, weights: dict[str, float]) -> Path:
+def linear_task_vector_merge(config: dict, weights: dict[str, float], output_name: str = "weighted_task_vector") -> Path:
     import gc
 
     import torch
     from transformers import AutoModelForCausalLM
 
     base_ref = resolve_checkpoint_ref(config["base_model"])
-    output_dir = resolve_output_dir(config["output_dir"]) / "weighted_task_vector"
+    output_dir = resolve_output_dir(config["output_dir"]) / output_name
     output_dir.mkdir(parents=True, exist_ok=True)
 
     dtype_name = str(config.get("merge_dtype", "float32")).lower()

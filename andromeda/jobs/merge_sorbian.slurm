@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #SBATCH --account=prudlab
-#SBATCH --partition=short
-#SBATCH --time=12:00:00
+#SBATCH --partition=long
+#SBATCH --time=5-00:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=128G
+#SBATCH --gres=gpu:h200:1
 #SBATCH --job-name=merge_sorbian
 #SBATCH --output=/home/%u/logs/%x-%j.out
 #SBATCH --error=/home/%u/logs/%x-%j.err
@@ -25,4 +26,4 @@ mkdir -p /home/"$USER"/logs "$SCRATCH_ROOT"/{data,checkpoints,logs,results,tmp}
 #   sbatch --gres=gpu:a100:1 this_job.slurm
 #   sbatch --gres=gpu:l40s:1 this_job.slurm
 
-andromeda/scripts/run_step.sh bash -lc 'python3 scripts/search_merge_weights.py --config configs/merge/sorbian.yaml --limit 64'
+andromeda/scripts/run_step.sh bash -lc 'python3 scripts/search_merge_weights.py --config configs/merge/sorbian.yaml --limit 8 --execute --eval-limit 256'
