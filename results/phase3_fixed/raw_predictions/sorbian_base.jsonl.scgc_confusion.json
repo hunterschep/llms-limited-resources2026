@@ -1,0 +1,85 @@
+{
+  "GC": {
+    "category_counts": {
+      "false_positive_error": 3,
+      "wrong_wrong_word": 2
+    },
+    "malformed_output_rate": 0.0,
+    "no_error_accuracy": 0.0,
+    "rows": 5,
+    "sample_failures": [
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0003",
+        "raw_prediction": "Wrong word: Hłowny\nCorrect word: Hlavný\n\nWrong word: terminoweho\nCorrect word: termínového\n\nWrong word: planowanja\nCorrect word: plánovania\n\nWrong word: Nječiń\nCorrect word: Njich\n\nWrong word: štož\nCorrect word: čo\n\nWrong word: móža\nCorrect word: môže\n\nWrong word: druzy\nCorrect word: druhy\n\nWrong word: činić\nCorrect word: čini"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0005",
+        "raw_prediction": "Wrong word: najnjewoblubowaniši\nCorrect word: najljubšejší"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: Miłoraza\nCorrect word: Miłorazu",
+        "id": "hsb_gc_dev:0006",
+        "raw_prediction": "Wrong word: wjedźe\nCorrect word: wjeżdża"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0010",
+        "raw_prediction": "Wrong word: prajił\nCorrect word: prajal\n\nWrong word: zo\nCorrect word: że"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: nowember\nCorrect word: nowembru",
+        "id": "hsb_gc_dev:0011",
+        "raw_prediction": "Wrong word: Towarstwo\nCorrect word: Towarstwo\n\nWrong word: Mohorjeva/Hermagoras\nCorrect word: Mohorjeva/Hermagoras\n\nWrong word: w\nCorrect word: w\n\nWrong word: rjad\nCorrect word: rząd\n\nWrong word: Mjeńšiny\nCorrect word: Menšiny\n\nWrong word: Wokno\nCorrect word: Wokno\n\nWrong word: do\nCorrect word: do\n\nWrong word: swěta\nCorrect word: světa"
+      }
+    ]
+  },
+  "SC": {
+    "category_counts": {
+      "false_positive_error": 3,
+      "right_wrong_word_wrong_correction": 1,
+      "wrong_wrong_word": 1
+    },
+    "malformed_output_rate": 0.0,
+    "no_error_accuracy": 0.0,
+    "rows": 5,
+    "sample_failures": [
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0001",
+        "raw_prediction": "Wrong word: zamołwitosć Correct word: zamówić\nCorrect word: wotstronić"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0004",
+        "raw_prediction": "Wrong word: wón\nCorrect word: on\n\nCorrect word: koleso"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: bcuhu\nCorrect word: buchu",
+        "id": "hsb_sc_dev:0005",
+        "raw_prediction": "Wrong word: opozicionelnych\nCorrect word: opozycyjnych\n\nWrong word: lěhwow\nCorrect word: lewów\n\nWrong word: statysacy\nCorrect word: statystyki\n\nWrong word: ćeknychu\nCorrect word: czeknychu\n\nWrong word: wukraja\nCorrect word: ukraińca"
+      },
+      {
+        "category": "right_wrong_word_wrong_correction",
+        "gold_target": "Wrong word: mpłě\nCorrect word: małe",
+        "id": "hsb_sc_dev:0006",
+        "raw_prediction": "Wrong word: mpłě\nCorrect word: płě"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0008",
+        "raw_prediction": "Wrong word: dyrbja\nCorrect word: dyrbja"
+      }
+    ]
+  }
+}

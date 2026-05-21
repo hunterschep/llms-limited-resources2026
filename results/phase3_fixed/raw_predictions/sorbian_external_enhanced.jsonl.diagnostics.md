@@ -1,0 +1,42 @@
+# Prediction Dump Diagnostics
+
+## GC
+
+- `rows`: `5`
+- `scores`: `{"correction_f1": 0.0, "detection_f1": 0.5714285714285715}`
+- `confusion`: `{"correction_exact": 0, "detection_fn": 0, "detection_fp": 3, "detection_tn": 0, "detection_tp": 2, "gold_correct": 3, "gold_error": 2, "pred_correct": 0, "pred_error": 5, "total": 5, "wrong_word_exact": 0}`
+- `predicted_label_counts`: `{"ERROR": 5}`
+- `gold_label_counts`: `{"CORRECT": 3, "ERROR": 2}`
+
+## MR
+
+- `rows`: `5`
+- `accuracy`: `0.0`
+- `wrong_examples` sample:
+  - `{"gold": "18", "id": "hsb_mr_dev:low-hsb-0", "normalized_prediction": "64", "normalized_reference": "18", "prediction": "1. **Obliczono całkowitą liczbę jajek:**\n   - Jajka do sniadanów: $3 \\times 16 = 48$.\n   - Jajka do śniadani: $3 \\times 16 = 48$.\n   - Jajka do obiadu: $3 \\times 16 = 48$.\n   - Jajka do kolacji: $3 \\times 16 = 48$.\n   - Jajka do wczesnych śniadani: $4 \\times 16 = 64$.\n   - Jajka do późniejszych śniadani: $4 \\times 16 = 64$.\n   - Suma: $48 + 48 + 48 + 48 + 64 + 64 = 320$.\n\n2. **Obliczono całkowitą liczbę jajek:**\n   - Jajka do wczesnych śniadani: $4 \\times 16 = 64$.\n   - Jajka do późniejszych śniadani: $"}`
+  - `{"gold": "3", "id": "hsb_mr_dev:low-hsb-1", "normalized_prediction": "20", "normalized_reference": "3", "prediction": "20"}`
+  - `{"gold": "70000", "id": "hsb_mr_dev:low-hsb-2", "normalized_prediction": "65000", "normalized_reference": "70000", "prediction": "1. **Kupnja domu:**\n   Cena domu: 80.000 US-dolarow.\n\n2. **Kupnja reparaturow:**\n   Cena reparaturow: 50.000 US-dolarow.\n   Ukupna suma za kupnju: $80.000 + 50.000 = 130.000$ US-dolarow.\n\n3. **Rast hódnoty:**\n   Hódnota doma raste o 150 %.\n   Rast hódnoty = $130.000 \\times 150\\% = 130.000 \\times 1.5 = 195.000$ US-dolarow.\n\n4. **Kalkulacija dobytka:**\n   Dobytek = Hódnota doma po rastu - Ukupna suma za kupnju.\n   Dobytek = $195.000 - 130.000 = 65.000$ US-dolarow.\n\n65000"}`
+  - `{"gold": "540", "id": "hsb_mr_dev:low-hsb-3", "normalized_prediction": "180", "normalized_reference": "540", "prediction": "3 * 60 = 180"}`
+  - `{"gold": "20", "id": "hsb_mr_dev:low-hsb-4", "normalized_prediction": "6", "normalized_reference": "20", "prediction": "1. Obliczamy liczbę kokošów w każdej jedy:\n   - Rano: 15 kokošów / 3 jedy = 5 kokošów w jednej jedy.\n   - Popołdnju: 25 kokošów / 3 jedy = 8 kokošów w jednej jedy.\n\n2. Obliczamy liczbę kokošów w każdej jedy po popołudniu:\n   - 8 kokošów w jednej jedy.\n\n3. Obliczamy liczbę kokošów w każdej jedy po trzecim dniu (poślednim):\n   - 8 kokošów w jednej jedy.\n\n4. Obliczamy całkowitą liczbę kokošów w każdej jedy po trzecim dniu:\n   - 8 kokošów w jednej jedy.\n\n5. Obliczamy całkowitą liczbę kokošów w całej jedy po trzecim dniu:\n   - 8 kokošów w jednej jedy * 3 jedy = 24 kokoše.\n\n6. Obliczamy liczbę kokošów w każdej"}`
+
+## MT
+
+- `rows`: `5`
+
+## QA
+
+- `rows`: `5`
+- `accuracy`: `0.4`
+- `prediction_counts`: `{"1": 3, "2": 2}`
+- `wrong_examples` sample:
+  - `{"gold": "1", "id": "hsb_qa_dev:A1.1.H01", "normalized_prediction": "2", "prediction": "2"}`
+  - `{"gold": "2", "id": "hsb_qa_dev:A1.1.H1", "normalized_prediction": "1", "prediction": "1"}`
+  - `{"gold": "1", "id": "hsb_qa_dev:A1.1.H9", "normalized_prediction": "2", "prediction": "2"}`
+
+## SC
+
+- `rows`: `5`
+- `scores`: `{"correction_f1": 0.0, "detection_f1": 0.5714285714285715}`
+- `confusion`: `{"correction_exact": 0, "detection_fn": 0, "detection_fp": 3, "detection_tn": 0, "detection_tp": 2, "gold_correct": 3, "gold_error": 2, "pred_correct": 0, "pred_error": 5, "total": 5, "wrong_word_exact": 0}`
+- `predicted_label_counts`: `{"ERROR": 5}`
+- `gold_label_counts`: `{"CORRECT": 3, "ERROR": 2}`

@@ -1,0 +1,65 @@
+{
+  "model": "checkpoints/phase3_fixed/sorbian/edit",
+  "output": "/home/scheppat/workspace/projects/wmt26_lrllm/results/phase3_fixed/raw_predictions/sorbian_edit.jsonl",
+  "summary": {
+    "GC": {
+      "diagnostics": {
+        "correction_exact": 0,
+        "detection_fn": 2,
+        "detection_fp": 0,
+        "detection_tn": 3,
+        "detection_tp": 0,
+        "gold_correct": 3,
+        "gold_error": 2,
+        "pred_correct": 5,
+        "pred_error": 0,
+        "total": 5,
+        "wrong_word_exact": 0
+      },
+      "rows": 5,
+      "scores": {
+        "correction_f1": 0.0,
+        "detection_f1": 0.0
+      }
+    },
+    "MR": {
+      "rows": 5,
+      "scores": {
+        "accuracy": 0.0
+      }
+    },
+    "MT": {
+      "rows": 5,
+      "scores": {
+        "bleu": 0.25444273065554945,
+        "chrf++": 8.651421153579939
+      }
+    },
+    "QA": {
+      "rows": 5,
+      "scores": {
+        "accuracy": 0.6
+      }
+    },
+    "SC": {
+      "diagnostics": {
+        "correction_exact": 0,
+        "detection_fn": 1,
+        "detection_fp": 1,
+        "detection_tn": 2,
+        "detection_tp": 1,
+        "gold_correct": 3,
+        "gold_error": 2,
+        "pred_correct": 3,
+        "pred_error": 2,
+        "total": 5,
+        "wrong_word_exact": 0
+      },
+      "rows": 5,
+      "scores": {
+        "correction_f1": 0.0,
+        "detection_f1": 0.5
+      }
+    }
+  }
+}

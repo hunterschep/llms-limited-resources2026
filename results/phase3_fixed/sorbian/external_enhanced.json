@@ -1,0 +1,34 @@
+{
+  "aggregate": {
+    "GC_score": 33.56080190327435,
+    "MR_score": 10.416666666666668,
+    "MT_score": 29.706320514896113,
+    "QA_score": 42.138364779874216,
+    "SC_score": 34.19928166329013,
+    "overall_score": 30.00428710560029
+  },
+  "model": "checkpoints/phase3_fixed/sorbian/external_enhanced",
+  "oracle": false,
+  "split": "locked_validation",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0081799591002045,
+      "detection_f1": 0.6630360789652825
+    },
+    "MR": {
+      "accuracy": 0.10416666666666667
+    },
+    "MT": {
+      "bleu": 6.342568266982932,
+      "chrf++": 29.706320514896113
+    },
+    "QA": {
+      "accuracy": 0.42138364779874216
+    },
+    "SC": {
+      "correction_f1": 0.02768166089965398,
+      "detection_f1": 0.6563039723661486
+    }
+  },
+  "track": "sorbian"
+}

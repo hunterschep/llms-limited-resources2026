@@ -2,4 +2,8 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | results/baselines/base_qwen35_2b_sorbian.json | sorbian | Qwen/Qwen3.5-2B | 27.527 | 5.355 | 43.396 | 65.630 | 1.739 | 66.168 | 0.000 | 0.000 | 27.527 | 43.396 | 33.685 | 33.084 | 0.000 | 27.539 |  |
 | results/phase3_fixed/sorbian/base_qwen35_2b.json | sorbian | Qwen/Qwen3.5-2B | 27.477 | 5.319 | 43.396 | 65.630 | 1.739 | 66.168 | 0.000 | 8.333 | 27.477 | 43.396 | 33.685 | 33.084 | 8.333 | 29.195 |  |
+| results/phase3_fixed/sorbian/edit.json | sorbian | checkpoints/phase3_fixed/sorbian/edit | 21.644 | 3.420 | 42.138 | 45.507 | 3.787 | 32.497 | 0.818 | 8.333 | 21.644 | 42.138 | 24.647 | 16.657 | 8.333 | 22.684 |  |
+| results/phase3_fixed/sorbian/external_enhanced.json | sorbian | checkpoints/phase3_fixed/sorbian/external_enhanced | 29.706 | 6.343 | 42.138 | 65.630 | 2.768 | 66.304 | 0.818 | 10.417 | 29.706 | 42.138 | 34.199 | 33.561 | 10.417 | 30.004 |  |
+| results/phase3_fixed/sorbian/mr.json | sorbian | checkpoints/phase3_fixed/sorbian/mr | 23.522 | 4.692 | 47.799 | 65.630 | 0.350 | 66.168 | 0.410 | 8.333 | 23.522 | 47.799 | 32.990 | 33.289 | 8.333 | 29.187 |  |
 | results/phase3_fixed/sorbian/oracle_smoke.json | sorbian | Qwen/Qwen3.5-2B | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | oracle |
+| results/phase3_fixed/sorbian/task_balanced.json | sorbian | checkpoints/phase3_fixed/sorbian/task_balanced | 28.248 | 6.285 | 47.170 | 53.002 | 3.448 | 27.393 | 0.000 | 10.417 | 28.248 | 47.170 | 28.225 | 13.697 | 10.417 | 25.551 |  |

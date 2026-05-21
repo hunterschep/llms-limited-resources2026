@@ -1,0 +1,65 @@
+{
+  "model": "Qwen/Qwen3.5-2B",
+  "output": "/home/scheppat/workspace/projects/wmt26_lrllm/results/phase3_fixed/raw_predictions/uk_base.jsonl",
+  "summary": {
+    "GC": {
+      "diagnostics": {
+        "correction_exact": 0,
+        "detection_fn": 0,
+        "detection_fp": 3,
+        "detection_tn": 0,
+        "detection_tp": 7,
+        "gold_correct": 3,
+        "gold_error": 7,
+        "pred_correct": 0,
+        "pred_error": 10,
+        "total": 10,
+        "wrong_word_exact": 0
+      },
+      "rows": 10,
+      "scores": {
+        "correction_f1": 0.0,
+        "detection_f1": 0.8235294117647058
+      }
+    },
+    "MR": {
+      "rows": 10,
+      "scores": {
+        "accuracy": 0.3
+      }
+    },
+    "MT": {
+      "rows": 10,
+      "scores": {
+        "bleu": 14.47240752292605,
+        "chrf++": 44.66735226018539
+      }
+    },
+    "QA": {
+      "rows": 10,
+      "scores": {
+        "accuracy": 0.0
+      }
+    },
+    "SC": {
+      "diagnostics": {
+        "correction_exact": 1,
+        "detection_fn": 0,
+        "detection_fp": 6,
+        "detection_tn": 0,
+        "detection_tp": 4,
+        "gold_correct": 6,
+        "gold_error": 4,
+        "pred_correct": 0,
+        "pred_error": 10,
+        "total": 10,
+        "wrong_word_exact": 1
+      },
+      "rows": 10,
+      "scores": {
+        "correction_f1": 0.4,
+        "detection_f1": 0.5714285714285715
+      }
+    }
+  }
+}

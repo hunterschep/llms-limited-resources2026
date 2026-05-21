@@ -1,0 +1,190 @@
+{
+  "GC": {
+    "confusion": {
+      "correction_exact": 0,
+      "detection_fn": 7,
+      "detection_fp": 3,
+      "detection_tn": 0,
+      "detection_tp": 0,
+      "gold_correct": 3,
+      "gold_error": 7,
+      "pred_correct": 7,
+      "pred_error": 3,
+      "total": 10,
+      "wrong_word_exact": 0
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 3,
+      "ERROR": 7
+    },
+    "predicted_label_counts": {
+      "CORRECT": 7,
+      "ERROR": 3
+    },
+    "rows": 10,
+    "scores": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.0
+    }
+  },
+  "MR": {
+    "accuracy": 0.1,
+    "rows": 10,
+    "wrong_examples": [
+      {
+        "gold": "18",
+        "id": "ukr_mr_dev:low-ukr-0",
+        "normalized_prediction": "32",
+        "normalized_reference": "18",
+        "prediction": "16 * 2 = 32"
+      },
+      {
+        "gold": "70000",
+        "id": "ukr_mr_dev:low-ukr-2",
+        "normalized_prediction": "187.5%",
+        "normalized_reference": "70000",
+        "prediction": "150% від 50 000 $ = 75 000 $.\nВсього витрачено на будинок: 80 000 + 75 000 = 155 000 $.\nВартість будинку після ремонту: 80 000 + 150 000 = 230 000 $.\nВартість будинку до ремонту: 80 000 $.\nВідсоток прибутку: (230 000 - 80 000) / 80 000 = 150 000 / 80 000 = 1.875 = 187.5%."
+      },
+      {
+        "gold": "540",
+        "id": "ukr_mr_dev:low-ukr-3",
+        "normalized_prediction": "180",
+        "normalized_reference": "540",
+        "prediction": "3 * 60 = 180"
+      },
+      {
+        "gold": "20",
+        "id": "ukr_mr_dev:low-ukr-4",
+        "normalized_prediction": "60",
+        "normalized_reference": "20",
+        "prediction": "20 * 3 = 60"
+      },
+      {
+        "gold": "64",
+        "id": "ukr_mr_dev:low-ukr-5",
+        "normalized_prediction": "8",
+        "normalized_reference": "64",
+        "prediction": "16 склянок — це 16 одиниць.\nПерша склянка коштує 5 $.\nОстанні 15 склянок коштують 60 % від ціни першої склянки.\nСума ціни першої склянки: $5$.\nСума ціни 15 склянок: $5 \\times 0.6 = 3$.\nЗагальна сума: $5 + 3 = 8$."
+      },
+      {
+        "gold": "260",
+        "id": "ukr_mr_dev:low-ukr-6",
+        "normalized_prediction": "420",
+        "normalized_reference": "260",
+        "prediction": "20 * 4 = 80 (овечок у Чарльстоні)\n80 * 2 = 160 (овечок у Сіетлі)\n160 * 2 = 320 (овечок у Тулузі)\n320 + 80 + 20 = 420 (загалом)"
+      },
+      {
+        "gold": "160",
+        "id": "ukr_mr_dev:low-ukr-7",
+        "normalized_prediction": "120",
+        "normalized_reference": "160",
+        "prediction": "120 хвилин"
+      },
+      {
+        "gold": "45",
+        "id": "ukr_mr_dev:low-ukr-8",
+        "normalized_prediction": "4",
+        "normalized_reference": "45",
+        "prediction": "1. Перший етап:\n   - Швидкість: 60 миль/год.\n   - Час: 3 години.\n   - Відстань: $60 \\times 3 = 180$ миль.\n\n2. Другий етап:\n   - Перший затор: 2 години.\n   - Швидкість: 30 миль/год.\n   - Відстань: $30 \\times 2 = 60$ миль.\n   - Відстань від дому до першого затору: $180 + 60 = 240$ миль.\n\n3. Третій етап:\n   - Другий затор: 0.5 години (півгодини).\n   - Швидкість: 30 миль/год.\n   - Відстань: $30 \\times 0.5 = 15$ миль.\n   - Відстань від дому до другого затору: $240 + 15 = 255$ миль.\n\n4. Четвертий етап:\n   - Решта"
+      },
+      {
+        "gold": "460",
+        "id": "ukr_mr_dev:low-ukr-9",
+        "normalized_prediction": "406",
+        "normalized_reference": "460",
+        "prediction": "10 * 40 + 1,2 * (45 - 40) = 400 + 1,2 * 5 = 400 + 6 = 406"
+      }
+    ]
+  },
+  "MT": {
+    "rows": 10
+  },
+  "QA": {
+    "accuracy": 0.2,
+    "prediction_counts": {
+      "0": 7,
+      "2": 3
+    },
+    "rows": 10,
+    "wrong_examples": [
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000001",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000004",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000006",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000015",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000020",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "2",
+        "id": "ukr_qa_dev:000026",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "3",
+        "id": "ukr_qa_dev:000027",
+        "normalized_prediction": "0",
+        "prediction": "0"
+      },
+      {
+        "gold": "0",
+        "id": "ukr_qa_dev:000028",
+        "normalized_prediction": "2",
+        "prediction": "2"
+      }
+    ]
+  },
+  "SC": {
+    "confusion": {
+      "correction_exact": 2,
+      "detection_fn": 1,
+      "detection_fp": 2,
+      "detection_tn": 4,
+      "detection_tp": 3,
+      "gold_correct": 6,
+      "gold_error": 4,
+      "pred_correct": 5,
+      "pred_error": 5,
+      "total": 10,
+      "wrong_word_exact": 2
+    },
+    "format_failures": [],
+    "gold_label_counts": {
+      "CORRECT": 6,
+      "ERROR": 4
+    },
+    "predicted_label_counts": {
+      "CORRECT": 5,
+      "ERROR": 5
+    },
+    "rows": 10,
+    "scores": {
+      "correction_f1": 0.6666666666666666,
+      "detection_f1": 0.6666666666666665
+    }
+  }
+}

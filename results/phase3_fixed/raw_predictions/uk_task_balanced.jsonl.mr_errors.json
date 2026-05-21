@@ -1,0 +1,83 @@
+{
+  "category_counts": {
+    "explanation_or_verbose_answer": 2,
+    "parser_normalization_rescued": 1,
+    "wrong_numeric_answer": 7
+  },
+  "malformed_output_rate": 0.2,
+  "rows": 10,
+  "wrong_examples": [
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "18",
+      "id": "ukr_mr_dev:low-ukr-0",
+      "normalized_prediction": "24",
+      "normalized_reference": "18",
+      "raw_prediction": "24"
+    },
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "70000",
+      "id": "ukr_mr_dev:low-ukr-2",
+      "normalized_prediction": "25000",
+      "normalized_reference": "70000",
+      "raw_prediction": "25 000 $"
+    },
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "540",
+      "id": "ukr_mr_dev:low-ukr-3",
+      "normalized_prediction": "180",
+      "normalized_reference": "540",
+      "raw_prediction": "3 * 60 = 180"
+    },
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "20",
+      "id": "ukr_mr_dev:low-ukr-4",
+      "normalized_prediction": "60",
+      "normalized_reference": "20",
+      "raw_prediction": "20 * 3 = 60"
+    },
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "64",
+      "id": "ukr_mr_dev:low-ukr-5",
+      "normalized_prediction": "240",
+      "normalized_reference": "64",
+      "raw_prediction": "240"
+    },
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "260",
+      "id": "ukr_mr_dev:low-ukr-6",
+      "normalized_prediction": "160",
+      "normalized_reference": "260",
+      "raw_prediction": "20 * 4 * 2 = 160"
+    },
+    {
+      "category": "explanation_or_verbose_answer",
+      "gold_target": "160",
+      "id": "ukr_mr_dev:low-ukr-7",
+      "normalized_prediction": "80",
+      "normalized_reference": "160",
+      "raw_prediction": "200 / 2 * (1 - 0.4) + 20 = 100 * 0.6 + 20 = 60 + 20 = 80 хвилин."
+    },
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "45",
+      "id": "ukr_mr_dev:low-ukr-8",
+      "normalized_prediction": "240",
+      "normalized_reference": "45",
+      "raw_prediction": "240 миль"
+    },
+    {
+      "category": "explanation_or_verbose_answer",
+      "gold_target": "460",
+      "id": "ukr_mr_dev:low-ukr-9",
+      "normalized_prediction": "406",
+      "normalized_reference": "460",
+      "raw_prediction": "10 * 40 + 1,2 * (45 - 40) = 400 + 1,2 * 5 = 400 + 6 = 406."
+    }
+  ]
+}

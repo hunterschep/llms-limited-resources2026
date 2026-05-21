@@ -1,12 +1,24 @@
 # Phase 3 Fixed Polish Results
 
-Status: not run.
+Status: not run; explicitly skipped.
 
-Final polish must not run until a merged or otherwise selected base candidate has:
+Final format/behavior polish was skipped because no merged or otherwise selected base candidate cleared the fixed remediation gates.
 
-- sane SC/GC no-error behavior
-- non-collapsed MR
-- stable QA/MR label/final-answer output
-- no catastrophic MT regression
+Polish remains inappropriate for the current fixed wave because:
 
-If run later, store outputs under `checkpoints/phase3_fixed/<track>/final_polished/` and results under `results/phase3_fixed/final_polish/`.
+- Fixed Ukrainian candidates underperform normalized prompt-only.
+- Fixed edit specialists still fail exact SC/GC correction on locked validation.
+- Fixed MR specialists do not recover prompt-only MR.
+- Sorbian external-enhanced is a diagnostic fallback result, not a selected final candidate.
+
+If a future candidate clears the merge gate, polish should remain small and target only:
+
+- exact SC/GC two-line output
+- `CORRECT` / `CORRECT` no-error cases
+- final-answer-only MR
+- label-only QA
+- translation-only MT
+- no full-sentence rewrite for edit tasks
+- no verbose explanation
+- no chain-of-thought
+- no JSON/list format

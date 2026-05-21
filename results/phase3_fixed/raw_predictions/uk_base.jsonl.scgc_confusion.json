@@ -1,0 +1,141 @@
+{
+  "GC": {
+    "category_counts": {
+      "false_positive_error": 2,
+      "malformed_output": 2,
+      "wrong_wrong_word": 6
+    },
+    "malformed_output_rate": 0.2,
+    "no_error_accuracy": 0.0,
+    "rows": 10,
+    "sample_failures": [
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: радників\nCorrect word: радниками",
+        "id": "ukr_gc_dev:0002",
+        "raw_prediction": "Wrong word: мета\nCorrect word: мета"
+      },
+      {
+        "category": "malformed_output",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "ukr_gc_dev:0008",
+        "raw_prediction": "Wrong word: роблять Correct word: роблять"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: проблемам\nCorrect word: проблем",
+        "id": "ukr_gc_dev:0009",
+        "raw_prediction": "Wrong word: цілої Correct word: цілої\nCorrect word: цілої"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "ukr_gc_dev:0011",
+        "raw_prediction": "Wrong word: Ортеново намнєсті\nCorrect word: Ортеново-намнесті"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: забаві\nCorrect word: забава",
+        "id": "ukr_gc_dev:0012",
+        "raw_prediction": "Wrong word: найгірше Correct word: найгірше\nCorrect word: забаві"
+      },
+      {
+        "category": "malformed_output",
+        "gold_target": "Wrong word: купівлі\nCorrect word: купівлею",
+        "id": "ukr_gc_dev:0017",
+        "raw_prediction": "Wrong word: купівлі Correct word: купити"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: місцям\nCorrect word: місць",
+        "id": "ukr_gc_dev:0018",
+        "raw_prediction": "Wrong word: дообідньої\nCorrect word: дообідньої"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: клопотанням\nCorrect word: клопотань",
+        "id": "ukr_gc_dev:0024",
+        "raw_prediction": "Wrong word: клопотанням Correct word: клопотаннями\nCorrect word: було"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: дорожньо-транспортна\nCorrect word: дорожньо-транспортної",
+        "id": "ukr_gc_dev:0025",
+        "raw_prediction": "Wrong word: ушкоджень Correct word: ушкоджень\nCorrect word: ушкоджень"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "ukr_gc_dev:0028",
+        "raw_prediction": "Wrong word: принесіть\nCorrect word: принести"
+      }
+    ]
+  },
+  "SC": {
+    "category_counts": {
+      "correct_error_correction": 1,
+      "false_positive_error": 6,
+      "malformed_output": 1,
+      "wrong_wrong_word": 2
+    },
+    "malformed_output_rate": 0.1,
+    "no_error_accuracy": 0.0,
+    "rows": 10,
+    "sample_failures": [
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "ukr_sc_dev:0008",
+        "raw_prediction": "Wrong word: законний Correct word: законний\nCorrect word: законний"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "ukr_sc_dev:0012",
+        "raw_prediction": "Wrong word: тренованих Correct word: тренованіх\nCorrect word: тренованих"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: котр\nCorrect word: котрій",
+        "id": "ukr_sc_dev:0016",
+        "raw_prediction": "Wrong word: котр Correct word: котрий\nCorrect word: залежить від того, о котрий зранку ви встаєте."
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "ukr_sc_dev:0019",
+        "raw_prediction": "Wrong word: нажене\nCorrect word: нажене"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "ukr_sc_dev:0021",
+        "raw_prediction": "Wrong word: речовина Correct word: речовина\nCorrect word: речовина"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "ukr_sc_dev:0023",
+        "raw_prediction": "Wrong word: ведеться Correct word: ведеться\nCorrect word: вранці"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "ukr_sc_dev:0024",
+        "raw_prediction": "Wrong word: кадрові агентури та великі групи осіб, які працюють за межами свого місця проживання.\nCorrect word: кадрові агентства та великі групи осіб, які працюють за межами свого місця проживання."
+      },
+      {
+        "category": "malformed_output",
+        "gold_target": "Wrong word: троєл\nCorrect word: трохи",
+        "id": "ukr_sc_dev:0026",
+        "raw_prediction": "Wrong word: троєл Correct word: троє"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: технлоогії\nCorrect word: технології",
+        "id": "ukr_sc_dev:0032",
+        "raw_prediction": "Wrong word: технлоогії Correct word: технології\nCorrect word: ІР"
+      }
+    ]
+  }
+}

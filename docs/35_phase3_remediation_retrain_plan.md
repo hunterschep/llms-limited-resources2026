@@ -1,6 +1,6 @@
 # Phase 3 Remediation Retrain Plan
 
-Status: active remediation. Do not run merge search until the sanity gates in `docs/37_phase3_sanity_gates.md` pass.
+Status: remediation retrain wave complete. Merge search is blocked by `docs/42_phase3_resume_or_block_merge_decision.md`.
 
 ## What Failed
 
@@ -27,12 +27,13 @@ Status: active remediation. Do not run merge search until the sanity gates in `d
 - Preference/chosen rows now append the chosen assistant response during SFT text construction.
 - `train_sft.py` now honors task-balanced/capped sampling instead of blindly concatenating all train files.
 
-## Still Uncertain
+## Resolved By Fixed Retraining
 
-- Whether retrained `M_mr` can recover prompt-only MR while preserving output format.
-- Whether balanced `M_edit` improves SC/GC without creating false-positive no-error failures.
-- Whether fixed task-balanced/external-enhanced models improve overall score without new negative transfer.
-- Whether merge search should resume with only fixed edit/MR vectors or wait for refreshed lang/MT/QA/format specialists.
+- Retrained `M_mr` did not recover prompt-only MR on Ukrainian and did not improve Sorbian MR enough to be useful.
+- Balanced `M_edit` did not transfer to locked validation; it reduced the old always-error prior but produced too many missed errors and weak exact corrections.
+- Ukrainian fixed task-balanced and external-enhanced models were worse than normalized prompt-only.
+- Sorbian fixed external-enhanced modestly beat normalized prompt-only, but it is a diagnostic fallback result rather than a clean specialist vector.
+- Merge search should not resume with this fixed wave.
 
 ## Artifact Eligibility
 
@@ -40,12 +41,14 @@ Eligible for comparison:
 
 - Prompt-only base results in `results/baselines/`.
 - Compact triage reports under `results/triage/`.
-- Future checkpoints under `checkpoints/phase3_fixed/`.
+- Fixed normalized eval summaries under `results/phase3_fixed/`.
+- Raw prediction diagnostics under `results/phase3_fixed/raw_predictions/`.
 
 Preserved as diagnostics only:
 
 - Raw first-pass prediction dumps under `results/triage/raw_predictions/`.
 - Triage summaries and cleanup manifests.
+- Sorbian fixed external-enhanced metric result.
 
 Disqualified:
 
@@ -53,10 +56,11 @@ Disqualified:
 - First-pass `M_edit`, `M_mr`, and any model trained on unbalanced SC/GC data.
 - Any stale result JSON generated before normalized MR parsing.
 - Any partial checkpoint from canceled jobs.
+- Fixed retrain checkpoints from this wave; they were pruned from scratch after evaluation and are not merge inputs.
 
-## Minimal Retraining Set
+## Minimal Retraining Set Completed
 
-Required:
+Completed:
 
 - Ukrainian fixed `M_edit`.
 - Ukrainian fixed `M_mr`.
@@ -67,10 +71,10 @@ Required:
 - Sorbian fixed task-balanced baseline.
 - Sorbian fixed external-enhanced multitask baseline.
 
-Do not retrain `M_lang`, `M_mt`, `M_qa`, or `M_format` unless later diagnostics show their data/configs were affected.
+`M_lang`, `M_mt`, `M_qa`, and `M_format` were not retrained because the remediation targeted edit balance and MR parsing/preservation only.
 
 ## Must Not Be Merged
 
-Do not merge any first-pass specialist or any model outside `checkpoints/phase3_fixed/`. Merge search may only resume after `docs/42_phase3_resume_or_block_merge_decision.md` clears specific checkpoints.
+Do not merge any first-pass specialist, any fixed checkpoint from this wave, or any model whose checkpoint loading and normalized all-five-task eval have not been explicitly cleared. Merge search may only resume after a new, narrower remediation produces eligible checkpoints and `docs/42_phase3_resume_or_block_merge_decision.md` is updated.
 
 References: WMT26 task page https://www2.statmt.org/wmt26/limited-resources-llm.html and official repository https://github.com/TUM-NLP/llms-limited-resources2026.

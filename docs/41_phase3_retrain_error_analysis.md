@@ -1,51 +1,68 @@
 # Phase 3 Retrain Error Analysis
 
-Status: partial. Ukrainian normalized fixed evaluation is complete; Sorbian fixed candidate evaluation is still running.
+Status: complete for the fixed remediation wave.
 
-## Ukrainian Findings So Far
+## What Is Explained
 
-The corrected evaluator raises prompt-only Ukrainian MR from the old 4.17 to 29.17, so the earlier "MR collapse to zero" was substantially a parser/normalization artifact. The retrained models still do not solve MR:
+The first-pass suspicious results were not a global training/checkpoint failure:
 
-- Fixed `M_mr` MR accuracy is 20.83, below prompt-only 29.17.
-- Fixed `M_mr` improves QA to 38.81 but nearly eliminates SC/GC correction, so it behaves like a narrow answer-format/QA-shift adapter rather than a robust math-preservation vector.
-- Fixed task-balanced falls to 8.33 MR, suggesting the corrected mixture still causes negative transfer into math.
+- Gold-target oracle scoring reaches 100 for QA, MR, SC, and GC.
+- Compact same-set overfit passes for Ukrainian and Sorbian SC, GC, and MR.
+- Checkpoint-loading diagnostics confirm trained checkpoints produce different outputs from base.
+- MR prompt-only scores rose after normalization: Ukrainian 4.17 to 29.17, Sorbian 0.00 to 8.33.
+- SC/GC detection plateaus were traceable to the original edit mixtures being almost all error cases.
 
-The edit remediation changed the failure mode:
+## Ukrainian Errors
 
-- First-pass edit data encouraged always-error behavior.
-- Balanced fixed `M_edit` no longer shows a pure always-error prior, but checkpoint-loading samples and locked validation show it often emits `CORRECT/CORRECT`.
-- The result is false-negative-heavy behavior, especially for GC: fixed `M_edit` GC detection F1 is 29.19 and GC correction F1 is 0.0.
+The fixed Ukrainian models do not beat normalized prompt-only. The key failures are:
 
-The fixed Ukrainian multitask runs are not fallback candidates:
+- Fixed `M_edit` changes the prior away from always-error, but now under-detects GC and collapses GC correction to 0.0.
+- Fixed `M_mr` improves QA but does not recover prompt-only MR, and it destroys exact SC/GC correction.
+- Fixed task-balanced and external-enhanced runs damage GC and MR too much to be fallback candidates.
 
-- Fixed task-balanced: 23.92 overall.
-- Fixed external-enhanced: 23.55 overall.
-- Both severely damage GC and MR.
+Compact raw prediction diagnostics on 10 examples per task:
 
-## Current Working Theory
+| Model | MT chrF | QA acc | SC det/corr | GC det/corr | MR acc | SC no-error acc | GC no-error acc | MR malformed |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `uk_base` | 44.67 | 0.00 | 0.571 / 0.400 | 0.824 / 0.000 | 0.30 | 0.00 | 0.00 | 0.40 |
+| `uk_edit` | 42.46 | 0.20 | 0.667 / 0.667 | 0.000 / 0.000 | 0.10 | 0.67 | 0.00 | 0.50 |
+| `uk_mr` | 45.08 | 0.00 | 0.571 / 0.000 | 0.824 / 0.000 | 0.10 | 0.00 | 0.00 | 0.00 |
+| `uk_task_balanced` | 42.82 | 0.30 | 0.667 / 0.400 | 0.000 / 0.000 | 0.10 | 1.00 | 0.33 | 0.20 |
+| `uk_external_enhanced` | 43.34 | 0.30 | 0.400 / 0.400 | 0.000 / 0.000 | 0.10 | 1.00 | 1.00 | 0.90 |
 
-The pipeline plumbing is sane: oracle, data sanity, same-set overfit, and checkpoint-loading gates passed. The failures look like data-mixture/generalization failures:
+These samples support the locked-validation result: the edit task is now dominated by missed real errors or exact-correction failures, while MR remains mostly wrong numeric answers or malformed/verbose answers depending on the model.
 
-- SC/GC synthetic correction data can be overfit but does not match official locked validation well enough.
-- Adding clean examples fixed the class-prior artifact but overcorrected toward no-error responses.
-- MR preservation data is too small and too distributionally narrow; fine-tuning on it degrades the base model's broader arithmetic behavior.
-- Task-balanced/external-enhanced configs are still too brittle: they improve some QA behavior but collapse exact edit correction and MR.
+## Sorbian Errors
 
-Required analyses after fixed evaluation:
+Sorbian external-enhanced is a small overall improvement over normalized prompt-only, mostly from MT and MR, but its edit correction remains poor. The specialists are not useful merge inputs:
 
-- SC/GC false-positive no-error failures.
-- SC/GC false-negative missed-error failures.
-- SC/GC wrong-word versus wrong-correction failures.
-- SC/GC malformed or verbose outputs.
-- MR normalized exact matches.
-- MR parser-rescued answers.
-- MR wrong numeric answers.
-- MR nonnumeric, verbose, or empty outputs.
-- Cross-task regressions versus prompt-only.
+- Fixed `M_edit` damages MT and GC detection while only slightly improving correction from near-zero.
+- Fixed `M_mr` improves QA but leaves MR unchanged and reduces MT.
+- Fixed task-balanced slightly improves MR and QA but damages GC too heavily.
+- Fixed external-enhanced is a diagnostic fallback candidate, not a clean skill vector.
 
-Use:
+Compact raw prediction diagnostics on 5 examples per task:
 
-```bash
-python3 scripts/report_scgc_confusion.py --input <raw_prediction_dump.jsonl>
-python3 scripts/report_mr_raw_errors.py --input <raw_prediction_dump.jsonl>
-```
+| Model | MT chrF | QA acc | SC det/corr | GC det/corr | MR acc | SC no-error acc | GC no-error acc | MR malformed |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `sorbian_base` | 10.11 | 0.60 | 0.571 / 0.000 | 0.571 / 0.000 | 0.00 | 0.00 | 0.00 | 0.00 |
+| `sorbian_edit` | 8.65 | 0.60 | 0.500 / 0.000 | 0.000 / 0.000 | 0.00 | 0.67 | 1.00 | 0.00 |
+| `sorbian_mr` | 14.02 | 0.80 | 0.571 / 0.000 | 0.571 / 0.000 | 0.00 | 0.00 | 0.00 | 0.00 |
+| `sorbian_task_balanced` | 10.51 | 0.60 | 0.500 / 0.000 | 0.500 / 0.000 | 0.20 | 0.67 | 0.67 | 0.00 |
+| `sorbian_external_enhanced` | 33.89 | 0.40 | 0.571 / 0.000 | 0.571 / 0.000 | 0.00 | 0.00 | 0.00 | 0.60 |
+
+## Working Theory
+
+The pipeline is sane, but the current fixed data/configs are still not a competitive training recipe:
+
+- Edit data can be memorized but does not transfer to official locked validation. The balanced mixture fixed the prior artifact but introduced too many no-error behaviors and not enough realistic one-token grammatical/correction coverage.
+- MR preservation data is parseable and overfittable but too small/narrow to preserve the base model's broader arithmetic under fine-tuning.
+- Multitask fixed runs are brittle: they can improve QA or Sorbian MT while damaging exact edit correction and MR.
+- Sorbian external-enhanced suggests the public-data layer helps language/MT, but not enough to make the specialists safe for task-vector merging.
+
+## Actionable Next Remediation
+
+- Do not merge these fixed specialists.
+- Redesign edit training around harder clean/error contrastive examples, more real one-token corrections, and per-error-type caps.
+- Redesign MR around a larger but still governed final-answer-only preservation set and evaluate on held-out arithmetic before full WMT-style locked validation.
+- Keep Sorbian external-enhanced metrics as a diagnostic fallback, but prune its checkpoint until a deliberate fallback-model run is requested.

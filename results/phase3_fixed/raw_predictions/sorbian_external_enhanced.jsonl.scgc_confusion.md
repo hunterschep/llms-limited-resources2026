@@ -1,0 +1,27 @@
+# SC/GC Confusion Report
+
+## GC
+
+- Rows: `5`
+- No-error accuracy: `0.000`
+- Malformed/verbose rate: `0.000`
+- Categories: `{"false_positive_error": 3, "wrong_wrong_word": 2}`
+- Failure sample:
+  - `{"category": "false_positive_error", "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT", "id": "hsb_gc_dev:0003", "raw_prediction": "Wrong word: Nječiń to, štož móža druzy činić.\nCorrect word: Nječiń to, štož móžu druhy činić."}`
+  - `{"category": "false_positive_error", "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT", "id": "hsb_gc_dev:0005", "raw_prediction": "Wrong word: najnjewoblubowaniši\nCorrect word: najnejwoblubowaniši"}`
+  - `{"category": "wrong_wrong_word", "gold_target": "Wrong word: Miłoraza\nCorrect word: Miłorazu", "id": "hsb_gc_dev:0006", "raw_prediction": "Wrong word: wjedźe\nCorrect word: wjeździ"}`
+  - `{"category": "false_positive_error", "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT", "id": "hsb_gc_dev:0010", "raw_prediction": "Wrong word: prajił\nCorrect word: prajal"}`
+  - `{"category": "wrong_wrong_word", "gold_target": "Wrong word: nowember\nCorrect word: nowembru", "id": "hsb_gc_dev:0011", "raw_prediction": "Wrong word: rjad\nCorrect word: rząd"}`
+
+## SC
+
+- Rows: `5`
+- No-error accuracy: `0.000`
+- Malformed/verbose rate: `0.000`
+- Categories: `{"false_positive_error": 3, "wrong_wrong_word": 2}`
+- Failure sample:
+  - `{"category": "false_positive_error", "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT", "id": "hsb_sc_dev:0001", "raw_prediction": "Wrong word: zamołwitosć\nCorrect word: rozmłuwitosć"}`
+  - `{"category": "false_positive_error", "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT", "id": "hsb_sc_dev:0004", "raw_prediction": "Wrong word: koleso\nCorrect word: koło"}`
+  - `{"category": "wrong_wrong_word", "gold_target": "Wrong word: bcuhu\nCorrect word: buchu", "id": "hsb_sc_dev:0005", "raw_prediction": "Wrong word: opozicionelnych\nCorrect word: opozycyjnych\n\nCorrect word: do lěhwow\nCorrect word: do lwów"}`
+  - `{"category": "wrong_wrong_word", "gold_target": "Wrong word: mpłě\nCorrect word: małe", "id": "hsb_sc_dev:0006", "raw_prediction": "Wrong word: bolosće\nCorrect word: bolesć"}`
+  - `{"category": "false_positive_error", "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT", "id": "hsb_sc_dev:0008", "raw_prediction": "Wrong word: dyrbja\nCorrect word: dyrbja"}`

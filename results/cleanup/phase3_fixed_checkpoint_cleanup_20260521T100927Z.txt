@@ -1,0 +1,131 @@
+timestamp_utc=20260521T100927Z
+git_commit=unknown
+scratch_root=/scratch/scheppat/projects/wmt26_lrllm
+before_phase3_fixed_checkpoints=29G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed
+before_checkpoint_root=50G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints
+
+candidate_tree_before:
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/adapter
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/adapter/adapter_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/adapter/adapter_model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/adapter/README.md
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/chat_template.jinja
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/generation_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/tokenizer_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit/tokenizer.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/adapter
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/adapter/adapter_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/adapter/adapter_model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/adapter/README.md
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/chat_template.jinja
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/generation_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/tokenizer_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced/tokenizer.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/adapter
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/adapter/adapter_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/adapter/adapter_model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/adapter/README.md
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/chat_template.jinja
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/generation_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/tokenizer_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr/tokenizer.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/adapter
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/adapter/adapter_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/adapter/adapter_model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/adapter/README.md
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/chat_template.jinja
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/generation_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/tokenizer_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced/tokenizer.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/adapter
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/adapter/adapter_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/adapter/adapter_model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/adapter/README.md
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/chat_template.jinja
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/generation_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/tokenizer_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit/tokenizer.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/adapter
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/adapter/adapter_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/adapter/adapter_model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/adapter/README.md
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/chat_template.jinja
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/generation_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/tokenizer_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced/tokenizer.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/adapter
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/adapter/adapter_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/adapter/adapter_model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/adapter/README.md
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/chat_template.jinja
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/generation_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/tokenizer_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr/tokenizer.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/adapter
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/adapter/adapter_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/adapter/adapter_model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/adapter/README.md
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/chat_template.jinja
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/generation_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/model.safetensors
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/tokenizer_config.json
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced/tokenizer.json
+
+deleted_paths:
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit
+deleted /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/edit
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr
+deleted /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/mr
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced
+deleted /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/task_balanced
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced
+deleted /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/external_enhanced
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit
+deleted /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/edit
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr
+deleted /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/mr
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced
+deleted /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/task_balanced
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced
+deleted /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/external_enhanced
+absent /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/merged
+absent /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/merged
+absent /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk/final_polished
+absent /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian/final_polished
+
+after_phase3_fixed_checkpoints=0	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed
+after_checkpoint_root=22G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints
+
+candidate_tree_after:
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/sorbian
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase3_fixed/uk
+
+preserved:
+/home/scheppat/workspace/projects/wmt26_lrllm/results/phase3_fixed
+/home/scheppat/workspace/projects/wmt26_lrllm/results/triage
+/home/scheppat/workspace/projects/wmt26_lrllm/results/cleanup

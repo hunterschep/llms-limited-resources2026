@@ -1,0 +1,65 @@
+{
+  "model": "checkpoints/phase3_fixed/uk/edit",
+  "output": "/home/scheppat/workspace/projects/wmt26_lrllm/results/phase3_fixed/raw_predictions/uk_edit.jsonl",
+  "summary": {
+    "GC": {
+      "diagnostics": {
+        "correction_exact": 0,
+        "detection_fn": 7,
+        "detection_fp": 3,
+        "detection_tn": 0,
+        "detection_tp": 0,
+        "gold_correct": 3,
+        "gold_error": 7,
+        "pred_correct": 7,
+        "pred_error": 3,
+        "total": 10,
+        "wrong_word_exact": 0
+      },
+      "rows": 10,
+      "scores": {
+        "correction_f1": 0.0,
+        "detection_f1": 0.0
+      }
+    },
+    "MR": {
+      "rows": 10,
+      "scores": {
+        "accuracy": 0.1
+      }
+    },
+    "MT": {
+      "rows": 10,
+      "scores": {
+        "bleu": 12.930484318385101,
+        "chrf++": 42.46282751996511
+      }
+    },
+    "QA": {
+      "rows": 10,
+      "scores": {
+        "accuracy": 0.2
+      }
+    },
+    "SC": {
+      "diagnostics": {
+        "correction_exact": 2,
+        "detection_fn": 1,
+        "detection_fp": 2,
+        "detection_tn": 4,
+        "detection_tp": 3,
+        "gold_correct": 6,
+        "gold_error": 4,
+        "pred_correct": 5,
+        "pred_error": 5,
+        "total": 10,
+        "wrong_word_exact": 2
+      },
+      "rows": 10,
+      "scores": {
+        "correction_f1": 0.6666666666666666,
+        "detection_f1": 0.6666666666666665
+      }
+    }
+  }
+}

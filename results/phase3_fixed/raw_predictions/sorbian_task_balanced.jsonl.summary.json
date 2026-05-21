@@ -1,0 +1,65 @@
+{
+  "model": "checkpoints/phase3_fixed/sorbian/task_balanced",
+  "output": "/home/scheppat/workspace/projects/wmt26_lrllm/results/phase3_fixed/raw_predictions/sorbian_task_balanced.jsonl",
+  "summary": {
+    "GC": {
+      "diagnostics": {
+        "correction_exact": 0,
+        "detection_fn": 1,
+        "detection_fp": 1,
+        "detection_tn": 2,
+        "detection_tp": 1,
+        "gold_correct": 3,
+        "gold_error": 2,
+        "pred_correct": 3,
+        "pred_error": 2,
+        "total": 5,
+        "wrong_word_exact": 0
+      },
+      "rows": 5,
+      "scores": {
+        "correction_f1": 0.0,
+        "detection_f1": 0.5
+      }
+    },
+    "MR": {
+      "rows": 5,
+      "scores": {
+        "accuracy": 0.2
+      }
+    },
+    "MT": {
+      "rows": 5,
+      "scores": {
+        "bleu": 0.7301956448311702,
+        "chrf++": 10.505164537190094
+      }
+    },
+    "QA": {
+      "rows": 5,
+      "scores": {
+        "accuracy": 0.6
+      }
+    },
+    "SC": {
+      "diagnostics": {
+        "correction_exact": 0,
+        "detection_fn": 1,
+        "detection_fp": 1,
+        "detection_tn": 2,
+        "detection_tp": 1,
+        "gold_correct": 3,
+        "gold_error": 2,
+        "pred_correct": 3,
+        "pred_error": 2,
+        "total": 5,
+        "wrong_word_exact": 0
+      },
+      "rows": 5,
+      "scores": {
+        "correction_f1": 0.0,
+        "detection_f1": 0.5
+      }
+    }
+  }
+}

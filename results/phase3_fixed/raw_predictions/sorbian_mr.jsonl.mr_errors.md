@@ -1,0 +1,11 @@
+# MR Raw Error Report
+
+- Rows: `5`
+- Malformed/verbose rate: `0.000`
+- Categories: `{"wrong_numeric_answer": 5}`
+- Wrong examples:
+  - `{"category": "wrong_numeric_answer", "gold_target": "18", "id": "hsb_mr_dev:low-hsb-0", "normalized_prediction": "12", "normalized_reference": "18", "raw_prediction": "12"}`
+  - `{"category": "wrong_numeric_answer", "gold_target": "3", "id": "hsb_mr_dev:low-hsb-1", "normalized_prediction": "10", "normalized_reference": "3", "raw_prediction": "10"}`
+  - `{"category": "wrong_numeric_answer", "gold_target": "70000", "id": "hsb_mr_dev:low-hsb-2", "normalized_prediction": "100000", "normalized_reference": "70000", "raw_prediction": "100000"}`
+  - `{"category": "wrong_numeric_answer", "gold_target": "540", "id": "hsb_mr_dev:low-hsb-3", "normalized_prediction": "180", "normalized_reference": "540", "raw_prediction": "180"}`
+  - `{"category": "wrong_numeric_answer", "gold_target": "20", "id": "hsb_mr_dev:low-hsb-4", "normalized_prediction": "10", "normalized_reference": "20", "raw_prediction": "10"}`

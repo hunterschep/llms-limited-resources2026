@@ -1,35 +1,49 @@
 # Phase 3 Resume Or Block Merge Decision
 
-Status: blocked pending completion of Sorbian fixed evaluation. Ukrainian fixed evaluation is complete and disqualifies all fixed Ukrainian retrains.
+Status: blocked.
 
-Merge search is currently blocked because the fixed specialists that were supposed to repair the suspicious failure modes have not cleared the sanity gates.
+Merge search must not resume with the current fixed retrain wave. The remediation explained the suspicious first-pass results, but the retrained specialists do not clear the post-remediation gates.
 
-## Decision From Ukrainian Fixed Eval
+## Decision
 
-The normalized prompt-only Ukrainian baseline now scores 29.17 MR, confirming that the old near-zero MR picture was substantially parser-related. This makes the fixed specialist gates stricter:
+Do not run skill-vector/model merging from these fixed checkpoints.
 
-- Fixed Ukrainian `M_edit` is blocked. It scores worse than prompt-only overall and collapses GC correction to 0.0. Checkpoint-loading diagnostics show it often emits `CORRECT/CORRECT`, so the remediation fixed the old always-error prior but overshot toward false negatives.
-- Fixed Ukrainian `M_mr` is blocked. It does not recover prompt-only MR under the normalized evaluator: 20.83 vs 29.17 MR accuracy, while also damaging SC/GC correction.
-- Fixed Ukrainian task-balanced is blocked. It drops to 23.92 overall and damages GC/MR.
-- Fixed Ukrainian external-enhanced is blocked. It drops to 23.55 overall and damages SC/GC.
+## Reasons
 
-Sorbian fixed evaluation is still running. No merge search should run until those results finish and the candidate eligibility list is explicit.
+- Ukrainian normalized prompt-only is the best Ukrainian model in the fixed wave: 37.399 overall.
+- Every fixed Ukrainian retrain underperforms prompt-only, including fixed `M_edit`, fixed `M_mr`, task-balanced, and external-enhanced.
+- Fixed Ukrainian `M_edit` still fails the edit-specialist gate: GC correction is 0.0 and GC detection drops to 29.187.
+- Fixed Ukrainian `M_mr` does not recover prompt-only MR: 20.833 versus 29.167.
+- Sorbian external-enhanced is a small diagnostic fallback improvement, 30.004 versus 29.195 prompt-only, but it is not a clean specialist vector.
+- Fixed Sorbian `M_edit` is blocked: 22.684 overall and weak edit correction.
+- Fixed Sorbian `M_mr` is blocked: MR stays at 8.333 and MT falls to 23.522.
+- Fixed task-balanced Sorbian improves QA/MR slightly but damages GC too heavily.
 
-## Merge May Resume Only If
+## Eligible For Future Consideration
 
-- Fixed `M_edit` no longer behaves like an always-error predictor.
-- Fixed `M_edit` has acceptable no-error `CORRECT/CORRECT` behavior.
-- Fixed `M_mr` no longer systematically collapses under normalized evaluation.
-- Checkpoint-loading comparison confirms the intended checkpoints are evaluated.
-- Prompt-only and fixed candidates are evaluated under the same normalized evaluator.
-- Governance, overlap, and data-sanity gates pass.
+- Normalized prompt-only baselines as evaluation references.
+- Compact triage overfit checkpoints only as debugging evidence, not merge inputs.
+- Sorbian fixed external-enhanced result as a diagnostic fallback metric. Its checkpoint was pruned for storage hygiene and should be retrained intentionally if it becomes a fallback candidate.
+- Unaffected first-pass `M_lang`, `M_mt`, or `M_qa` only after a separate checkpoint-loading and normalized-eval review. They are not automatically eligible.
 
 ## Explicitly Ineligible
 
 - First-pass `M_edit`.
 - First-pass `M_mr`.
-- Any model trained on unbalanced SC/GC mixtures.
+- Any model trained on the unbalanced first-pass SC/GC mixtures.
 - Any stale checkpoint from canceled jobs.
 - Any result generated only under the old strict MR parser.
+- Fixed `M_edit` and fixed `M_mr` checkpoints from this wave.
+- Fixed Ukrainian task-balanced and external-enhanced checkpoints.
+- Fixed Sorbian task-balanced checkpoint.
 
-This file must be updated with a yes/no decision after fixed evaluation.
+## Next Gate To Resume Merge
+
+Merge can resume only after a narrower second remediation produces:
+
+- An edit specialist with useful SC/GC correction and sane no-error behavior on locked validation.
+- An MR specialist or MR-preserving multitask model that matches or beats normalized prompt-only MR.
+- A checkpoint-loading report for the specific candidate checkpoints.
+- Normalized all-five-task evals for every candidate under the same evaluator.
+
+Until then, final polish also remains blocked.

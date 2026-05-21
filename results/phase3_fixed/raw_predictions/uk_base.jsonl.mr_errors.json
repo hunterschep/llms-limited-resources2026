@@ -1,0 +1,68 @@
+{
+  "category_counts": {
+    "exact_normalized_match": 1,
+    "explanation_or_verbose_answer": 4,
+    "parser_normalization_rescued": 2,
+    "wrong_numeric_answer": 3
+  },
+  "malformed_output_rate": 0.4,
+  "rows": 10,
+  "wrong_examples": [
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "18",
+      "id": "ukr_mr_dev:low-ukr-0",
+      "normalized_prediction": "32",
+      "normalized_reference": "18",
+      "raw_prediction": "16 * 2 = 32"
+    },
+    {
+      "category": "explanation_or_verbose_answer",
+      "gold_target": "70000",
+      "id": "ukr_mr_dev:low-ukr-2",
+      "normalized_prediction": "0",
+      "normalized_reference": "70000",
+      "raw_prediction": "150% = 1.5\nВартість будинку після ремонту = 80 000 + (80 000 * 1.5) = 80 000 + 120 000 = 200 000 $\nВартість будинку до ремонту = 80 000 $\nВідсоток втрати = (80 000 / 200 000) * 100% = 40%\nВідсоток втрати = (80 000 / 80 000) * 100% = 100%\nВідсоток втрати = (80 000 / 200 000) * 100% = 40%\nВідсоток втрати = (80 000 / 80 000) * 100% = 100%\nВідсоток втрати = (80 000 / 200 0"
+    },
+    {
+      "category": "explanation_or_verbose_answer",
+      "gold_target": "64",
+      "id": "ukr_mr_dev:low-ukr-5",
+      "normalized_prediction": "89",
+      "normalized_reference": "64",
+      "raw_prediction": "16 * 5 = 80\n16 - 1 = 15\n15 * 0.6 = 9\n80 + 9 = 89"
+    },
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "260",
+      "id": "ukr_mr_dev:low-ukr-6",
+      "normalized_prediction": "240",
+      "normalized_reference": "260",
+      "raw_prediction": "240"
+    },
+    {
+      "category": "wrong_numeric_answer",
+      "gold_target": "160",
+      "id": "ukr_mr_dev:low-ukr-7",
+      "normalized_prediction": "120",
+      "normalized_reference": "160",
+      "raw_prediction": "120 хвилин"
+    },
+    {
+      "category": "explanation_or_verbose_answer",
+      "gold_target": "45",
+      "id": "ukr_mr_dev:low-ukr-8",
+      "normalized_prediction": "320",
+      "normalized_reference": "45",
+      "raw_prediction": "1. **Перший етап (3 години зі швидкістю 60 миль/год):**\n   $3 \\times 60 = 180$ миль.\n\n2. **Відстань до першого затору:**\n   $180$ миль.\n\n3. **Другий етап (2 години зі швидкістю 30 миль/год):**\n   $2 \\times 30 = 60$ миль.\n   *Відстань до першого затору:* $180 + 60 = 240$ миль.\n\n4. **Третій етап (0.5 години зі швидкістю 80 миль/год):**\n   $0.5 \\times 80 = 40$ миль.\n   *Відстань до першого затору:* $240 + 40 = 280$ миль.\n\n5. **Четвертий етап (4 години зі швидкістю 80 миль/год):**\n   $4 \\times 80 = 320"
+    },
+    {
+      "category": "explanation_or_verbose_answer",
+      "gold_target": "460",
+      "id": "ukr_mr_dev:low-ukr-9",
+      "normalized_prediction": "454",
+      "normalized_reference": "460",
+      "raw_prediction": "10 * 40 + 1,2 * 45 = 400 + 54 = 454"
+    }
+  ]
+}

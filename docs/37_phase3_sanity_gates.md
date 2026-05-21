@@ -1,6 +1,6 @@
 # Phase 3 Sanity Gates
 
-Status reflects local/parser/data gates. GPU overfit/checkpoint-loading gates are recorded from Andromeda runs when available.
+Status: all remediation sanity gates completed.
 
 - Oracle evaluator: `PASS` Gold targets must score perfectly on QA/MR/SC/GC.
 - Data sanity: `PASS` Final SC/GC balance and MR target parseability must pass.
@@ -8,10 +8,13 @@ Status reflects local/parser/data gates. GPU overfit/checkpoint-loading gates ar
 - MR data quality: `PASS` MR normalization probes and train targets must pass.
 - Compact overfit: `PASS` Same-set SC/GC/MR overfit must pass for both tracks.
 
-Required remote gates before merge search:
+Remote gates:
 
-- Checkpoint-loading comparison for retrained candidates.
-- Raw prediction dumps for retrained candidates before final evaluation.
+- Checkpoint-loading comparison for retrained candidates: `PASS`, job `2462274`.
+- Ukrainian raw prediction dumps: `PASS`, job `2462365`.
+- Sorbian raw prediction dumps: `PASS`, job `2462366`.
+
+Passing sanity gates means the pipeline is coherent enough to interpret the fixed results. It does not mean the fixed checkpoints are merge-eligible; merge eligibility is blocked in `docs/42_phase3_resume_or_block_merge_decision.md`.
 
 ## Current Data Sanity
 
