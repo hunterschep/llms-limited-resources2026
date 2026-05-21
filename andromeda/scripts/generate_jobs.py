@@ -87,8 +87,66 @@ def main() -> None:
     write_job("04_compile_external_data", "python3 scripts/build_external_training_sets.py", gpu=False, cpus=4, mem="32G")
     write_job("05_report_data_quality", "python3 scripts/report_external_data_quality.py", gpu=False, cpus=2, mem="8G")
 
+    baseline_configs = {
+        "uk": [
+            ("official_only", "configs/train/baseline_official_only_uk.yaml"),
+            ("naive_multitask", "configs/train/baseline_naive_multitask_uk.yaml"),
+            ("task_balanced", "configs/train/baseline_task_balanced_uk.yaml"),
+            ("external_enhanced", "configs/train/uk/external_enhanced_multitask.yaml"),
+        ],
+        "sorbian": [
+            ("official_only", "configs/train/baseline_official_only_sorbian.yaml"),
+            ("naive_multitask", "configs/train/baseline_naive_multitask_sorbian.yaml"),
+            ("task_balanced", "configs/train/baseline_task_balanced_sorbian.yaml"),
+            ("external_enhanced", "configs/train/sorbian/external_enhanced_multitask.yaml"),
+        ],
+    }
+    eval_baseline_models = {
+        "uk": [
+            ("official_only", "checkpoints/uk/baselines/official_only"),
+            ("naive_multitask", "checkpoints/uk/baselines/naive_multitask"),
+            ("task_balanced", "checkpoints/uk/baselines/task_balanced"),
+            ("external_enhanced", "checkpoints/uk/baselines/external_enhanced_multitask"),
+        ],
+        "sorbian": [
+            ("official_only", "checkpoints/sorbian/baselines/official_only"),
+            ("naive_multitask", "checkpoints/sorbian/baselines/naive_multitask"),
+            ("task_balanced", "checkpoints/sorbian/baselines/task_balanced"),
+            ("external_enhanced", "checkpoints/sorbian/baselines/external_enhanced_multitask"),
+        ],
+    }
+    specialist_models = {
+        "uk": ["lang", "mt", "edit_scgc", "qa", "mr", "format"],
+        "sorbian": ["lang", "mt", "edit_scgc", "qa", "mr", "format"],
+    }
+
     for track, prefix in [("uk", "uk"), ("sorbian", "sorbian")]:
-        write_job(f"train_{prefix}_baselines", f"python3 scripts/train_sft.py --config configs/train/{track}/external_enhanced_multitask.yaml", partition="medium", time="2-00:00:00", mem="96G")
+        write_job(
+            f"eval_base_{prefix}",
+            f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model Qwen/Qwen3.5-2B --output results/baselines/base_qwen35_2b_{prefix}.json",
+            partition="short",
+            time="12:00:00",
+            mem="96G",
+        )
+        for baseline_name, config_path in baseline_configs[prefix]:
+            write_job(f"train_{prefix}_baseline_{baseline_name}", f"python3 scripts/train_sft.py --config {config_path}", partition="medium", time="2-00:00:00", mem="96G")
+        write_job(
+            f"train_{prefix}_baselines",
+            " && ".join(f"python3 scripts/train_sft.py --config {config_path}" for _, config_path in baseline_configs[prefix]),
+            partition="long",
+            time="5-00:00:00",
+            mem="128G",
+        )
+        write_job(
+            f"eval_{prefix}_baselines",
+            " && ".join(
+                f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model {model_path} --output results/{prefix}/baselines/{baseline_name}.json"
+                for baseline_name, model_path in eval_baseline_models[prefix]
+            ),
+            partition="long",
+            time="5-00:00:00",
+            mem="128G",
+        )
         for specialist, config_name in [
             ("lang", "lang"),
             ("mt", "mt"),
@@ -98,6 +156,16 @@ def main() -> None:
             ("format", "format"),
         ]:
             write_job(f"train_{prefix}_{specialist}", f"python3 scripts/train_qlora.py --config configs/train/{track}/{config_name}.yaml", partition="medium", time="2-00:00:00", mem="96G")
+        write_job(
+            f"eval_{prefix}_specialists",
+            " && ".join(
+                f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model checkpoints/{prefix}/specialists/{name} --output results/{prefix}/specialists/{name}.json"
+                for name in specialist_models[prefix]
+            ),
+            partition="long",
+            time="5-00:00:00",
+            mem="128G",
+        )
         write_job(f"merge_{prefix}", f"python3 scripts/search_merge_weights.py --config configs/merge/{prefix}.yaml --limit 64", gpu=False, cpus=4, mem="32G")
         write_job(f"polish_{prefix}", f"python3 scripts/train_format_polish.py --config configs/train/{track}/final_polish.yaml", partition="short", time="12:00:00", mem="96G")
         write_job(f"eval_{prefix}_final", f"python3 scripts/eval_model.py --config configs/eval/{prefix}.yaml --model checkpoints/{prefix}/final_polished --output results/{prefix}_final_eval.json", partition="short", time="12:00:00", mem="96G")

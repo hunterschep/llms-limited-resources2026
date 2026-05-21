@@ -15,6 +15,16 @@ sys.path.insert(0, str(ROOT / "src"))
 from wmt26.train.config import load_yaml
 
 
+def resolve_output_dir(rel: str) -> Path:
+    path = Path(rel)
+    if path.is_absolute():
+        return path
+    scratch_root = os.environ.get("SCRATCH_ROOT")
+    if scratch_root and path.parts and path.parts[0] == "checkpoints":
+        return Path(scratch_root) / path
+    return ROOT / path
+
+
 def read_jsonl(path: Path, limit: int | None = None) -> list[dict]:
     rows: list[dict] = []
     with path.open("r", encoding="utf-8") as handle:
@@ -52,6 +62,12 @@ def revision() -> str:
 def append_training_record(config: dict, config_path: str, status: str, checkpoint_path: Path | None, num_examples: int, notes: str = "") -> None:
     if os.environ.get("WMT26_RECORD_RUNS", "1") == "0":
         return
+    checkpoint_str = None
+    if checkpoint_path:
+        try:
+            checkpoint_str = str(checkpoint_path.relative_to(ROOT))
+        except ValueError:
+            checkpoint_str = str(checkpoint_path)
     record = {
         "run_id": config.get("run_name"),
         "track": config.get("track"),
@@ -76,7 +92,7 @@ def append_training_record(config: dict, config_path: str, status: str, checkpoi
             "target_modules": config.get("target_modules"),
         },
         "precision": config.get("precision") or "bf16_if_cuda",
-        "checkpoint_path": str(checkpoint_path.relative_to(ROOT)) if checkpoint_path else None,
+        "checkpoint_path": checkpoint_str,
         "log_path": f"/home/{os.environ.get('USER', '%u')}/logs/{os.environ.get('SLURM_JOB_NAME', 'local')}-{os.environ.get('SLURM_JOB_ID', 'local')}.out",
         "status": status,
         "num_examples_seen": num_examples,
@@ -89,7 +105,7 @@ def append_training_record(config: dict, config_path: str, status: str, checkpoi
 
 
 def dry_run(config: dict, examples: list[dict], reason: str) -> None:
-    output_dir = ROOT / config.get("output_dir", "checkpoints/dry_run")
+    output_dir = resolve_output_dir(config.get("output_dir", "checkpoints/dry_run"))
     output_dir.mkdir(parents=True, exist_ok=True)
     marker = {
         "run_name": config.get("run_name"),
@@ -107,7 +123,7 @@ def dry_run(config: dict, examples: list[dict], reason: str) -> None:
 
 
 def skipped_run(config: dict, reason: str) -> None:
-    output_dir = ROOT / config.get("output_dir", "checkpoints/skipped")
+    output_dir = resolve_output_dir(config.get("output_dir", "checkpoints/skipped"))
     output_dir.mkdir(parents=True, exist_ok=True)
     marker = {
         "run_name": config.get("run_name"),
@@ -138,7 +154,7 @@ def example_to_text(tokenizer, row: dict) -> str:
 def real_train(config: dict, examples: list[dict], max_examples: int | None) -> None:
     try:
         import torch
-        from torch.utils.data import DataLoader
+        from torch.utils.data import DataLoader, Dataset
         from transformers import AutoModelForCausalLM, AutoTokenizer
     except Exception as exc:
         raise RuntimeError("Install torch and transformers for real training. Use --dry-run for smoke tests.") from exc
@@ -178,11 +194,28 @@ def real_train(config: dict, examples: list[dict], max_examples: int | None) -> 
         if config.get("adapter", "none") == "lora":
             raise RuntimeError("PEFT is required for LoRA training.")
 
-    texts = [example_to_text(tokenizer, row) for row in examples]
-    encoded = tokenizer(texts, padding=True, truncation=True, max_length=int(config.get("max_length", 2048)), return_tensors="pt")
-    labels = encoded["input_ids"].clone()
-    dataset = list(zip(encoded["input_ids"], encoded["attention_mask"], labels))
-    loader = DataLoader(dataset, batch_size=int(config.get("batch_size", 1)), shuffle=True)
+    max_length = int(config.get("max_length", 2048))
+
+    class JsonlTextDataset(Dataset):
+        def __init__(self, rows: list[dict]) -> None:
+            self.rows = rows
+
+        def __len__(self) -> int:
+            return len(self.rows)
+
+        def __getitem__(self, idx: int) -> dict:
+            text = example_to_text(tokenizer, self.rows[idx])
+            return tokenizer(text, truncation=True, max_length=max_length)
+
+    def collate(batch: list[dict]) -> dict:
+        padded = tokenizer.pad(batch, padding=True, return_tensors="pt")
+        labels = padded["input_ids"].clone()
+        labels[padded["attention_mask"] == 0] = -100
+        padded["labels"] = labels
+        return padded
+
+    dataset = JsonlTextDataset(examples)
+    loader = DataLoader(dataset, batch_size=int(config.get("batch_size", 1)), shuffle=True, collate_fn=collate)
     optimizer = torch.optim.AdamW(model.parameters(), lr=float(config.get("learning_rate", 2e-4)))
     max_steps = int(config.get("max_steps", 10))
     grad_accum = int(config.get("gradient_accumulation_steps", 1))
@@ -190,9 +223,13 @@ def real_train(config: dict, examples: list[dict], max_examples: int | None) -> 
     step = 0
     optimizer.zero_grad()
     while step < max_steps:
-        for input_ids, attention_mask, labels in loader:
+        for batch in loader:
             device = next(model.parameters()).device
-            out = model(input_ids=input_ids.to(device), attention_mask=attention_mask.to(device), labels=labels.to(device))
+            out = model(
+                input_ids=batch["input_ids"].to(device),
+                attention_mask=batch["attention_mask"].to(device),
+                labels=batch["labels"].to(device),
+            )
             (out.loss / grad_accum).backward()
             if (step + 1) % grad_accum == 0:
                 optimizer.step()
@@ -200,8 +237,13 @@ def real_train(config: dict, examples: list[dict], max_examples: int | None) -> 
             step += 1
             if step >= max_steps:
                 break
-    output_dir = ROOT / config["output_dir"]
+    output_dir = resolve_output_dir(config["output_dir"])
     output_dir.mkdir(parents=True, exist_ok=True)
+    if config.get("adapter", "none") == "lora" and hasattr(model, "merge_and_unload"):
+        adapter_dir = output_dir / "adapter"
+        adapter_dir.mkdir(parents=True, exist_ok=True)
+        model.save_pretrained(adapter_dir)
+        model = model.merge_and_unload()
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
     print(f"Saved checkpoint to {output_dir}")

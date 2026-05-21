@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 #SBATCH --account=prudlab
-#SBATCH --partition=long
-#SBATCH --time=5-00:00:00
+#SBATCH --partition=medium
+#SBATCH --time=2-00:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=128G
+#SBATCH --mem=96G
 #SBATCH --gres=gpu:h200:1
-#SBATCH --job-name=train_sorbian_baselines
+#SBATCH --job-name=train_sorbian_baseline_naive_multitask
 #SBATCH --output=/home/%u/logs/%x-%j.out
 #SBATCH --error=/home/%u/logs/%x-%j.err
 
@@ -26,4 +26,4 @@ mkdir -p /home/"$USER"/logs "$SCRATCH_ROOT"/{data,checkpoints,logs,results,tmp}
 #   sbatch --gres=gpu:a100:1 this_job.slurm
 #   sbatch --gres=gpu:l40s:1 this_job.slurm
 
-andromeda/scripts/run_step.sh bash -lc 'python3 scripts/train_sft.py --config configs/train/baseline_official_only_sorbian.yaml && python3 scripts/train_sft.py --config configs/train/baseline_naive_multitask_sorbian.yaml && python3 scripts/train_sft.py --config configs/train/baseline_task_balanced_sorbian.yaml && python3 scripts/train_sft.py --config configs/train/sorbian/external_enhanced_multitask.yaml'
+andromeda/scripts/run_step.sh bash -lc 'python3 scripts/train_sft.py --config configs/train/baseline_naive_multitask_sorbian.yaml'

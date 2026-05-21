@@ -8,7 +8,7 @@ This file records training launch and diagnosis notes. Machine-readable run reco
 |---|---|---|---:|---|---|
 | 2026-05-20 | all | environment creation | 2461442 | completed | Created/updated `wmt26-lrllm` on Andromeda short partition. |
 | 2026-05-20 | all | environment validation | 2461449 | completed | `00_validate_env.slurm` exited 0. |
-| pending | all | data preparation |  | planned | Submit `01_prepare_data.slurm` after environment validation. |
+| 2026-05-20 | all | data preparation | 2461453 | completed | `make validate inspect-data prepare-data smoke-test` exited 0 on Andromeda. |
 
 ## Run Fields
 

@@ -16,6 +16,23 @@ sys.path.insert(0, str(ROOT / "src"))
 from wmt26.eval.metrics import aggregate_wmt_scores, exact_accuracy, mt_scores, scgc_scores
 
 
+def resolve_model_name(model_name: str | None) -> str | None:
+    if not model_name:
+        return model_name
+    path = Path(model_name)
+    if path.is_absolute() and path.exists():
+        return str(path)
+    scratch_root = os.environ.get("SCRATCH_ROOT")
+    if scratch_root and path.parts and path.parts[0] == "checkpoints":
+        scratch_path = Path(scratch_root) / path
+        if scratch_path.exists():
+            return str(scratch_path)
+    local_path = ROOT / path
+    if local_path.exists():
+        return str(local_path)
+    return model_name
+
+
 def read_jsonl(path: Path, limit: int | None = None) -> list[dict]:
     rows: list[dict] = []
     if not path.exists():
@@ -39,6 +56,7 @@ def generate_predictions(model_name: str, rows: list[dict], max_new_tokens: int)
         from transformers import AutoModelForCausalLM, AutoTokenizer
     except Exception as exc:
         raise RuntimeError("Install torch and transformers for model evaluation, or use --oracle for smoke tests.") from exc
+    model_name = resolve_model_name(model_name) or model_name
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
