@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -50,6 +52,30 @@ def save_state(state, output_dir: Path) -> None:
     torch.save(state, output_dir / "pytorch_model.bin")
 
 
+def append_merge_record(config: dict, config_path: str, method: str, weights: dict[str, float], output_dir: Path, status: str, notes: str = "") -> None:
+    record = {
+        "merge_id": f"{config.get('track')}_{method}_{dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')}",
+        "track": config.get("track"),
+        "base_checkpoint": config.get("base_model"),
+        "candidate_checkpoints": config.get("specialists", {}),
+        "merge_method": method,
+        "merge_weights": weights,
+        "merge_config": config_path,
+        "output_checkpoint": str(output_dir.relative_to(ROOT)) if output_dir.is_relative_to(ROOT) else str(output_dir),
+        "eval_id": None,
+        "overall_score": None,
+        "per_task_scores": {},
+        "status": status,
+        "andromeda_job_id": os.environ.get("SLURM_JOB_ID"),
+        "timestamp": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "notes": notes,
+    }
+    out = ROOT / "results/merge_runs.jsonl"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
+
+
 def linear_task_vector_merge(config: dict, weights: dict[str, float]) -> Path:
     base = load_state(Path(config["base_model"]))
     merged = {k: v.clone() for k, v in base.items()}
@@ -75,10 +101,12 @@ def main() -> int:
     weights = json.loads(args.weights_json) if args.weights_json else {k: 1.0 for k in config.get("specialists", {})}
     if args.dry_run:
         out = write_dry_run(config, args.method, weights)
+        append_merge_record(config, args.config, args.method, weights, out, "dry_run")
     else:
         if not Path(config["base_model"]).exists():
             raise FileNotFoundError("Real merge requires config base_model to be a local checkpoint path. Use --dry-run for config validation.")
         out = linear_task_vector_merge(config, weights)
+        append_merge_record(config, args.config, args.method, weights, out, "completed")
     print(f"Merge output: {out}")
     return 0
 

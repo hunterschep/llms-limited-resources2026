@@ -6,7 +6,8 @@ This file records training launch and diagnosis notes. Machine-readable run reco
 
 | Time | Track | Run | Slurm Job ID | Status | Notes |
 |---|---|---|---:|---|---|
-| pending | all | environment validation |  | planned | Submit `00_validate_env.slurm` after sync. |
+| 2026-05-20 | all | environment creation | 2461442 | submitted | Submitted `00_create_env.slurm` on Andromeda short partition. |
+| pending | all | environment validation |  | planned | Submit `00_validate_env.slurm` after environment creation. |
 | pending | all | data preparation |  | planned | Submit `01_prepare_data.slurm` after environment validation. |
 
 ## Run Fields

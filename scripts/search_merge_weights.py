@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import itertools
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -26,6 +28,30 @@ def candidate_weights(grid: dict[str, list[float]], limit: int) -> list[dict[str
     return out
 
 
+def append_search_record(config: dict, config_path: str, out_dir: Path, rows: list[dict]) -> None:
+    record = {
+        "merge_id": f"{config.get('track')}_search_{dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')}",
+        "track": config.get("track"),
+        "base_checkpoint": config.get("base_model"),
+        "candidate_checkpoints": config.get("specialists", {}),
+        "merge_method": "weight_search",
+        "merge_weights": [row["weights"] for row in rows],
+        "merge_config": config_path,
+        "output_checkpoint": str(out_dir.relative_to(ROOT)),
+        "eval_id": None,
+        "overall_score": None,
+        "per_task_scores": {},
+        "status": "pending_eval",
+        "andromeda_job_id": os.environ.get("SLURM_JOB_ID"),
+        "timestamp": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "notes": f"{len(rows)} candidates generated",
+    }
+    out = ROOT / "results/merge_runs.jsonl"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True)
@@ -45,6 +71,7 @@ def main() -> int:
         "".join(json.dumps(row, sort_keys=True) + "\n" for row in rows),
         encoding="utf-8",
     )
+    append_search_record(config, args.config, out_dir, rows)
     print(f"Wrote {len(rows)} merge candidates to {out_dir}")
     return 0
 

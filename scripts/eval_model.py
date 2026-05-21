@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -68,6 +70,42 @@ def score_task(task: str, predictions: list[str], references: list[str]) -> dict
     return {}
 
 
+def append_eval_record(config_path: str, model_name: str | None, result: dict, output: str | None, limit: int | None) -> None:
+    aggregate = result.get("aggregate", {})
+    task_scores = result.get("task_scores", {})
+    record = {
+        "eval_id": Path(output).stem if output else f"eval_{dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')}",
+        "run_id": Path(str(model_name)).name if model_name else "unknown",
+        "track": result.get("track"),
+        "checkpoint_path": model_name,
+        "config_path": config_path,
+        "split": result.get("split", "locked_validation"),
+        "timestamp": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "andromeda_job_id": os.environ.get("SLURM_JOB_ID"),
+        "limit": limit,
+        "MT_chrF": task_scores.get("MT", {}).get("chrf++"),
+        "MT_BLEU": task_scores.get("MT", {}).get("bleu"),
+        "QA_accuracy": task_scores.get("QA", {}).get("accuracy"),
+        "SC_detection_F1": task_scores.get("SC", {}).get("detection_f1"),
+        "SC_correction_F1": task_scores.get("SC", {}).get("correction_f1"),
+        "GC_detection_F1": task_scores.get("GC", {}).get("detection_f1"),
+        "GC_correction_F1": task_scores.get("GC", {}).get("correction_f1"),
+        "MR_accuracy": task_scores.get("MR", {}).get("accuracy"),
+        "MT_score": aggregate.get("MT_score"),
+        "QA_score": aggregate.get("QA_score"),
+        "SC_score": aggregate.get("SC_score"),
+        "GC_score": aggregate.get("GC_score"),
+        "MR_score": aggregate.get("MR_score"),
+        "overall_equal_weighted_score": aggregate.get("overall_score"),
+        "per_direction_scores": {},
+        "notes": "oracle smoke evaluation" if result.get("oracle") else "",
+    }
+    out = ROOT / "results/eval_runs.jsonl"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True)
@@ -92,12 +130,20 @@ def main() -> int:
         references = [str(row["target"]) for row in rows]
         predictions = oracle_predictions(rows) if args.oracle else generate_predictions(model_name, rows, max_new_tokens)
         task_scores[task] = score_task(task, predictions, references)
-    result = {"task_scores": task_scores, "aggregate": aggregate_wmt_scores(task_scores)}
+    result = {
+        "track": config.get("track"),
+        "split": config.get("split", "locked_validation"),
+        "model": model_name,
+        "oracle": args.oracle,
+        "task_scores": task_scores,
+        "aggregate": aggregate_wmt_scores(task_scores),
+    }
     text = json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True)
     if args.output:
         out = ROOT / args.output
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(text + "\n", encoding="utf-8")
+    append_eval_record(args.config, model_name, result, args.output, args.limit)
     print(text)
     return 0
 

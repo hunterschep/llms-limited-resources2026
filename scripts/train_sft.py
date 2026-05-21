@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import os
 import sys
+import traceback
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,6 +39,53 @@ def collect_examples(files: list[str], max_examples: int | None = None) -> list[
     return rows
 
 
+def revision() -> str:
+    git_rev = os.popen("git rev-parse HEAD 2>/dev/null").read().strip()
+    if git_rev:
+        return git_rev
+    rev_file = ROOT / "REVISION"
+    if rev_file.exists():
+        return rev_file.read_text(encoding="utf-8").strip()
+    return "unknown"
+
+
+def append_training_record(config: dict, config_path: str, status: str, checkpoint_path: Path | None, num_examples: int, notes: str = "") -> None:
+    record = {
+        "run_id": config.get("run_name"),
+        "track": config.get("track"),
+        "model_type": config.get("specialist") or config.get("method"),
+        "base_checkpoint": config.get("base_model_path") or config.get("model_config"),
+        "config_path": config_path,
+        "data_mixture_id": config.get("mixture_config") or config.get("sampling") or "direct_files",
+        "seed": config.get("seed"),
+        "timestamp": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "git_commit": revision(),
+        "andromeda_job_id": os.environ.get("SLURM_JOB_ID"),
+        "gpu_type": os.environ.get("SLURM_JOB_GPUS") or os.environ.get("CUDA_VISIBLE_DEVICES"),
+        "train_steps": config.get("max_steps"),
+        "epochs": config.get("num_train_epochs"),
+        "effective_batch_size": int(config.get("batch_size", 1)) * int(config.get("gradient_accumulation_steps", 1)),
+        "learning_rate": config.get("learning_rate"),
+        "lora_config": {
+            "adapter": config.get("adapter"),
+            "r": config.get("lora_r"),
+            "alpha": config.get("lora_alpha"),
+            "dropout": config.get("lora_dropout"),
+            "target_modules": config.get("target_modules"),
+        },
+        "precision": config.get("precision") or "bf16_if_cuda",
+        "checkpoint_path": str(checkpoint_path.relative_to(ROOT)) if checkpoint_path else None,
+        "log_path": f"/home/{os.environ.get('USER', '%u')}/logs/{os.environ.get('SLURM_JOB_NAME', 'local')}-{os.environ.get('SLURM_JOB_ID', 'local')}.out",
+        "status": status,
+        "num_examples_seen": num_examples,
+        "notes": notes,
+    }
+    out = ROOT / "results/training_runs.jsonl"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
+
+
 def dry_run(config: dict, examples: list[dict], reason: str) -> None:
     output_dir = ROOT / config.get("output_dir", "checkpoints/dry_run")
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -47,11 +96,12 @@ def dry_run(config: dict, examples: list[dict], reason: str) -> None:
         "adapter": config.get("adapter"),
         "num_examples_seen": len(examples),
         "reason": reason,
-        "git_commit": os.popen("git rev-parse HEAD 2>/dev/null").read().strip(),
+        "git_commit": revision(),
     }
     (output_dir / "DRY_RUN.json").write_text(json.dumps(marker, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     (output_dir / "dummy_state.pt").write_text("dry-run placeholder; not a real checkpoint\n", encoding="utf-8")
     print(f"Dry-run complete: {output_dir}")
+    return output_dir
 
 
 def skipped_run(config: dict, reason: str) -> None:
@@ -64,10 +114,11 @@ def skipped_run(config: dict, reason: str) -> None:
         "adapter": config.get("adapter"),
         "status": "skipped",
         "reason": reason,
-        "git_commit": os.popen("git rev-parse HEAD 2>/dev/null").read().strip(),
+        "git_commit": revision(),
     }
     (output_dir / "SKIPPED.json").write_text(json.dumps(marker, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"Skipped training: {output_dir} ({reason})")
+    return output_dir
 
 
 def example_to_text(tokenizer, row: dict) -> str:
@@ -152,6 +203,7 @@ def real_train(config: dict, examples: list[dict], max_examples: int | None) -> 
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
     print(f"Saved checkpoint to {output_dir}")
+    return output_dir
 
 
 def main() -> int:
@@ -162,14 +214,22 @@ def main() -> int:
     args = parser.parse_args()
     config = load_yaml(ROOT / args.config)
     max_examples = args.max_examples if args.max_examples is not None else config.get("max_examples")
-    examples = collect_examples(config.get("train_files", []), max_examples)
-    if not examples and config.get("allow_empty_train", False):
-        skipped_run(config, "no training examples; waiting for registered external/public data")
-        return 0
-    if args.dry_run or config.get("dry_run", False):
-        dry_run(config, examples, "explicit dry_run")
-        return 0
-    real_train(config, examples, max_examples)
+    examples: list[dict] = []
+    try:
+        examples = collect_examples(config.get("train_files", []), max_examples)
+        if not examples and config.get("allow_empty_train", False):
+            out = skipped_run(config, "no training examples; waiting for registered external/public data")
+            append_training_record(config, args.config, "skipped", out, len(examples), "no training examples")
+            return 0
+        if args.dry_run or config.get("dry_run", False):
+            out = dry_run(config, examples, "explicit dry_run")
+            append_training_record(config, args.config, "dry_run", out, len(examples), "explicit dry_run")
+            return 0
+        out = real_train(config, examples, max_examples)
+        append_training_record(config, args.config, "completed", out, len(examples))
+    except Exception as exc:
+        append_training_record(config, args.config, "failed", None, len(examples), f"{exc}\n{traceback.format_exc(limit=8)}")
+        raise
     return 0
 
 
