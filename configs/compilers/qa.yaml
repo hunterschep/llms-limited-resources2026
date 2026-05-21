@@ -1,0 +1,10 @@
+seed: 2606
+augment_answer_order: true
+label_styles:
+  - numeric
+  - alphabetic
+policies:
+  ukraine_official_train: train
+  ukraine_dev: tune_locked
+  sorbian_certificate_dev: tune_locked_only
+  external_sorbian_certificate_questions: forbidden

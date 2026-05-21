@@ -1,0 +1,16 @@
+run_name: sorbian_final_polish
+track: sorbian
+model_config: configs/model/qwen35_2b.yaml
+base_model_path: checkpoints/sorbian/merged/best
+fallback_to_base_if_missing: true
+output_dir: checkpoints/sorbian/final_polished
+train_files:
+  - data/processed/sorbian/format_preferences.jsonl
+method: dpo_or_contrastive_sft
+adapter: lora
+max_steps: 120
+learning_rate: 0.00005
+batch_size: 1
+gradient_accumulation_steps: 8
+seed: 2606
+dry_run: false

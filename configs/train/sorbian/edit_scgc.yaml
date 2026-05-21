@@ -1,0 +1,19 @@
+run_name: sorbian_edit_scgc
+track: sorbian
+specialist: edit
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/sorbian/specialists/edit_scgc
+train_files:
+  - data/processed/sorbian/sc_train.jsonl
+  - data/processed/sorbian/gc_train.jsonl
+eval_files:
+  - data/processed/sorbian/sc_tune.jsonl
+  - data/processed/sorbian/gc_tune.jsonl
+method: qlora
+adapter: lora
+max_steps: 600
+learning_rate: 0.0002
+batch_size: 1
+gradient_accumulation_steps: 16
+seed: 2606
+dry_run: false

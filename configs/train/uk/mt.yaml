@@ -1,0 +1,18 @@
+run_name: uk_mt
+track: ukrainian
+specialist: mt
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/uk/specialists/mt
+train_files:
+  - data/processed/uk/mt_train.jsonl
+allow_empty_train: true
+eval_files:
+  - data/processed/uk/mt_tune.jsonl
+method: qlora
+adapter: lora
+max_steps: 600
+learning_rate: 0.0002
+batch_size: 1
+gradient_accumulation_steps: 16
+seed: 2606
+dry_run: false

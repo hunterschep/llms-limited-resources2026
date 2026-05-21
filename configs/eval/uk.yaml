@@ -1,0 +1,17 @@
+track: ukrainian
+model: Qwen/Qwen3.5-2B
+max_new_tokens: 256
+datasets:
+  MT:
+    - data/processed/uk/mt_locked_validation.jsonl
+  QA:
+    - data/processed/uk/qa_locked_validation.jsonl
+  SC:
+    - data/processed/uk/sc_locked_validation.jsonl
+  GC:
+    - data/processed/uk/gc_locked_validation.jsonl
+  MR:
+    - data/processed/uk/mr_locked_validation.jsonl
+scoring:
+  convention: 0-100
+  overall: equal_weighted_mean_of_MT_QA_SC_GC_MR

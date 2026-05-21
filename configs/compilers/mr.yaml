@@ -1,0 +1,8 @@
+seed: 2606
+synthetic_per_language: 36
+poly_math_policy:
+  use_original_polymath: false
+  use_translated_polymath: false
+  use_modified_polymath: false
+  imitate_official_dev: false
+objective: preservation_and_final_answer_format

@@ -1,0 +1,12 @@
+seed: 2606
+synthetic_per_language: 200
+clean_case_every_n: 5
+operations:
+  - wrong case ending
+  - wrong number-like suffix
+  - wrong adjective-noun agreement proxy
+  - plausible valid word in invalid context proxy
+output_format: two_line_wrong_correct
+notes:
+  - The first implementation uses conservative suffix minimal pairs.
+  - Add lexicon-backed morphology generators as external public resources become registered.

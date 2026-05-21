@@ -1,0 +1,19 @@
+model_name_or_path: Qwen/Qwen3.5-2B
+allowed_family: Qwen3.5
+parameter_limit: 2000000000
+trust_remote_code: true
+torch_dtype: bfloat16
+attn_implementation: auto
+tokenizer:
+  padding_side: right
+  use_fast: true
+quantization:
+  allowed: true
+  default: none
+  supported:
+    - none
+    - 4bit
+    - 8bit
+policy:
+  one_model_per_track: true
+  no_task_adapter_switching_at_inference: true

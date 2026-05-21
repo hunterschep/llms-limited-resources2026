@@ -1,0 +1,18 @@
+run_name: baseline_official_only_sorbian
+track: sorbian
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/sorbian/baselines/official_only
+train_files:
+  - data/processed/sorbian/mt_train.jsonl
+eval_files:
+  - data/processed/sorbian/mt_tune.jsonl
+  - data/processed/sorbian/sc_tune.jsonl
+  - data/processed/sorbian/gc_tune.jsonl
+method: sft
+adapter: lora
+max_steps: 400
+learning_rate: 0.0002
+batch_size: 1
+gradient_accumulation_steps: 16
+seed: 2606
+dry_run: false

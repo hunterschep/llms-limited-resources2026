@@ -1,0 +1,19 @@
+run_name: baseline_naive_multitask_sorbian
+track: sorbian
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/sorbian/baselines/naive_multitask
+train_files:
+  - data/processed/sorbian/mt_train.jsonl
+  - data/processed/sorbian/qa_train.jsonl
+  - data/processed/sorbian/sc_train.jsonl
+  - data/processed/sorbian/gc_train.jsonl
+  - data/processed/sorbian/mr_train.jsonl
+sampling: pooled
+method: sft
+adapter: lora
+max_steps: 500
+learning_rate: 0.0002
+batch_size: 1
+gradient_accumulation_steps: 16
+seed: 2606
+dry_run: false

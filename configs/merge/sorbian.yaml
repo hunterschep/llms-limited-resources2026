@@ -1,0 +1,24 @@
+track: sorbian
+base_model: Qwen/Qwen3.5-2B
+specialists:
+  lang: checkpoints/sorbian/specialists/lang
+  mt: checkpoints/sorbian/specialists/mt
+  edit: checkpoints/sorbian/specialists/edit_scgc
+  qa: checkpoints/sorbian/specialists/qa
+  mr: checkpoints/sorbian/specialists/mr
+  format: checkpoints/sorbian/specialists/format
+output_dir: checkpoints/sorbian/merged
+validation_config: configs/eval/sorbian.yaml
+objective: equal_weighted_wmt26
+methods:
+  - uniform
+  - weighted_task_vector
+  - greedy_soup
+  - ties
+search_grid:
+  lang: [0.5, 0.75, 1.0, 1.25]
+  mt: [0.5, 0.75, 1.0, 1.25]
+  edit: [0.25, 0.5, 0.75, 1.0]
+  qa: [0.1, 0.25, 0.5]
+  mr: [0.1, 0.25, 0.5]
+  format: [0.1, 0.25, 0.5]

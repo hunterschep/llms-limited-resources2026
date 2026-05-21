@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wmt26-lrllm"
+version = "0.1.0"
+description = "WMT26 limited-resources multitask LLM training toolkit"
+requires-python = ">=3.10"
+dependencies = [
+  "pyyaml",
+  "scikit-learn",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

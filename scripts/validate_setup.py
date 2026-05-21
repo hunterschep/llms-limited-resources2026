@@ -1,0 +1,146 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+import yaml
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from wmt26.data.schema import validate_example
+from wmt26.prompts.templates import render_messages
+
+
+REQUIRED_PATHS = [
+    "docs/01_wmt26_rules_summary.md",
+    "docs/02_repo_data_inventory.md",
+    "docs/03_data_governance_policy.md",
+    "docs/04_local_validation_policy.md",
+    "docs/05_canonical_data_format.md",
+    "docs/06_eval_protocol.md",
+    "docs/07_baseline_training_plan.md",
+    "docs/08_external_data_plan.md",
+    "docs/09_task_compilers.md",
+    "docs/10_language_acquisition_curriculum.md",
+    "docs/11_specialist_training.md",
+    "docs/12_skill_vector_merging.md",
+    "docs/13_format_polish.md",
+    "docs/14_final_execution_plan.md",
+    "docs/15_expected_ablation_table.md",
+    "README_WMT26_RUNBOOK.md",
+    "data/manifests/official_data_inventory.jsonl",
+    "data/manifests/data_governance_registry.csv",
+    "data/manifests/data_governance_registry.schema.json",
+    "data/manifests/local_split_manifest.jsonl",
+    "src/wmt26/data/schema.py",
+    "src/wmt26/prompts/templates.py",
+    "src/wmt26/compilers/common.py",
+    "src/wmt26/train/config.py",
+    "src/wmt26/eval/metrics.py",
+    "scripts/inspect_repo_data.py",
+    "scripts/validate_data_governance.py",
+    "scripts/create_local_splits.py",
+    "scripts/compile_mt_data.py",
+    "scripts/compile_sc_data.py",
+    "scripts/compile_gc_data.py",
+    "scripts/compile_qa_data.py",
+    "scripts/compile_mr_data.py",
+    "scripts/train_sft.py",
+    "scripts/eval_model.py",
+    "scripts/merge_task_vectors.py",
+    "scripts/build_format_preference_data.py",
+    "Makefile",
+]
+
+
+def run(cmd: list[str]) -> None:
+    subprocess.run(cmd, cwd=ROOT, check=True)
+
+
+def check_paths() -> list[str]:
+    return [path for path in REQUIRED_PATHS if not (ROOT / path).exists()]
+
+
+def check_yaml_configs() -> list[str]:
+    errors = []
+    for path in sorted((ROOT / "configs").glob("**/*.yaml")):
+        try:
+            yaml.safe_load(path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            errors.append(f"{path.relative_to(ROOT)}: {exc}")
+    return errors
+
+
+def check_prompt_templates() -> list[str]:
+    errors = []
+    try:
+        render_messages(ROOT / "configs/prompts/mt.yaml", target="Тест", source_language_name="English", target_language_name="Ukrainian", input="Test")
+        render_messages(ROOT / "configs/prompts/qa.yaml", target="0", question="Q?", options="0. A")
+        render_messages(ROOT / "configs/prompts/sc.yaml", target="Wrong word: CORRECT\nCorrect word: CORRECT", input_sentence="Sentence.")
+        render_messages(ROOT / "configs/prompts/gc.yaml", target="Wrong word: CORRECT\nCorrect word: CORRECT", input_sentence="Sentence.")
+        render_messages(ROOT / "configs/prompts/mr.yaml", target="1", question="1+0?")
+    except Exception as exc:
+        errors.append(str(exc))
+    return errors
+
+
+def check_canonical_samples() -> list[str]:
+    errors = []
+    for path in sorted((ROOT / "data/processed").glob("*/*.jsonl")):
+        if path.name == "format_preferences.jsonl":
+            continue
+        with path.open("r", encoding="utf-8") as handle:
+            for idx, line in enumerate(handle):
+                if idx >= 3:
+                    break
+                if not line.strip():
+                    continue
+                row = json.loads(line)
+                row_errors = validate_example(row)
+                if row_errors:
+                    errors.append(f"{path.relative_to(ROOT)}:{idx + 1}: {'; '.join(row_errors)}")
+    return errors
+
+
+def check_config_references() -> list[str]:
+    errors = []
+    for path in sorted((ROOT / "configs/train").glob("**/*.yaml")) + sorted((ROOT / "configs/eval").glob("*.yaml")):
+        cfg = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        for key in ["train_files", "eval_files"]:
+            for rel in cfg.get(key, []) or []:
+                if not (ROOT / rel).exists():
+                    errors.append(f"{path.relative_to(ROOT)} references missing {rel}")
+        if "datasets" in cfg:
+            for files in cfg["datasets"].values():
+                for rel in files:
+                    if not (ROOT / rel).exists():
+                        errors.append(f"{path.relative_to(ROOT)} references missing {rel}")
+    return errors
+
+
+def main() -> int:
+    errors = []
+    missing = check_paths()
+    errors.extend(f"missing required path: {p}" for p in missing)
+    errors.extend(check_yaml_configs())
+    errors.extend(check_prompt_templates())
+    errors.extend(check_canonical_samples())
+    errors.extend(check_config_references())
+    try:
+        run(["python3", "scripts/validate_data_governance.py"])
+    except subprocess.CalledProcessError as exc:
+        errors.append(f"governance validation failed: {exc}")
+    if errors:
+        for error in errors:
+            print(error, file=sys.stderr)
+        return 1
+    print("Setup validation passed.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

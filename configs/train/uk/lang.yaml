@@ -1,0 +1,16 @@
+run_name: uk_lang
+track: ukrainian
+specialist: lang
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/uk/specialists/lang
+train_files:
+  - data/processed/uk/lang_train.jsonl
+  - data/processed/uk/qa_train.jsonl
+method: qlora
+adapter: lora
+max_steps: 600
+learning_rate: 0.00015
+batch_size: 1
+gradient_accumulation_steps: 16
+seed: 2606
+dry_run: false

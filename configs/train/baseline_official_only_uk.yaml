@@ -1,0 +1,19 @@
+run_name: baseline_official_only_uk
+track: ukrainian
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/uk/baselines/official_only
+train_files:
+  - data/processed/uk/qa_train.jsonl
+eval_files:
+  - data/processed/uk/qa_tune.jsonl
+  - data/processed/uk/sc_tune.jsonl
+  - data/processed/uk/gc_tune.jsonl
+  - data/processed/uk/mr_locked_validation.jsonl
+method: sft
+adapter: lora
+max_steps: 200
+learning_rate: 0.0002
+batch_size: 1
+gradient_accumulation_steps: 16
+seed: 2606
+dry_run: false

@@ -1,0 +1,15 @@
+run_name: uk_format
+track: ukrainian
+specialist: format
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/uk/specialists/format
+train_files:
+  - data/processed/uk/format_preferences.jsonl
+method: contrastive_sft
+adapter: lora
+max_steps: 200
+learning_rate: 0.0001
+batch_size: 1
+gradient_accumulation_steps: 8
+seed: 2606
+dry_run: false

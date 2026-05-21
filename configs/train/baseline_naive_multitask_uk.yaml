@@ -1,0 +1,19 @@
+run_name: baseline_naive_multitask_uk
+track: ukrainian
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/uk/baselines/naive_multitask
+train_files:
+  - data/processed/uk/mt_train.jsonl
+  - data/processed/uk/qa_train.jsonl
+  - data/processed/uk/sc_train.jsonl
+  - data/processed/uk/gc_train.jsonl
+  - data/processed/uk/mr_train.jsonl
+sampling: pooled
+method: sft
+adapter: lora
+max_steps: 500
+learning_rate: 0.0002
+batch_size: 1
+gradient_accumulation_steps: 16
+seed: 2606
+dry_run: false

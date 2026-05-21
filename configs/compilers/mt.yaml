@@ -1,0 +1,11 @@
+seed: 2606
+emit_bidirectional_sorbian: true
+ukrainian_dev_policy: tune_locked_only
+future_supported_inputs:
+  backtranslation_teacher_outputs: data/external/teacher/mt_backtranslation/
+  triangle_consistency_teacher_outputs: data/external/teacher/mt_triangle/
+  public_parallel_sources_manifest: data/manifests/data_governance_registry.csv
+notes:
+  - Current compiler emits official Sorbian bidirectional train and official dev tune/locked examples.
+  - Ukrainian MT train remains empty until registered public en-uk/cs-uk corpora are added.
+  - Backtranslation and triangle-consistency are supported as governed teacher-output inputs, not live inference dependencies.

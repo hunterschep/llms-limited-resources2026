@@ -1,0 +1,12 @@
+seed: 2606
+max_rows_per_source: 1000
+sources:
+  - Sorbian/MT/hsb_monolingual_2026.csv
+  - Sorbian/MT/dsb_monolingual_2026.csv
+  - Sorbian/MT/train_de-hsb_2026.csv
+  - Sorbian/MT/train_de-dsb_2026.csv
+  - Sorbian/MT/train_hsb-dsb_2026.csv
+instruction_preservation: true
+notes:
+  - Sorbian language acquisition is central because hsb/dsb are very low-resource.
+  - Add registered Czech/Polish transfer resources only through the governance registry.

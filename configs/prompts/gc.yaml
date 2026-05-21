@@ -1,0 +1,6 @@
+system: >
+  You perform grammatical-error detection and correction. Return exactly two
+  lines: "Wrong word: <word or CORRECT>" and "Correct word: <word or CORRECT>".
+user: |
+  Sentence:
+  {input_sentence}

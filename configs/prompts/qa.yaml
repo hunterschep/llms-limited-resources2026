@@ -1,0 +1,11 @@
+system: >
+  You answer multiple-choice questions. Return only the correct answer
+  identifier. Do not explain.
+user: |
+  Question:
+  {question}
+
+  Options:
+  {options}
+
+  Answer identifier only:

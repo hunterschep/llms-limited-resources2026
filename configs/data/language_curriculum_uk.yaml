@@ -1,0 +1,9 @@
+seed: 2606
+max_rows_per_source: 1000
+sources:
+  - Ukrainian/QA/ukr_qa_train.jsonl
+  - Ukrainian/QA/ukr_mmlu_qa_train.jsonl
+instruction_preservation: true
+notes:
+  - Ukrainian language curriculum is intentionally light until public monolingual/parallel corpora are registered.
+  - Avoid blind LM-only continued pretraining that erodes instruction following.

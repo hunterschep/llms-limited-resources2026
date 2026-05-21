@@ -1,0 +1,21 @@
+run_name: sorbian_qa
+track: sorbian
+specialist: qa
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/sorbian/specialists/qa
+train_files:
+  - data/processed/sorbian/qa_train.jsonl
+allow_empty_train: true
+eval_files:
+  - data/processed/sorbian/qa_tune.jsonl
+method: qlora
+adapter: lora
+max_steps: 250
+learning_rate: 0.0001
+batch_size: 1
+gradient_accumulation_steps: 8
+seed: 2606
+dry_run: false
+notes:
+  - Sorbian QA train may be empty until public non-certificate QA is registered/compiled.
+  - Official certificate-derived dev material is not used as ordinary training data.

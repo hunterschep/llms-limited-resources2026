@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WMT26 data governance registry",
+  "type": "object",
+  "required": [
+    "source_id",
+    "source_name",
+    "source_url",
+    "track",
+    "task",
+    "language",
+    "language_pair",
+    "license",
+    "public_availability",
+    "download_method",
+    "local_path",
+    "split_type",
+    "allowed_status",
+    "contamination_risk",
+    "used_for_train",
+    "used_for_tune",
+    "used_for_locked_validation",
+    "used_for_final_training",
+    "notes"
+  ],
+  "properties": {
+    "allowed_status": {
+      "enum": ["allowed", "risky", "forbidden", "unknown"]
+    },
+    "split_type": {
+      "enum": [
+        "official_train",
+        "official_dev",
+        "official_dev_tune",
+        "official_dev_locked_validation",
+        "official_monolingual",
+        "external_public",
+        "synthetic_generated",
+        "teacher_generated",
+        "distilled",
+        "forbidden"
+      ]
+    }
+  }
+}

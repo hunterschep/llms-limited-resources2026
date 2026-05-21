@@ -1,0 +1,11 @@
+seed: 2606
+synthetic_per_language: 200
+clean_case_every_n: 5
+operations:
+  - single-character insertion
+  - single-character deletion
+  - single-character substitution
+  - transposition
+  - Cyrillic lookalike confusion for Ukrainian
+  - Sorbian diacritic deletion/substitution
+output_format: two_line_wrong_correct

@@ -1,0 +1,8 @@
+system: >
+  You solve math problems and return only the final answer. Do not include
+  chain-of-thought or explanation.
+user: |
+  Problem:
+  {question}
+
+  Final answer only:

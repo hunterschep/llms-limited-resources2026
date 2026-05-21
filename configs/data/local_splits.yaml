@@ -1,0 +1,9 @@
+seed: 2606
+large_dev_tune_ratio: 0.70
+small_dev_tune_ratio: 0.50
+small_dev_threshold: 300
+mr_policy: locked_validation_only
+notes:
+  - Official train and monolingual files stay in train.
+  - Official dev files split deterministically into tune and locked_validation.
+  - MR dev files are kept in locked_validation for format inspection/final sanity.
