@@ -43,11 +43,13 @@ Status: initialized.
 
 | Job | ID | GPU Request | Status |
 |---|---:|---|---|
-| eval_base_uk | 2461502 | L40S, 4 CPU, 64G | queued |
-| eval_base_sorbian | 2461503 | L40S, 4 CPU, 64G | queued |
+| eval_base_uk | 2461502 | L40S, 4 CPU, 64G | canceled after evaluator batching fix |
+| eval_base_sorbian | 2461503 | L40S, 4 CPU, 64G | canceled after evaluator batching fix |
+| eval_base_uk | 2461522 | L40S, 4 CPU, 64G | queued with batched evaluator |
+| eval_base_sorbian | 2461523 | L40S, 4 CPU, 64G | queued with batched evaluator |
 | train_uk_baselines | 2461504 | L40S, 4 CPU, 64G | queued |
 | train_sorbian_baselines | 2461505 | L40S, 4 CPU, 64G | queued |
-| train_uk_lang | 2461506 | L40S, 4 CPU, 64G | queued |
+| train_uk_lang | 2461506 | L40S, 4 CPU, 64G | running on `g014` |
 | train_uk_mt | 2461507 | L40S, 4 CPU, 64G | queued |
 | train_uk_edit | 2461508 | L40S, 4 CPU, 64G | queued |
 | train_uk_qa | 2461509 | L40S, 4 CPU, 64G | queued |
