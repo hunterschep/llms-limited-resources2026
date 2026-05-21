@@ -29,6 +29,7 @@ Create environment on an interactive/allocated node, not the login node:
 
 ```bash
 cd /home/scheppat/workspace/projects/wmt26_lrllm
+sbatch andromeda/jobs/00_create_env.slurm
 sbatch andromeda/jobs/00_validate_env.slurm
 # for dependency install, request an interactive allocation then:
 bash andromeda/env/create_env.sh
@@ -61,16 +62,17 @@ sbatch andromeda/jobs/eval_sorbian_final.slurm
 Full recommended sequence:
 
 1. Sync repo.
-2. `sbatch andromeda/jobs/00_validate_env.slurm`
-3. `sbatch andromeda/jobs/02_download_external_data.slurm`
-4. `sbatch andromeda/jobs/03_filter_external_data.slurm`
-5. `sbatch andromeda/jobs/04_compile_external_data.slurm`
-6. `sbatch andromeda/jobs/05_report_data_quality.slurm`
-7. `sbatch andromeda/jobs/01_prepare_data.slurm`
-8. Train baselines/specialists.
-9. Merge.
-10. Polish.
-11. Evaluate.
+2. `sbatch andromeda/jobs/00_create_env.slurm`
+3. `sbatch andromeda/jobs/00_validate_env.slurm`
+4. `sbatch andromeda/jobs/02_download_external_data.slurm`
+5. `sbatch andromeda/jobs/03_filter_external_data.slurm`
+6. `sbatch andromeda/jobs/04_compile_external_data.slurm`
+7. `sbatch andromeda/jobs/05_report_data_quality.slurm`
+8. `sbatch andromeda/jobs/01_prepare_data.slurm`
+9. Train baselines/specialists.
+10. Merge.
+11. Polish.
+12. Evaluate.
 
 For more controlled runs, submit specialists individually:
 

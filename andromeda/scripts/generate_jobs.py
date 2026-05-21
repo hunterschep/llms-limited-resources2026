@@ -47,8 +47,39 @@ def write_job(name: str, command: str, gpu: bool = True, partition: str = "short
     path.chmod(0o755)
 
 
+def write_create_env_job() -> None:
+    text = """#!/usr/bin/env bash
+#SBATCH --account=prudlab
+#SBATCH --partition=short
+#SBATCH --time=04:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=16G
+#SBATCH --job-name=00_create_env
+#SBATCH --output=/home/%u/logs/%x-%j.out
+#SBATCH --error=/home/%u/logs/%x-%j.err
+
+set -euo pipefail
+
+export PROJECT_SLUG="${PROJECT_SLUG:-wmt26_lrllm}"
+export PROJECT_ROOT="${PROJECT_ROOT:-/home/${USER}/workspace/projects/wmt26_lrllm}"
+export SCRATCH_ROOT="${SCRATCH_ROOT:-/scratch/${USER}/projects/${PROJECT_SLUG}}"
+export WANDB_MODE="${WANDB_MODE:-offline}"
+
+cd "$PROJECT_ROOT"
+mkdir -p /home/"$USER"/logs "$SCRATCH_ROOT"/{data,checkpoints,logs,results,tmp}
+
+bash andromeda/env/create_env.sh
+"""
+    path = JOBS / "00_create_env.slurm"
+    path.write_text(text, encoding="utf-8")
+    path.chmod(0o755)
+
+
 def main() -> None:
     JOBS.mkdir(parents=True, exist_ok=True)
+    write_create_env_job()
     write_job("00_validate_env", "bash andromeda/scripts/andromeda_probe.sh", gpu=False, cpus=2, mem="8G")
     write_job("01_prepare_data", "make validate inspect-data prepare-data smoke-test", gpu=False, cpus=4, mem="32G")
     write_job("02_download_external_data", "python3 scripts/download_external_data.py --execute", gpu=False, cpus=2, mem="16G")

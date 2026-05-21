@@ -6,12 +6,16 @@ module load cuda/12.4.1_gcc11.4.1-fq5rwhn 2>/dev/null || true
 
 ENV_NAME="${ENV_NAME:-wmt26-lrllm}"
 if command -v conda >/dev/null 2>&1; then
-  conda create -y -n "${ENV_NAME}" python=3.11
   # shellcheck disable=SC1091
   source "$(conda info --base)/etc/profile.d/conda.sh"
+  if ! conda env list | awk '{print $1}' | grep -qx "${ENV_NAME}"; then
+    conda create -y -n "${ENV_NAME}" python=3.11
+  fi
   conda activate "${ENV_NAME}"
 else
-  python3 -m venv "${HOME}/.venvs/${ENV_NAME}"
+  if [[ ! -d "${HOME}/.venvs/${ENV_NAME}" ]]; then
+    python3 -m venv "${HOME}/.venvs/${ENV_NAME}"
+  fi
   # shellcheck disable=SC1091
   source "${HOME}/.venvs/${ENV_NAME}/bin/activate"
 fi
