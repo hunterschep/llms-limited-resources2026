@@ -42,11 +42,13 @@ This file records evaluation events. Machine-readable evaluation records live in
 | eval_uk_final | Ukrainian | final polished checkpoint | locked validation | resubmitted as 2461550 | Depends on 2461549. |
 | eval_sorbian_final | Sorbian | final polished checkpoint | locked validation | resubmitted as 2461554 | Depends on 2461553. |
 | base_prompt_uk | Ukrainian | Qwen/Qwen3.5-2B | locked validation | completed job 2461528 | Overall 32.386; MT chrF++ 41.135, QA 33.994, SC score 46.667, GC score 35.967, MR 4.167. |
+| base_prompt_sorbian | Sorbian | Qwen/Qwen3.5-2B | locked validation | completed job 2461529 | Overall 27.539; MT chrF++ 27.527, QA 43.396, SC score 33.685, GC score 33.084, MR 0.000. |
 | uk_baselines | Ukrainian | baseline checkpoints | locked validation | running job 2461540 | Started after baseline training job 2461539 completed. |
 | uk_baseline_official_only | Ukrainian | checkpoints/uk/baselines/official_only | locked validation | completed within job 2461540 | Overall 29.857; QA improves to 40.793, but SC correction drops to 1.987, GC correction to 0.000, and MR to 0.000. |
 | uk_baseline_naive_multitask | Ukrainian | checkpoints/uk/baselines/naive_multitask | locked validation | completed within job 2461540 | Overall 31.726; SC improves to 53.812 and QA to 36.827, but MT, GC, and MR regress relative to prompt-only. |
 | uk_specialist_lang | Ukrainian | checkpoints/uk/specialists/lang | locked validation | completed within job 2461547 | Overall 32.940; MT and SC improve over prompt-only, QA and MR regress. |
 | uk_specialist_mt | Ukrainian | checkpoints/uk/specialists/mt | locked validation | completed within job 2461547 | Overall 34.541; despite lower MT chrF++ 38.358, it improves QA/SC/GC relative to prompt-only and again collapses MR to 0.000. |
+| uk_specialist_edit_scgc | Ukrainian | checkpoints/uk/specialists/edit_scgc | locked validation | completed within job 2461547 | Overall 30.088; SC score roughly matches prompt-only, but MT, QA, GC, and MR are lower. |
 | sorbian_baselines | Sorbian | baseline checkpoints | locked validation | running job 2461542 | Started after baseline training job 2461541 completed. |
 
 ## Required Metrics
