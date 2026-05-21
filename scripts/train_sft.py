@@ -219,8 +219,10 @@ def real_train(config: dict, examples: list[dict], max_examples: int | None) -> 
     optimizer = torch.optim.AdamW(model.parameters(), lr=float(config.get("learning_rate", 2e-4)))
     max_steps = int(config.get("max_steps", 10))
     grad_accum = int(config.get("gradient_accumulation_steps", 1))
+    log_every = int(config.get("log_every", 25))
     model.train()
     step = 0
+    running_loss = 0.0
     optimizer.zero_grad()
     while step < max_steps:
         for batch in loader:
@@ -230,11 +232,17 @@ def real_train(config: dict, examples: list[dict], max_examples: int | None) -> 
                 attention_mask=batch["attention_mask"].to(device),
                 labels=batch["labels"].to(device),
             )
-            (out.loss / grad_accum).backward()
+            loss = out.loss
+            running_loss += float(loss.detach().cpu())
+            (loss / grad_accum).backward()
             if (step + 1) % grad_accum == 0:
                 optimizer.step()
                 optimizer.zero_grad()
             step += 1
+            if log_every > 0 and (step == 1 or step % log_every == 0 or step >= max_steps):
+                denom = log_every if step % log_every == 0 else max(1, step % log_every)
+                print(f"train_step={step}/{max_steps} avg_loss={running_loss / denom:.4f}", flush=True)
+                running_loss = 0.0
             if step >= max_steps:
                 break
     output_dir = resolve_output_dir(config["output_dir"])
