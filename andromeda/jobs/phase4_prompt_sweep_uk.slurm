@@ -28,6 +28,7 @@ mkdir -p /home/"$USER"/logs "$SCRATCH_ROOT"/{checkpoints,logs,results,tmp} resul
 
 andromeda/scripts/run_step.sh bash -lc '
   set -euo pipefail
+  python3 scripts/phase4_record_job_metadata.py --job-name phase4_prompt_sweep_uk --output results/phase4/status/phase4_prompt_sweep_uk_${SLURM_JOB_ID:-local}.json --path configs/eval/phase4_probe_uk.yaml --path configs/prompts/phase4_sweep.yaml --path data/manifests/final_training_data_summary.md --result-path results/phase4/prompt_sweep/uk
   make check-governance check-overlap phase4-build-probe
   sha256sum configs/eval/phase4_probe_uk.yaml configs/prompts/phase4_sweep.yaml data/manifests/final_training_data_summary.md
   WMT26_RECORD_RUNS=0 python3 scripts/eval_phase4_probe.py --config configs/eval/phase4_probe_uk.yaml --model Qwen/Qwen3.5-2B --output results/phase4/probe/baseline_prompt_only_uk.json

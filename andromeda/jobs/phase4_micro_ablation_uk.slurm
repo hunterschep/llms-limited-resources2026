@@ -26,6 +26,7 @@ mkdir -p /home/"$USER"/logs "$SCRATCH_ROOT"/{checkpoints,logs,results,tmp} resul
 andromeda/scripts/run_step.sh bash -lc '
   set -euo pipefail
   test -s results/phase4/probe/baseline_prompt_only_uk.json
+  python3 scripts/phase4_record_job_metadata.py --job-name phase4_micro_uk --output results/phase4/status/phase4_micro_uk_${SLURM_JOB_ID:-local}.json --path configs/train/phase4/micro_ablation_grid.yaml --path configs/eval/phase4_probe_uk.yaml --path data/manifests/final_training_data_summary.md --checkpoint-path ${SCRATCH_ROOT}/checkpoints/phase4/uk --result-path results/phase4/micro_ablations
   make check-governance check-overlap triage-oracle triage-data-sanity
   sha256sum configs/train/phase4/micro_ablation_grid.yaml configs/eval/phase4_probe_uk.yaml data/manifests/final_training_data_summary.md
   python3 scripts/phase4_run_micro_ablations.py --track ukrainian --evaluate
