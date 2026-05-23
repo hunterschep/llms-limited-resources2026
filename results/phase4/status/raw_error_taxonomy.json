@@ -1,0 +1,103 @@
+{
+  "results/phase3_fixed/raw_predictions/sorbian_base.jsonl": {
+    "correct": 3,
+    "false_positive_error": 6,
+    "not_classified": 5,
+    "right_wrong_word_wrong_correction": 1,
+    "wrong_numeric_or_value": 5,
+    "wrong_or_invalid": 2,
+    "wrong_word": 3
+  },
+  "results/phase3_fixed/raw_predictions/sorbian_edit.jsonl": {
+    "correct": 3,
+    "exact": 5,
+    "false_negative_correct": 3,
+    "false_positive_error": 1,
+    "not_classified": 5,
+    "wrong_numeric_or_value": 5,
+    "wrong_or_invalid": 2,
+    "wrong_word": 1
+  },
+  "results/phase3_fixed/raw_predictions/sorbian_external_enhanced.jsonl": {
+    "correct": 2,
+    "false_positive_error": 6,
+    "not_classified": 5,
+    "verbose_or_explanation": 3,
+    "wrong_numeric_or_value": 2,
+    "wrong_or_invalid": 3,
+    "wrong_word": 4
+  },
+  "results/phase3_fixed/raw_predictions/sorbian_mr.jsonl": {
+    "correct": 4,
+    "false_positive_error": 6,
+    "malformed_single_line": 1,
+    "not_classified": 5,
+    "wrong_numeric_or_value": 5,
+    "wrong_or_invalid": 1,
+    "wrong_word": 3
+  },
+  "results/phase3_fixed/raw_predictions/sorbian_task_balanced.jsonl": {
+    "correct": 3,
+    "exact": 4,
+    "exact_normalized": 1,
+    "false_negative_correct": 2,
+    "false_positive_error": 2,
+    "not_classified": 5,
+    "wrong_numeric_or_value": 4,
+    "wrong_or_invalid": 2,
+    "wrong_word": 2
+  },
+  "results/phase3_fixed/raw_predictions/uk_base.jsonl": {
+    "exact": 1,
+    "exact_normalized": 3,
+    "false_positive_error": 9,
+    "malformed_single_line": 2,
+    "not_classified": 10,
+    "verbose_or_explanation": 4,
+    "wrong_numeric_or_value": 3,
+    "wrong_or_invalid": 10,
+    "wrong_word": 8
+  },
+  "results/phase3_fixed/raw_predictions/uk_edit.jsonl": {
+    "correct": 2,
+    "exact": 6,
+    "exact_normalized": 1,
+    "false_negative_correct": 8,
+    "false_positive_error": 5,
+    "not_classified": 10,
+    "verbose_or_explanation": 5,
+    "wrong_numeric_or_value": 4,
+    "wrong_or_invalid": 8,
+    "wrong_word": 1
+  },
+  "results/phase3_fixed/raw_predictions/uk_external_enhanced.jsonl": {
+    "correct": 3,
+    "exact": 10,
+    "exact_normalized": 1,
+    "false_negative_correct": 10,
+    "not_classified": 10,
+    "verbose_or_explanation": 9,
+    "wrong_or_invalid": 7
+  },
+  "results/phase3_fixed/raw_predictions/uk_mr.jsonl": {
+    "exact_normalized": 1,
+    "false_positive_error": 9,
+    "malformed_single_line": 5,
+    "not_classified": 10,
+    "wrong_numeric_or_value": 9,
+    "wrong_or_invalid": 10,
+    "wrong_word": 6
+  },
+  "results/phase3_fixed/raw_predictions/uk_task_balanced.jsonl": {
+    "correct": 3,
+    "exact": 8,
+    "exact_normalized": 1,
+    "false_negative_correct": 9,
+    "false_positive_error": 2,
+    "not_classified": 10,
+    "verbose_or_explanation": 2,
+    "wrong_numeric_or_value": 7,
+    "wrong_or_invalid": 7,
+    "wrong_word": 1
+  }
+}

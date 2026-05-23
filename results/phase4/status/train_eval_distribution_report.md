@@ -1,0 +1,17 @@
+# Phase 4 Train/Eval Distribution Check
+
+## uk_sc
+- train: `{"avg_input_words": 22.284715284715286, "labels": {"clean": 4503, "error": 4506}, "rows": 9009, "source_ids": {"external:ua_gec_train": 5688, "external:ud_uk_iu": 2923, "synthetic:scgc_compilers": 398}}`
+- eval: `{"avg_input_words": 16.660535117056856, "labels": {"clean": 299, "error": 299}, "rows": 598, "source_ids": {"official:ukr_sc_dev": 598}}`
+
+## uk_gc
+- train: `{"avg_input_words": 23.261965448881337, "labels": {"clean": 3531, "error": 3531}, "rows": 7062, "source_ids": {"external:ua_gec_train": 5174, "external:ud_uk_iu": 1488, "synthetic:scgc_compilers": 400}}`
+- eval: `{"avg_input_words": 12.261306532663317, "labels": {"clean": 303, "error": 294}, "rows": 597, "source_ids": {"official:ukr_gc_dev": 597}}`
+
+## sorbian_sc
+- train: `{"avg_input_words": 11.332291123849227, "labels": {"clean": 2759, "error": 2998}, "rows": 5757, "source_ids": {"official:sorb_mono_dsb": 2582, "official:sorb_mono_hsb": 2413, "synthetic:scgc_compilers": 762}}`
+- eval: `{"avg_input_words": 12.9280205655527, "labels": {"clean": 597, "error": 570}, "rows": 1167, "source_ids": {"official:dsb_sc_dev": 587, "official:hsb_sc_dev": 580}}`
+
+## sorbian_gc
+- train: `{"avg_input_words": 11.008533333333334, "labels": {"clean": 909, "error": 966}, "rows": 1875, "source_ids": {"official:sorb_mono_dsb": 613, "official:sorb_mono_hsb": 596, "synthetic:scgc_compilers": 666}}`
+- eval: `{"avg_input_words": 12.045685279187817, "labels": {"clean": 498, "error": 487}, "rows": 985, "source_ids": {"official:dsb_gc_dev": 379, "official:hsb_gc_dev": 606}}`

@@ -1,0 +1,28 @@
+run_name: phase4_sorbian_mr_preserve_kl
+track: sorbian
+specialist: mr_preservation
+phase4_strategy: mr_assistant_loss_kl_replay
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/phase4/sorbian/mr_preserve_kl
+train_files:
+  - data/processed/final/sorbian/mr_train_final.jsonl
+  - data/processed/final/sorbian/mr_format_preservation.jsonl
+replay_files:
+  - data/processed/final/sorbian/qa_train_final.jsonl
+  - data/processed/final/sorbian/format_polish_final.jsonl
+replay_max_examples: 128
+method: preservation_lora
+adapter: lora
+lora_r: 4
+lora_alpha: 8
+lora_dropout: 0.05
+target_modules: [q_proj, v_proj]
+max_steps: 60
+learning_rate: 0.000005
+batch_size: 1
+gradient_accumulation_steps: 4
+kl_to_base_weight: 0.15
+save_merged: true
+max_examples: 512
+seed: 2606
+dry_run: false

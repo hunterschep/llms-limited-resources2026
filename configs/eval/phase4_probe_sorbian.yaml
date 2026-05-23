@@ -1,0 +1,19 @@
+track: sorbian
+model: Qwen/Qwen3.5-2B
+max_new_tokens: 192
+batch_size: 16
+split: phase4_probe
+datasets:
+  MT:
+  - data/processed/phase4_probe/sorbian_probe_mt.jsonl
+  QA:
+  - data/processed/phase4_probe/sorbian_probe_qa.jsonl
+  SC:
+  - data/processed/phase4_probe/sorbian_probe_sc.jsonl
+  GC:
+  - data/processed/phase4_probe/sorbian_probe_gc.jsonl
+  MR:
+  - data/processed/phase4_probe/sorbian_probe_mr.jsonl
+scoring:
+  convention: 0-100
+  overall: equal_weighted_mean_of_MT_QA_SC_GC_MR

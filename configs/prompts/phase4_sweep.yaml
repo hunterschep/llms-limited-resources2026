@@ -1,0 +1,48 @@
+variants:
+  - id: baseline
+    description: Existing canonical prompts and greedy decoding.
+    max_new_tokens_by_task:
+      MT: 256
+      QA: 8
+      SC: 48
+      GC: 48
+      MR: 24
+  - id: strict_short
+    description: Stronger exact-output instruction with shorter decoding caps.
+    system_append_by_task:
+      MT: "\nReturn only the translation. Do not summarize, explain, or add notes."
+      QA: "\nReturn only the answer label. No explanation."
+      SC: "\nDo not rewrite the sentence. If there is no spelling error, return CORRECT/CORRECT exactly."
+      GC: "\nDo not rewrite the sentence. If there is no grammar error, return CORRECT/CORRECT exactly."
+      MR: "\nReturn only the final numeric answer. No units unless required. No explanation."
+    max_new_tokens_by_task:
+      MT: 192
+      QA: 4
+      SC: 32
+      GC: 32
+      MR: 16
+  - id: edit_guarded
+    description: Emphasize one-token edit behavior and no-error calibration.
+    system_append_by_task:
+      SC: "\nInspect exactly one spelling error. The wrong word must appear in the sentence. For no error, both fields must be CORRECT."
+      GC: "\nInspect exactly one grammatical error. The wrong word must appear in the sentence. For no error, both fields must be CORRECT."
+    user_append_by_task:
+      SC: "\nReturn exactly:\nWrong word: <word or CORRECT>\nCorrect word: <word or CORRECT>"
+      GC: "\nReturn exactly:\nWrong word: <word or CORRECT>\nCorrect word: <word or CORRECT>"
+    max_new_tokens_by_task:
+      MT: 256
+      QA: 8
+      SC: 40
+      GC: 40
+      MR: 24
+  - id: mr_numeric
+    description: Preserve prompt-only behavior but constrain MR/QA outputs.
+    system_append_by_task:
+      QA: "\nOnly output the option identifier."
+      MR: "\nOutput a bare number when the answer is numeric. Do not show reasoning."
+    max_new_tokens_by_task:
+      MT: 256
+      QA: 4
+      SC: 48
+      GC: 48
+      MR: 12

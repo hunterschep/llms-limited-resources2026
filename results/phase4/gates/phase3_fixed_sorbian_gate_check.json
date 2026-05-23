@@ -1,0 +1,78 @@
+{
+  "baseline": "results/phase3_fixed/sorbian/base_qwen35_2b.json",
+  "checks": [
+    {
+      "baseline_overall": 29.19509183798065,
+      "candidate": "checkpoints/phase3_fixed/sorbian/edit",
+      "candidate_overall": 22.68387297461811,
+      "overall_delta": -6.51121886336254,
+      "passed": false,
+      "reasons": [
+        "overall_not_above_prompt_only",
+        "task_drop_exceeds_threshold",
+        "no_task_gain_meets_minimum"
+      ],
+      "task_drops": {
+        "GC": 16.426892430378317,
+        "MR": 0.0,
+        "MT": 5.833209931277555,
+        "QA": 1.2578616352201237,
+        "SC": 9.038130319936691
+      },
+      "task_improvements": {
+        "GC": -16.426892430378317,
+        "MR": 0.0,
+        "MT": -5.833209931277555,
+        "QA": -1.2578616352201237,
+        "SC": -9.038130319936691
+      }
+    },
+    {
+      "baseline_overall": 29.19509183798065,
+      "candidate": "checkpoints/phase3_fixed/sorbian/mr",
+      "candidate_overall": 29.186679982201184,
+      "overall_delta": -0.008411855779467459,
+      "passed": false,
+      "reasons": [
+        "overall_not_above_prompt_only",
+        "task_drop_exceeds_threshold"
+      ],
+      "task_drops": {
+        "GC": -0.20491803278688536,
+        "MR": 0.0,
+        "MT": 3.9550591660747223,
+        "QA": -4.40251572327044,
+        "SC": 0.6944338688799192
+      },
+      "task_improvements": {
+        "GC": 0.20491803278688536,
+        "MR": 0.0,
+        "MT": -3.9550591660747223,
+        "QA": 4.40251572327044,
+        "SC": -0.6944338688799192
+      }
+    },
+    {
+      "baseline_overall": 29.19509183798065,
+      "candidate": "checkpoints/phase3_fixed/sorbian/external_enhanced",
+      "candidate_overall": 30.00428710560029,
+      "overall_delta": 0.8091952676196392,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": -0.4765627728395714,
+        "MR": -2.0833333333333357,
+        "MT": -2.229424039554054,
+        "QA": 1.2578616352201237,
+        "SC": -0.5145178275913977
+      },
+      "task_improvements": {
+        "GC": 0.4765627728395714,
+        "MR": 2.0833333333333357,
+        "MT": 2.229424039554054,
+        "QA": -1.2578616352201237,
+        "SC": 0.5145178275913977
+      }
+    }
+  ]
+}

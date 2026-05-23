@@ -1,0 +1,28 @@
+run_name: phase4_sorbian_edit_preserve_low_lr
+track: sorbian
+specialist: edit_preservation
+phase4_strategy: edit_low_lr_assistant_loss_replay
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/phase4/sorbian/edit_preserve_low_lr
+train_files:
+  - data/processed/final/sorbian/sc_train_final.jsonl
+  - data/processed/final/sorbian/gc_train_final.jsonl
+replay_files:
+  - data/processed/final/sorbian/format_polish_final.jsonl
+  - data/processed/final/sorbian/mr_format_preservation.jsonl
+replay_max_examples: 256
+method: preservation_lora
+adapter: lora
+lora_r: 4
+lora_alpha: 8
+lora_dropout: 0.05
+target_modules: [q_proj, v_proj]
+max_steps: 80
+learning_rate: 0.00001
+batch_size: 1
+gradient_accumulation_steps: 8
+kl_to_base_weight: 0.0
+save_merged: true
+max_examples: 1200
+seed: 2606
+dry_run: false

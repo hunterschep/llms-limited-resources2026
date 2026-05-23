@@ -1,0 +1,18 @@
+ukrainian:
+  prompt_anchor: results/phase4/probe/baseline_prompt_only_uk.json
+  probe_config: configs/eval/phase4_probe_uk.yaml
+  configs:
+    - configs/train/phase4/uk/edit_preserve_low_lr.yaml
+    - configs/train/phase4/uk/mr_preserve_kl.yaml
+    - configs/train/phase4/uk/format_preserve_tiny.yaml
+sorbian:
+  prompt_anchor: results/phase4/probe/baseline_prompt_only_sorbian.json
+  probe_config: configs/eval/phase4_probe_sorbian.yaml
+  configs:
+    - configs/train/phase4/sorbian/edit_preserve_low_lr.yaml
+    - configs/train/phase4/sorbian/mr_preserve_kl.yaml
+    - configs/train/phase4/sorbian/format_preserve_tiny.yaml
+adapter_scales: [0.0, 0.05, 0.1, 0.2, 0.35, 0.5, 0.75, 1.0]
+gates:
+  max_task_drop: 2.0
+  min_task_gain: 1.0

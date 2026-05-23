@@ -1,4 +1,4 @@
-.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-data-sanity triage-raw-oracle triage-raw-predictions triage-overfit triage-overfit-dry-run check-checkpoint-loading report-phase3-sanity report-edit-data-balance report-mr-data-quality retrain-uk-fixed-dryrun retrain-sorbian-fixed-dryrun eval-phase3-fixed-uk eval-phase3-fixed-sorbian report-phase3-fixed
+.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-data-sanity triage-raw-oracle triage-raw-predictions triage-overfit triage-overfit-dry-run check-checkpoint-loading report-phase3-sanity report-edit-data-balance report-mr-data-quality retrain-uk-fixed-dryrun retrain-sorbian-fixed-dryrun eval-phase3-fixed-uk eval-phase3-fixed-sorbian report-phase3-fixed phase4-status phase4-cleanup-check phase4-build-probe phase4-eval-prompt-only phase4-prompt-sweep phase4-analyze-failures phase4-micro-ablation-dryrun phase4-rank-candidates phase4-check-gates phase4-report phase4-clean-failed
 
 validate:
 	python3 scripts/validate_data_governance.py
@@ -121,3 +121,43 @@ report-phase3-fixed:
 	mkdir -p results/phase3_fixed/comparisons
 	python3 scripts/report_eval_comparison.py results/baselines/base_qwen35_2b_uk.json results/phase3_fixed/uk/*.json --format markdown --output results/phase3_fixed/comparisons/uk_fixed_comparison.md
 	python3 scripts/report_eval_comparison.py results/baselines/base_qwen35_2b_sorbian.json results/phase3_fixed/sorbian/*.json --format markdown --output results/phase3_fixed/comparisons/sorbian_fixed_comparison.md
+
+phase4-status:
+	python3 scripts/run_phase4.py status
+
+phase4-cleanup-check:
+	python3 scripts/phase4_cleanup_check.py
+
+phase4-build-probe:
+	python3 scripts/build_phase4_probe_suite.py
+
+phase4-eval-prompt-only:
+	WMT26_RECORD_RUNS=0 python3 scripts/eval_phase4_probe.py --config configs/eval/phase4_probe_uk.yaml --oracle --output results/phase4/probe/oracle_uk.json
+	WMT26_RECORD_RUNS=0 python3 scripts/eval_phase4_probe.py --config configs/eval/phase4_probe_sorbian.yaml --oracle --output results/phase4/probe/oracle_sorbian.json
+
+phase4-prompt-sweep:
+	WMT26_RECORD_RUNS=0 python3 scripts/phase4_prompt_sweep.py --config configs/eval/phase4_prompt_sweep_uk.yaml --oracle
+	WMT26_RECORD_RUNS=0 python3 scripts/phase4_prompt_sweep.py --config configs/eval/phase4_prompt_sweep_sorbian.yaml --oracle
+
+phase4-analyze-failures:
+	python3 scripts/phase4_analyze_failures.py
+	python3 scripts/phase4_compare_train_eval_distributions.py
+	python3 scripts/phase4_prompt_mismatch_check.py
+	python3 scripts/phase4_raw_error_taxonomy.py
+	python3 scripts/phase4_analyze_loss_curves.py
+
+phase4-micro-ablation-dryrun:
+	WMT26_RECORD_RUNS=0 python3 scripts/phase4_run_micro_ablations.py --dry-run --max-examples 8
+
+phase4-rank-candidates:
+	python3 scripts/phase4_rank_ablation_candidates.py
+
+phase4-check-gates:
+	python3 scripts/phase4_check_no_harm_gates.py --baseline results/phase3_fixed/uk/base_qwen35_2b.json --candidates results/phase3_fixed/uk/edit.json results/phase3_fixed/uk/mr.json --output results/phase4/gates/phase3_fixed_uk_gate_check.json || true
+	python3 scripts/phase4_check_no_harm_gates.py --baseline results/phase3_fixed/sorbian/base_qwen35_2b.json --candidates results/phase3_fixed/sorbian/edit.json results/phase3_fixed/sorbian/mr.json results/phase3_fixed/sorbian/external_enhanced.json --output results/phase4/gates/phase3_fixed_sorbian_gate_check.json || true
+
+phase4-report:
+	python3 scripts/phase4_report.py
+
+phase4-clean-failed:
+	python3 scripts/phase4_cleanup_failed.py

@@ -1,0 +1,104 @@
+{
+  "candidates": [
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/prompt_sweep/sorbian/edit_guarded.json"
+    },
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/prompt_sweep/sorbian/baseline.json"
+    },
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/prompt_sweep/sorbian/mr_numeric.json"
+    },
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/prompt_sweep/sorbian/strict_short.json"
+    },
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/prompt_sweep/uk/edit_guarded.json"
+    },
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/prompt_sweep/uk/baseline.json"
+    },
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/prompt_sweep/uk/mr_numeric.json"
+    },
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/prompt_sweep/uk/strict_short.json"
+    },
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/probe/oracle_sorbian.json"
+    },
+    {
+      "GC": 100.0,
+      "MR": 100.0,
+      "MT": 100.0,
+      "QA": 100.0,
+      "SC": 100.0,
+      "model": "Qwen/Qwen3.5-2B",
+      "overall": 100.0,
+      "path": "results/phase4/probe/oracle_uk.json"
+    }
+  ]
+}

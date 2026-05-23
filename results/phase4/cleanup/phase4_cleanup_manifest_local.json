@@ -1,0 +1,20 @@
+{
+  "deleted_dirs_or_would_delete": [
+    "checkpoints/phase3_fixed/sorbian/merged/search_candidate_000",
+    "checkpoints/phase3_fixed/sorbian/merged/search_candidate_001",
+    "checkpoints/phase3_fixed/uk/merged/weighted_task_vector",
+    "checkpoints/uk/specialists/qa"
+  ],
+  "deleted_files_or_would_delete": [
+    "checkpoints/phase3_fixed/sorbian/merged/search/candidate_weights.jsonl"
+  ],
+  "dry_run": false,
+  "manually_deleted_files": [
+    "results/merge_search_sorbian.csv"
+  ],
+  "pruned_empty_dirs": [
+    "checkpoints/phase3_fixed/sorbian/merged/search",
+    "checkpoints/phase3_fixed/sorbian/merged",
+    "checkpoints/phase3_fixed/sorbian"
+  ]
+}

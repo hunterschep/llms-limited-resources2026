@@ -1,0 +1,56 @@
+{
+  "baseline": "results/phase3_fixed/uk/base_qwen35_2b.json",
+  "checks": [
+    {
+      "baseline_overall": 37.39935884718339,
+      "candidate": "checkpoints/phase3_fixed/uk/edit",
+      "candidate_overall": 28.735558993472022,
+      "overall_delta": -8.663799853711371,
+      "passed": false,
+      "reasons": [
+        "overall_not_above_prompt_only",
+        "task_drop_exceeds_threshold",
+        "no_task_gain_meets_minimum"
+      ],
+      "task_drops": {
+        "GC": 21.052338183742847,
+        "MR": 8.333333333333332,
+        "MT": 1.5022943151292552,
+        "QA": 5.099150141643062,
+        "SC": 7.331883294708355
+      },
+      "task_improvements": {
+        "GC": -21.052338183742847,
+        "MR": -8.333333333333332,
+        "MT": -1.5022943151292552,
+        "QA": -5.099150141643062,
+        "SC": -7.331883294708355
+      }
+    },
+    {
+      "baseline_overall": 37.39935884718339,
+      "candidate": "checkpoints/phase3_fixed/uk/mr",
+      "candidate_overall": 33.52701614961483,
+      "overall_delta": -3.8723426975685626,
+      "passed": false,
+      "reasons": [
+        "overall_not_above_prompt_only",
+        "task_drop_exceeds_threshold"
+      ],
+      "task_drops": {
+        "GC": 2.649006622516552,
+        "MR": 8.333333333333332,
+        "MT": -0.007411765983555085,
+        "QA": -4.532577903682721,
+        "SC": 12.919363201659202
+      },
+      "task_improvements": {
+        "GC": -2.649006622516552,
+        "MR": -8.333333333333332,
+        "MT": 0.007411765983555085,
+        "QA": 4.532577903682721,
+        "SC": -12.919363201659202
+      }
+    }
+  ]
+}

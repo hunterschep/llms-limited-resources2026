@@ -1,0 +1,59 @@
+{
+  "reports": [
+    {
+      "combined_path": "data/processed/phase4_probe/uk_probe.jsonl",
+      "config_path": "configs/eval/phase4_probe_uk.yaml",
+      "tasks": {
+        "GC": {
+          "probe_rows": 60,
+          "source_rows": 597
+        },
+        "MR": {
+          "probe_rows": 24,
+          "source_rows": 24
+        },
+        "MT": {
+          "probe_rows": 48,
+          "source_rows": 3465
+        },
+        "QA": {
+          "probe_rows": 48,
+          "source_rows": 353
+        },
+        "SC": {
+          "probe_rows": 60,
+          "source_rows": 598
+        }
+      },
+      "track": "ukrainian"
+    },
+    {
+      "combined_path": "data/processed/phase4_probe/sorbian_probe.jsonl",
+      "config_path": "configs/eval/phase4_probe_sorbian.yaml",
+      "tasks": {
+        "GC": {
+          "probe_rows": 72,
+          "source_rows": 985
+        },
+        "MR": {
+          "probe_rows": 48,
+          "source_rows": 48
+        },
+        "MT": {
+          "probe_rows": 72,
+          "source_rows": 7204
+        },
+        "QA": {
+          "probe_rows": 48,
+          "source_rows": 159
+        },
+        "SC": {
+          "probe_rows": 72,
+          "source_rows": 1167
+        }
+      },
+      "track": "sorbian"
+    }
+  ],
+  "seed": 2606
+}

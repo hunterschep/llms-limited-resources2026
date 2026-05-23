@@ -1,0 +1,5 @@
+track: sorbian
+probe_config: configs/eval/phase4_probe_sorbian.yaml
+prompt_sweep_config: configs/prompts/phase4_sweep.yaml
+model: Qwen/Qwen3.5-2B
+output_dir: results/phase4/prompt_sweep/sorbian

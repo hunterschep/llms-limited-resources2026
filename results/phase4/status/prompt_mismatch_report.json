@@ -1,0 +1,98 @@
+{
+  "sorbian_eval_gc": {
+    "system_prompts": {
+      "You perform grammatical-error detection and correction. Return exactly two lines: \"Wrong word: <word or CORRECT>\" and \"Correct word: <word or CORRECT>\".": 25
+    },
+    "user_first_lines": {
+      "Sentence:": 25
+    }
+  },
+  "sorbian_eval_mr": {
+    "system_prompts": {
+      "You solve math problems and return only the final answer. Do not include chain-of-thought or explanation.": 25
+    },
+    "user_first_lines": {
+      "Problem:": 25
+    }
+  },
+  "sorbian_eval_sc": {
+    "system_prompts": {
+      "You perform spelling-error detection and correction. Return exactly two lines: \"Wrong word: <word or CORRECT>\" and \"Correct word: <word or CORRECT>\".": 25
+    },
+    "user_first_lines": {
+      "Sentence:": 25
+    }
+  },
+  "sorbian_train_gc": {
+    "system_prompts": {
+      "You perform grammatical-error detection and correction. Return exactly two lines: \"Wrong word: <word or CORRECT>\" and \"Correct word: <word or CORRECT>\".": 25
+    },
+    "user_first_lines": {
+      "Sentence:": 25
+    }
+  },
+  "sorbian_train_mr": {
+    "system_prompts": {
+      "You solve math problems and return only the final answer. Do not include chain-of-thought or explanation.": 25
+    },
+    "user_first_lines": {
+      "Problem:": 25
+    }
+  },
+  "sorbian_train_sc": {
+    "system_prompts": {
+      "You perform spelling-error detection and correction. Return exactly two lines: \"Wrong word: <word or CORRECT>\" and \"Correct word: <word or CORRECT>\".": 25
+    },
+    "user_first_lines": {
+      "Sentence:": 25
+    }
+  },
+  "uk_eval_gc": {
+    "system_prompts": {
+      "You perform grammatical-error detection and correction. Return exactly two lines: \"Wrong word: <word or CORRECT>\" and \"Correct word: <word or CORRECT>\".": 25
+    },
+    "user_first_lines": {
+      "Sentence:": 25
+    }
+  },
+  "uk_eval_mr": {
+    "system_prompts": {
+      "You solve math problems and return only the final answer. Do not include chain-of-thought or explanation.": 24
+    },
+    "user_first_lines": {
+      "Problem:": 24
+    }
+  },
+  "uk_eval_sc": {
+    "system_prompts": {
+      "You perform spelling-error detection and correction. Return exactly two lines: \"Wrong word: <word or CORRECT>\" and \"Correct word: <word or CORRECT>\".": 25
+    },
+    "user_first_lines": {
+      "Sentence:": 25
+    }
+  },
+  "uk_train_gc": {
+    "system_prompts": {
+      "You perform grammatical-error detection and correction. Return exactly two lines: \"Wrong word: <word or CORRECT>\" and \"Correct word: <word or CORRECT>\".": 25
+    },
+    "user_first_lines": {
+      "Sentence:": 25
+    }
+  },
+  "uk_train_mr": {
+    "system_prompts": {
+      "You solve math problems and return only the final answer. Do not include chain-of-thought or explanation.": 25
+    },
+    "user_first_lines": {
+      "Problem:": 25
+    }
+  },
+  "uk_train_sc": {
+    "system_prompts": {
+      "You perform spelling-error detection and correction. Return exactly two lines: \"Wrong word: <word or CORRECT>\" and \"Correct word: <word or CORRECT>\".": 25
+    },
+    "user_first_lines": {
+      "Sentence:": 25
+    }
+  }
+}

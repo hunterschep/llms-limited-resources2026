@@ -1,0 +1,27 @@
+{
+  "config": "configs/eval/phase4_prompt_sweep_uk.yaml",
+  "model": "Qwen/Qwen3.5-2B",
+  "oracle": true,
+  "variants": [
+    {
+      "output": "results/phase4/prompt_sweep/uk/baseline.json",
+      "overall": 100.0,
+      "variant": "baseline"
+    },
+    {
+      "output": "results/phase4/prompt_sweep/uk/strict_short.json",
+      "overall": 100.0,
+      "variant": "strict_short"
+    },
+    {
+      "output": "results/phase4/prompt_sweep/uk/edit_guarded.json",
+      "overall": 100.0,
+      "variant": "edit_guarded"
+    },
+    {
+      "output": "results/phase4/prompt_sweep/uk/mr_numeric.json",
+      "overall": 100.0,
+      "variant": "mr_numeric"
+    }
+  ]
+}
