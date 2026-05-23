@@ -35,7 +35,9 @@ def main() -> int:
             dir_candidates.add(marker.parent)
         for marker in checkpoints.glob("**/MERGE_DRY_RUN.json"):
             dir_candidates.add(marker.parent)
-        for file_path in checkpoints.glob("phase3_fixed/*/merged/search/candidate_weights.jsonl"):
+        for marker in checkpoints.glob("**/SKIPPED.json"):
+            dir_candidates.add(marker.parent)
+        for file_path in checkpoints.glob("**/merged/search/candidate_weights.jsonl"):
             file_candidates.add(file_path)
     for root in [ROOT / "checkpoints/phase4"]:
         if root.exists():

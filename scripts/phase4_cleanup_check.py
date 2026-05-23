@@ -8,7 +8,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> int:
-    checkpoints = [str(p.relative_to(ROOT)) for p in (ROOT / "checkpoints").glob("**/*") if p.is_file()]
+    checkpoints = [
+        str(p.relative_to(ROOT))
+        for p in (ROOT / "checkpoints").glob("**/*")
+        if p.is_file() and p.name != ".gitkeep"
+    ]
     bulky = [str(p.relative_to(ROOT)) for p in (ROOT / "results").glob("**/*") if p.is_file() and p.stat().st_size > 5_000_000]
     report = {
         "checkpoints_files": checkpoints,
