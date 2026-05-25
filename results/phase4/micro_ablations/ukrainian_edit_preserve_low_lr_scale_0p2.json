@@ -1,0 +1,36 @@
+{
+  "adapter": "checkpoints/phase4/uk/edit_preserve_low_lr/adapter",
+  "adapter_scale": 0.2,
+  "aggregate": {
+    "GC_score": 33.33333333333333,
+    "MR_score": 25.0,
+    "MT_score": 41.053406716862526,
+    "QA_score": 31.25,
+    "SC_score": 52.25225225225225,
+    "overall_score": 36.577798460489625
+  },
+  "model": "Qwen/Qwen3.5-2B",
+  "oracle": false,
+  "split": "phase4_probe",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.6666666666666666
+    },
+    "MR": {
+      "accuracy": 0.25
+    },
+    "MT": {
+      "bleu": 15.887065353078539,
+      "chrf++": 41.053406716862526
+    },
+    "QA": {
+      "accuracy": 0.3125
+    },
+    "SC": {
+      "correction_f1": 0.37837837837837834,
+      "detection_f1": 0.6666666666666666
+    }
+  },
+  "track": "ukrainian"
+}

@@ -1,0 +1,533 @@
+{
+  "baseline": "results/phase4/probe/baseline_prompt_only_sorbian.json",
+  "checks": [
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.0",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.05",
+      "candidate_overall": 30.662260623102746,
+      "overall_delta": 1.0183326311387404,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": -2.083333333333332,
+        "MT": -0.9249964890270164,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 2.083333333333332,
+        "MT": 0.9249964890270164,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.1",
+      "candidate_overall": 29.996060578310768,
+      "overall_delta": 0.35213258634676237,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.3226704015995452,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.3226704015995452,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.2",
+      "candidate_overall": 30.15635935210122,
+      "overall_delta": 0.5124313601372137,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.47882346735273984,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.47882346735273984,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.35",
+      "candidate_overall": 30.99736406021528,
+      "overall_delta": 1.3534360682512734,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": -4.166666666666668,
+        "MT": -0.5171803412563492,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 4.166666666666668,
+        "MT": 0.5171803412563492,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.5",
+      "candidate_overall": 30.497113830842988,
+      "overall_delta": 0.8531858388789821,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": -2.083333333333332,
+        "MT": -0.09926252772822153,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 2.083333333333332,
+        "MT": 0.09926252772822153,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.75",
+      "candidate_overall": 30.48571615181016,
+      "overall_delta": 0.8417881598461534,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": -2.083333333333332,
+        "MT": -0.04227413256407431,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 2.083333333333332,
+        "MT": 0.04227413256407431,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=1.0",
+      "candidate_overall": 30.10689458787703,
+      "overall_delta": 0.4629665959130236,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.2314996462317822,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.2314996462317822,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/format_preserve_tiny/adapter@scale=0.0",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/format_preserve_tiny/adapter@scale=0.05",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/format_preserve_tiny/adapter@scale=0.1",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/format_preserve_tiny/adapter@scale=0.2",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/format_preserve_tiny/adapter@scale=0.35",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/format_preserve_tiny/adapter@scale=0.5",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/format_preserve_tiny/adapter@scale=0.75",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/format_preserve_tiny/adapter@scale=1.0",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/mr_preserve_kl/adapter@scale=0.0",
+      "candidate_overall": 30.15270011610827,
+      "overall_delta": 0.5087721241442651,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.46052728738797555,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.46052728738797555,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/mr_preserve_kl/adapter@scale=0.05",
+      "candidate_overall": 29.999184697207035,
+      "overall_delta": 0.3552567052430291,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.30704980711820795,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.30704980711820795,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/mr_preserve_kl/adapter@scale=0.1",
+      "candidate_overall": 30.471916196485218,
+      "overall_delta": 0.8279882045212119,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": -2.083333333333332,
+        "MT": 0.02672564406064737,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 2.083333333333332,
+        "MT": -0.02672564406064737,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/mr_preserve_kl/adapter@scale=0.2",
+      "candidate_overall": 30.004144556057703,
+      "overall_delta": 0.3602165640936974,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.28225051286485225,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.28225051286485225,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/mr_preserve_kl/adapter@scale=0.35",
+      "candidate_overall": 30.432092769674643,
+      "overall_delta": 0.7881647777106373,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": -2.083333333333332,
+        "MT": 0.22584277811350617,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 2.083333333333332,
+        "MT": -0.22584277811350617,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/mr_preserve_kl/adapter@scale=0.5",
+      "candidate_overall": 29.95387957928376,
+      "overall_delta": 0.30995158731975536,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.5335753967345696,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.5335753967345696,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/mr_preserve_kl/adapter@scale=0.75",
+      "candidate_overall": 30.057821366429334,
+      "overall_delta": 0.4138933744653279,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.013866461006706743,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.013866461006706743,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "checkpoints/phase4/sorbian/mr_preserve_kl/adapter@scale=1.0",
+      "candidate_overall": 30.008452762503776,
+      "overall_delta": 0.36452477053977006,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.2607094806344925,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.2607094806344925,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    }
+  ]
+}

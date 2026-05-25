@@ -1,40 +1,151 @@
 {
-  "git_commit": "348b9ceca6a8d33a40a379e3b9cd23fc2d83ef41",
+  "git_commit": "unknown",
   "runs": [
     {
-      "config": "configs/train/phase4/uk/edit_preserve_low_lr.yaml",
-      "dry_run": true,
-      "returncode": 0,
-      "track": "ukrainian"
-    },
-    {
-      "config": "configs/train/phase4/uk/mr_preserve_kl.yaml",
-      "dry_run": true,
-      "returncode": 0,
-      "track": "ukrainian"
-    },
-    {
-      "config": "configs/train/phase4/uk/format_preserve_tiny.yaml",
-      "dry_run": true,
-      "returncode": 0,
-      "track": "ukrainian"
-    },
-    {
+      "anchor": "results/phase4/probe/baseline_prompt_only_sorbian.json",
       "config": "configs/train/phase4/sorbian/edit_preserve_low_lr.yaml",
-      "dry_run": true,
+      "dry_run": false,
       "returncode": 0,
+      "scale_evals": [
+        {
+          "output": "results/phase4/micro_ablations/sorbian_edit_preserve_low_lr_scale_0p0.json",
+          "returncode": 0,
+          "scale": 0.0
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_edit_preserve_low_lr_scale_0p05.json",
+          "returncode": 0,
+          "scale": 0.05
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_edit_preserve_low_lr_scale_0p1.json",
+          "returncode": 0,
+          "scale": 0.1
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_edit_preserve_low_lr_scale_0p2.json",
+          "returncode": 0,
+          "scale": 0.2
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_edit_preserve_low_lr_scale_0p35.json",
+          "returncode": 0,
+          "scale": 0.35
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_edit_preserve_low_lr_scale_0p5.json",
+          "returncode": 0,
+          "scale": 0.5
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_edit_preserve_low_lr_scale_0p75.json",
+          "returncode": 0,
+          "scale": 0.75
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_edit_preserve_low_lr_scale_1p0.json",
+          "returncode": 0,
+          "scale": 1.0
+        }
+      ],
       "track": "sorbian"
     },
     {
+      "anchor": "results/phase4/probe/baseline_prompt_only_sorbian.json",
       "config": "configs/train/phase4/sorbian/mr_preserve_kl.yaml",
-      "dry_run": true,
+      "dry_run": false,
       "returncode": 0,
+      "scale_evals": [
+        {
+          "output": "results/phase4/micro_ablations/sorbian_mr_preserve_kl_scale_0p0.json",
+          "returncode": 0,
+          "scale": 0.0
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_mr_preserve_kl_scale_0p05.json",
+          "returncode": 0,
+          "scale": 0.05
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_mr_preserve_kl_scale_0p1.json",
+          "returncode": 0,
+          "scale": 0.1
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_mr_preserve_kl_scale_0p2.json",
+          "returncode": 0,
+          "scale": 0.2
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_mr_preserve_kl_scale_0p35.json",
+          "returncode": 0,
+          "scale": 0.35
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_mr_preserve_kl_scale_0p5.json",
+          "returncode": 0,
+          "scale": 0.5
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_mr_preserve_kl_scale_0p75.json",
+          "returncode": 0,
+          "scale": 0.75
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_mr_preserve_kl_scale_1p0.json",
+          "returncode": 0,
+          "scale": 1.0
+        }
+      ],
       "track": "sorbian"
     },
     {
+      "anchor": "results/phase4/probe/baseline_prompt_only_sorbian.json",
       "config": "configs/train/phase4/sorbian/format_preserve_tiny.yaml",
-      "dry_run": true,
+      "dry_run": false,
       "returncode": 0,
+      "scale_evals": [
+        {
+          "output": "results/phase4/micro_ablations/sorbian_format_preserve_tiny_scale_0p0.json",
+          "returncode": 0,
+          "scale": 0.0
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_format_preserve_tiny_scale_0p05.json",
+          "returncode": 0,
+          "scale": 0.05
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_format_preserve_tiny_scale_0p1.json",
+          "returncode": 0,
+          "scale": 0.1
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_format_preserve_tiny_scale_0p2.json",
+          "returncode": 0,
+          "scale": 0.2
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_format_preserve_tiny_scale_0p35.json",
+          "returncode": 0,
+          "scale": 0.35
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_format_preserve_tiny_scale_0p5.json",
+          "returncode": 0,
+          "scale": 0.5
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_format_preserve_tiny_scale_0p75.json",
+          "returncode": 0,
+          "scale": 0.75
+        },
+        {
+          "output": "results/phase4/micro_ablations/sorbian_format_preserve_tiny_scale_1p0.json",
+          "returncode": 0,
+          "scale": 1.0
+        }
+      ],
       "track": "sorbian"
     }
   ]

@@ -66,9 +66,14 @@ def task_score_vector(result: dict) -> dict[str, float]:
 
 
 def git_revision() -> str:
-    env_rev = os.environ.get("WMT26_RUN_REVISION")
+    env_rev = os.environ.get("WMT26_GIT_COMMIT") or os.environ.get("WMT26_RUN_REVISION")
     if env_rev:
         return env_rev
+    rev_file = ROOT / "REVISION"
+    if rev_file.exists():
+        text = rev_file.read_text(encoding="utf-8").strip()
+        if text:
+            return text
     try:
         return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     except Exception:

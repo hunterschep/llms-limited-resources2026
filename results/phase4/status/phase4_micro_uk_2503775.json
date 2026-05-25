@@ -1,0 +1,15 @@
+{
+  "checkpoint_path": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/uk",
+  "checksums": {
+    "configs/eval/phase4_probe_uk.yaml": "9133a6e1b7b2205feea57e870e6f82d0bcc45cd31c0350a81c879ff5e8b7c8ad",
+    "configs/train/phase4/micro_ablation_grid.yaml": "04078f7a534664c65b988f1a67ee65780451ec734ee84cba6468dd84e35a4b4d",
+    "data/manifests/final_training_data_summary.md": "07fa7fca25f09884f7b6ce4e2986e86e4e3e330440ac0ef371f3f4af7e364850"
+  },
+  "git_commit": "1074b822400b7a1570ebab30ee25c65b758791e3",
+  "job_name": "phase4_micro_uk",
+  "project_root": "/home/scheppat/workspace/projects/wmt26_lrllm",
+  "result_path": "results/phase4/micro_ablations",
+  "scratch_root": "/scratch/scheppat/projects/wmt26_lrllm",
+  "slurm_job_id": "2503775",
+  "timestamp_utc": "2026-05-25T18:14:20.708026+00:00"
+}

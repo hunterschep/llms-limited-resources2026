@@ -1,0 +1,32 @@
+{
+  "base_model": "Qwen/Qwen3.5-2B",
+  "candidate_report": "results/phase4/gates/micro_uk_no_harm_report.json",
+  "config": "configs/eval/uk.yaml",
+  "dry_run": true,
+  "limit_candidates": 1,
+  "min_adapter_scale": 0.01,
+  "selected": [
+    {
+      "adapter": "checkpoints/phase4/uk/mr_preserve_kl/adapter",
+      "adapter_scale": 0.1,
+      "candidate": "checkpoints/phase4/uk/mr_preserve_kl/adapter@scale=0.1",
+      "candidate_overall": 38.526417147242235,
+      "overall_delta": 0.5578748623209648,
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": -0.6556616515763238,
+        "QA": 0.0,
+        "SC": -2.1337126600284577
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 0.0,
+        "MT": 0.6556616515763238,
+        "QA": 0.0,
+        "SC": 2.1337126600284577
+      }
+    }
+  ],
+  "track": "uk"
+}

@@ -1,0 +1,32 @@
+{
+  "base_model": "Qwen/Qwen3.5-2B",
+  "candidate_report": "results/phase4/gates/micro_sorbian_no_harm_report.json",
+  "config": "configs/eval/sorbian.yaml",
+  "dry_run": true,
+  "limit_candidates": 1,
+  "min_adapter_scale": 0.01,
+  "selected": [
+    {
+      "adapter": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter",
+      "adapter_scale": 0.35,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.35",
+      "candidate_overall": 30.99736406021528,
+      "overall_delta": 1.3534360682512734,
+      "task_drops": {
+        "GC": 0.0,
+        "MR": -4.166666666666668,
+        "MT": -0.5171803412563492,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 4.166666666666668,
+        "MT": 0.5171803412563492,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    }
+  ],
+  "track": "sorbian"
+}
