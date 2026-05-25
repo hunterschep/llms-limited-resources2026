@@ -1,26 +1,26 @@
 {
   "aggregate": {
     "GC_score": 33.33333333333333,
-    "MR_score": 16.666666666666664,
-    "MT_score": 41.48918243219522,
+    "MR_score": 29.166666666666668,
+    "MT_score": 41.757125839020794,
     "QA_score": 33.33333333333333,
     "SC_score": 52.25225225225225,
-    "overall_score": 35.41495360355616
+    "overall_score": 37.96854228492127
   },
-  "description": "Existing canonical prompts and greedy decoding.",
   "model": "Qwen/Qwen3.5-2B",
   "oracle": false,
+  "split": "phase4_probe",
   "task_scores": {
     "GC": {
       "correction_f1": 0.0,
       "detection_f1": 0.6666666666666666
     },
     "MR": {
-      "accuracy": 0.16666666666666666
+      "accuracy": 0.2916666666666667
     },
     "MT": {
-      "bleu": 15.538208152143293,
-      "chrf++": 41.48918243219522
+      "bleu": 16.223633188246023,
+      "chrf++": 41.757125839020794
     },
     "QA": {
       "accuracy": 0.3333333333333333
@@ -30,6 +30,5 @@
       "detection_f1": 0.6666666666666666
     }
   },
-  "track": "ukrainian",
-  "variant_id": "baseline"
+  "track": "ukrainian"
 }

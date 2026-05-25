@@ -18,8 +18,13 @@ def check_candidate(baseline: dict, candidate: dict, max_drop: float, min_gain: 
     drops = {task: base[task] - cand[task] for task in ["MT", "QA", "SC", "GC", "MR"]}
     improvements = {task: cand[task] - base[task] for task in ["MT", "QA", "SC", "GC", "MR"]}
     passed = cand["overall"] > base["overall"] and max(drops.values()) <= max_drop and max(improvements.values()) >= min_gain
+    adapter = candidate.get("adapter")
+    scale = candidate.get("adapter_scale")
+    candidate_id = candidate.get("model") or candidate.get("variant_id") or "candidate"
+    if adapter:
+        candidate_id = f"{adapter}@scale={scale}"
     return {
-        "candidate": candidate.get("model") or candidate.get("variant_id") or "candidate",
+        "candidate": candidate_id,
         "baseline_overall": base["overall"],
         "candidate_overall": cand["overall"],
         "overall_delta": cand["overall"] - base["overall"],

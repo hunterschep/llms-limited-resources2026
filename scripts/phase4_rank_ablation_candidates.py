@@ -27,12 +27,41 @@ def main() -> int:
         if "aggregate" not in data:
             continue
         score = task_score_vector(data)
-        rows.append({"path": str(Path(path).relative_to(ROOT)), "model": data.get("model") or data.get("variant_id"), **score})
+        rows.append(
+            {
+                "path": str(Path(path).relative_to(ROOT)),
+                "model": data.get("model") or data.get("variant_id"),
+                "adapter": data.get("adapter"),
+                "adapter_scale": data.get("adapter_scale"),
+                **score,
+            }
+        )
     rows.sort(key=lambda row: row["overall"], reverse=True)
     output = ROOT / args.output
     write_json(output, {"candidates": rows})
     md = output.with_suffix(".md")
-    md.write_text("# Phase 4 Ranked Candidates\n\n" + markdown_table(["path", "model", "overall", "MT", "QA", "SC", "GC", "MR"], [[r["path"], r["model"], f"{r['overall']:.3f}", f"{r['MT']:.3f}", f"{r['QA']:.3f}", f"{r['SC']:.3f}", f"{r['GC']:.3f}", f"{r['MR']:.3f}"] for r in rows]) + "\n", encoding="utf-8")
+    md.write_text(
+        "# Phase 4 Ranked Candidates\n\n"
+        + markdown_table(
+            ["path", "model", "adapter_scale", "overall", "MT", "QA", "SC", "GC", "MR"],
+            [
+                [
+                    r["path"],
+                    r["model"],
+                    "" if r.get("adapter_scale") is None else r["adapter_scale"],
+                    f"{r['overall']:.3f}",
+                    f"{r['MT']:.3f}",
+                    f"{r['QA']:.3f}",
+                    f"{r['SC']:.3f}",
+                    f"{r['GC']:.3f}",
+                    f"{r['MR']:.3f}",
+                ]
+                for r in rows
+            ],
+        )
+        + "\n",
+        encoding="utf-8",
+    )
     print(json.dumps({"output": args.output, "count": len(rows)}, indent=2, sort_keys=True))
     return 0
 

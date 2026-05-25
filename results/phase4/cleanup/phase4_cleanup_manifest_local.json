@@ -1,20 +1,13 @@
 {
   "deleted_dirs_or_would_delete": [
-    "checkpoints/phase3_fixed/sorbian/merged/search_candidate_000",
-    "checkpoints/phase3_fixed/sorbian/merged/search_candidate_001",
-    "checkpoints/phase3_fixed/uk/merged/weighted_task_vector",
-    "checkpoints/uk/specialists/qa"
+    "checkpoints/phase4/sorbian/edit_preserve_low_lr",
+    "checkpoints/phase4/sorbian/format_preserve_tiny",
+    "checkpoints/phase4/sorbian/mr_preserve_kl",
+    "checkpoints/phase4/uk/edit_preserve_low_lr",
+    "checkpoints/phase4/uk/format_preserve_tiny",
+    "checkpoints/phase4/uk/mr_preserve_kl"
   ],
-  "deleted_files_or_would_delete": [
-    "checkpoints/phase3_fixed/sorbian/merged/search/candidate_weights.jsonl"
-  ],
+  "deleted_files_or_would_delete": [],
   "dry_run": false,
-  "manually_deleted_files": [
-    "results/merge_search_sorbian.csv"
-  ],
-  "pruned_empty_dirs": [
-    "checkpoints/phase3_fixed/sorbian/merged/search",
-    "checkpoints/phase3_fixed/sorbian/merged",
-    "checkpoints/phase3_fixed/sorbian"
-  ]
+  "pruned_empty_dirs": []
 }

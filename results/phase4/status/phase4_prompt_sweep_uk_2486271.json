@@ -1,0 +1,15 @@
+{
+  "checkpoint_path": "",
+  "checksums": {
+    "configs/eval/phase4_probe_uk.yaml": "9133a6e1b7b2205feea57e870e6f82d0bcc45cd31c0350a81c879ff5e8b7c8ad",
+    "configs/prompts/phase4_sweep.yaml": "e00afe379a2cf936aa13e56e8086ccea51eb3ea09ac987c07f36ccb1249957fc",
+    "data/manifests/final_training_data_summary.md": "07fa7fca25f09884f7b6ce4e2986e86e4e3e330440ac0ef371f3f4af7e364850"
+  },
+  "git_commit": "4b82e7ec4e12d41a8e1c2c5338ba0a510e3504e2",
+  "job_name": "phase4_prompt_sweep_uk",
+  "project_root": "/home/scheppat/workspace/projects/wmt26_lrllm",
+  "result_path": "results/phase4/prompt_sweep/uk",
+  "scratch_root": "/scratch/scheppat/projects/wmt26_lrllm",
+  "slurm_job_id": "2486271",
+  "timestamp_utc": "2026-05-23T08:02:16.960884+00:00"
+}

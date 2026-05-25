@@ -1,0 +1,107 @@
+{
+  "baseline": "results/phase4/probe/baseline_prompt_only_sorbian.json",
+  "checks": [
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "Qwen/Qwen3.5-2B",
+      "candidate_overall": 29.147063981237302,
+      "overall_delta": -0.4968640107267035,
+      "passed": false,
+      "reasons": [
+        "overall_not_above_prompt_only",
+        "task_drop_exceeds_threshold",
+        "no_task_gain_meets_minimum"
+      ],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 2.083333333333334,
+        "MT": 0.4009867203001889,
+        "QA": 0.0,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": -2.083333333333334,
+        "MT": -0.4009867203001889,
+        "QA": 0.0,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "Qwen/Qwen3.5-2B",
+      "candidate_overall": 29.0997166719757,
+      "overall_delta": -0.5442113199883067,
+      "passed": false,
+      "reasons": [
+        "overall_not_above_prompt_only",
+        "task_drop_exceeds_threshold"
+      ],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 4.166666666666667,
+        "MT": 1.2570926359776031,
+        "QA": 0.0,
+        "SC": -2.702702702702709
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": -4.166666666666667,
+        "MT": -1.2570926359776031,
+        "QA": 0.0,
+        "SC": 2.702702702702709
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "Qwen/Qwen3.5-2B",
+      "candidate_overall": 29.147063981237302,
+      "overall_delta": -0.4968640107267035,
+      "passed": false,
+      "reasons": [
+        "overall_not_above_prompt_only",
+        "task_drop_exceeds_threshold",
+        "no_task_gain_meets_minimum"
+      ],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 2.083333333333334,
+        "MT": 0.4009867203001889,
+        "QA": 0.0,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": -2.083333333333334,
+        "MT": -0.4009867203001889,
+        "QA": 0.0,
+        "SC": 0.0
+      }
+    },
+    {
+      "baseline_overall": 29.643927991964006,
+      "candidate": "Qwen/Qwen3.5-2B",
+      "candidate_overall": 29.147063981237306,
+      "overall_delta": -0.49686401072669995,
+      "passed": false,
+      "reasons": [
+        "overall_not_above_prompt_only",
+        "task_drop_exceeds_threshold"
+      ],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": 4.166666666666667,
+        "MT": 0.4009867203001889,
+        "QA": -2.0833333333333286,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": -4.166666666666667,
+        "MT": -0.4009867203001889,
+        "QA": 2.0833333333333286,
+        "SC": 0.0
+      }
+    }
+  ]
+}

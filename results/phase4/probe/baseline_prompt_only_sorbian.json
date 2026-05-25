@@ -1,26 +1,26 @@
 {
   "aggregate": {
     "GC_score": 33.33333333333333,
-    "MR_score": 4.166666666666666,
-    "MT_score": 31.151986572853197,
+    "MR_score": 6.25,
+    "MT_score": 31.552973293153386,
     "QA_score": 43.75,
     "SC_score": 33.33333333333333,
-    "overall_score": 29.147063981237302
+    "overall_score": 29.643927991964006
   },
-  "description": "Existing canonical prompts and greedy decoding.",
   "model": "Qwen/Qwen3.5-2B",
   "oracle": false,
+  "split": "phase4_probe",
   "task_scores": {
     "GC": {
       "correction_f1": 0.0,
       "detection_f1": 0.6666666666666666
     },
     "MR": {
-      "accuracy": 0.041666666666666664
+      "accuracy": 0.0625
     },
     "MT": {
-      "bleu": 5.871925795429893,
-      "chrf++": 31.151986572853197
+      "bleu": 6.232137713711246,
+      "chrf++": 31.552973293153386
     },
     "QA": {
       "accuracy": 0.4375
@@ -30,6 +30,5 @@
       "detection_f1": 0.6666666666666666
     }
   },
-  "track": "sorbian",
-  "variant_id": "baseline"
+  "track": "sorbian"
 }

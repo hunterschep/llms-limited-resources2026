@@ -1,33 +1,33 @@
 {
   "aggregate": {
-    "GC_score": 100.0,
-    "MR_score": 100.0,
-    "MT_score": 100.0,
-    "QA_score": 100.0,
-    "SC_score": 100.0,
-    "overall_score": 100.0
+    "GC_score": 33.33333333333333,
+    "MR_score": 2.083333333333333,
+    "MT_score": 31.151986572853197,
+    "QA_score": 45.83333333333333,
+    "SC_score": 33.33333333333333,
+    "overall_score": 29.147063981237306
   },
   "description": "Preserve prompt-only behavior but constrain MR/QA outputs.",
   "model": "Qwen/Qwen3.5-2B",
-  "oracle": true,
+  "oracle": false,
   "task_scores": {
     "GC": {
-      "correction_f1": 1.0,
-      "detection_f1": 1.0
+      "correction_f1": 0.0,
+      "detection_f1": 0.6666666666666666
     },
     "MR": {
-      "accuracy": 1.0
+      "accuracy": 0.020833333333333332
     },
     "MT": {
-      "bleu": 99.93050748919818,
-      "chrf++": 100.0
+      "bleu": 5.871925795429893,
+      "chrf++": 31.151986572853197
     },
     "QA": {
-      "accuracy": 1.0
+      "accuracy": 0.4583333333333333
     },
     "SC": {
-      "correction_f1": 1.0,
-      "detection_f1": 1.0
+      "correction_f1": 0.0,
+      "detection_f1": 0.6666666666666666
     }
   },
   "track": "sorbian",

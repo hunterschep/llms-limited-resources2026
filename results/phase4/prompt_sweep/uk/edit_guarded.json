@@ -1,33 +1,33 @@
 {
   "aggregate": {
-    "GC_score": 100.0,
-    "MR_score": 100.0,
-    "MT_score": 100.0,
-    "QA_score": 100.0,
-    "SC_score": 100.0,
-    "overall_score": 100.0
+    "GC_score": 36.55913978494624,
+    "MR_score": 16.666666666666664,
+    "MT_score": 41.48918243219522,
+    "QA_score": 33.33333333333333,
+    "SC_score": 63.565891472868216,
+    "overall_score": 38.32284273800194
   },
   "description": "Emphasize one-token edit behavior and no-error calibration.",
   "model": "Qwen/Qwen3.5-2B",
-  "oracle": true,
+  "oracle": false,
   "task_scores": {
     "GC": {
-      "correction_f1": 1.0,
-      "detection_f1": 1.0
+      "correction_f1": 0.06451612903225806,
+      "detection_f1": 0.6666666666666666
     },
     "MR": {
-      "accuracy": 1.0
+      "accuracy": 0.16666666666666666
     },
     "MT": {
-      "bleu": 99.76167955603734,
-      "chrf++": 100.0
+      "bleu": 15.538208152143293,
+      "chrf++": 41.48918243219522
     },
     "QA": {
-      "accuracy": 1.0
+      "accuracy": 0.3333333333333333
     },
     "SC": {
-      "correction_f1": 1.0,
-      "detection_f1": 1.0
+      "correction_f1": 0.6046511627906976,
+      "detection_f1": 0.6666666666666666
     }
   },
   "track": "ukrainian",

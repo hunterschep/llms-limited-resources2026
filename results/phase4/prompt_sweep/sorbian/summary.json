@@ -1,26 +1,26 @@
 {
   "config": "configs/eval/phase4_prompt_sweep_sorbian.yaml",
   "model": "Qwen/Qwen3.5-2B",
-  "oracle": true,
+  "oracle": false,
   "variants": [
     {
       "output": "results/phase4/prompt_sweep/sorbian/baseline.json",
-      "overall": 100.0,
+      "overall": 29.147063981237302,
       "variant": "baseline"
     },
     {
       "output": "results/phase4/prompt_sweep/sorbian/strict_short.json",
-      "overall": 100.0,
+      "overall": 29.0997166719757,
       "variant": "strict_short"
     },
     {
       "output": "results/phase4/prompt_sweep/sorbian/edit_guarded.json",
-      "overall": 100.0,
+      "overall": 29.147063981237302,
       "variant": "edit_guarded"
     },
     {
       "output": "results/phase4/prompt_sweep/sorbian/mr_numeric.json",
-      "overall": 100.0,
+      "overall": 29.147063981237306,
       "variant": "mr_numeric"
     }
   ]

@@ -1,0 +1,15 @@
+{
+  "checkpoint_path": "",
+  "checksums": {
+    "configs/eval/phase4_probe_sorbian.yaml": "d6dcdb33bdc731508fbca969de54e358124cf6423b43012f8f90034d2f156aad",
+    "configs/prompts/phase4_sweep.yaml": "e00afe379a2cf936aa13e56e8086ccea51eb3ea09ac987c07f36ccb1249957fc",
+    "data/manifests/final_training_data_summary.md": "07fa7fca25f09884f7b6ce4e2986e86e4e3e330440ac0ef371f3f4af7e364850"
+  },
+  "git_commit": "4b82e7ec4e12d41a8e1c2c5338ba0a510e3504e2",
+  "job_name": "phase4_prompt_sweep_sorbian",
+  "project_root": "/home/scheppat/workspace/projects/wmt26_lrllm",
+  "result_path": "results/phase4/prompt_sweep/sorbian",
+  "scratch_root": "/scratch/scheppat/projects/wmt26_lrllm",
+  "slurm_job_id": "2486272",
+  "timestamp_utc": "2026-05-23T08:05:18.595193+00:00"
+}

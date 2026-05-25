@@ -25,6 +25,7 @@ def main() -> int:
     tracks = ["ukrainian", "sorbian"] if args.track == "all" else [args.track]
     runs = []
     for track in tracks:
+        anchor = grid[track].get("prompt_anchor")
         for config in grid[track]["configs"]:
             cmd = [sys.executable, "scripts/train_preservation_lora.py", "--config", config]
             if args.dry_run:
@@ -34,23 +35,36 @@ def main() -> int:
             record = {"track": track, "config": config, "returncode": proc.returncode, "dry_run": args.dry_run}
             if proc.returncode == 0 and args.evaluate and not args.dry_run:
                 cfg = read_yaml(ROOT / config)
-                model_path = Path(cfg["output_dir"]) / ("merged" if cfg.get("save_merged", False) else "")
-                output = f"results/phase4/micro_ablations/{track}_{Path(config).stem}.json"
-                eval_cmd = [
-                    sys.executable,
-                    "scripts/eval_phase4_probe.py",
-                    "--config",
-                    grid[track]["probe_config"],
-                    "--model",
-                    str(model_path),
-                    "--output",
-                    output,
-                ]
-                eval_proc = subprocess.run(eval_cmd, cwd=ROOT, check=False)
-                record["eval_returncode"] = eval_proc.returncode
-                record["eval_output"] = output
-                if eval_proc.returncode != 0:
-                    proc.returncode = eval_proc.returncode
+                adapter_path = Path(cfg["output_dir"]) / "adapter"
+                base_model = cfg.get("base_model_path")
+                if not base_model:
+                    model_cfg = read_yaml(ROOT / cfg.get("model_config", "configs/model/qwen35_2b.yaml"))
+                    base_model = model_cfg["model_name_or_path"]
+                scale_records = []
+                for scale in grid.get("adapter_scales", [1.0]):
+                    scale_label = str(scale).replace(".", "p")
+                    output = f"results/phase4/micro_ablations/{track}_{Path(config).stem}_scale_{scale_label}.json"
+                    eval_cmd = [
+                        sys.executable,
+                        "scripts/eval_phase4_probe.py",
+                        "--config",
+                        grid[track]["probe_config"],
+                        "--model",
+                        str(base_model),
+                        "--adapter",
+                        str(adapter_path),
+                        "--adapter-scale",
+                        str(scale),
+                        "--output",
+                        output,
+                    ]
+                    eval_proc = subprocess.run(eval_cmd, cwd=ROOT, check=False)
+                    scale_records.append({"scale": scale, "returncode": eval_proc.returncode, "output": output})
+                    if eval_proc.returncode != 0:
+                        proc.returncode = eval_proc.returncode
+                        break
+                record["anchor"] = anchor
+                record["scale_evals"] = scale_records
             runs.append(record)
             if proc.returncode != 0:
                 break

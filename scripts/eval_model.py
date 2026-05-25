@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from wmt26.eval.metrics import aggregate_wmt_scores, mt_scores, normalized_accuracy, scgc_scores
+from wmt26.train.preservation import scale_lora_adapters
 
 
 def resolve_model_name(model_name: str | None) -> str | None:
@@ -50,13 +51,14 @@ def oracle_predictions(rows: list[dict]) -> list[str]:
     return [str(row.get("target", "")) for row in rows]
 
 
-def load_generation_bundle(model_name: str):
+def load_generation_bundle(model_name: str, adapter_name: str | None = None, adapter_scale: float = 1.0):
     try:
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
     except Exception as exc:
         raise RuntimeError("Install torch and transformers for model evaluation, or use --oracle for smoke tests.") from exc
     model_name = resolve_model_name(model_name) or model_name
+    adapter_path = resolve_model_name(adapter_name) if adapter_name else None
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -74,6 +76,13 @@ def load_generation_bundle(model_name: str):
         torch_dtype=dtype,
         device_map="auto" if torch.cuda.is_available() else None,
     )
+    if adapter_path:
+        try:
+            from peft import PeftModel
+        except Exception as exc:
+            raise RuntimeError("PEFT is required to evaluate LoRA adapters.") from exc
+        model = PeftModel.from_pretrained(model, adapter_path)
+        scale_lora_adapters(model, adapter_scale)
     model.eval()
     return tokenizer, model
 
@@ -165,6 +174,8 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True)
     parser.add_argument("--model", default=None)
+    parser.add_argument("--adapter", default=None)
+    parser.add_argument("--adapter-scale", type=float, default=1.0)
     parser.add_argument("--oracle", action="store_true")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--output", default=None)
@@ -174,7 +185,7 @@ def main() -> int:
     max_new_tokens = int(config.get("max_new_tokens", 256))
     batch_size = int(config.get("batch_size", config.get("eval_batch_size", 4)))
     task_scores: dict[str, dict[str, float]] = {}
-    generation_bundle = None if args.oracle else load_generation_bundle(model_name)
+    generation_bundle = None if args.oracle else load_generation_bundle(model_name, args.adapter, args.adapter_scale)
     for task, files in config.get("datasets", {}).items():
         rows: list[dict] = []
         for rel in files:
@@ -194,6 +205,8 @@ def main() -> int:
         "track": config.get("track"),
         "split": config.get("split", "locked_validation"),
         "model": model_name,
+        "adapter": args.adapter,
+        "adapter_scale": args.adapter_scale if args.adapter else None,
         "oracle": args.oracle,
         "task_scores": task_scores,
         "aggregate": aggregate_wmt_scores(task_scores),

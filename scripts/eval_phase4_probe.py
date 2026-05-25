@@ -13,6 +13,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Evaluate a model on a Phase 4 probe config.")
     parser.add_argument("--config", required=True)
     parser.add_argument("--model", default=None)
+    parser.add_argument("--adapter", default=None)
+    parser.add_argument("--adapter-scale", type=float, default=1.0)
     parser.add_argument("--oracle", action="store_true")
     parser.add_argument("--output", required=True)
     parser.add_argument("--limit", type=int, default=None)
@@ -20,6 +22,8 @@ def main() -> int:
     cmd = [sys.executable, "scripts/eval_model.py", "--config", args.config, "--output", args.output]
     if args.model:
         cmd += ["--model", args.model]
+    if args.adapter:
+        cmd += ["--adapter", args.adapter, "--adapter-scale", str(args.adapter_scale)]
     if args.oracle:
         cmd.append("--oracle")
     if args.limit:

@@ -48,11 +48,10 @@ def kl_to_base_loss(student_logits: torch.Tensor, base_logits: torch.Tensor, att
 
 def scale_lora_adapters(model: Any, scale: float) -> None:
     """Best-effort LoRA adapter scaling for PEFT models."""
-    if hasattr(model, "set_adapter"):
-        try:
-            for module in model.modules():
-                if hasattr(module, "scaling") and isinstance(module.scaling, dict):
-                    for key in list(module.scaling):
-                        module.scaling[key] *= float(scale)
-        except Exception:
-            return
+    try:
+        for module in model.modules():
+            if hasattr(module, "scaling") and isinstance(module.scaling, dict):
+                for key in list(module.scaling):
+                    module.scaling[key] *= float(scale)
+    except Exception:
+        return
