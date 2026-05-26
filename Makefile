@@ -1,4 +1,4 @@
-.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-data-sanity triage-raw-oracle triage-raw-predictions triage-overfit triage-overfit-dry-run check-checkpoint-loading report-phase3-sanity report-edit-data-balance report-mr-data-quality retrain-uk-fixed-dryrun retrain-sorbian-fixed-dryrun eval-phase3-fixed-uk eval-phase3-fixed-sorbian report-phase3-fixed phase4-status phase4-cleanup-check phase4-build-probe phase4-eval-prompt-only phase4-prompt-sweep phase4-analyze-failures phase4-micro-ablation-dryrun phase4-rank-candidates phase4-check-gates phase4-report phase4-clean-failed competitive-cleanup competitive-download-data competitive-filter-data competitive-build-mixtures competitive-validate-data competitive-train-sorbian competitive-train-uk competitive-eval-sorbian competitive-eval-uk competitive-compare competitive-dashboard competitive-clean-failed competitive-package-sorbian competitive-package-uk stage-b-status stage-b-cleanup stage-b-error-analysis stage-b-build-repair-data stage-b-prompt-sweep stage-b-scale-sweep stage-b-train-mr-repair stage-b-train-edit-repair stage-b-train-combined-repair stage-b-merge-repairs stage-b-probe-eval stage-b-full-eval stage-b-dashboard stage-b-clean-failed stage-b-package
+.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-data-sanity triage-raw-oracle triage-raw-predictions triage-overfit triage-overfit-dry-run check-checkpoint-loading report-phase3-sanity report-edit-data-balance report-mr-data-quality retrain-uk-fixed-dryrun retrain-sorbian-fixed-dryrun eval-phase3-fixed-uk eval-phase3-fixed-sorbian report-phase3-fixed phase4-status phase4-cleanup-check phase4-build-probe phase4-eval-prompt-only phase4-prompt-sweep phase4-analyze-failures phase4-micro-ablation-dryrun phase4-rank-candidates phase4-check-gates phase4-report phase4-clean-failed competitive-cleanup competitive-download-data competitive-filter-data competitive-build-mixtures competitive-validate-data competitive-train-sorbian competitive-train-uk competitive-eval-sorbian competitive-eval-uk competitive-compare competitive-dashboard competitive-clean-failed competitive-package-sorbian competitive-package-uk stage-b-status stage-b-cleanup stage-b-error-analysis stage-b-build-repair-data stage-b-prompt-sweep stage-b-scale-sweep stage-b-train-mr-repair stage-b-train-edit-repair stage-b-train-combined-repair stage-b-merge-repairs stage-b-probe-eval stage-b-full-eval stage-b-dashboard stage-b-clean-failed stage-b-package lineage-status lineage-cleanup lineage-train-stage-a lineage-train-stage-b lineage-verify-tree lineage-scale-sweep lineage-interpolation-sweep lineage-build-edit-calibration lineage-train-edit-calibration lineage-build-mr-recovery lineage-train-mr-recovery lineage-task-vector-merge lineage-probe-eval lineage-full-eval lineage-dashboard lineage-clean-failed lineage-package
 
 validate:
 	python3 scripts/validate_data_governance.py
@@ -253,3 +253,54 @@ stage-b-clean-failed:
 
 stage-b-package:
 	python3 scripts/stage_b_package_candidate.py --model-dir /scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large --dry-run
+
+lineage-status:
+	python3 scripts/run_lineage_recovery.py status
+
+lineage-cleanup:
+	python3 scripts/run_lineage_recovery.py cleanup
+
+lineage-train-stage-a:
+	python3 scripts/train_lineage_recovery.py --config configs/train/lineage_recovery/sorbian_stage_a_dapt_preserve.yaml --dry-run --max-examples 4
+
+lineage-train-stage-b:
+	python3 scripts/train_lineage_recovery.py --config configs/train/lineage_recovery/sorbian_stage_b_mt_preserve.yaml --dry-run --max-examples 4
+
+lineage-verify-tree:
+	python3 scripts/lineage_verify_checkpoint_tree.py
+
+lineage-scale-sweep:
+	python3 scripts/lineage_scale_sweep.py
+
+lineage-interpolation-sweep:
+	python3 scripts/lineage_interpolate_models.py
+
+lineage-build-edit-calibration:
+	python3 scripts/build_edit_calibration_set.py
+
+lineage-train-edit-calibration:
+	python3 scripts/train_edit_calibration.py --dry-run --max-examples 4
+
+lineage-build-mr-recovery:
+	python3 scripts/build_mr_recovery_set.py
+
+lineage-train-mr-recovery:
+	python3 scripts/train_mr_recovery.py --dry-run --max-examples 4
+
+lineage-task-vector-merge:
+	python3 scripts/lineage_task_vector_merge.py
+
+lineage-probe-eval:
+	python3 scripts/lineage_scale_sweep.py
+
+lineage-full-eval:
+	python3 scripts/lineage_full_eval_candidates.py
+
+lineage-dashboard:
+	python3 scripts/lineage_compare_candidates.py
+
+lineage-clean-failed:
+	python3 scripts/run_lineage_recovery.py clean-failed
+
+lineage-package:
+	python3 scripts/lineage_package_candidate.py --model-dir /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged --dry-run

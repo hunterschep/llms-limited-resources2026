@@ -1,0 +1,32 @@
+run_name: lineage_sorbian_stage_b_mt_preserve
+track: sorbian
+stage: lineage_B_mt_adaptation
+model_config: configs/model/qwen35_2b.yaml
+base_model_path: checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged
+fallback_to_base_if_missing: false
+output_dir: checkpoints/lineage_recovery/sorbian/stage_b_mt
+adapter_output_dir: checkpoints/lineage_recovery/sorbian/stage_b_mt
+train_files:
+  - data/processed/competitive/sorbian/stage_b_mt_large.jsonl
+sampling: direct_files
+method: qlora_sft
+adapter: lora
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+target_modules: [q_proj, k_proj, v_proj, o_proj, up_proj, down_proj, gate_proj]
+max_steps: 8000
+save_milestones: [2000, 4000, 6000, 8000]
+materialize_milestone_merges: true
+learning_rate: 0.0001
+batch_size: 1
+gradient_accumulation_steps: 32
+max_length: 2048
+seed: 2607
+dry_run: false
+lineage_policy:
+  parent_checkpoint: checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged
+  preserve_adapter: true
+  preserve_merged: true
+  forbid_stage_c: true
+  no_broad_aux_replay: true

@@ -1,0 +1,21 @@
+track: sorbian
+full_eval_config: configs/eval/sorbian.yaml
+probe_eval_config: configs/eval/lineage_sorbian_probe.yaml
+required_candidates:
+  prompt_only:
+    model: Qwen/Qwen3.5-2B
+  original_stage_b:
+    model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+  edit_repair_tiny:
+    model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/stage_b_rescue/sorbian/edit_repair_tiny
+  reproduced_stage_b:
+    model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged
+lineage_paths:
+  stage_a_parent: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged
+  stage_a_adapter: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_adapter/final_adapter
+  stage_b_adapter: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_adapter
+  stage_b_merged: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged
+success_thresholds:
+  reproduction_mt_min: 41.0
+  reproduction_overall_min: 31.5
+  preferred_overall: 34.195

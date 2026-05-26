@@ -1,18 +1,16 @@
 # Stage B Repair Data
 
-Generated at commit `2c30c192934506d15864e4ad2f1d0a8a71d1eaa0`.
+Generated at commit `6b389f1795aeabbb0dcf22c86ade71a12da54711`.
 
 The repair dataset is intentionally small and targeted. It is not a repeat of the failed Stage C broad replay.
-
-Generated JSONL data is intentionally not committed. It was synced to Andromeda for the rescue jobs and pruned locally after manifests/checksums were recorded. Rebuild with `python3 scripts/build_stage_b_repair_data.py`.
 
 ## Outputs
 
 - `mr_repair`: `data/processed/stage_b_rescue/sorbian/mr_repair.jsonl` (240 rows, sha256 `d84aa33300638a98914efca36c0842131b99fed0c23eb97cf0b38c0efe9b28e5`)
-- `edit_repair`: `data/processed/stage_b_rescue/sorbian/edit_repair.jsonl` (720 rows, sha256 `0105f43b0bdaf67673002a1e4003fe9fc25a9b936d342f88b1bf54c59a2c29ed`)
-- `format_repair`: `data/processed/stage_b_rescue/sorbian/format_repair.jsonl` (96 rows, sha256 `2d278f9ab2c82b0822656fbd94dafbdc46ae61e9af32b704192c8108f94c5a36`)
+- `edit_repair`: `data/processed/stage_b_rescue/sorbian/edit_repair.jsonl` (720 rows, sha256 `85ae0228145e4feca621aa9a259a29020d8a924722344f4c23bc29ac52d6e31a`)
+- `format_repair`: `data/processed/stage_b_rescue/sorbian/format_repair.jsonl` (96 rows, sha256 `c354943cd93e2cc06de32b86f60e8329f0b9136aedfd39a1730aea62a6c1fa18`)
 - `mt_anchor`: `data/processed/stage_b_rescue/sorbian/mt_anchor.jsonl` (12000 rows, sha256 `6ee2e65c38cfb7e0071493c6a889e8b395e656085afcfefd4923a478acd7dacd`)
-- `combined_repair`: `data/processed/stage_b_rescue/sorbian/combined_repair.jsonl` (13056 rows, sha256 `09b24bc6387bf211b006f528d9c6fae006c2fc2f37b872c31b32c9092632c984`)
+- `combined_repair`: `data/processed/stage_b_rescue/sorbian/combined_repair.jsonl` (13056 rows, sha256 `52f66f10db3b2f85368ba7883022e7ca5ebbb0ddb407b0ccb574ccd72e1f0e28`)
 
 ## Policy
 

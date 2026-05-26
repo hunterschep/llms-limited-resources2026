@@ -1,10 +1,8 @@
 # Stage B Rescue Probe
 
-Generated at commit `2c30c192934506d15864e4ad2f1d0a8a71d1eaa0`.
+Generated at commit `6b389f1795aeabbb0dcf22c86ade71a12da54711`.
 
 This probe is a fixed-seed, low-cost gate before full locked validation. It samples all five Sorbian tasks, keeps all MR rows because MR is tiny, and stratifies MT across all six directions.
-
-Generated probe JSONLs are intentionally not committed. They were synced to Andromeda for evaluation and can be rebuilt with `python3 scripts/build_stage_b_rescue_probe.py`.
 
 ## Outputs
 

@@ -1,0 +1,29 @@
+run_name: lineage_sorbian_stage_a_dapt_preserve
+track: sorbian
+stage: lineage_A_language_acquisition
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent
+adapter_output_dir: checkpoints/lineage_recovery/sorbian/stage_a_dapt_adapter
+train_files:
+  - data/processed/competitive/sorbian/stage_a_dapt_large.jsonl
+sampling: direct_files
+method: qlora_dapt
+adapter: lora
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+target_modules: [q_proj, k_proj, v_proj, o_proj, up_proj, down_proj, gate_proj]
+max_steps: 6000
+save_milestones: [1500, 3000, 4500, 6000]
+materialize_milestone_merges: true
+learning_rate: 0.00008
+batch_size: 1
+gradient_accumulation_steps: 32
+max_length: 2048
+seed: 2606
+dry_run: false
+lineage_policy:
+  preserve_parent: true
+  preserve_adapter: true
+  forbid_stage_c: true
+  preserve_until_decision_complete: true

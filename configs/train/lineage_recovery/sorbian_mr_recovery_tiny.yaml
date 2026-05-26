@@ -1,0 +1,30 @@
+run_name: lineage_sorbian_mr_recovery_tiny
+track: sorbian
+stage: lineage_mr_recovery
+model_config: configs/model/qwen35_2b.yaml
+base_model_path: checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged
+fallback_to_base_if_missing: false
+output_dir: checkpoints/lineage_recovery/sorbian/mr_recovery_tiny
+train_files:
+  - data/processed/lineage_recovery/sorbian/mr_recovery/mr_final_answer.jsonl
+  - data/processed/lineage_recovery/sorbian/mr_recovery/mt_anchor.jsonl
+sampling: task_balanced_with_caps
+max_examples_per_task: 500
+method: lora_sft
+adapter: lora
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.03
+target_modules: [q_proj, v_proj, o_proj]
+max_steps: 300
+learning_rate: 0.000004
+batch_size: 1
+gradient_accumulation_steps: 16
+max_length: 1536
+seed: 2642
+dry_run: false
+lineage_policy:
+  train_on_top_candidate_only: true
+  forbid_stage_c: true
+  preserve_mt_anchor: true
+  target: recover MR final-answer behavior without numeric overfitting

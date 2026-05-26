@@ -1,0 +1,16 @@
+track: sorbian
+anchor_model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged
+mt_model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged
+edit_model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/edit_calibration_tiny/final_merged
+mr_model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/mr_recovery_tiny/final_merged
+output_root: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge
+results_dir: results/lineage_recovery/merge
+probe_config: configs/eval/lineage_sorbian_probe.yaml
+full_eval_config: configs/eval/sorbian.yaml
+coefficients:
+  mt: [0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  edit: [0.05, 0.10, 0.20, 0.30]
+  mr: [0.05, 0.10, 0.20, 0.30]
+policy:
+  forbid_stage_c: true
+  top_probe_candidates_for_full_eval: 5

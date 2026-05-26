@@ -1,0 +1,17 @@
+track: sorbian
+anchor_model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged
+stage_b_model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged
+stage_b_adapter: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_adapter
+output_root: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/interpolation
+results_dir: results/lineage_recovery/interpolation
+adapter_scales: [0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00, 1.10]
+stagea_stageb_alphas: [0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00]
+base_stageb_betas: [0.05, 0.10, 0.20, 0.30]
+probe_config: configs/eval/lineage_sorbian_probe.yaml
+full_eval_config: configs/eval/sorbian.yaml
+gates:
+  exploratory_mt_min: 38.0
+  serious_mt_min: 41.0
+  mr_min_stage_b: 4.167
+  preferred_mr: 8.333
+  overall_min_stage_b: 32.826

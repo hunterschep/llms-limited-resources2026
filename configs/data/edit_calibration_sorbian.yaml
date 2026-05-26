@@ -1,0 +1,22 @@
+track: sorbian
+seed: 2631
+sources:
+  stage_b_repair_config: configs/data/stage_b_repair_sorbian.yaml
+  edit_repair: data/processed/stage_b_rescue/sorbian/edit_repair.jsonl
+  format_repair: data/processed/stage_b_rescue/sorbian/format_repair.jsonl
+  mt_anchor: data/processed/stage_b_rescue/sorbian/mt_anchor.jsonl
+outputs:
+  root: data/processed/lineage_recovery/sorbian/edit_calibration
+ratios:
+  clean_60_error_40: {clean: 0.60, error: 0.40}
+  clean_50_error_50: {clean: 0.50, error: 0.50}
+  clean_40_error_60: {clean: 0.40, error: 0.60}
+limits:
+  total_examples_per_ratio: 720
+  format_examples: 80
+  mt_anchor_examples: 4000
+policy:
+  no_locked_validation_training: true
+  no_stage_c_replay: true
+  no_extra_certificate_questions: true
+  exact_two_line_targets: true

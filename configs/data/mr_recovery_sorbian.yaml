@@ -1,0 +1,19 @@
+track: sorbian
+seed: 2641
+sources:
+  stage_b_repair_config: configs/data/stage_b_repair_sorbian.yaml
+  mr_repair: data/processed/stage_b_rescue/sorbian/mr_repair.jsonl
+  mt_anchor: data/processed/stage_b_rescue/sorbian/mt_anchor.jsonl
+outputs:
+  root: data/processed/lineage_recovery/sorbian/mr_recovery
+limits:
+  mr_examples: 240
+  mr_distill_examples: 120
+  mt_anchor_examples: 4000
+policy:
+  no_locked_validation_training: true
+  no_polymath: true
+  no_translated_polymath: true
+  no_modified_polymath: true
+  no_official_mr_imitation: true
+  final_answer_only: true

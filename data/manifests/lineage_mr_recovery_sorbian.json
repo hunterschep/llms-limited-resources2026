@@ -1,0 +1,38 @@
+{
+  "config": "configs/data/mr_recovery_sorbian.yaml",
+  "git_commit": "6b389f1795aeabbb0dcf22c86ade71a12da54711",
+  "outputs": {
+    "mr_final_answer": {
+      "by_source_id_top20": {
+        "external:gsm8k_train": 240
+      },
+      "by_task": {
+        "MR": 240
+      },
+      "path": "data/processed/lineage_recovery/sorbian/mr_recovery/mr_final_answer.jsonl",
+      "rows": 240,
+      "sha256": "33029dedf367b7b7efaa27a714de2a59f480b1d72f1647d481811fd28d30b488"
+    },
+    "mt_anchor": {
+      "by_source_id_top20": {
+        "official:train_de-dsb_2026": 1326,
+        "official:train_de-hsb_2026": 1315,
+        "official:train_hsb-dsb_2026": 1359
+      },
+      "by_task": {
+        "MT": 4000
+      },
+      "path": "data/processed/lineage_recovery/sorbian/mr_recovery/mt_anchor.jsonl",
+      "rows": 4000,
+      "sha256": "598a850087e4065c5fcd28e22070635458fd90734153dddf55e9f9670fc83a7d"
+    }
+  },
+  "policy": {
+    "final_answer_only": true,
+    "no_locked_validation_training": true,
+    "no_modified_polymath": true,
+    "no_official_mr_imitation": true,
+    "no_polymath": true,
+    "no_translated_polymath": true
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-05-26T19:54:48.341333+00:00",
+  "created_at": "2026-05-26T21:50:07.793525+00:00",
   "eval_config": "configs/eval/stage_b_rescue_probe_sorbian.yaml",
-  "git_commit": "2c30c192934506d15864e4ad2f1d0a8a71d1eaa0",
+  "git_commit": "6b389f1795aeabbb0dcf22c86ade71a12da54711",
   "outputs": {
     "GC": {
       "by_direction": {},

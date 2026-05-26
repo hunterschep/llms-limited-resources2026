@@ -55,7 +55,7 @@ def _target_from_task(task: str, sentence: str, language: str, source_id: str, i
         "language": language,
         "source_language": None,
         "target_language": None,
-        "source_type": "official_or_public_anchor",
+        "source_type": "synthetic",
         "source_id": source_id,
         "license": "inherited-from-source",
         "split": "train",
