@@ -23,9 +23,6 @@ def _load(path: Path) -> dict[str, Any]:
 
 
 def _ensure_stage_b_repair(config: dict[str, Any]) -> None:
-    needed = [ROOT / config["sources"]["mr_repair"], ROOT / config["sources"]["mt_anchor"]]
-    if all(path.exists() for path in needed):
-        return
     subprocess.run([sys.executable, "scripts/build_stage_b_repair_data.py", "--config", config["sources"]["stage_b_repair_config"]], cwd=ROOT, check=True)
 
 
