@@ -1,0 +1,19 @@
+{
+  "config_path": "configs/train/competitive/uk_doc_mt.yaml",
+  "config_sha256": "6afd1d66d3ebd0f009faef0e9737f816ffcb35928f4e820eb0c6fc63faa19126",
+  "git_commit": "06aa7211d2eade8fa80eb8769f3c9616d9705626",
+  "num_examples": 242222,
+  "output_dir": "checkpoints/competitive_reboot/uk/stage_c_doc_mt_format",
+  "run_name": "competitive_uk_stage_c_doc_mt_format",
+  "slurm_job_id": "2504742",
+  "stage": "C_doc_mt_format",
+  "track": "ukrainian",
+  "train_files": [
+    {
+      "bytes": 317149149,
+      "exists": true,
+      "path": "data/processed/competitive/uk/stage_c_doc_format.jsonl",
+      "sha256": "8e950b8fefbe5807b9f2affea716acfc68fa56f9a24ae6374b1df17e7d438dd2"
+    }
+  ]
+}

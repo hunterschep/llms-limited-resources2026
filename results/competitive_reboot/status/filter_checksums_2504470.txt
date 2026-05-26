@@ -1,0 +1,2 @@
+e68e3f988daee8dbf7dafbe7e300dbdaa92d84d42a15cfde785b1ca7b1c60c8f  configs/data/competitive_filtering.yaml
+b159721e7c192d07b523bd60414ac2dab48685703547041362ee945628dff2bd  data/manifests/data_governance_registry.csv

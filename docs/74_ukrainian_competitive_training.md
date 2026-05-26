@@ -34,3 +34,13 @@ Data:
 ## Evaluation
 
 Report `en->uk`, `cs->uk`, average MT, QA, SC, GC, MR, malformed output rates, and equal-weighted overall after each stage.
+
+## Reboot Run Outcome
+
+The first full competitive Ukrainian run completed on Andromeda. It produced a small MT/QA signal but no competitive checkpoint.
+
+- Stage A improved MT from `40.990` to `41.889` and QA from `34.278` to `37.960`, but overall fell to `34.636`.
+- Stage B reached MT `41.999` and QA `39.093`, but GC collapsed to `4.954` and overall fell to `28.078`.
+- Stage C kept MT near `41.979` and partly recovered SC, but GC remained weak at `11.053` and MR stayed below prompt-only.
+
+Prompt-only remains the Ukrainian fallback. All Ukrainian competitive-reboot checkpoints were deleted from Andromeda after manifesting.

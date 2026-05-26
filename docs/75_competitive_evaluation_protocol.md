@@ -35,3 +35,12 @@ Ukrainian:
 ## Reporting
 
 Do not hide regressions. A controlled auxiliary-task drop may be acceptable if MT and overall improve materially. A model with no MT movement is not competitive unless auxiliary gains are large and robust.
+
+## Completed Reboot Evaluation
+
+Full locked-validation generation evaluation completed for:
+
+- Ukrainian prompt-only, Stage A, Stage B, and Stage C.
+- Sorbian prompt-only, Stage A, Stage B, and Stage C.
+
+Result JSONs are under `results/competitive_reboot/eval/`. Compact comparison tables are under `results/competitive_reboot/comparisons/`. Raw prediction JSONLs are preserved on Andromeda under the project results tree; local committed artifacts keep compact result JSONs and summaries only.

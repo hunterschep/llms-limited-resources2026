@@ -1,0 +1,19 @@
+{
+  "config_path": "configs/train/competitive/uk_mt_real_large.yaml",
+  "config_sha256": "7f27ee83b46877e75e65b40955d79c6e6f6bcd8e561a7af4cf199d334dfb2368",
+  "git_commit": "479beb6ce42bed07d3af19dc13cc03bce55afff9",
+  "num_examples": 390411,
+  "output_dir": "checkpoints/competitive_reboot/uk/stage_a_mt_real_large",
+  "run_name": "competitive_uk_stage_a_mt_real_large",
+  "slurm_job_id": "2504492",
+  "stage": "A_real_mt_adaptation",
+  "track": "ukrainian",
+  "train_files": [
+    {
+      "bytes": 531645390,
+      "exists": true,
+      "path": "data/processed/competitive/uk/stage_a_mt_real_large.jsonl",
+      "sha256": "40ca54cdde89be4ca3df5f2c926806119e5e5740bf757f4574c43166256f81ea"
+    }
+  ]
+}

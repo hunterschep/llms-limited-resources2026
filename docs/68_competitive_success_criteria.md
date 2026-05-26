@@ -35,3 +35,9 @@ Competitive target:
 ## Failure Standard
 
 Failure can be declared only after large public data is enabled, language/MT acquisition is run, instruction replay is run, full locked evaluation is completed, and failed checkpoints are cleaned. Tiny LoRA/no-harm ablations are not enough evidence.
+
+## First Reboot Outcome
+
+Ukrainian did not meet the first milestone. MT improved by about `+1` chrF++, below the `+2` to `+5` target, and overall stayed below prompt-only for every stage.
+
+Sorbian partially met the first milestone. Stage B MT-large exceeded the MT requirement with `+15.858` average chrF++, but overall improved by only `+3.631`, below the `+5` target, because MR regressed from `8.333` to `4.167`. The checkpoint is therefore `promising_but_needs_replay`, not a final competitive candidate.

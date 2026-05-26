@@ -1,0 +1,2 @@
+51b7f126d4e795641e8a5679c6076b027e04e904d1b4e685184be268889c8995  configs/eval/uk.yaml
+de60c750af9d95ad7ada90229a40c40eeb9b83286673f02e280de0ebe8b3f5f5  data/manifests/competitive_mixture_uk.json

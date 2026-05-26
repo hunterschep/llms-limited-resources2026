@@ -1,0 +1,2 @@
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot

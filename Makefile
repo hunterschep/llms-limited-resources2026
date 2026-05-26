@@ -30,6 +30,7 @@ smoke-test:
 	WMT26_RECORD_RUNS=0 python3 scripts/merge_task_vectors.py --config configs/merge/competitive_uk.yaml --dry-run
 	WMT26_RECORD_RUNS=0 python3 scripts/search_merge_weights.py --config configs/merge/competitive_sorbian.yaml --dry-run --limit 1
 	python3 scripts/competitive_cleanup_failed.py --execute
+	rm -f results/merge_search_sorbian.csv
 	find checkpoints -type d -empty -delete 2>/dev/null || true
 
 report-data-quality:

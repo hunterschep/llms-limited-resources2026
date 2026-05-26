@@ -1,0 +1,21 @@
+timestamp=20260526T102858Z
+git_commit=06aa7211d2eade8fa80eb8769f3c9616d9705626
+storage_before
+22G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot
+0	/scratch/scheppat/projects/wmt26_lrllm/results/competitive_reboot
+19M	/home/scheppat/workspace/projects/wmt26_lrllm/results/competitive_reboot
+preserve
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+delete
+3.7G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/uk/stage_a_mt_real_large
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/uk/stage_b_instruction_replay
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/uk/stage_c_doc_mt_format
+3.7G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_a_dapt_large
+3.6G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_c_instruction_replay
+storage_after
+3.7G	/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot
+0	/scratch/scheppat/projects/wmt26_lrllm/results/competitive_reboot
+19M	/home/scheppat/workspace/projects/wmt26_lrllm/results/competitive_reboot
+remaining_checkpoints
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large/adapter

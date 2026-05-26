@@ -20,3 +20,13 @@
 - `failed_for_competitive_purposes`
 
 The Phase 4 Sorbian `+0.599` adapter is labeled `failed_for_competitive_purposes`.
+
+## Current Competitive-Reboot Decisions
+
+- Ukrainian prompt-only Qwen3.5-2B: `prompt_only_fallback`.
+- Ukrainian Stage A/B/C checkpoints: `failed`; deleted remotely after manifesting.
+- Sorbian Stage A DAPT: `aux_strong_MT_flat`; deleted remotely after manifesting.
+- Sorbian Stage B MT-large: `promising_but_needs_replay`; preserved as the only active checkpoint.
+- Sorbian Stage C instruction replay: `failed`; deleted remotely after manifesting.
+
+Merge and final polish are blocked until Sorbian Stage B receives a targeted repair that preserves the `+15.858` MT gain while recovering MR and avoiding SC/GC collapse.

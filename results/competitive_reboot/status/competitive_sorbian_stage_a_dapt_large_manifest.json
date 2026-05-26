@@ -1,0 +1,19 @@
+{
+  "config_path": "configs/train/competitive/sorbian_dapt_large.yaml",
+  "config_sha256": "909c9e1ae68a6636a215eaab60a7956bd30b27827831dc861a278371ba601c52",
+  "git_commit": "479beb6ce42bed07d3af19dc13cc03bce55afff9",
+  "num_examples": 296543,
+  "output_dir": "checkpoints/competitive_reboot/sorbian/stage_a_dapt_large",
+  "run_name": "competitive_sorbian_stage_a_dapt_large",
+  "slurm_job_id": "2504491",
+  "stage": "A_language_acquisition",
+  "track": "sorbian",
+  "train_files": [
+    {
+      "bytes": 316428300,
+      "exists": true,
+      "path": "data/processed/competitive/sorbian/stage_a_dapt_large.jsonl",
+      "sha256": "9192644427fb59849a6c50cbacceba75147d5890df9098fe26fe35a7772146b7"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "config_path": "configs/train/competitive/uk_instruction_replay.yaml",
+  "config_sha256": "c828127338850587318ef4a64020c493f7aaf39a9a322f50e04464cd1ad16b41",
+  "git_commit": "06aa7211d2eade8fa80eb8769f3c9616d9705626",
+  "num_examples": 246625,
+  "output_dir": "checkpoints/competitive_reboot/uk/stage_b_instruction_replay",
+  "run_name": "competitive_uk_stage_b_instruction_replay",
+  "slurm_job_id": "2504742",
+  "stage": "B_instruction_replay",
+  "track": "ukrainian",
+  "train_files": [
+    {
+      "bytes": 347888377,
+      "exists": true,
+      "path": "data/processed/competitive/uk/stage_b_instruction_replay.jsonl",
+      "sha256": "ed66c454701b5f1555159cf0ca45ed85f30424fbfdcf5943f1011d2061d77a4f"
+    }
+  ]
+}

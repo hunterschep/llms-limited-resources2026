@@ -6,43 +6,44 @@
         "by_source_id": {
           "external:asdiv": 71,
           "external:gsm8k_train": 147,
+          "external:opus_large_en_uk_scripted": 350000,
           "external:opus_tatoeba_cs_uk": 3480,
-          "external:opus_tatoeba_en_uk": 31998,
+          "external:opus_tatoeba_en_uk": 32000,
           "external:svamp": 75,
-          "external:ud_uk_iu": 2285,
-          "official:ukr_mmlu_qa_train": 1156,
+          "external:ud_uk_iu": 2296,
+          "official:ukr_mmlu_qa_train": 1150,
           "official:ukr_qa_train": 1154,
           "synthetic:mr_arithmetic_preservation": 38
         },
         "by_task": {
           "FORMAT": 331,
-          "LANG": 4595,
-          "MT": 35478
+          "LANG": 4600,
+          "MT": 385480
         },
         "output": "data/processed/competitive/uk/stage_a_mt_real_large.jsonl",
-        "rows": 40404,
+        "rows": 390411,
         "sources": [
           {
-            "emitted_rows": 35478,
+            "emitted_rows": 35480,
             "path": "data/processed/final/uk/mt_train_final.jsonl",
-            "raw_rows": 35478,
-            "sampled_rows": 35478,
+            "raw_rows": 35480,
+            "sampled_rows": 35480,
             "task": "MT",
             "weight": 1.0
           },
           {
-            "emitted_rows": 0,
+            "emitted_rows": 350000,
             "path": "data/processed/external/uk/mt_competitive_large.jsonl",
-            "raw_rows": 0,
-            "sampled_rows": 0,
+            "raw_rows": 350000,
+            "sampled_rows": 350000,
             "task": "MT",
             "weight": 1.0
           },
           {
-            "emitted_rows": 4595,
+            "emitted_rows": 4600,
             "path": "data/processed/final/uk/lang_curriculum_external.jsonl",
-            "raw_rows": 3996,
-            "sampled_rows": 3996,
+            "raw_rows": 4000,
+            "sampled_rows": 4000,
             "task": "LANG",
             "weight": 0.15
           },
@@ -60,25 +61,26 @@
         "by_source_id": {
           "external:asdiv": 71,
           "external:gsm8k_train": 151,
-          "external:opus_tatoeba_cs_uk": 4725,
-          "external:opus_tatoeba_en_uk": 43170,
+          "external:opus_large_en_uk_scripted": 162000,
+          "external:opus_tatoeba_cs_uk": 4734,
+          "external:opus_tatoeba_en_uk": 43164,
           "external:svamp": 77,
-          "external:ua_gec_train": 13021,
-          "external:ud_uk_iu": 6268,
+          "external:ua_gec_train": 13737,
+          "external:ud_uk_iu": 6764,
           "official:ukr_mmlu_qa_train": 5770,
           "official:ukr_qa_train": 9155,
           "synthetic:mr_arithmetic_preservation": 41,
-          "synthetic:scgc_compilers": 955
+          "synthetic:scgc_compilers": 961
         },
         "by_task": {
-          "GC": 8474,
+          "GC": 9354,
           "MR": 340,
-          "MT": 47895,
+          "MT": 209898,
           "QA": 15884,
-          "SC": 10811
+          "SC": 11149
         },
         "output": "data/processed/competitive/uk/stage_b_instruction_replay.jsonl",
-        "rows": 83404,
+        "rows": 246625,
         "sources": [
           {
             "emitted_rows": 15884,
@@ -89,18 +91,18 @@
             "weight": 0.25
           },
           {
-            "emitted_rows": 10811,
+            "emitted_rows": 11149,
             "path": "data/processed/final/uk/sc_train_final.jsonl",
-            "raw_rows": 9009,
-            "sampled_rows": 9009,
+            "raw_rows": 9291,
+            "sampled_rows": 9291,
             "task": "SC",
             "weight": 0.2
           },
           {
-            "emitted_rows": 8474,
+            "emitted_rows": 9354,
             "path": "data/processed/final/uk/gc_train_final.jsonl",
-            "raw_rows": 7062,
-            "sampled_rows": 7062,
+            "raw_rows": 7795,
+            "sampled_rows": 7795,
             "task": "GC",
             "weight": 0.2
           },
@@ -113,18 +115,18 @@
             "weight": 0.08
           },
           {
-            "emitted_rows": 47895,
+            "emitted_rows": 47898,
             "path": "data/processed/final/uk/mt_train_final.jsonl",
-            "raw_rows": 35478,
-            "sampled_rows": 35478,
+            "raw_rows": 35480,
+            "sampled_rows": 35480,
             "task": "MT",
             "weight": 0.35
           },
           {
-            "emitted_rows": 0,
+            "emitted_rows": 162000,
             "path": "data/processed/external/uk/mt_competitive_large.jsonl",
-            "raw_rows": 0,
-            "sampled_rows": 0,
+            "raw_rows": 350000,
+            "sampled_rows": 120000,
             "task": "MT",
             "weight": 0.35
           }
@@ -134,32 +136,33 @@
         "by_source_id": {
           "external:asdiv": 71,
           "external:gsm8k_train": 147,
-          "external:opus_tatoeba_cs_uk": 5391,
-          "external:opus_tatoeba_en_uk": 49600,
+          "external:opus_large_en_uk_scripted": 186000,
+          "external:opus_tatoeba_cs_uk": 5406,
+          "external:opus_tatoeba_en_uk": 49588,
           "external:svamp": 75,
           "synthetic:format_preference": 897,
           "synthetic:mr_arithmetic_preservation": 38
         },
         "by_task": {
           "FORMAT": 1228,
-          "MT": 54991
+          "MT": 240994
         },
         "output": "data/processed/competitive/uk/stage_c_doc_format.jsonl",
-        "rows": 56219,
+        "rows": 242222,
         "sources": [
           {
-            "emitted_rows": 54991,
+            "emitted_rows": 54994,
             "path": "data/processed/final/uk/mt_train_final.jsonl",
-            "raw_rows": 35478,
-            "sampled_rows": 35478,
+            "raw_rows": 35480,
+            "sampled_rows": 35480,
             "task": "MT",
             "weight": 0.55
           },
           {
-            "emitted_rows": 0,
+            "emitted_rows": 186000,
             "path": "data/processed/external/uk/mt_competitive_large.jsonl",
-            "raw_rows": 0,
-            "sampled_rows": 0,
+            "raw_rows": 350000,
+            "sampled_rows": 120000,
             "task": "MT",
             "weight": 0.55
           },
@@ -184,7 +187,7 @@
     },
     "stagewise_all": {
       "output": "data/processed/competitive/uk/stagewise_all.jsonl",
-      "rows": 180027
+      "rows": 879258
     },
     "track": "ukrainian"
   },
@@ -194,25 +197,28 @@
       "stage_a_dapt_large": {
         "by_source_id": {
           "external:gsm8k_train": 242,
+          "external:leipzig_dsb_scripted": 8730,
+          "external:leipzig_hsb_scripted": 120000,
+          "external:wmt22_sorbian_data_scripted": 160000,
           "official:dsb_monolingual_2026": 1000,
           "official:hsb_monolingual_2026": 1000,
           "official:sorb_mono_dsb": 2746,
-          "official:sorb_mono_hsb": 2746,
+          "official:sorb_mono_hsb": 2749,
           "synthetic:mr_arithmetic_preservation": 76
         },
         "by_task": {
           "FORMAT": 318,
-          "LANG": 4997,
+          "LANG": 293730,
           "QA": 2495
         },
         "output": "data/processed/competitive/sorbian/stage_a_dapt_large.jsonl",
-        "rows": 7810,
+        "rows": 296543,
         "sources": [
           {
-            "emitted_rows": 4997,
+            "emitted_rows": 293730,
             "path": "data/processed/final/sorbian/lang_curriculum_external.jsonl",
-            "raw_rows": 4997,
-            "sampled_rows": 4997,
+            "raw_rows": 293730,
+            "sampled_rows": 293730,
             "task": "LANG",
             "weight": 1.0
           },
@@ -236,34 +242,37 @@
       },
       "stage_b_mt_large": {
         "by_source_id": {
-          "official:dsb_monolingual_2026": 1105,
-          "official:hsb_monolingual_2026": 1115,
-          "official:sorb_mono_dsb": 1634,
-          "official:sorb_mono_hsb": 1643,
+          "external:leipzig_dsb_scripted": 1965,
+          "external:leipzig_hsb_scripted": 27108,
+          "external:wmt22_sorbian_data_scripted": 295789,
+          "official:dsb_monolingual_2026": 230,
+          "official:hsb_monolingual_2026": 254,
+          "official:sorb_mono_dsb": 323,
+          "official:sorb_mono_hsb": 332,
           "official:train_de-dsb_2026": 60856,
           "official:train_de-hsb_2026": 46232,
           "official:train_hsb-dsb_2026": 12912
         },
         "by_task": {
-          "LANG": 5497,
-          "MT": 120000
+          "LANG": 66000,
+          "MT": 380001
         },
         "output": "data/processed/competitive/sorbian/stage_b_mt_large.jsonl",
-        "rows": 125497,
+        "rows": 446001,
         "sources": [
           {
-            "emitted_rows": 120000,
+            "emitted_rows": 380001,
             "path": "data/processed/final/sorbian/mt_train_final.jsonl",
-            "raw_rows": 120000,
-            "sampled_rows": 120000,
+            "raw_rows": 380001,
+            "sampled_rows": 380001,
             "task": "MT",
             "weight": 1.0
           },
           {
-            "emitted_rows": 5497,
+            "emitted_rows": 66000,
             "path": "data/processed/final/sorbian/lang_curriculum_external.jsonl",
-            "raw_rows": 4997,
-            "sampled_rows": 4997,
+            "raw_rows": 293730,
+            "sampled_rows": 60000,
             "task": "LANG",
             "weight": 0.1
           }
@@ -272,28 +281,29 @@
       "stage_c_instruction_replay": {
         "by_source_id": {
           "external:gsm8k_train": 251,
-          "official:sorb_mono_dsb": 5115,
-          "official:sorb_mono_hsb": 4892,
-          "official:train_de-dsb_2026": 88317,
-          "official:train_de-hsb_2026": 66945,
-          "official:train_hsb-dsb_2026": 18738,
+          "external:wmt22_sorbian_data_scripted": 119118,
+          "official:sorb_mono_dsb": 5570,
+          "official:sorb_mono_hsb": 5461,
+          "official:train_de-dsb_2026": 27754,
+          "official:train_de-hsb_2026": 21197,
+          "official:train_hsb-dsb_2026": 5931,
           "synthetic:mr_arithmetic_preservation": 77,
-          "synthetic:scgc_compilers": 1621
+          "synthetic:scgc_compilers": 1500
         },
         "by_task": {
-          "GC": 2156,
+          "GC": 2877,
           "MR": 328,
           "MT": 174000,
           "QA": 2851,
-          "SC": 6621
+          "SC": 6803
         },
         "output": "data/processed/competitive/sorbian/stage_c_instruction_replay.jsonl",
-        "rows": 185956,
+        "rows": 186859,
         "sources": [
           {
             "emitted_rows": 174000,
             "path": "data/processed/final/sorbian/mt_train_final.jsonl",
-            "raw_rows": 120000,
+            "raw_rows": 380001,
             "sampled_rows": 120000,
             "task": "MT",
             "weight": 0.45
@@ -307,18 +317,18 @@
             "weight": 0.2
           },
           {
-            "emitted_rows": 6621,
+            "emitted_rows": 6803,
             "path": "data/processed/final/sorbian/sc_train_final.jsonl",
-            "raw_rows": 5757,
-            "sampled_rows": 5757,
+            "raw_rows": 5916,
+            "sampled_rows": 5916,
             "task": "SC",
             "weight": 0.15
           },
           {
-            "emitted_rows": 2156,
+            "emitted_rows": 2877,
             "path": "data/processed/final/sorbian/gc_train_final.jsonl",
-            "raw_rows": 1875,
-            "sampled_rows": 1875,
+            "raw_rows": 2502,
+            "sampled_rows": 2502,
             "task": "GC",
             "weight": 0.15
           },
@@ -335,9 +345,10 @@
       "stage_d_format": {
         "by_source_id": {
           "external:gsm8k_train": 263,
-          "official:train_de-dsb_2026": 40678,
-          "official:train_de-hsb_2026": 30704,
-          "official:train_hsb-dsb_2026": 8618,
+          "external:wmt22_sorbian_data_scripted": 54699,
+          "official:train_de-dsb_2026": 12718,
+          "official:train_de-hsb_2026": 9858,
+          "official:train_hsb-dsb_2026": 2725,
           "synthetic:format_preference": 1166,
           "synthetic:mr_arithmetic_preservation": 80
         },
@@ -359,7 +370,7 @@
           {
             "emitted_rows": 80000,
             "path": "data/processed/final/sorbian/mt_train_final.jsonl",
-            "raw_rows": 120000,
+            "raw_rows": 380001,
             "sampled_rows": 50000,
             "task": "MT",
             "weight": 0.6
@@ -377,7 +388,7 @@
     },
     "stagewise_all": {
       "output": "data/processed/competitive/sorbian/stagewise_all.jsonl",
-      "rows": 400772
+      "rows": 1010912
     },
     "track": "sorbian"
   }

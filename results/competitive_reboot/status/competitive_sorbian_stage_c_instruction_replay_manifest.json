@@ -1,0 +1,19 @@
+{
+  "config_path": "configs/train/competitive/sorbian_instruction_replay.yaml",
+  "config_sha256": "b89f08cae8586a937efd0f9c594f09ebbd38e70f52c726087209e278bf5edff9",
+  "git_commit": "06aa7211d2eade8fa80eb8769f3c9616d9705626",
+  "num_examples": 186859,
+  "output_dir": "checkpoints/competitive_reboot/sorbian/stage_c_instruction_replay",
+  "run_name": "competitive_sorbian_stage_c_instruction_replay",
+  "slurm_job_id": "2504741",
+  "stage": "C_instruction_replay",
+  "track": "sorbian",
+  "train_files": [
+    {
+      "bytes": 220668295,
+      "exists": true,
+      "path": "data/processed/competitive/sorbian/stage_c_instruction_replay.jsonl",
+      "sha256": "fdab214377e8466821724f4c395b4c544f4aeeaae87779834e53674841c4089f"
+    }
+  ]
+}

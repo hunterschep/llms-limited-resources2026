@@ -1,0 +1,46 @@
+{
+  "adapter": null,
+  "adapter_scale": null,
+  "aggregate": {
+    "GC_score": 33.672308672308674,
+    "MR_score": 20.833333333333336,
+    "MT_score": 41.88870998073894,
+    "QA_score": 37.960339943342774,
+    "SC_score": 38.824929967041236,
+    "overall_score": 34.63592437935299
+  },
+  "direction_scores": {
+    "cs->ukr": {
+      "bleu": 21.024160302853257,
+      "chrf++": 43.40656591167901
+    },
+    "en->ukr": {
+      "bleu": 17.849335747576124,
+      "chrf++": 40.45043533434338
+    }
+  },
+  "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/uk/stage_a_mt_real_large",
+  "oracle": false,
+  "slurm_job_id": "2504744",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.013513513513513513,
+      "detection_f1": 0.6599326599326599
+    },
+    "MR": {
+      "accuracy": 0.20833333333333334
+    },
+    "MT": {
+      "bleu": 19.458858217338594,
+      "chrf++": 41.88870998073894
+    },
+    "QA": {
+      "accuracy": 0.37960339943342775
+    },
+    "SC": {
+      "correction_f1": 0.11356466876971609,
+      "detection_f1": 0.6629339305711087
+    }
+  },
+  "track": "ukrainian"
+}

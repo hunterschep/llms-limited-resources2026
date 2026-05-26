@@ -1,0 +1,19 @@
+{
+  "config_path": "configs/train/competitive/sorbian_mt_large.yaml",
+  "config_sha256": "f0754ebaab429055babac9475305f7a1ea40041d58230693e7b776ca78fa145f",
+  "git_commit": "06aa7211d2eade8fa80eb8769f3c9616d9705626",
+  "num_examples": 446001,
+  "output_dir": "checkpoints/competitive_reboot/sorbian/stage_b_mt_large",
+  "run_name": "competitive_sorbian_stage_b_mt_large",
+  "slurm_job_id": "2504741",
+  "stage": "B_mt_adaptation",
+  "track": "sorbian",
+  "train_files": [
+    {
+      "bytes": 523145776,
+      "exists": true,
+      "path": "data/processed/competitive/sorbian/stage_b_mt_large.jsonl",
+      "sha256": "cc5ab4c43918928a4deb415ddf3aec163170ef31deec63e7c9ee07989aa52d89"
+    }
+  ]
+}

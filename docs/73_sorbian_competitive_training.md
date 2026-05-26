@@ -41,3 +41,16 @@ Data:
 ## Stage D: Format Alignment
 
 Tiny alignment only if Stage B/C produces a competitive model. If polish reduces MT or overall, discard it.
+
+## Reboot Run Outcome
+
+The first full competitive Sorbian run completed on Andromeda using the large governed mixtures.
+
+Stage B MT-large is the only checkpoint preserved for continued work:
+
+- Overall improved from `29.195` to `32.826` (`+3.631`).
+- Average MT chrF++ improved from `27.477` to `43.335` (`+15.858`).
+- Direction gains were broad: `de->hsb +19.460`, `de->dsb +15.809`, `hsb->de +19.802`, `dsb->de +18.977`, `hsb->dsb +8.628`, `dsb->hsb +7.421`.
+- QA, SC, and GC stayed above prompt-only, but MR fell from `8.333` to `4.167`.
+
+Stage A was not MT-competitive, and Stage C collapsed SC/GC despite preserving MT. Stage B is labeled `promising_but_needs_replay`, not `competitive_candidate`.
