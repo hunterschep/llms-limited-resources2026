@@ -1,0 +1,10 @@
+run_name: competitive_sorbian_model_soup
+track: sorbian
+base_model: Qwen/Qwen3.5-2B
+candidate_root: checkpoints/competitive_reboot/sorbian
+output_dir: checkpoints/competitive_reboot/sorbian/model_soup
+requires:
+  - stage_b_mt_large
+  - stage_c_instruction_replay
+selection_metric: overall_equal_weighted_score
+blocked_until_real_signal: true

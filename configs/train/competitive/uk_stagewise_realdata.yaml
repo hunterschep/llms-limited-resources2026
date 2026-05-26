@@ -1,0 +1,18 @@
+run_name: competitive_uk_stagewise_realdata
+track: ukrainian
+model_config: configs/model/qwen35_2b.yaml
+stagewise: true
+stages:
+  - name: stage_a_mt_real_large
+    config: configs/train/competitive/uk_mt_real_large.yaml
+  - name: stage_b_instruction_replay
+    config: configs/train/competitive/uk_instruction_replay.yaml
+  - name: stage_c_doc_mt_format
+    config: configs/train/competitive/uk_doc_mt.yaml
+  - name: stage_d_format
+    config: configs/train/competitive/uk_final_polish.yaml
+    run_condition: competitive_candidate_exists
+evaluation:
+  after_each_stage: true
+  config: configs/eval/uk.yaml
+  result_dir: results/competitive_reboot/eval/uk

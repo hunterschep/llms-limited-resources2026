@@ -1,0 +1,23 @@
+run_name: competitive_sorbian_stage_b_mt_large
+track: sorbian
+stage: B_mt_adaptation
+model_config: configs/model/qwen35_2b.yaml
+base_model_path: checkpoints/competitive_reboot/sorbian/stage_a_dapt_large
+fallback_to_base_if_missing: false
+output_dir: checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+train_files:
+  - data/processed/competitive/sorbian/stage_b_mt_large.jsonl
+sampling: direct_files
+method: qlora_sft
+adapter: lora
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+target_modules: [q_proj, k_proj, v_proj, o_proj, up_proj, down_proj, gate_proj]
+max_steps: 8000
+learning_rate: 0.0001
+batch_size: 1
+gradient_accumulation_steps: 32
+max_length: 2048
+seed: 2607
+dry_run: false

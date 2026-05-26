@@ -1,0 +1,71 @@
+policy: governance_first_competitive_reboot
+track: ukrainian
+notes:
+  - Use public, reproducible data only.
+  - Exclude WMT2025 test, hidden WMT26 test, Ukrainian held-out benchmark tests, and PolyMath-derived data.
+sources:
+  - source_id: external:opus_tatoeba_en_uk
+    role: seed_mt
+    enabled: true
+    local_path: data/external/raw/external__opus_tatoeba_en_uk
+    download:
+      type: opus
+      opus_corpus: Tatoeba
+      source_language: en
+      target_language: uk
+  - source_id: external:opus_tatoeba_cs_uk
+    role: seed_mt
+    enabled: true
+    local_path: data/external/raw/external__opus_tatoeba_cs_uk
+    download:
+      type: opus
+      opus_corpus: Tatoeba
+      source_language: cs
+      target_language: uk
+  - source_id: external:opus_large_en_uk_scripted
+    role: large_mt
+    enabled: true
+    final_training_requires_review: true
+    local_path: data/external/raw/scripted/opus_large_en_uk
+    corpora:
+      - ParaCrawl
+      - CCMatrix
+      - WikiMatrix
+      - NLLB
+      - MultiHPLT
+      - KDE4
+      - GNOME
+      - Ubuntu
+      - TED2020
+    download:
+      type: opus_collection
+      source_language: en
+      target_language: uk
+  - source_id: external:hplt_uk_scripted
+    role: monolingual_dapt
+    enabled: true
+    final_training_requires_review: true
+    local_path: data/external/raw/scripted/hplt_uk
+    download:
+      type: scripted_only
+      notes: Sample on Andromeda after license/noise review.
+  - source_id: external:ua_gec_train
+    role: real_gc_sc
+    enabled: true
+    local_path: data/external/raw/external__ua_gec_train/gec-only.train.m2
+  - source_id: external:ud_uk_iu
+    role: morphology_and_monolingual
+    enabled: true
+    local_path: data/external/raw/external__ud_uk_iu/uk_iu-ud-train.conllu
+  - source_id: external:gsm8k_train
+    role: mr_preservation
+    enabled: true
+    local_path: data/external/raw/external__gsm8k_train/train.jsonl
+  - source_id: external:asdiv
+    role: mr_preservation
+    enabled: true
+    local_path: data/external/raw/external__asdiv/ASDiv.xml
+  - source_id: external:svamp
+    role: mr_preservation
+    enabled: true
+    local_path: data/external/raw/external__svamp/SVAMP.json

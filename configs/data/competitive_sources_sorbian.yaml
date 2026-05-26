@@ -1,0 +1,72 @@
+policy: governance_first_competitive_reboot
+track: sorbian
+notes:
+  - Use public, reproducible data only.
+  - Exclude all WMT2025 test files and any external Sorbian certificate questions.
+sources:
+  - source_id: official:sorb_mt_de_hsb_train
+    role: official_mt
+    enabled: true
+    directions: [de-hsb, hsb-de]
+  - source_id: official:sorb_mt_de_dsb_train
+    role: official_mt
+    enabled: true
+    directions: [de-dsb, dsb-de]
+  - source_id: official:sorb_mt_hsb_dsb_train
+    role: official_mt
+    enabled: true
+    directions: [hsb-dsb, dsb-hsb]
+  - source_id: official:sorb_mono_hsb
+    role: monolingual_dapt
+    enabled: true
+    local_path: Sorbian/MT/hsb_monolingual_2026.csv
+  - source_id: official:sorb_mono_dsb
+    role: monolingual_dapt
+    enabled: true
+    local_path: Sorbian/MT/dsb_monolingual_2026.csv
+  - source_id: external:wmt22_sorbian_data_scripted
+    role: prior_wmt_train_support
+    enabled: true
+    final_training_requires_file_review: true
+    local_path: data/external/raw/scripted/wmt22_sorbian
+    download:
+      type: git_or_url_collection
+      repo_api: https://api.github.com/repos/mariondimarco/WMT22_UnsupVeryLowResMT_Data/contents/
+      notes: Pull WMT20-22 train/support only; exclude test sets.
+  - source_id: external:leipzig_hsb_scripted
+    role: monolingual_dapt
+    enabled: true
+    final_training_requires_review: true
+    local_path: data/external/raw/scripted/leipzig_hsb
+    download:
+      type: scripted_only
+      url: https://downloads.wortschatz-leipzig.de/corpora/hsb_mixed_2012_300K.tar.gz
+      filename: hsb_mixed_2012_300K.tar.gz
+  - source_id: external:leipzig_dsb_scripted
+    role: monolingual_dapt
+    enabled: true
+    final_training_requires_review: true
+    local_path: data/external/raw/scripted/leipzig_dsb
+    download:
+      type: scripted_only
+      url: https://raw.githubusercontent.com/mariondimarco/WMT22_UnsupVeryLowResMT_Data/main/8815_DSB_wikipedia_2021.txt.gz
+      filename: 8815_DSB_wikipedia_2021.txt.gz
+  - source_id: external:opus_cs_pl_transfer_scripted
+    role: related_transfer
+    enabled: true
+    final_training_requires_review: true
+    local_path: data/external/raw/scripted/opus_cs_pl_transfer
+    corpora:
+      - Tatoeba
+      - WikiMatrix
+      - CCMatrix
+    download:
+      type: opus_transfer_collection
+  - source_id: external:unimorph_hsb
+    role: morphology
+    enabled: true
+    local_path: data/external/raw/external__unimorph_hsb/hsb
+  - source_id: external:hunspell_dsb_candidate
+    role: spelling_candidate
+    enabled: false
+    reason_disabled: License and package contents not reviewed.

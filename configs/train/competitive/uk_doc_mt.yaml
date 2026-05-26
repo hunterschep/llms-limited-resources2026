@@ -1,0 +1,23 @@
+run_name: competitive_uk_stage_c_doc_mt_format
+track: ukrainian
+stage: C_doc_mt_format
+model_config: configs/model/qwen35_2b.yaml
+base_model_path: checkpoints/competitive_reboot/uk/stage_b_instruction_replay
+fallback_to_base_if_missing: false
+output_dir: checkpoints/competitive_reboot/uk/stage_c_doc_mt_format
+train_files:
+  - data/processed/competitive/uk/stage_c_doc_format.jsonl
+sampling: direct_files
+method: qlora_sft
+adapter: lora
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.03
+target_modules: [q_proj, k_proj, v_proj, o_proj, up_proj, down_proj, gate_proj]
+max_steps: 1500
+learning_rate: 0.00003
+batch_size: 1
+gradient_accumulation_steps: 24
+max_length: 2048
+seed: 2618
+dry_run: false

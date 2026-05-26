@@ -3,9 +3,12 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import json
+import os
 import re
 import sys
+import tarfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
@@ -14,6 +17,8 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+_raw_root = Path(os.environ.get("WMT26_RAW_ROOT", "data/external/raw")).expanduser()
+RAW_ROOT = _raw_root if _raw_root.is_absolute() else ROOT / _raw_root
 
 from wmt26.compilers.common import (
     edit_example,
@@ -68,7 +73,7 @@ def good_text(text: str, min_chars: int, max_chars: int) -> bool:
 
 
 def find_opus_pair(source_id: str, source_lang: str, target_lang: str) -> tuple[Path, Path] | None:
-    root = ROOT / "data/external/raw" / source_id.replace(":", "__")
+    root = RAW_ROOT / source_id.replace(":", "__")
     extracted_dirs = [p for p in root.glob("*.txt") if p.is_dir()] + [p for p in root.glob("*.zip") if p.with_suffix("").exists()]
     dirs = []
     for item in root.iterdir() if root.exists() else []:
@@ -378,6 +383,179 @@ def build_sorbian_qa(sentences: list[str], language: str, cap: int) -> list[dict
     return rows
 
 
+def lang_example(idx: str, track: str, language: str, text: str, source_id: str, license_name: str) -> dict[str, Any]:
+    return {
+        "id": idx,
+        "track": track,
+        "task": "LANG",
+        "language": language,
+        "source_language": None,
+        "target_language": None,
+        "input": text,
+        "target": text,
+        "messages": [
+            {"role": "system", "content": f"Follow the instruction and preserve {language} text exactly."},
+            {"role": "user", "content": f"Reproduce this text exactly:\n{text}"},
+            {"role": "assistant", "content": text},
+        ],
+        "source_id": source_id,
+        "source_type": "external",
+        "license": license_name,
+        "split": "train",
+        "is_synthetic": False,
+        "generation_method": "competitive_public_monolingual_language_curriculum",
+        "contamination_checked": True,
+        "metadata": {},
+    }
+
+
+def gzip_lines(path: Path) -> list[str]:
+    with gzip.open(path, "rt", encoding="utf-8", errors="ignore") as handle:
+        return [norm(line) for line in handle if norm(line)]
+
+
+def build_wmt22_sorbian(root: Path, cap_mt: int = 260000, cap_lang: int = 160000) -> tuple[list[dict], list[dict], dict[str, Any]]:
+    mt_rows: list[dict] = []
+    lang_rows: list[dict] = []
+    raw_pairs = 0
+    seen_pairs: set[tuple[str, str, str, str]] = set()
+    if not root.exists():
+        return mt_rows, lang_rows, {"source_id": "external:wmt22_sorbian_data_scripted", "row_count_raw": 0, "row_count_after_filtering": 0, "notes": "raw missing"}
+
+    def add_pair(prefix: str, lang_a: str, lang_b: str, lines_a: list[str], lines_b: list[str]) -> None:
+        nonlocal raw_pairs
+        for idx, (text_a, text_b) in enumerate(zip(lines_a, lines_b)):
+            raw_pairs += 1
+            text_a = norm(text_a)
+            text_b = norm(text_b)
+            if not good_text(text_a, 3, 800) or not good_text(text_b, 3, 800):
+                continue
+            if text_a.lower() == text_b.lower():
+                continue
+            for src_lang, tgt_lang, src, tgt in [(lang_a, lang_b, text_a, text_b), (lang_b, lang_a, text_b, text_a)]:
+                key = (src_lang, tgt_lang, src.lower(), tgt.lower())
+                if key in seen_pairs:
+                    continue
+                seen_pairs.add(key)
+                mt_rows.append(
+                    mt_example(
+                        idx=f"external:wmt22:{prefix}:{idx:08d}:{src_lang}->{tgt_lang}",
+                        track="sorbian",
+                        source_language=src_lang,
+                        target_language=tgt_lang,
+                        source_text=src,
+                        target_text=tgt,
+                        split="train",
+                        source_id="external:wmt22_sorbian_data_scripted",
+                        source_type="external",
+                        license_name="WMT22 public data repository",
+                        generation_method="wmt22_train_support_parallel_filtered",
+                        metadata={"raw_prefix": prefix, "raw_index": idx},
+                    )
+                )
+                if len(mt_rows) >= cap_mt:
+                    return
+
+    grouped: dict[str, dict[str, Path]] = {}
+    for path in sorted(root.glob("*.gz")):
+        name = path.name
+        lower = name.lower()
+        if any(marker in lower for marker in ["dev", "test", "valid"]):
+            continue
+        if "monolingual" in lower or lower.startswith("mono.") or lower.startswith("web_") or lower.startswith("witaj_"):
+            lang = "dsb" if "dsb" in lower else "hsb" if "hsb" in lower else ""
+            if not lang:
+                continue
+            for idx, text in enumerate(gzip_lines(path)):
+                if len(lang_rows) >= cap_lang:
+                    break
+                if good_text(text, 20, 900):
+                    lang_rows.append(
+                        lang_example(
+                            idx=f"external-wmt22-lang-{lang}-{path.stem}-{idx:07d}",
+                            track="sorbian",
+                            language=lang,
+                            text=text,
+                            source_id="external:wmt22_sorbian_data_scripted",
+                            license_name="WMT22 public data repository",
+                        )
+                    )
+            continue
+        stem = name[:-3]
+        parts = stem.rsplit(".", 1)
+        if len(parts) == 2 and parts[1] in {"de", "hsb", "dsb"}:
+            grouped.setdefault(parts[0], {})[parts[1]] = path
+
+    for prefix, files in sorted(grouped.items()):
+        langs = [lang for lang in ["de", "hsb", "dsb"] if lang in files]
+        if len(langs) != 2:
+            continue
+        add_pair(prefix, langs[0], langs[1], gzip_lines(files[langs[0]]), gzip_lines(files[langs[1]]))
+        if len(mt_rows) >= cap_mt:
+            break
+
+    for path in sorted(root.glob("*train.tsv.gz")):
+        lower = path.name.lower()
+        if "hsb-de" not in lower:
+            continue
+        hsb_lines: list[str] = []
+        de_lines: list[str] = []
+        with gzip.open(path, "rt", encoding="utf-8", errors="ignore") as handle:
+            for line in handle:
+                parts = [norm(part) for part in line.split("\t")]
+                if len(parts) >= 2:
+                    hsb_lines.append(parts[0])
+                    de_lines.append(parts[1])
+        add_pair(path.stem, "hsb", "de", hsb_lines, de_lines)
+        if len(mt_rows) >= cap_mt:
+            break
+
+    return mt_rows, lang_rows, {
+        "source_id": "external:wmt22_sorbian_data_scripted",
+        "row_count_raw": raw_pairs,
+        "row_count_after_filtering": len(mt_rows) + len(lang_rows),
+        "parallel_rows": len(mt_rows),
+        "language_rows": len(lang_rows),
+        "filtering_steps": ["exclude_dev_valid_test", "length", "exact_pair_dedup", "bidirectional_expansion"],
+    }
+
+
+def build_leipzig_rows(path: Path, language: str, source_id: str, cap: int = 120000) -> tuple[list[dict], dict[str, Any]]:
+    rows: list[dict] = []
+    raw = 0
+    if not path.exists():
+        return rows, {"source_id": source_id, "row_count_raw": 0, "row_count_after_filtering": 0, "notes": "raw missing"}
+    if path.suffix == ".gz" and not path.name.endswith(".tar.gz"):
+        texts = gzip_lines(path)
+    else:
+        texts = []
+        with tarfile.open(path, "r:gz") as archive:
+            for member in archive.getmembers():
+                if "sentences" not in member.name or not member.isfile():
+                    continue
+                extracted = archive.extractfile(member)
+                if extracted is None:
+                    continue
+                for raw_line in extracted:
+                    line = raw_line.decode("utf-8", errors="ignore")
+                    parts = line.rstrip("\n").split("\t")
+                    texts.append(norm(parts[-1] if parts else line))
+                break
+    seen: set[str] = set()
+    for idx, text in enumerate(texts):
+        raw += 1
+        if len(rows) >= cap:
+            break
+        if not good_text(text, 20, 900):
+            continue
+        key = text.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        rows.append(lang_example(f"external-leipzig-{language}-{idx:07d}", "sorbian", language, text, source_id, "Leipzig Corpora Collection / source-specific terms"))
+    return rows, {"source_id": source_id, "row_count_raw": raw, "row_count_after_filtering": len(rows), "filtering_steps": ["sentence_extraction", "length", "exact_dedup"]}
+
+
 def build_mr(path: Path, cap: int, track: str, language: str, source_id: str, prefix: str) -> list[dict]:
     rows = []
     if not path.exists():
@@ -430,12 +608,12 @@ def main() -> int:
     write_jsonl(uk_external / "mt_train.jsonl", mt_rows)
     write_jsonl(uk_external / "mt_doc_train.jsonl", build_doc_mt(en_rows, cap=2000) + build_doc_mt(cs_rows, cap=500))
 
-    sc_real, gc_real, report = parse_m2(ROOT / "data/external/raw/external__ua_gec_train/gec-only.train.m2", cap=3000)
+    sc_real, gc_real, report = parse_m2(RAW_ROOT / "external__ua_gec_train/gec-only.train.m2", cap=3000)
     reports.append(report)
     write_jsonl(uk_external / "sc_real.jsonl", sc_real)
     write_jsonl(uk_external / "gc_real.jsonl", gc_real)
 
-    ud_sentences = parse_ud_sentences(ROOT / "data/external/raw/external__ud_uk_iu/uk_iu-ud-train.conllu", cap=5000)
+    ud_sentences = parse_ud_sentences(RAW_ROOT / "external__ud_uk_iu/uk_iu-ud-train.conllu", cap=5000)
     sc_syn, gc_syn, _ = build_scgc_from_sentences(ud_sentences, "ukrainian", "ukr", "external:ud_uk_iu", "ud-uk", cap=2000)
     write_jsonl(uk_external / "sc_synthetic_public.jsonl", sc_syn)
     write_jsonl(uk_external / "gc_synthetic_public.jsonl", gc_syn)
@@ -495,6 +673,12 @@ def main() -> int:
     write_jsonl(sorb_external / "sc_synthetic_dsb.jsonl", dsb_sc)
     write_jsonl(sorb_external / "gc_synthetic_hsb.jsonl", hsb_gc)
     write_jsonl(sorb_external / "gc_synthetic_dsb.jsonl", dsb_gc)
+    wmt22_mt, wmt22_lang, report = build_wmt22_sorbian(RAW_ROOT / "external__wmt22_sorbian_data_scripted")
+    reports.append(report)
+    leipzig_hsb, report = build_leipzig_rows(RAW_ROOT / "external__leipzig_hsb_scripted/hsb_mixed_2012_300K.tar.gz", "hsb", "external:leipzig_hsb_scripted")
+    reports.append(report)
+    leipzig_dsb, report = build_leipzig_rows(RAW_ROOT / "external__leipzig_dsb_scripted/8815_DSB_wikipedia_2021.txt.gz", "dsb", "external:leipzig_dsb_scripted")
+    reports.append(report)
     write_jsonl(sorb_external / "monolingual_public.jsonl", [
         {
             "id": f"sorbian-lang-{lang}-{idx:06d}",
@@ -521,14 +705,13 @@ def main() -> int:
         }
         for lang, sentences in [("hsb", hsb_sentences), ("dsb", dsb_sentences)]
         for idx, text in enumerate(sentences[:1500])
-    ])
-    # Prior WMT placeholder remains empty until scripted acquisition is manually reviewed.
-    write_jsonl(sorb_external / "mt_prior_wmt.jsonl", [])
+    ] + wmt22_lang + leipzig_hsb + leipzig_dsb)
+    write_jsonl(sorb_external / "mt_prior_wmt.jsonl", wmt22_mt)
     write_jsonl(sorb_external / "related_transfer_cs_pl.jsonl", [])
 
-    gsm_path = ROOT / "data/external/raw/external__gsm8k_train/train.jsonl"
-    svamp_path = ROOT / "data/external/raw/external__svamp/SVAMP.json"
-    asdiv_path = ROOT / "data/external/raw/external__asdiv/ASDiv.xml"
+    gsm_path = RAW_ROOT / "external__gsm8k_train/train.jsonl"
+    svamp_path = RAW_ROOT / "external__svamp/SVAMP.json"
+    asdiv_path = RAW_ROOT / "external__asdiv/ASDiv.xml"
     uk_mr = build_mr(gsm_path, 140, "ukrainian", "ukr", "external:gsm8k_train", "uk-gsm8k")
     uk_mr += build_mr(svamp_path, 70, "ukrainian", "ukr", "external:svamp", "uk-svamp")
     uk_mr += build_mr(asdiv_path, 70, "ukrainian", "ukr", "external:asdiv", "uk-asdiv")

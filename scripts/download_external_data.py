@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import urllib.request
 import zipfile
@@ -12,7 +13,8 @@ from typing import Any
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-RAW_ROOT = ROOT / "data/external/raw"
+_raw_root = Path(os.environ.get("WMT26_RAW_ROOT", "data/external/raw")).expanduser()
+RAW_ROOT = _raw_root if _raw_root.is_absolute() else ROOT / _raw_root
 INVENTORY = ROOT / "data/manifests/external_data_inventory.jsonl"
 
 
@@ -25,9 +27,25 @@ def fetch_url(url: str, output: Path, timeout: int = 120) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     if output.exists() and output.stat().st_size > 0:
         return
-    print(f"Downloading {url} -> {output}")
+    print(f"Downloading {url} -> {output}", flush=True)
+    tmp = output.with_suffix(output.suffix + ".part")
+    if tmp.exists():
+        tmp.unlink()
     with urllib.request.urlopen(url, timeout=timeout) as response:
-        output.write_bytes(response.read())
+        with tmp.open("wb") as handle:
+            while True:
+                chunk = response.read(1024 * 1024)
+                if not chunk:
+                    break
+                handle.write(chunk)
+    tmp.replace(output)
+
+
+def manifest_path(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
 
 
 def opus_latest_url(source: str, target: str, corpus: str) -> tuple[str, dict[str, Any]]:
@@ -59,7 +77,7 @@ def download_opus(source: dict[str, Any]) -> dict[str, Any]:
         "source_id": source["source_id"],
         "source_name": source["source_name"],
         "download_url": url,
-        "local_raw_path": output.relative_to(ROOT).as_posix(),
+        "local_raw_path": manifest_path(output),
         "task": source["task"],
         "track": source["track"],
         "language": source.get("language", ""),
@@ -80,7 +98,7 @@ def download_url_source(source: dict[str, Any]) -> dict[str, Any]:
         "source_id": source["source_id"],
         "source_name": source["source_name"],
         "download_url": url,
-        "local_raw_path": output.relative_to(ROOT).as_posix(),
+        "local_raw_path": manifest_path(output),
         "task": source["task"],
         "track": source["track"],
         "language": source.get("language", ""),

@@ -1,0 +1,19 @@
+track: ukrainian
+status: blocked_until_real_signal
+base_model: Qwen/Qwen3.5-2B
+specialists: {}
+candidate_root: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/uk
+output_dir: checkpoints/competitive_reboot/uk/merged
+validation_config: configs/eval/uk.yaml
+objective: equal_weighted_wmt26
+eligible_policy:
+  require_full_eval: true
+  require_loading_verified: true
+  exclude_phase3_phase4: true
+methods:
+  - model_soup_adjacent_checkpoints
+  - base_task_vector_interpolation
+  - ties_if_implemented
+selection_metric: overall_equal_weighted_score
+search_grid:
+  anchor: [0.0]

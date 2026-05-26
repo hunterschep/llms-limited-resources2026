@@ -1,0 +1,39 @@
+policy: competitive_reboot_filtering
+parallel_mt:
+  min_chars: 3
+  max_chars: 800
+  max_length_ratio: 3.0
+  max_punctuation_fraction: 0.45
+  max_digit_fraction: 0.45
+  max_copy_ratio: 0.85
+  deduplicate: exact_pair
+  remove_locked_validation_overlap: true
+  cap_per_source:
+    external:opus_tatoeba_en_uk: 50000
+    external:opus_tatoeba_cs_uk: 50000
+    external:opus_large_en_uk_scripted: 350000
+    external:wmt22_sorbian_data_scripted: 300000
+monolingual:
+  min_chars: 20
+  max_chars: 1200
+  deduplicate: exact_text
+  remove_boilerplate: true
+  cap_per_language:
+    ukr: 400000
+    hsb: 500000
+    dsb: 500000
+qa:
+  require_one_correct: true
+  require_non_empty_options: true
+  shuffle_options: true
+scgc:
+  require_wrong_word_in_input: true
+  require_one_wrong_word_or_correct: true
+  forbid_full_sentence_rewrite: true
+  clean_error_targets:
+    ukrainian: 0.45
+    sorbian: 0.45
+mr:
+  parseable_final_answer_only: true
+  forbid_polymath: true
+  max_rows_per_source: 5000

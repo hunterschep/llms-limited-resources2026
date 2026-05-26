@@ -1,0 +1,8 @@
+{
+  "execute": true,
+  "removed_or_would_remove": [
+    "checkpoints/competitive_reboot/sorbian/merged/search_candidate_000",
+    "checkpoints/competitive_reboot/uk/merged/weighted_task_vector",
+    "checkpoints/competitive_reboot/sorbian/merged/search"
+  ]
+}

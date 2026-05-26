@@ -1,0 +1,11 @@
+run_name: competitive_uk_model_soup
+track: ukrainian
+base_model: Qwen/Qwen3.5-2B
+candidate_root: checkpoints/competitive_reboot/uk
+output_dir: checkpoints/competitive_reboot/uk/model_soup
+requires:
+  - stage_a_mt_real_large
+  - stage_b_instruction_replay
+  - stage_c_doc_mt_format
+selection_metric: overall_equal_weighted_score
+blocked_until_real_signal: true

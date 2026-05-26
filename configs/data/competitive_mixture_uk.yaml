@@ -1,0 +1,69 @@
+track: ukrainian
+output_dir: data/processed/competitive/uk
+seed: 2606
+stages:
+  stage_a_mt_real_large:
+    output: stage_a_mt_real_large.jsonl
+    sources:
+      - path: data/processed/final/uk/mt_train_final.jsonl
+        task: MT
+        cap: 300000
+        weight: 1.0
+      - path: data/processed/external/uk/mt_competitive_large.jsonl
+        task: MT
+        cap: 350000
+        weight: 1.0
+      - path: data/processed/final/uk/lang_curriculum_external.jsonl
+        task: LANG
+        cap: 40000
+        weight: 0.15
+      - path: data/processed/final/uk/mr_format_preservation.jsonl
+        task: FORMAT
+        cap: 2000
+        weight: 0.05
+  stage_b_instruction_replay:
+    output: stage_b_instruction_replay.jsonl
+    sources:
+      - path: data/processed/final/uk/qa_train_final.jsonl
+        task: QA
+        cap: 30000
+        weight: 0.25
+      - path: data/processed/final/uk/sc_train_final.jsonl
+        task: SC
+        cap: 30000
+        weight: 0.20
+      - path: data/processed/final/uk/gc_train_final.jsonl
+        task: GC
+        cap: 30000
+        weight: 0.20
+      - path: data/processed/final/uk/mr_train_final.jsonl
+        task: MR
+        cap: 5000
+        weight: 0.08
+      - path: data/processed/final/uk/mt_train_final.jsonl
+        task: MT
+        cap: 80000
+        weight: 0.35
+      - path: data/processed/external/uk/mt_competitive_large.jsonl
+        task: MT
+        cap: 120000
+        weight: 0.35
+  stage_c_doc_format:
+    output: stage_c_doc_format.jsonl
+    sources:
+      - path: data/processed/final/uk/mt_train_final.jsonl
+        task: MT
+        cap: 80000
+        weight: 0.55
+      - path: data/processed/external/uk/mt_competitive_large.jsonl
+        task: MT
+        cap: 120000
+        weight: 0.55
+      - path: data/processed/final/uk/format_polish_final.jsonl
+        task: FORMAT
+        cap: 4000
+        weight: 0.10
+      - path: data/processed/final/uk/mr_format_preservation.jsonl
+        task: FORMAT
+        cap: 3000
+        weight: 0.05

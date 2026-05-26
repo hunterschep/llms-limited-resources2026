@@ -1,0 +1,21 @@
+run_name: competitive_uk_stage_a_mt_real_large
+track: ukrainian
+stage: A_real_mt_adaptation
+model_config: configs/model/qwen35_2b.yaml
+output_dir: checkpoints/competitive_reboot/uk/stage_a_mt_real_large
+train_files:
+  - data/processed/competitive/uk/stage_a_mt_real_large.jsonl
+sampling: direct_files
+method: qlora_sft
+adapter: lora
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+target_modules: [q_proj, k_proj, v_proj, o_proj, up_proj, down_proj, gate_proj]
+max_steps: 7000
+learning_rate: 0.00008
+batch_size: 1
+gradient_accumulation_steps: 32
+max_length: 2048
+seed: 2616
+dry_run: false

@@ -1,0 +1,18 @@
+run_name: competitive_sorbian_stagewise_tartu_style
+track: sorbian
+model_config: configs/model/qwen35_2b.yaml
+stagewise: true
+stages:
+  - name: stage_a_dapt_large
+    config: configs/train/competitive/sorbian_dapt_large.yaml
+  - name: stage_b_mt_large
+    config: configs/train/competitive/sorbian_mt_large.yaml
+  - name: stage_c_instruction_replay
+    config: configs/train/competitive/sorbian_instruction_replay.yaml
+  - name: stage_d_format
+    config: configs/train/competitive/sorbian_final_polish.yaml
+    run_condition: competitive_candidate_exists
+evaluation:
+  after_each_stage: true
+  config: configs/eval/sorbian.yaml
+  result_dir: results/competitive_reboot/eval/sorbian

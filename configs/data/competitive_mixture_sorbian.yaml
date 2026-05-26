@@ -1,0 +1,68 @@
+track: sorbian
+output_dir: data/processed/competitive/sorbian
+seed: 2606
+stages:
+  stage_a_dapt_large:
+    output: stage_a_dapt_large.jsonl
+    sources:
+      - path: data/processed/final/sorbian/lang_curriculum_external.jsonl
+        task: LANG
+        cap: 500000
+        weight: 1.0
+      - path: data/processed/final/sorbian/qa_train_final.jsonl
+        task: QA
+        cap: 15000
+        weight: 0.05
+      - path: data/processed/final/sorbian/mr_format_preservation.jsonl
+        task: FORMAT
+        cap: 2000
+        weight: 0.02
+  stage_b_mt_large:
+    output: stage_b_mt_large.jsonl
+    sources:
+      - path: data/processed/final/sorbian/mt_train_final.jsonl
+        task: MT
+        cap: 500000
+        weight: 1.0
+      - path: data/processed/final/sorbian/lang_curriculum_external.jsonl
+        task: LANG
+        cap: 60000
+        weight: 0.10
+  stage_c_instruction_replay:
+    output: stage_c_instruction_replay.jsonl
+    sources:
+      - path: data/processed/final/sorbian/mt_train_final.jsonl
+        task: MT
+        cap: 120000
+        weight: 0.45
+      - path: data/processed/final/sorbian/qa_train_final.jsonl
+        task: QA
+        cap: 30000
+        weight: 0.20
+      - path: data/processed/final/sorbian/sc_train_final.jsonl
+        task: SC
+        cap: 30000
+        weight: 0.15
+      - path: data/processed/final/sorbian/gc_train_final.jsonl
+        task: GC
+        cap: 30000
+        weight: 0.15
+      - path: data/processed/final/sorbian/mr_train_final.jsonl
+        task: MR
+        cap: 5000
+        weight: 0.05
+  stage_d_format:
+    output: stage_d_format.jsonl
+    sources:
+      - path: data/processed/final/sorbian/format_polish_final.jsonl
+        task: FORMAT
+        cap: 5000
+        weight: 0.20
+      - path: data/processed/final/sorbian/mt_train_final.jsonl
+        task: MT
+        cap: 50000
+        weight: 0.60
+      - path: data/processed/final/sorbian/mr_format_preservation.jsonl
+        task: FORMAT
+        cap: 3000
+        weight: 0.10

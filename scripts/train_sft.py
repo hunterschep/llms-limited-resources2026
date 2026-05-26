@@ -26,6 +26,16 @@ def resolve_output_dir(rel: str) -> Path:
     return ROOT / path
 
 
+def resolve_checkpoint_path(rel: str) -> Path:
+    path = Path(rel)
+    if path.is_absolute():
+        return path
+    scratch_root = os.environ.get("SCRATCH_ROOT")
+    if scratch_root and path.parts and path.parts[0] == "checkpoints":
+        return Path(scratch_root) / path
+    return ROOT / path
+
+
 def read_jsonl(path: Path, limit: int | None = None) -> list[dict]:
     rows: list[dict] = []
     with path.open("r", encoding="utf-8") as handle:
@@ -231,13 +241,15 @@ def real_train(config: dict, examples: list[dict], max_examples: int | None) -> 
     if not examples:
         raise ValueError("No training examples available for real training.")
     model_cfg = load_yaml(ROOT / config.get("model_config", "configs/model/qwen35_2b.yaml"))
-    model_name = config.get("base_model_path") or model_cfg["model_name_or_path"]
-    if config.get("base_model_path") and not (ROOT / str(config["base_model_path"])).exists():
-        if config.get("fallback_to_base_if_missing", False):
-            print(f"WARNING: {config['base_model_path']} missing; falling back to {model_cfg['model_name_or_path']}")
-            model_name = model_cfg["model_name_or_path"]
+    model_name = model_cfg["model_name_or_path"]
+    if config.get("base_model_path"):
+        resolved_base = resolve_checkpoint_path(str(config["base_model_path"]))
+        if resolved_base.exists():
+            model_name = str(resolved_base)
+        elif config.get("fallback_to_base_if_missing", False):
+            print(f"WARNING: {config['base_model_path']} missing at {resolved_base}; falling back to {model_cfg['model_name_or_path']}")
         else:
-            raise FileNotFoundError(f"Missing base_model_path: {config['base_model_path']}")
+            raise FileNotFoundError(f"Missing base_model_path: {config['base_model_path']} (resolved {resolved_base})")
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=model_cfg.get("trust_remote_code", True))
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token

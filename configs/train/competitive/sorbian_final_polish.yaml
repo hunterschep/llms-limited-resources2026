@@ -1,0 +1,23 @@
+run_name: competitive_sorbian_stage_d_format_polish
+track: sorbian
+stage: D_format_alignment
+model_config: configs/model/qwen35_2b.yaml
+base_model_path: checkpoints/competitive_reboot/sorbian/stage_c_instruction_replay
+fallback_to_base_if_missing: false
+output_dir: checkpoints/competitive_reboot/sorbian/stage_d_format_polish
+train_files:
+  - data/processed/competitive/sorbian/stage_d_format.jsonl
+sampling: direct_files
+method: qlora_sft
+adapter: lora
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.02
+target_modules: [q_proj, k_proj, v_proj, o_proj]
+max_steps: 500
+learning_rate: 0.00002
+batch_size: 1
+gradient_accumulation_steps: 16
+max_length: 2048
+seed: 2609
+dry_run: false

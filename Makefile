@@ -1,4 +1,4 @@
-.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-data-sanity triage-raw-oracle triage-raw-predictions triage-overfit triage-overfit-dry-run check-checkpoint-loading report-phase3-sanity report-edit-data-balance report-mr-data-quality retrain-uk-fixed-dryrun retrain-sorbian-fixed-dryrun eval-phase3-fixed-uk eval-phase3-fixed-sorbian report-phase3-fixed phase4-status phase4-cleanup-check phase4-build-probe phase4-eval-prompt-only phase4-prompt-sweep phase4-analyze-failures phase4-micro-ablation-dryrun phase4-rank-candidates phase4-check-gates phase4-report phase4-clean-failed
+.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-data-sanity triage-raw-oracle triage-raw-predictions triage-overfit triage-overfit-dry-run check-checkpoint-loading report-phase3-sanity report-edit-data-balance report-mr-data-quality retrain-uk-fixed-dryrun retrain-sorbian-fixed-dryrun eval-phase3-fixed-uk eval-phase3-fixed-sorbian report-phase3-fixed phase4-status phase4-cleanup-check phase4-build-probe phase4-eval-prompt-only phase4-prompt-sweep phase4-analyze-failures phase4-micro-ablation-dryrun phase4-rank-candidates phase4-check-gates phase4-report phase4-clean-failed competitive-cleanup competitive-download-data competitive-filter-data competitive-build-mixtures competitive-validate-data competitive-train-sorbian competitive-train-uk competitive-eval-sorbian competitive-eval-uk competitive-compare competitive-dashboard competitive-clean-failed competitive-package-sorbian competitive-package-uk
 
 validate:
 	python3 scripts/validate_data_governance.py
@@ -26,8 +26,11 @@ smoke-test:
 	python3 scripts/smoke_test_data.py
 	WMT26_RECORD_RUNS=0 python3 scripts/smoke_test_eval.py
 	WMT26_RECORD_RUNS=0 python3 scripts/smoke_test_training.py
-	WMT26_RECORD_RUNS=0 python3 scripts/merge_task_vectors.py --config configs/merge/uk.yaml --dry-run
-	WMT26_RECORD_RUNS=0 python3 scripts/search_merge_weights.py --config configs/merge/sorbian.yaml --dry-run --limit 2
+	rm -rf checkpoints/uk/specialists/qa
+	WMT26_RECORD_RUNS=0 python3 scripts/merge_task_vectors.py --config configs/merge/competitive_uk.yaml --dry-run
+	WMT26_RECORD_RUNS=0 python3 scripts/search_merge_weights.py --config configs/merge/competitive_sorbian.yaml --dry-run --limit 1
+	python3 scripts/competitive_cleanup_failed.py --execute
+	find checkpoints -type d -empty -delete 2>/dev/null || true
 
 report-data-quality:
 	python3 scripts/report_external_data_quality.py
@@ -161,3 +164,45 @@ phase4-report:
 
 phase4-clean-failed:
 	python3 scripts/phase4_cleanup_failed.py
+
+competitive-cleanup:
+	python3 scripts/run_competitive_reboot.py cleanup
+
+competitive-download-data:
+	python3 scripts/run_competitive_reboot.py download-data
+
+competitive-filter-data:
+	python3 scripts/run_competitive_reboot.py filter-data
+
+competitive-build-mixtures:
+	python3 scripts/run_competitive_reboot.py build-mixtures
+
+competitive-validate-data:
+	python3 scripts/run_competitive_reboot.py validate-data
+
+competitive-train-sorbian:
+	python3 scripts/run_competitive_reboot.py train-sorbian
+
+competitive-train-uk:
+	python3 scripts/run_competitive_reboot.py train-uk
+
+competitive-eval-sorbian:
+	python3 scripts/run_competitive_reboot.py eval-sorbian --oracle --output results/competitive_reboot/eval/sorbian/oracle_smoke.json
+
+competitive-eval-uk:
+	python3 scripts/run_competitive_reboot.py eval-uk --oracle --output results/competitive_reboot/eval/uk/oracle_smoke.json
+
+competitive-compare:
+	python3 scripts/run_competitive_reboot.py compare
+
+competitive-dashboard:
+	python3 scripts/run_competitive_reboot.py dashboard
+
+competitive-clean-failed:
+	python3 scripts/run_competitive_reboot.py clean-failed
+
+competitive-package-sorbian:
+	python3 scripts/competitive_package_model.py --track sorbian --model-dir checkpoints/competitive_reboot/sorbian/final --output-dir results/competitive_reboot/package --dry-run
+
+competitive-package-uk:
+	python3 scripts/competitive_package_model.py --track uk --model-dir checkpoints/competitive_reboot/uk/final --output-dir results/competitive_reboot/package --dry-run

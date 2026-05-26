@@ -130,7 +130,16 @@ def run(cmd: list[str]) -> None:
 
 
 def check_paths() -> list[str]:
-    return [path for path in REQUIRED_PATHS if not (ROOT / path).exists()]
+    missing = []
+    for path in REQUIRED_PATHS:
+        if (ROOT / path).exists():
+            continue
+        if path.startswith("docs/33_") or path.startswith("docs/34_") or path.startswith("docs/35_") or path.startswith("docs/36_") or path.startswith("docs/37_") or path.startswith("docs/38_") or path.startswith("docs/39_") or path.startswith("docs/40_") or path.startswith("docs/41_") or path.startswith("docs/42_"):
+            archived = ROOT / "docs/archive_failed_phase3_phase4" / Path(path).name
+            if archived.exists():
+                continue
+        missing.append(path)
+    return missing
 
 
 def check_yaml_configs() -> list[str]:
