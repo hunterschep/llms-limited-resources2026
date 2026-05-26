@@ -1,6 +1,6 @@
 # Phase 4 Dashboard
 
-Status: real prompt-only probe anchors and prompt sweeps have completed on Andromeda. No prompt variant has passed no-harm gates yet, so micro-ablations are the next active stage.
+Status: Phase 4 prompt sweep, micro-ablations, and gated full locked validation have completed. Ukrainian has no meaningful trained improvement, so prompt-only remains the safe Ukrainian fallback. Sorbian `edit_preserve_low_lr` at adapter scale 0.35 is a modest safe improvement and is the only Phase 4 checkpoint currently eligible for preservation.
 
 ## Prompt-Only Probe Anchors
 
@@ -12,6 +12,17 @@ Status: real prompt-only probe anchors and prompt sweeps have completed on Andro
 - uk: best prompt variant `edit_guarded` overall 38.323
 - sorbian: best prompt variant `mr_numeric` overall 29.147
 
-No-harm gate reports: `results/phase4/gates/prompt_sweep_uk_no_harm_report.md` and `results/phase4/gates/prompt_sweep_sorbian_no_harm_report.md`.
+No prompt-sweep variant passed no-harm gates.
 
-See `docs/45_phase4_preservation_pivot_plan.md` through `docs/54_phase4_merge_readiness.md`.
+## Gated Full Locked Validation
+
+| candidate | path | overall | MT | QA | SC | GC | MR | scale |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| UK prompt-only full anchor | results/phase4/gated_eval/uk_prompt_only_anchor.json | 37.399 | 40.990 | 34.278 | 46.917 | 35.646 | 29.167 |  |
+| UK mr_preserve_kl@0.1 | results/phase4/gated_eval/uk_mr_preserve_kl_scale_0p1.json | 37.401 | 41.074 | 34.278 | 47.166 | 35.322 | 29.167 | 0.1 |
+| Sorbian prompt-only full anchor | results/phase4/gated_eval/sorbian_prompt_only_anchor.json | 29.195 | 27.477 | 43.396 | 33.685 | 33.084 | 8.333 |  |
+| Sorbian edit_preserve_low_lr@0.35 | results/phase4/gated_eval/sorbian_edit_preserve_low_lr_scale_0p35.json | 29.794 | 27.561 | 42.138 | 33.685 | 33.084 | 12.500 | 0.35 |
+
+Full no-harm gate reports: `results/phase4/gates/full_uk_no_harm_report.md` and `results/phase4/gates/full_sorbian_no_harm_report.md`.
+
+Merge search remains blocked because only one Phase 4 candidate passed full locked validation. See `docs/53_phase4_gated_eval_results.md` and `docs/54_phase4_merge_readiness.md`.

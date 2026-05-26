@@ -1,0 +1,36 @@
+{
+  "adapter": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter",
+  "adapter_scale": 0.35,
+  "aggregate": {
+    "GC_score": 33.08423913043478,
+    "MR_score": 12.5,
+    "MT_score": 27.560895730736373,
+    "QA_score": 42.138364779874216,
+    "SC_score": 33.68476383569873,
+    "overall_score": 29.79365269534882
+  },
+  "model": "Qwen/Qwen3.5-2B",
+  "oracle": false,
+  "split": "locked_validation",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.6616847826086957
+    },
+    "MR": {
+      "accuracy": 0.125
+    },
+    "MT": {
+      "bleu": 5.42785804334264,
+      "chrf++": 27.560895730736373
+    },
+    "QA": {
+      "accuracy": 0.42138364779874216
+    },
+    "SC": {
+      "correction_f1": 0.017391304347826087,
+      "detection_f1": 0.6563039723661486
+    }
+  },
+  "track": "sorbian"
+}

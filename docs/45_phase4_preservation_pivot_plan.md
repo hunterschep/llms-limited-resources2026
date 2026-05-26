@@ -1,6 +1,6 @@
 # Phase 4 Preservation Pivot Plan
 
-Status: active.
+Status: gated evaluation complete.
 
 Phase 3 remediation is complete. The MR parser normalization is fixed, the SC/GC edit class-balance issue was fixed, and oracle/data-sanity/compact-overfit/checkpoint-loading gates pass. The fixed retrains are still not merge-safe: Ukrainian fixed retrains all underperform the normalized prompt-only baseline, and Sorbian external-enhanced is only a weak diagnostic fallback rather than a clean skill vector. Merge search and final polish remain blocked.
 
@@ -21,7 +21,18 @@ The normalized Qwen3.5-2B prompt-only baseline is now the anchor to beat:
 
 Phase 4 rule: no broad retraining. Every trained candidate must be preservation-first, evaluated on a small probe before full locked validation, and rejected if it improves one task by damaging the equal-weighted objective.
 
-Allowed next steps:
+Phase 4 outcome after prompt sweep, micro-ablations, and gated full locked validation:
+
+| Track | Candidate | Full overall | Delta vs prompt-only | Status |
+|---|---|---:|---:|---|
+| Ukrainian | prompt-only Qwen3.5-2B | 37.399 | 0.000 | fallback |
+| Ukrainian | `mr_preserve_kl@0.10` | 37.401 | +0.002 | diagnostic only; no real task gain |
+| Sorbian | prompt-only Qwen3.5-2B | 29.195 | 0.000 | baseline |
+| Sorbian | `edit_preserve_low_lr@0.35` | 29.794 | +0.599 | preserved safe candidate |
+
+Merge search remains blocked because only one full-gated Phase 4 candidate passed, and it is Sorbian-only. Final polish remains deferred.
+
+Allowed future next steps:
 
 - Build fixed Phase 4 probes.
 - Run prompt/decoding sweeps before training.

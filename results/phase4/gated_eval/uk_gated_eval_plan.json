@@ -2,7 +2,7 @@
   "base_model": "Qwen/Qwen3.5-2B",
   "candidate_report": "results/phase4/gates/micro_uk_no_harm_report.json",
   "config": "configs/eval/uk.yaml",
-  "dry_run": true,
+  "dry_run": false,
   "limit_candidates": 1,
   "min_adapter_scale": 0.01,
   "selected": [

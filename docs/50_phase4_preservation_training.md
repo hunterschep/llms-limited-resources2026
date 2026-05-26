@@ -15,3 +15,8 @@ Implemented files:
 Default Phase 4 configs use low-rank LoRA (`r=4`), low learning rates (`5e-6` to `1e-5`), attention-only target modules, short step counts, and clean `checkpoints/phase4/...` output paths.
 
 No Phase 4 checkpoint is merge-eligible until it passes probe no-harm gates and then full locked validation.
+
+Full locked-validation result:
+
+- `checkpoints/phase4/uk/mr_preserve_kl/adapter@scale=0.10` is diagnostic only. It is safe but does not beat prompt-only by a meaningful margin.
+- `checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.35` is preserved as the only Phase 4 safe improved candidate.

@@ -1,0 +1,13 @@
+{
+  "checkpoint_path": "",
+  "checksums": {
+    "results/phase4/gates/micro_uk_no_harm_report.json": "9080ddb3360e226ba82f11368ea26e1cdbfb8eaa2cb914ae7ca1a7de3ed95f5e"
+  },
+  "git_commit": "ad0dca10bd9b08782bd96ea5c8eef9dbc60c93b8",
+  "job_name": "phase4_eval_gated_uk",
+  "project_root": "/home/scheppat/workspace/projects/wmt26_lrllm",
+  "result_path": "results/phase4/gated_eval",
+  "scratch_root": "/scratch/scheppat/projects/wmt26_lrllm",
+  "slurm_job_id": "2504124",
+  "timestamp_utc": "2026-05-25T23:18:54.603450+00:00"
+}

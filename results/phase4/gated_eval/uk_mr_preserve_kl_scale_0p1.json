@@ -1,0 +1,36 @@
+{
+  "adapter": "checkpoints/phase4/uk/mr_preserve_kl/adapter",
+  "adapter_scale": 0.1,
+  "aggregate": {
+    "GC_score": 35.32221439198183,
+    "MR_score": 29.166666666666668,
+    "MT_score": 41.07386677717738,
+    "QA_score": 34.27762039660057,
+    "SC_score": 47.166186359269936,
+    "overall_score": 37.40131091833927
+  },
+  "model": "Qwen/Qwen3.5-2B",
+  "oracle": false,
+  "split": "locked_validation",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.046511627906976744,
+      "detection_f1": 0.6599326599326599
+    },
+    "MR": {
+      "accuracy": 0.2916666666666667
+    },
+    "MT": {
+      "bleu": 18.123775323960594,
+      "chrf++": 41.07386677717738
+    },
+    "QA": {
+      "accuracy": 0.34277620396600567
+    },
+    "SC": {
+      "correction_f1": 0.276657060518732,
+      "detection_f1": 0.6666666666666666
+    }
+  },
+  "track": "ukrainian"
+}

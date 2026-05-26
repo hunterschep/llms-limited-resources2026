@@ -1,0 +1,58 @@
+timestamp_utc: 2026-05-26T01:01:05Z
+timestamp_local: 2026-05-25T18:01:05-0700
+git_commit_before_cleanup: ad0dca10bd9b08782bd96ea5c8eef9dbc60c93b8
+
+remote_storage_before_cleanup:
+  scratch_total: 277.64GB used of 1TB soft limit
+  checkpoints_phase4: 22G
+  checkpoints_total: 22G
+  checkpoints_triage_overfit: 22G
+  home_results_phase4: 464K
+
+local_storage_before_cleanup:
+  checkpoints: 0B
+  large_phase4_result_files_over_1M: none
+
+remote_files_and_dirs_to_delete:
+  - /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/uk/edit_preserve_low_lr
+  - /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/uk/format_preserve_tiny
+  - /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/uk/mr_preserve_kl
+  - /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/sorbian/format_preserve_tiny
+  - /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/sorbian/mr_preserve_kl
+  - /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/sorbian/edit_preserve_low_lr/merged
+  - /scratch/scheppat/projects/wmt26_lrllm/checkpoints/triage/overfit
+  - empty checkpoint directories under /scratch/scheppat/projects/wmt26_lrllm/checkpoints
+
+remote_files_and_dirs_to_preserve:
+  - /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter
+  - /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/sorbian/edit_preserve_low_lr/PHASE4_METADATA.json
+  - /home/scheppat/workspace/projects/wmt26_lrllm/results/phase4/gated_eval/sorbian_edit_preserve_low_lr_scale_0p35.json
+  - /home/scheppat/workspace/projects/wmt26_lrllm/results/phase4/gated_eval/sorbian_prompt_only_anchor.json
+  - /home/scheppat/workspace/projects/wmt26_lrllm/results/phase4/gated_eval/uk_mr_preserve_kl_scale_0p1.json
+  - /home/scheppat/workspace/projects/wmt26_lrllm/results/phase4/gated_eval/uk_prompt_only_anchor.json
+  - /home/scheppat/workspace/projects/wmt26_lrllm/results/phase4/gates/full_sorbian_no_harm_report.json
+  - /home/scheppat/workspace/projects/wmt26_lrllm/results/phase4/gates/full_uk_no_harm_report.json
+  - /home/scheppat/workspace/projects/wmt26_lrllm/results/triage/
+
+local_files_deleted:
+  - checkpoints/uk/specialists/qa/dummy_state.pt
+  - checkpoints/uk/specialists/qa/DRY_RUN.json
+  - checkpoints/phase3_fixed/sorbian/merged/search_candidate_001/MERGE_DRY_RUN.json
+  - checkpoints/phase3_fixed/sorbian/merged/search_candidate_000/MERGE_DRY_RUN.json
+  - checkpoints/phase3_fixed/sorbian/merged/search/candidate_weights.jsonl
+  - checkpoints/phase3_fixed/uk/merged/weighted_task_vector/MERGE_DRY_RUN.json
+
+remote_cleanup_commands:
+  - rm -rf /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/uk/edit_preserve_low_lr /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/uk/format_preserve_tiny /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/uk/mr_preserve_kl /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/sorbian/format_preserve_tiny /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/sorbian/mr_preserve_kl /scratch/scheppat/projects/wmt26_lrllm/checkpoints/phase4/sorbian/edit_preserve_low_lr/merged
+  - rm -rf /scratch/scheppat/projects/wmt26_lrllm/checkpoints/triage/overfit
+  - find /scratch/scheppat/projects/wmt26_lrllm/checkpoints -depth -type d -empty -delete
+
+remote_storage_after_cleanup:
+  scratch_total: 277.64GB used of 1TB soft limit (quota accounting had not caught up immediately after deletion)
+  checkpoints_total: 20M
+  checkpoints_phase4: 20M
+  checkpoints_triage: empty directory only
+  home_results_phase4: 464K
+
+git_commit_after_cleanup:
+  final repository commit is reported in the final response; a self-referential commit hash cannot be embedded in the same committed manifest

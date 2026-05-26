@@ -1,0 +1,27 @@
+{
+  "baseline": "results/phase4/gated_eval/sorbian_prompt_only_anchor.json",
+  "checks": [
+    {
+      "baseline_overall": 29.19509183798065,
+      "candidate": "checkpoints/phase4/sorbian/edit_preserve_low_lr/adapter@scale=0.35",
+      "candidate_overall": 29.79365269534882,
+      "overall_delta": 0.5985608573681667,
+      "passed": true,
+      "reasons": [],
+      "task_drops": {
+        "GC": 0.0,
+        "MR": -4.166666666666668,
+        "MT": -0.08399925539431408,
+        "QA": 1.2578616352201237,
+        "SC": 0.0
+      },
+      "task_improvements": {
+        "GC": 0.0,
+        "MR": 4.166666666666668,
+        "MT": 0.08399925539431408,
+        "QA": -1.2578616352201237,
+        "SC": 0.0
+      }
+    }
+  ]
+}

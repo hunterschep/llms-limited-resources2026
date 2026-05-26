@@ -1,0 +1,13 @@
+{
+  "checkpoint_path": "",
+  "checksums": {
+    "results/phase4/gates/micro_sorbian_no_harm_report.json": "c83dd8323fa56d6c2ac185bab776a342bb0f20b4e39bbd584eeca0f765ae87a6"
+  },
+  "git_commit": "ad0dca10bd9b08782bd96ea5c8eef9dbc60c93b8",
+  "job_name": "phase4_eval_gated_sorbian",
+  "project_root": "/home/scheppat/workspace/projects/wmt26_lrllm",
+  "result_path": "results/phase4/gated_eval",
+  "scratch_root": "/scratch/scheppat/projects/wmt26_lrllm",
+  "slurm_job_id": "2504125",
+  "timestamp_utc": "2026-05-25T23:18:54.610834+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "baseline": "results/phase4/gated_eval/uk_prompt_only_anchor.json",
+  "checks": [
+    {
+      "baseline_overall": 37.39935884718339,
+      "candidate": "checkpoints/phase4/uk/mr_preserve_kl/adapter@scale=0.1",
+      "candidate_overall": 37.40131091833927,
+      "overall_delta": 0.0019520711558769221,
+      "passed": false,
+      "reasons": [
+        "no_task_gain_meets_minimum"
+      ],
+      "task_drops": {
+        "GC": 0.3234252271677178,
+        "MR": 0.0,
+        "MT": -0.08414758591226956,
+        "QA": 0.0,
+        "SC": -0.2490379970348755
+      },
+      "task_improvements": {
+        "GC": -0.3234252271677178,
+        "MR": 0.0,
+        "MT": 0.08414758591226956,
+        "QA": 0.0,
+        "SC": 0.2490379970348755
+      }
+    }
+  ]
+}
