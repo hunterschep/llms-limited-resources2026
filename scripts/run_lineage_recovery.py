@@ -20,6 +20,10 @@ def run(command: list[str]) -> int:
 
 
 def status() -> int:
+    try:
+        local_git_status = subprocess.check_output(["git", "status", "--short"], cwd=ROOT, text=True)
+    except Exception:
+        local_git_status = "unavailable: project directory is not a git checkout"
     data = {
         "timestamp": dt.datetime.now(dt.timezone.utc).isoformat(),
         "git_commit": git_commit(),
@@ -29,7 +33,7 @@ def status() -> int:
             "lineage_stage_a_parent": STAGE_A_PARENT,
             "lineage_stage_b_merged": STAGE_B_MERGED,
         },
-        "local_git_status": subprocess.check_output(["git", "status", "--short"], cwd=ROOT, text=True),
+        "local_git_status": local_git_status,
     }
     write_json(ROOT / "results/lineage_recovery/status/local_status.json", data)
     print(json.dumps(data, indent=2, sort_keys=True))
