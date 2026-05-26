@@ -1,0 +1,14 @@
+{
+  "git_commit_before_cleanup": "2c30c192934506d15864e4ad2f1d0a8a71d1eaa0",
+  "local_files_deleted": [],
+  "local_paths_archived": [],
+  "notes": "Remote cleanup is recorded separately with the Andromeda manifest.",
+  "preserved": [
+    "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large",
+    "results/competitive_reboot/eval/sorbian/prompt_only_qwen35_2b.json",
+    "results/competitive_reboot/eval/sorbian/stage_b_mt_large.json",
+    "results/competitive_reboot/comparisons/sorbian_stage_b_direction_breakdown.md",
+    "docs/80_competitive_reboot_results_and_decision.md"
+  ],
+  "timestamp": "20260526T195553Z"
+}

@@ -1,0 +1,6 @@
+{
+  "config": "configs/merge/stage_b_rescue/sorbian_repair_merge.yaml",
+  "config_exists": true,
+  "reason": "Task-vector repair merge is only valid after separate MR and edit repair adapters show positive probe signal. Failed Stage C is explicitly excluded.",
+  "status": "blocked_until_individual_repairs_pass_probe"
+}

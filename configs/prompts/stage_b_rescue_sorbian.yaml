@@ -1,0 +1,21 @@
+track: sorbian
+anchor_checkpoint: checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+policy:
+  preserve_mt_prompt: true
+  no_stage_c_replay: true
+variants:
+  mr:
+    - name: final_answer_only
+      instruction: Return only the final answer. Do not explain.
+      max_new_tokens: 32
+    - name: numeric_only
+      instruction: Return only the number or short final answer after Answer:.
+      max_new_tokens: 24
+  edit:
+    - name: exact_two_line
+      instruction: Return exactly two lines, Wrong word and Correct word. Use CORRECT/CORRECT when there is no error.
+      max_new_tokens: 48
+  mt:
+    - name: stage_b_translation_only
+      instruction: Preserve current Stage B translation-only prompt.
+      max_new_tokens: 256

@@ -1,0 +1,24 @@
+track: sorbian
+seed: 2606
+sources:
+  mr:
+    - data/processed/external/sorbian/mr_non_benchmark_hsb.jsonl
+    - data/processed/external/sorbian/mr_non_benchmark_dsb.jsonl
+  edit_errors:
+    - data/processed/external/sorbian/sc_synthetic_hsb.jsonl
+    - data/processed/external/sorbian/sc_synthetic_dsb.jsonl
+    - data/processed/external/sorbian/gc_synthetic_hsb.jsonl
+    - data/processed/external/sorbian/gc_synthetic_dsb.jsonl
+  mt_anchor: data/processed/competitive/sorbian/stage_b_mt_large.jsonl
+limits:
+  mr_examples: 240
+  edit_error_examples_per_task: 180
+  edit_clean_examples_per_task: 180
+  format_examples: 96
+  mt_anchor_examples: 12000
+policy:
+  stage_b_anchor: checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+  no_locked_validation_training: true
+  no_stage_c_replay: true
+  no_polymath: true
+  description: tiny targeted repair data with MT anchor replay; not broad Stage C replay

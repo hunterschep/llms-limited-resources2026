@@ -1,0 +1,23 @@
+track: sorbian
+model: Qwen/Qwen3.5-2B
+max_new_tokens: 192
+batch_size: 16
+split: stage_b_rescue_probe
+datasets:
+  MT:
+  - data/processed/stage_b_rescue/sorbian/probe/mt_probe.jsonl
+  QA:
+  - data/processed/stage_b_rescue/sorbian/probe/qa_probe.jsonl
+  SC:
+  - data/processed/stage_b_rescue/sorbian/probe/sc_probe.jsonl
+  GC:
+  - data/processed/stage_b_rescue/sorbian/probe/gc_probe.jsonl
+  MR:
+  - data/processed/stage_b_rescue/sorbian/probe/mr_probe.jsonl
+scoring:
+  convention: 0-100
+  overall: equal_weighted_mean_of_MT_QA_SC_GC_MR
+stage_b_prompt_sweep_variant:
+  name: baseline_192
+  max_new_tokens: 192
+  notes: probe default

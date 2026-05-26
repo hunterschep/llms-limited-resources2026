@@ -1,0 +1,61 @@
+{
+  "created_at": "2026-05-26T19:54:48.341333+00:00",
+  "eval_config": "configs/eval/stage_b_rescue_probe_sorbian.yaml",
+  "git_commit": "2c30c192934506d15864e4ad2f1d0a8a71d1eaa0",
+  "outputs": {
+    "GC": {
+      "by_direction": {},
+      "by_language": {
+        "dsb": 103,
+        "hsb": 137
+      },
+      "path": "data/processed/stage_b_rescue/sorbian/probe/gc_probe.jsonl",
+      "rows": 240,
+      "sha256": "da6aa8ca27ff8093e4ffc02ab3365168357747203003634a806388673d8dfe3f"
+    },
+    "MR": {
+      "by_direction": {},
+      "by_language": {
+        "dsb": 24,
+        "hsb": 24
+      },
+      "path": "data/processed/stage_b_rescue/sorbian/probe/mr_probe.jsonl",
+      "rows": 48,
+      "sha256": "80fa539824b10633d26e3d38db770ba8ca137525e669090ceee85f88a3f21649"
+    },
+    "MT": {
+      "by_direction": {
+        "unknown": 360
+      },
+      "by_language": {
+        "de": 120,
+        "dsb": 120,
+        "hsb": 120
+      },
+      "path": "data/processed/stage_b_rescue/sorbian/probe/mt_probe.jsonl",
+      "rows": 360,
+      "sha256": "5bc63840cd40320b2ed5513a64b69ec07ec4e19b5a8d6c5153dcf82b99ff411a"
+    },
+    "QA": {
+      "by_direction": {},
+      "by_language": {
+        "dsb": 84,
+        "hsb": 75
+      },
+      "path": "data/processed/stage_b_rescue/sorbian/probe/qa_probe.jsonl",
+      "rows": 159,
+      "sha256": "d9131e7182e95cc334dc3d27b337902a6353b0a6a2c84f12ee12b51da8430e6a"
+    },
+    "SC": {
+      "by_direction": {},
+      "by_language": {
+        "dsb": 126,
+        "hsb": 114
+      },
+      "path": "data/processed/stage_b_rescue/sorbian/probe/sc_probe.jsonl",
+      "rows": 240,
+      "sha256": "137580898ceac32c39c4db39e684119efb154ebe7bc63bd5ad67f51abe92f1a8"
+    }
+  },
+  "seed": 2606
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "config": "configs/eval/stage_b_rescue_prompt_sweep/baseline_192.yaml",
+    "max_new_tokens": 192,
+    "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large",
+    "name": "baseline_192",
+    "notes": "probe default",
+    "output": "results/stage_b_rescue/prompt_sweep/baseline_192.json",
+    "raw_output": "results/stage_b_rescue/prompt_sweep/baseline_192_raw.jsonl"
+  },
+  {
+    "config": "configs/eval/stage_b_rescue_prompt_sweep/short_96.yaml",
+    "max_new_tokens": 96,
+    "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large",
+    "name": "short_96",
+    "notes": "shorter QA/MR/edit generations; MT still usually fits probe sentences",
+    "output": "results/stage_b_rescue/prompt_sweep/short_96.json",
+    "raw_output": "results/stage_b_rescue/prompt_sweep/short_96_raw.jsonl"
+  },
+  {
+    "config": "configs/eval/stage_b_rescue_prompt_sweep/compact_64.yaml",
+    "max_new_tokens": 64,
+    "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large",
+    "name": "compact_64",
+    "notes": "strong anti-ramble cap; diagnostic only for MT",
+    "output": "results/stage_b_rescue/prompt_sweep/compact_64.json",
+    "raw_output": "results/stage_b_rescue/prompt_sweep/compact_64_raw.jsonl"
+  },
+  {
+    "config": "configs/eval/stage_b_rescue_prompt_sweep/full_256.yaml",
+    "max_new_tokens": 256,
+    "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large",
+    "name": "full_256",
+    "notes": "current full-eval default",
+    "output": "results/stage_b_rescue/prompt_sweep/full_256.json",
+    "raw_output": "results/stage_b_rescue/prompt_sweep/full_256_raw.jsonl"
+  }
+]

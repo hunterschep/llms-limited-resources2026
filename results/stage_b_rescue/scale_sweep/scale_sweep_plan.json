@@ -1,0 +1,18 @@
+{
+  "adapter": "$SCRATCH_ROOT/checkpoints/competitive_reboot/sorbian/stage_b_mt_large/adapter",
+  "adapter_exists": true,
+  "base_exists": false,
+  "base_model": "$SCRATCH_ROOT/checkpoints/competitive_reboot/sorbian/stage_a_dapt_large",
+  "reason": "Stage B was preserved as a merged checkpoint but its original Stage A base checkpoint is not retained, so the LoRA adapter cannot be safely re-applied for scale search.",
+  "results": [],
+  "scales": [
+    0.5,
+    0.65,
+    0.75,
+    0.85,
+    0.9,
+    1.0,
+    1.1
+  ],
+  "status": "ruled_out"
+}

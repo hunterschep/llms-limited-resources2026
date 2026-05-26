@@ -1,0 +1,1727 @@
+{
+  "edit": {
+    "GC": {
+      "models": {
+        "prompt_only_qwen35_2b": {
+          "correction_exact": 0,
+          "detection_fn": 0,
+          "detection_fp": 498,
+          "detection_tn": 0,
+          "detection_tp": 487,
+          "false_negative_examples": [],
+          "false_positive_examples": [
+            {
+              "id": "hsb_gc_dev:0003",
+              "input": "Hłowny princip terminoweho planowanja je: Nječiń to, štož móža druzy činić.",
+              "prediction": "Wrong word: Hłowny\nCorrect word: Hlavný\n\nWrong word: terminoweho\nCorrect word: termínového\n\nWrong word: planowanja\nCorrect word: plánovania\n\nWrong word: Nječiń\nCorrect word: Njich\n\nWrong word: štož\nCorrect word: čo\n\nWrong word: móža\nCorrect word: môže\n\nWrong word: druzy\nCorrect word: druhy\n\nWrong word: činić\nCorrect word: čini",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0005",
+              "input": "Po naprašowanjach je Sakska najnjewoblubowaniši zwjazkowy kraj Němskeje.",
+              "prediction": "Wrong word: najnjewoblubowaniši\nCorrect word: najljubšejší",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0010",
+              "input": "Tom je mi prajił, zo je jara mučny.",
+              "prediction": "Wrong word: prajił\nCorrect word: prajal\n\nWrong word: zo\nCorrect word: że",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0013",
+              "input": "Kónc meje wuzwoleny 47-lětny je naslědnik Jochena Bohla, kiž poda so nětko na wotpočink.",
+              "prediction": "Wrong word: wuzwoleny\nCorrect word: wuzwoleny",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0018",
+              "input": "Wón zalěze na wólšu a widźeše ju: Wona płuwaše wosrjedź wulkeho morja.",
+              "prediction": "Wrong word: zalěze\nCorrect word: zalesze\n\nWrong word: widźeše\nCorrect word: widziše\n\nWrong word: Wona\nCorrect word: Wona\n\nWrong word: płuwaše\nCorrect word: płuwaše\n\nWrong word: wosrjedź\nCorrect word: wosrjedź\n\nWrong word: wulkeho\nCorrect word: wulkého\n\nWrong word: morja\nCorrect word: morja",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0019",
+              "input": "Nimo toho ma jich krajne knježerstwo nětko społnomócnjeneho za serbske naležnosće w funkciji statneho sekretara.",
+              "prediction": "Wrong word: nětko\nCorrect word: někteho",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0027",
+              "input": "Dyrbju nam něšto k swačinje wobstarać?",
+              "prediction": "Wrong word: k\nCorrect word: za",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0031",
+              "input": "W projekće wutworja so techniske zakłady za strukturowane zwěsćenje a podawanje hesłow, wobsahowe zwobraznjenje kaž tež kartografiske wizualizowanje objektow.",
+              "prediction": "Wrong word: projekće\nCorrect word: projekće\n\nWrong word: wutworja\nCorrect word: wutworja\n\nWrong word: techniske\nCorrect word: techniske\n\nWrong word: zakłady\nCorrect word: zakłady\n\nWrong word: strukturowane\nCorrect word: strukturowane\n\nWrong word: zwěsćenje\nCorrect word: zwěsćenje\n\nWrong word: a\nCorrect word: a\n\nWrong word: podawanje\nCorrect word: podawanje\n\nWrong word: hesłow\nCorrect word: hesłow\n\nWrong word: wobsahowe\nCorrect word: wobsahowe\n\nWrong word: zwobraznjenje\nCorrect word: zwobraznjenje\n\nWrong word: kaž\nCorrect word: kaž\n\nWrong word: tež\nCorrect word: tež\n\nWrong word: kartografiske\nCorrect word: kartografiske\n\nWrong word: wizualizowanje\nCorrect word: wizualizowanje\n\nWrong word: objektow\nCorrect word: objektow",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0044",
+              "input": "Zešiwk koresponduje z wučbnicu a wopřija wobsahi a nadawki za posrědkowanje a skrućenje wědy.",
+              "prediction": "Wrong word: wopřija\nCorrect word: wopřijed",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0051",
+              "input": "Ale zakładne nastajenje ludnosće kaž tež politiske wobstejnosće w kraju su přičina, zo so tu wjace derje nječuja.",
+              "prediction": "Wrong word: zakładne nastajenje\nCorrect word: zakładne nastajenje",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0057",
+              "input": "Kak by njebinarnych bratrow a sotry jednoho ze swojeju staršeju mjenował?",
+              "prediction": "Wrong word: bratrow\nCorrect word: bratrow",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0058",
+              "input": "Tak paleše so drjewowe wuhlo mócnje a dawaše trěbnu ćopłotu k škrěću rudy.",
+              "prediction": "Wrong word: drjewowe\nCorrect word: drejowe",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0068",
+              "input": "Wotpowědnu strukturu rjadowakow postaji rěčny centrum w swójskej režiji.",
+              "prediction": "Wrong word: rjadowakow\nCorrect word: rajdowakow",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0074",
+              "input": "Njeswačanska cyrkej je ewangelski cyrkwinski twar w hornjołužiskim Njeswačidle.",
+              "prediction": "Wrong word: ewangelski\nCorrect word: evangelski",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0082",
+              "input": "Tež to Meloni hinak widźi.",
+              "prediction": "Wrong word: widźi\nCorrect word: widzi",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0089",
+              "input": "Bu 1937 wot NS-organizacije „Kraft durch Freude“ załožene.",
+              "prediction": "Wrong word: wot\nCorrect word: wot",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0091",
+              "input": "Mějće tute wopismo na pućowanju při sebi.",
+              "prediction": "Wrong word: Mějće\nCorrect word: Mějce",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0097",
+              "input": "Měniš, zo sym ja nětko jeje partner a dyrbju jej při lehnjenju pomhać?",
+              "prediction": "Wrong word: Měniš\nCorrect word: Meniš",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0108",
+              "input": "Stary muž hladaše rady na dobre stare časy wróćo.",
+              "prediction": "Wrong word: Stary\nCorrect word: Starý\n\nWrong word: hladaše\nCorrect word: hledá",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0109",
+              "input": "To je wšak jara zrozumliwe.",
+              "prediction": "Wrong word: zrozumliwe\nCorrect word: zrozumiałe",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            }
+          ],
+          "full_sentence_rewrite_rate": 0.013197969543147208,
+          "gold_correct": 498,
+          "gold_error": 487,
+          "malformed_output_rate": 0.02131979695431472,
+          "no_error_accuracy": 0.0,
+          "pred_correct": 0,
+          "pred_error": 985,
+          "total": 985,
+          "wrong_word_exact": 62
+        },
+        "stage_b_mt_large": {
+          "correction_exact": 2,
+          "detection_fn": 0,
+          "detection_fp": 498,
+          "detection_tn": 0,
+          "detection_tp": 487,
+          "false_negative_examples": [],
+          "false_positive_examples": [
+            {
+              "id": "hsb_gc_dev:0003",
+              "input": "Hłowny princip terminoweho planowanja je: Nječiń to, štož móža druzy činić.",
+              "prediction": "Wrong word: planowanja CORRECT\nCorrect word: planowanja",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0005",
+              "input": "Po naprašowanjach je Sakska najnjewoblubowaniši zwjazkowy kraj Němskeje.",
+              "prediction": "Wrong word: naprašowanjach\nCorrect word: naprašowanjach",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0010",
+              "input": "Tom je mi prajił, zo je jara mučny.",
+              "prediction": "Wrong word: Tom\nCorrect word: Tom",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0013",
+              "input": "Kónc meje wuzwoleny 47-lětny je naslědnik Jochena Bohla, kiž poda so nětko na wotpočink.",
+              "prediction": "Wrong word: wuzwoleny\nCorrect word: wuzwoleny",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0018",
+              "input": "Wón zalěze na wólšu a widźeše ju: Wona płuwaše wosrjedź wulkeho morja.",
+              "prediction": "Wrong word: Wón\nCorrect word: On",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0019",
+              "input": "Nimo toho ma jich krajne knježerstwo nětko społnomócnjeneho za serbske naležnosće w funkciji statneho sekretara.",
+              "prediction": "Wrong word: jich\nCorrect word: ich",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0027",
+              "input": "Dyrbju nam něšto k swačinje wobstarać?",
+              "prediction": "Wrong word: nam\nCorrect word: mi",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0031",
+              "input": "W projekće wutworja so techniske zakłady za strukturowane zwěsćenje a podawanje hesłow, wobsahowe zwobraznjenje kaž tež kartografiske wizualizowanje objektow.",
+              "prediction": "Wrong word: projekće\nCorrect word: projekty",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0044",
+              "input": "Zešiwk koresponduje z wučbnicu a wopřija wobsahi a nadawki za posrědkowanje a skrućenje wědy.",
+              "prediction": "Wrong word: wopřija\nCorrect word: woprijma",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0051",
+              "input": "Ale zakładne nastajenje ludnosće kaž tež politiske wobstejnosće w kraju su přičina, zo so tu wjace derje nječuja.",
+              "prediction": "Wrong word: zakładne\nCorrect word: základne",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0057",
+              "input": "Kak by njebinarnych bratrow a sotry jednoho ze swojeju staršeju mjenował?",
+              "prediction": "Wrong word: njebinarnych\nCorrect word: niebinarnych",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0058",
+              "input": "Tak paleše so drjewowe wuhlo mócnje a dawaše trěbnu ćopłotu k škrěću rudy.",
+              "prediction": "Wrong word: ćopłotu\nCorrect word: ciepło",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0068",
+              "input": "Wotpowědnu strukturu rjadowakow postaji rěčny centrum w swójskej režiji.",
+              "prediction": "Wrong word: rěčny\nCorrect word: rěcny",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0074",
+              "input": "Njeswačanska cyrkej je ewangelski cyrkwinski twar w hornjołužiskim Njeswačidle.",
+              "prediction": "Wrong word: cyrkej\nCorrect word: cerkwje",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0082",
+              "input": "Tež to Meloni hinak widźi.",
+              "prediction": "Wrong word: Tež\nCorrect word: Też",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0089",
+              "input": "Bu 1937 wot NS-organizacije „Kraft durch Freude“ załožene.",
+              "prediction": "Wrong word: Bu\nCorrect word: Wobej",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0091",
+              "input": "Mějće tute wopismo na pućowanju při sebi.",
+              "prediction": "Wrong word: wopismo\nCorrect word: opis",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0097",
+              "input": "Měniš, zo sym ja nětko jeje partner a dyrbju jej při lehnjenju pomhać?",
+              "prediction": "Wrong word: partner\nCorrect word: partnerka",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0108",
+              "input": "Stary muž hladaše rady na dobre stare časy wróćo.",
+              "prediction": "Wrong word: stare\nCorrect word: stare",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0109",
+              "input": "To je wšak jara zrozumliwe.",
+              "prediction": "Wrong word: zrozumliwe\nCorrect word: zrozumliwy",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            }
+          ],
+          "full_sentence_rewrite_rate": 0.027411167512690356,
+          "gold_correct": 498,
+          "gold_error": 487,
+          "malformed_output_rate": 0.06700507614213198,
+          "no_error_accuracy": 0.0,
+          "pred_correct": 0,
+          "pred_error": 985,
+          "total": 985,
+          "wrong_word_exact": 50
+        },
+        "stage_c_instruction_replay": {
+          "correction_exact": 0,
+          "detection_fn": 477,
+          "detection_fp": 18,
+          "detection_tn": 480,
+          "detection_tp": 10,
+          "false_negative_examples": [
+            {
+              "id": "hsb_gc_dev:0006",
+              "input": "To wjedźe k wulkej njewěstosći pola ludźi w Miłoraza.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: Miłoraza\nCorrect word: Miłorazu"
+            },
+            {
+              "id": "hsb_gc_dev:0011",
+              "input": "Towarstwo Mohorjeva/Hermagoras organizuje w nowember rjad \"Mjeńšiny – Wokno do swěta\".",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: nowember\nCorrect word: nowembru"
+            },
+            {
+              "id": "hsb_gc_dev:0020",
+              "input": "Wosobinski list je wjesnjanosty gmejny Pančicy-Kukow wčera wšitkim domjacnosćam swojeje komuny připósłał.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: wjesnjanosty\nCorrect word: wjesnjanosta"
+            },
+            {
+              "id": "hsb_gc_dev:0023",
+              "input": "Z kóždej poru wuprudźeja awtoritarne přeswědčenje, Europa je překomplikowane wěc, zo by ju zjawnej arenje dowěrił.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: překomplikowane\nCorrect word: překomplikowana"
+            },
+            {
+              "id": "hsb_gc_dev:0034",
+              "input": "W Nowym Měsće zeznajomichu so z dalšim wuskutk wudobywanja wuhla, zwyšenjom dnowneje wody.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: wuskutk\nCorrect word: wuskutkom"
+            },
+            {
+              "id": "hsb_gc_dev:0035",
+              "input": "Wšojedne, hač z PCjom, z tabletom abo po puću ze smartfonje.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: smartfonje\nCorrect word: smartfonom"
+            },
+            {
+              "id": "hsb_gc_dev:0053",
+              "input": "Slěbrowy oksid je mjeno jedneje chemiskoh wjazby slěbra a kislika.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: chemiskoh\nCorrect word: chemiskeje"
+            },
+            {
+              "id": "hsb_gc_dev:0056",
+              "input": "Symptomatiske za to bě, zo přewza z přećelnym Björnom Engholmom prěni raz wosobinu předsydstwo SPD, kiž wupadaše bóle za płachtakowanjom hač za politiskim napinanjom.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: wosobinu\nCorrect word: wosobina"
+            },
+            {
+              "id": "hsb_gc_dev:0077",
+              "input": "Jeli so mandźelstwo dźěli, dyrbi so partner na přidobytkom druheho wobdźělić.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: přidobytkom\nCorrect word: přidobytku"
+            },
+            {
+              "id": "hsb_gc_dev:0094",
+              "input": "1974 namaka skupina amerisko-francoskich archeologow w kamjentnej pusćinje Hadar (Wuchodna Afrika) dźěle kosćowcej.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: kosćowcej\nCorrect word: kosćowca"
+            },
+            {
+              "id": "hsb_gc_dev:0100",
+              "input": "W pusćinje móhło so na płoninje, kiž je tak wulka kaž Šwicarskeje, dosć kerozina za wšě lětadła na swěće produkować, tak wobličenja.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: Šwicarskeje\nCorrect word: Šwicarska"
+            },
+            {
+              "id": "hsb_gc_dev:0101",
+              "input": "Najdlěša rěka Dansku je Gudenå z 160 kilometrami.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: Dansku\nCorrect word: Danskeje"
+            },
+            {
+              "id": "hsb_gc_dev:0106",
+              "input": "Bě čas za něšto nowe, a tak započa Bowie kaž dźiwi z eksperimentowanje.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: eksperimentowanje\nCorrect word: eksperimentowanjom"
+            },
+            {
+              "id": "hsb_gc_dev:0113",
+              "input": "To je zwjazkowe předsydstwo minjeny pjatk w Choćebuzom po turbulentnej debaće k tutej naležnosći wobzamknyło.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: Choćebuzom\nCorrect word: Choćebuzu"
+            },
+            {
+              "id": "hsb_gc_dev:0122",
+              "input": "Wopisuj, kotrej móc wustawa konsulata Napoleonej dawaše.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: kotrej\nCorrect word: kotru"
+            },
+            {
+              "id": "hsb_gc_dev:0128",
+              "input": "Wot 2015 knježeše tu wosom lět dołho narodnokonserwatiwnej strona „Prawo a sprawnosć“ (PiS).",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: narodnokonserwatiwnej\nCorrect word: narodnokonserwatiwna"
+            },
+            {
+              "id": "hsb_gc_dev:0130",
+              "input": "Mjez mnohich sobuskutkowacymi su tež Hannah Gräser, Marit Reinel a Leonora Šusterec (wotlěwa), kotrež běchu so hižo w dźiwadłowej skupinje Wojerowskeje Kulturneje fabriki angažowali.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: mnohich\nCorrect word: mnohimi"
+            },
+            {
+              "id": "hsb_gc_dev:0134",
+              "input": "Rozdźěl je pót w słodźe a aromje čaja jasnje spóznajomny.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: pót\nCorrect word: potom"
+            },
+            {
+              "id": "hsb_gc_dev:0137",
+              "input": "To je hotowa hłupeje ideja, to činić.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: hłupeje\nCorrect word: hłupa"
+            },
+            {
+              "id": "hsb_gc_dev:0138",
+              "input": "Marhata přinjese jimaj chlěb a škličce ze zelenkojtym wusmuža.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: wusmuža\nCorrect word: wusmužom"
+            }
+          ],
+          "false_positive_examples": [
+            {
+              "id": "hsb_gc_dev:0132",
+              "input": "Ma dwě serbskej pomjenowani.",
+              "prediction": "Wrong word: pomjenowani\nCorrect word: pomjenowani",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0422",
+              "input": "Naša wěda wo Grjekach je wěsta, dokelž …",
+              "prediction": "Wrong word: dokelž\nCorrect word: dokelž",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0817",
+              "input": "Přepitk su pjenjezy, kotrež damy někomu dodatnje do ruki, kiž nas posłužuje abo nam z posłužbu pomha.",
+              "prediction": "Wrong word: pjenjezy\nCorrect word: pjenjezy",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_gc_dev:0850",
+              "input": "Wón móže z tym pak tež powołanske wukubłanje započinać.",
+              "prediction": "Wrong word: pak\nCorrect word: pak",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0061",
+              "input": "Njejsom zewšym wěźeł, kak lažko to jo, musyš jano wšykno pšawje pśemysliś.",
+              "prediction": "Wrong word: pśemysliś\nCorrect word: pśemysliś",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0154",
+              "input": "Pückler jo pśirodnu wokolinu do swójeje „krajinoweje mólby“ zapśimjeł.",
+              "prediction": "Wrong word: pśirodnu\nCorrect word: prirodnu",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0296",
+              "input": "(Płaśonki za kapitlom 13.1 pórěda GebOLandw)",
+              "prediction": "Wrong word: płaśonki\nCorrect word: płaśenki",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0330",
+              "input": "Połožtej se pókšywadło pód pśesłyńcnik!",
+              "prediction": "Wrong word: pśesłyńcnik\nCorrect word: pśesłyńca",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0376",
+              "input": "Ako pśicynu pomjenjujo jogo pśedsedaŕ, až njejsu zlubjone finance pšawidłownje dojšli.",
+              "prediction": "Wrong word: pśicynu\nCorrect word: pśicynjo",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0435",
+              "input": "Knigły su w Ludowem nakładnistwje Domowina resp. w Smolerjec knigłaŕni na pśedań.",
+              "prediction": "Wrong word: resp.\nCorrect word: resp.",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0438",
+              "input": "Až do toś togo termina by kooperaciske dogrono dejało pópšawem gótowe byś.",
+              "prediction": "Wrong word: pópšawem\nCorrect word: pópšawem",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0702",
+              "input": "Selektor jo se zablokěrował, dokulaž wužywaŕska aktiwacija felujo.",
+              "prediction": "Wrong word: felujo\nCorrect word: felujucy",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0714",
+              "input": "Pšosym až do srjody pśetrjebu miliny na licaku wótcytaś.",
+              "prediction": "Wrong word: pśetrjebu\nCorrect word: pśetrjebu",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0845",
+              "input": "Kopija personalnego wupokaza abo drogowaŕskego pasa z wopóznanjenim pśebywalnego mjeldowanja, ewentuelnje wopokazanje originala na měsće. Pódaśa k městnosći a sorśe stojnice kaž teke k sortimentoju wórow.",
+              "prediction": "Wrong word: pśebywalnego\nCorrect word: pśebywajocego",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0972",
+              "input": "Kupśo sebje tola pšosym něnto malsnje Serbski kulturny leksikon.",
+              "prediction": "Wrong word: pšosym\nCorrect word: pśisym",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:0989",
+              "input": "Njepłac, Milenka, gójc tebje pomožo.",
+              "prediction": "Wrong word: Njepłac\nCorrect word: Njepłac",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:1088",
+              "input": "Nazymu zajźonego lěta jo se wjednica źiśownje njemało źiwała.",
+              "prediction": "Wrong word: zajźonego\nCorrect word: zajětego",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_gc_dev:1194",
+              "input": "Maś jo wariła wobjed.",
+              "prediction": "Wrong word: wariła\nCorrect word: wariła",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            }
+          ],
+          "full_sentence_rewrite_rate": 0.0,
+          "gold_correct": 498,
+          "gold_error": 487,
+          "malformed_output_rate": 0.0,
+          "no_error_accuracy": 0.963855421686747,
+          "pred_correct": 957,
+          "pred_error": 28,
+          "total": 985,
+          "wrong_word_exact": 1
+        }
+      },
+      "task": "GC"
+    },
+    "SC": {
+      "models": {
+        "prompt_only_qwen35_2b": {
+          "correction_exact": 5,
+          "detection_fn": 0,
+          "detection_fp": 597,
+          "detection_tn": 0,
+          "detection_tp": 570,
+          "false_negative_examples": [],
+          "false_positive_examples": [
+            {
+              "id": "hsb_sc_dev:0001",
+              "input": "Wokrjes je zamołwitosć přewzał, dokelž běše zasadne rozrisanje trěbne, wotstronić internetnu pusćinu w mnohich komunach.",
+              "prediction": "Wrong word: zamołwitosć Correct word: zamówić\nWrong word: dokelž Correct word: dokąd",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0004",
+              "input": "Njejsym Leonardo DiCaprio, wuzna wón jej smějo, ale tón, kiž chce twoje koleso reparować.",
+              "prediction": "Wrong word: wón\nCorrect word: on\n\nCorrect word: koleso",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0008",
+              "input": "Dalekubłanske naprawy k medicinsko-fachowym temam dyrbja so pod lěkarskim wědomostnym nawodom koncipować a přewjesć.",
+              "prediction": "Wrong word: dyrbja\nCorrect word: dyrbja",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0023",
+              "input": "Předstajene stupnicy steja mjez sobu w kwintowym přiwuznistwje.",
+              "prediction": "Wrong word: mjez\nCorrect word: mež\n\nWrong word: přiwuznistwje\nCorrect word: priwuznistwje",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0024",
+              "input": "Poćahowanski dypk bě při tym horjeka naspomnjene \"znamjo Jony\" z ewangelija po Mateju.",
+              "prediction": "Wrong word: dypk\nCorrect word: dypka\n\nCorrect word: znamjo",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0036",
+              "input": "Dźěłowa skupina Domowiny je wot 2018 hižo někak 50 namjetow zrodźiła.",
+              "prediction": "Wrong word: namjetow\nCorrect word: namjetow",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0041",
+              "input": "Do nastupa słužbneje jězby ma sej sobudźěłaćer sčasom pisomnu dowolnosć za to wobstarać (tuchwilu płaćaca wersija hlej přiłohu 5).",
+              "prediction": "Wrong word: nastupa słužbneje jězby ma sej sobudźěłaćer sčasom pisomnu dowolnosć za to wobstarać (tuchwilu płaćaca wersija hlej přiłohu 5)\nCorrect word: Do następującej służby mają się służyć czasami pisomną dowolność za to wzbogaczać (tutaj płacąca wersja hleje przyłog 5)",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0042",
+              "input": "Štó myli mje w tutym njekřesćanskim času?",
+              "prediction": "Wrong word: njekřesćanskim\nCorrect word: nekršćanskim",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0045",
+              "input": "Jězorina trjeba wjace fachowcow, hewak njemóža so wšitke nadawki hladajo na wobswětoškit spjelnić.",
+              "prediction": "Wrong word: fachowcow\nCorrect word: fachowców\n\nCorrect word: wjace",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0050",
+              "input": "W lěće 1847 wobstejachu w I. hamtskim hejtmanstwje Budyšin tři towarstwa, mjenujcy w Kinsporku, Hodźiju a Klukšu.",
+              "prediction": "Wrong word: wobstejachu\nCorrect word: wstępujachu\n\nCorrect word: Budyšin",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0067",
+              "input": "Kónc wójny so škabry do našeje kuchnje zadobychu.",
+              "prediction": "Wrong word: wójny\nCorrect word: wójny\n\nCorrect word: wójny",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0069",
+              "input": "Ja kolesowar jeho wotzady přesćahnych, so na pasmo za pěškow wuhibnywši, dokelž najebać klinkanje njereagowaše.",
+              "prediction": "Wrong word: klinkanje Correct word: klikanje\nCorrect word: kolesowar",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0070",
+              "input": "W našim wideju rozłožuje fachowc Stefano Warmuth, što ma so při instalaciji wobkedźbować a kak tuta wotběži.",
+              "prediction": "Wrong word: wobkedźbować Correct word: wobkazać\nCorrect word: wotběži Correct word: wotběž",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0072",
+              "input": "Přinoški wo sporće rady nječitam, ale wěm, zo so to našim hólcam lubi.",
+              "prediction": "Wrong word: nječitam\nCorrect word: nečítám\n\nWrong word: wěm\nCorrect word: věm",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0077",
+              "input": "Wudawki (na přikład porto) so njezarunuja.",
+              "prediction": "Wrong word: njezarunuja\nCorrect word: njezarunjuja",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0079",
+              "input": "Inge Feltrinellijowy wuspěch bazuje wosebje na tym, zo njeměješe žadynžkuli strach před kontaktom k prozaiskemu swětej komerca.",
+              "prediction": "Wrong word: wuspěch\nCorrect word: wuspěch\n\nWrong word: bazuje\nCorrect word: bazuje\n\nWrong word: wosebje\nCorrect word: wosebje\n\nWrong word: zo\nCorrect word: zo\n\nWrong word: njeměješe\nCorrect word: njeměješe\n\nWrong word: žadynžkuli\nCorrect word: žadynžkuli\n\nWrong word: strach\nCorrect word: strach\n\nWrong word: před\nCorrect word: před\n\nWrong word: kontaktom\nCorrect word: kontaktom\n\nWrong word: prozaiskemu\nCorrect word: prozaiskemu\n\nWrong word: swětej\nCorrect word: swětej\n\nWrong word: komerca\nCorrect word: komerca",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0108",
+              "input": "\"Serbske blido nad Nysu\" mjenowachu třo seniorojo swoje zetkawanja.",
+              "prediction": "Wrong word: zetkawanja\nCorrect word: zetkowania",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0111",
+              "input": "Po naprašowanjach je Sakska najnjewoblubowaniši zwjazkowy kraj Němskeje.",
+              "prediction": "Wrong word: najnjewoblubowaniši zwjazkowy kraj\nCorrect word: najneobľúbenší zväjkový kraj",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0120",
+              "input": "To bě jenož fairne, po tym, štož bě wón wšitko dožiwić dyrbjał.",
+              "prediction": "Wrong word: dyrbjał\nCorrect word: dyrbił",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0129",
+              "input": "Bě krótko do šesćich, jako so ze swojich stólcow pozběhnychmy, placachmy a potom narodnu hymnu zanjesechmy.",
+              "prediction": "Wrong word: so ze swojich stólcow pozběhnychmy\nCorrect word: ze swóich stólców pozbieranychmy",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            }
+          ],
+          "full_sentence_rewrite_rate": 0.04884318766066838,
+          "gold_correct": 597,
+          "gold_error": 570,
+          "malformed_output_rate": 0.08654670094258783,
+          "no_error_accuracy": 0.0,
+          "pred_correct": 0,
+          "pred_error": 1167,
+          "total": 1167,
+          "wrong_word_exact": 111
+        },
+        "stage_b_mt_large": {
+          "correction_exact": 11,
+          "detection_fn": 0,
+          "detection_fp": 597,
+          "detection_tn": 0,
+          "detection_tp": 570,
+          "false_negative_examples": [],
+          "false_positive_examples": [
+            {
+              "id": "hsb_sc_dev:0001",
+              "input": "Wokrjes je zamołwitosć přewzał, dokelž běše zasadne rozrisanje trěbne, wotstronić internetnu pusćinu w mnohich komunach.",
+              "prediction": "Wrong word: internetnu\nCorrect word: internetowe",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0004",
+              "input": "Njejsym Leonardo DiCaprio, wuzna wón jej smějo, ale tón, kiž chce twoje koleso reparować.",
+              "prediction": "Wrong word: Leonardo DiCaprio\nCorrect word: Leonardo DiCaprio",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0008",
+              "input": "Dalekubłanske naprawy k medicinsko-fachowym temam dyrbja so pod lěkarskim wědomostnym nawodom koncipować a přewjesć.",
+              "prediction": "Wrong word: medicinsko-fachowe\nCorrect word: medicinsko-fachowe",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0023",
+              "input": "Předstajene stupnicy steja mjez sobu w kwintowym přiwuznistwje.",
+              "prediction": "Wrong word: stupnicy\nCorrect word: stupniki",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0024",
+              "input": "Poćahowanski dypk bě při tym horjeka naspomnjene \"znamjo Jony\" z ewangelija po Mateju.",
+              "prediction": "Wrong word: znamjo\nCorrect word: znamko",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0036",
+              "input": "Dźěłowa skupina Domowiny je wot 2018 hižo někak 50 namjetow zrodźiła.",
+              "prediction": "Wrong word: namjetow\nCorrect word: namjetow",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0041",
+              "input": "Do nastupa słužbneje jězby ma sej sobudźěłaćer sčasom pisomnu dowolnosć za to wobstarać (tuchwilu płaćaca wersija hlej přiłohu 5).",
+              "prediction": "Wrong word: nastupa słužbneje jězby\nCorrect word: nastupa służbnej jězby",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0042",
+              "input": "Štó myli mje w tutym njekřesćanskim času?",
+              "prediction": "Wrong word: njekřesćanskim\nCorrect word: niekřesćanskim",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0045",
+              "input": "Jězorina trjeba wjace fachowcow, hewak njemóža so wšitke nadawki hladajo na wobswětoškit spjelnić.",
+              "prediction": "Wrong word: nadawki\nCorrect word: nadawki",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0050",
+              "input": "W lěće 1847 wobstejachu w I. hamtskim hejtmanstwje Budyšin tři towarstwa, mjenujcy w Kinsporku, Hodźiju a Klukšu.",
+              "prediction": "Wrong word: hamtskim\nCorrect word: gmeindorschem",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0067",
+              "input": "Kónc wójny so škabry do našeje kuchnje zadobychu.",
+              "prediction": "Wrong word: wójny\nCorrect word: wojny",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0069",
+              "input": "Ja kolesowar jeho wotzady přesćahnych, so na pasmo za pěškow wuhibnywši, dokelž najebać klinkanje njereagowaše.",
+              "prediction": "Wrong word: klinkanje\nCorrect word: klikanie",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0070",
+              "input": "W našim wideju rozłožuje fachowc Stefano Warmuth, što ma so při instalaciji wobkedźbować a kak tuta wotběži.",
+              "prediction": "Wrong word: fachowc\nCorrect word: fachowca",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0072",
+              "input": "Přinoški wo sporće rady nječitam, ale wěm, zo so to našim hólcam lubi.",
+              "prediction": "Wrong word: nječitam\nCorrect word: nicitam",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0077",
+              "input": "Wudawki (na přikład porto) so njezarunuja.",
+              "prediction": "Wrong word: zarunuja.\nCorrect word: zarunuje.",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0079",
+              "input": "Inge Feltrinellijowy wuspěch bazuje wosebje na tym, zo njeměješe žadynžkuli strach před kontaktom k prozaiskemu swětej komerca.",
+              "prediction": "Wrong word: Inge\nCorrect word: Inge",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0108",
+              "input": "\"Serbske blido nad Nysu\" mjenowachu třo seniorojo swoje zetkawanja.",
+              "prediction": "Wrong word: blido\nCorrect word: bodo",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0111",
+              "input": "Po naprašowanjach je Sakska najnjewoblubowaniši zwjazkowy kraj Němskeje.",
+              "prediction": "Wrong word: naprašowanjach\nCorrect word: naprašowanjach",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0120",
+              "input": "To bě jenož fairne, po tym, štož bě wón wšitko dožiwić dyrbjał.",
+              "prediction": "Wrong word: jenož\nCorrect word: jennož",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0129",
+              "input": "Bě krótko do šesćich, jako so ze swojich stólcow pozběhnychmy, placachmy a potom narodnu hymnu zanjesechmy.",
+              "prediction": "Wrong word: krótko\nCorrect word: krótko",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            }
+          ],
+          "full_sentence_rewrite_rate": 0.021422450728363324,
+          "gold_correct": 597,
+          "gold_error": 570,
+          "malformed_output_rate": 0.0,
+          "no_error_accuracy": 0.0,
+          "pred_correct": 0,
+          "pred_error": 1167,
+          "total": 1167,
+          "wrong_word_exact": 88
+        },
+        "stage_c_instruction_replay": {
+          "correction_exact": 2,
+          "detection_fn": 526,
+          "detection_fp": 38,
+          "detection_tn": 559,
+          "detection_tp": 44,
+          "false_negative_examples": [
+            {
+              "id": "hsb_sc_dev:0005",
+              "input": "30.000 opozicionelnych bcuhu zajeći a do lěhwow dowjezeni, statysacy ćeknychu do wukraja.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: bcuhu\nCorrect word: buchu"
+            },
+            {
+              "id": "hsb_sc_dev:0015",
+              "input": "Direktor Lipšćanskeho sorabddistiskeho instituta na wědomostnym zeńdźenju přednošowaše.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: sorabddistiskeho\nCorrect word: sorabistiskeho"
+            },
+            {
+              "id": "hsb_sc_dev:0020",
+              "input": "Dźeń započina so zahe při schadźenju słółca.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: słółca\nCorrect word: słónca"
+            },
+            {
+              "id": "hsb_sc_dev:0028",
+              "input": "Štóž je hač do toho dnja w gmejnomaj bydlił, płaći přichodnje jaok přesydler.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: jaok\nCorrect word: jako"
+            },
+            {
+              "id": "hsb_sc_dev:0029",
+              "input": "Trjebaće wobkrućenu kopiju Wašeho wupokaza abo wusěwdčenja respektiwnje wobkrućeny wotpisk dokumenta?",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: wusěwdčenja\nCorrect word: wuswědčenja"
+            },
+            {
+              "id": "hsb_sc_dev:0032",
+              "input": "Ale potom přińdźe inflacija a zniči lutowanki małych ludźi nimale dopsołnje.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: dopsołnje\nCorrect word: dospołnje"
+            },
+            {
+              "id": "hsb_sc_dev:0034",
+              "input": "Woni so móhłrjec bjez směra tam a sem motaja, hdźež jich wobstejnosće donjesu a faluje jim krute mětsno w žiwjenju.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: mětsno\nCorrect word: městno"
+            },
+            {
+              "id": "hsb_sc_dev:0046",
+              "input": "Štóž připisuje jemu hišće swobodny a wulkomyslny duch, štóž připisuje jemu hišće dostojne a nadobne plany worzrodóźenja čłowjestwa, kruteje wustawy Europy, je pak bjezbóžny błazn abo kupjeny a zełžany přeradnik, z tym, zo chce swětej narěčeć, zo ma Bonapartu za rjeka lětstotka, za zakonjedawarja a wozbožerja přichodnych generacijow.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: worzrodóźenja\nCorrect word: wozrodźenja"
+            },
+            {
+              "id": "hsb_sc_dev:0048",
+              "input": "Zapodajće wupjelnjeny a podpisany formular z trěbnymi podłožkami pola Sakskeje komory architřecktow.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: architřecktow\nCorrect word: architektow"
+            },
+            {
+              "id": "hsb_sc_dev:0056",
+              "input": "A mjez tymi, kotřiž w mjenje diwersity, mnohotnosć a swobody přećiwo wšěm formam rasizma wojuja.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: mnohotnosć\nCorrect word: mnohotnosće"
+            },
+            {
+              "id": "hsb_sc_dev:0068",
+              "input": "Wona narodźi so 13. měrca 1901 w Drježdźanach a zemrie 19. oktobra 1990 we Warnoćicach.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: zemrie\nCorrect word: zemrě"
+            },
+            {
+              "id": "hsb_sc_dev:0090",
+              "input": "Cyle tak, kaž tule dobu zahajacy mjenowany spěw wěšćeše, wšašk přiwšěm přišło njeje.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: wšašk\nCorrect word: wšak"
+            },
+            {
+              "id": "hsb_sc_dev:0098",
+              "input": "Wuměnjenja: Dowolnosć za wjedźenje pomjenowanja \"markowy twarožk\" so wudźěli, hdyž je twaro w znajmjeńša dwěmaj na so slědowacymaj přepruwowanjomaj twarožka wotpowědujo přiłoze 4 twarožkoweho předpisa (KäseV) žadanjam na markowy twarožk po § 11 wotr. 9 KäseV wotpowědował.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: twaro\nCorrect word: twarožk"
+            },
+            {
+              "id": "hsb_sc_dev:0105",
+              "input": "Njeje žanoho myslenja bjez toho, štož so \"idejowa ascoiacija\" mjenuje.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: ascoiacija\nCorrect word: asociacija"
+            },
+            {
+              "id": "hsb_sc_dev:0106",
+              "input": "Wo tutón konflikt póńdźe hłownje při rozmołwahc we Valenciji.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: rozmołwahc\nCorrect word: rozmołwach"
+            },
+            {
+              "id": "hsb_sc_dev:0110",
+              "input": "Zastupjer cechi: \"Je na čsau, zo móžemy tež w měsće sobu knježić ...\"",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: čsau\nCorrect word: času"
+            },
+            {
+              "id": "hsb_sc_dev:0115",
+              "input": "ECHO je wulku zamołwitošć na so wzało, ćěkancow wobstajnje zastarować.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: zamołwitošć\nCorrect word: zamołwitosć"
+            },
+            {
+              "id": "hsb_sc_dev:0119",
+              "input": "A hiž zalěze nan do taksija a wotjědźe.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: hiž\nCorrect word: hižo"
+            },
+            {
+              "id": "hsb_sc_dev:0124",
+              "input": "Rozwažujće, kotre pšiznamjenja epochi romantiki w \"Ringu\" spóznajemy.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: pšiznamjenja\nCorrect word: přiznamjenja"
+            },
+            {
+              "id": "hsb_sc_dev:0128",
+              "input": "Woni wukładuja tajke zadźerženje wukrajnikow jeakow prěnje bitwički přichodneje byrgarskeje wójny.",
+              "prediction": "Wrong word: CORRECT\nCorrect word: CORRECT",
+              "reference": "Wrong word: jeakow\nCorrect word: jako"
+            }
+          ],
+          "false_positive_examples": [
+            {
+              "id": "hsb_sc_dev:0277",
+              "input": "Zo by so tutón dźeń prawje swjećił, njesmě tykanc wězo falować!",
+              "prediction": "Wrong word: tykanc\nCorrect word: tykanec",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0646",
+              "input": "Stupajće runje ze swojimi nohami, zo njeby so nichtó zakopnył kaž chromy, ale wjele bóle wustrowjeny był.",
+              "prediction": "Wrong word: chromy\nCorrect word: chromy",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:0687",
+              "input": "Mnozy sej knihu hnydom na městnje zarjadowanja kupichu.",
+              "prediction": "Wrong word: hnydom\nCorrect word: hnydom",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:1154",
+              "input": "Wša próca pak je podarmo, hdyž dźěći tež po pěstowarni dale serbsce njewuknu.",
+              "prediction": "Wrong word: pěstowarni\nCorrect word: pěstowarni",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:1254",
+              "input": "W EU chileja k tomu, so skerje za sakrosanktnych měć.",
+              "prediction": "Wrong word: chileja\nCorrect word: Chile",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:1365",
+              "input": "Tute činja financielnu podpěru (dar, čłonski přinošk) husto wot wobkedźbowanja pola dawkow, to rěka wot wobkrućenja za přidźělenje, wotwisnu.",
+              "prediction": "Wrong word: wobkrućenja\nCorrect word: wobkrućenja",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:1679",
+              "input": "Spytaj mi prošu žro zetkanja z jednorymi słowami napisać a z tak mało fachowymi, cuzymi wurazami kaž móžno.",
+              "prediction": "Wrong word: fachowymi\nCorrect word: fachowymi",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "hsb_sc_dev:1886",
+              "input": "Ty sy dźensa tak kedźbliwy při sněhakowanju, je tebi hubjene?",
+              "prediction": "Wrong word: tebi\nCorrect word: tebi",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0019",
+              "input": "Wón jo pšosył wó to, pósejźenje pěś minutow pśetergnuś.",
+              "prediction": "Wrong word: pšosył\nCorrect word: pśesył",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0055",
+              "input": "Pśesajźćo se do prawěka a komponěrujśo w kupkach transowu muziku za pśirodne bogojstwo.",
+              "prediction": "Wrong word: pśesajźćo\nCorrect word: przesajźi",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0235",
+              "input": "Město Budyšyn buźo rozmjej górnołužyske srjejźišćo z dogromady pěśnasćo objektami, kótarež budu pśistupne wót 10 do 17 góźinow.",
+              "prediction": "Wrong word: Budyšyn\nCorrect word: Budyšin",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0288",
+              "input": "Trjebam pomoc pśi procowanju wó nowe źěłowe městno.",
+              "prediction": "Wrong word: pśi\nCorrect word: při",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0303",
+              "input": "Pśirědujśo slědujucej programatiskej gronidle: njesměrna dalokosć prerije a rejowaŕska folklora.",
+              "prediction": "Wrong word: njesměrna\nCorrect word: njesměrna",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0346",
+              "input": "Wobej zjawje stej byłej / stej na ceło hynakšy krejz cytarjow wusměrjonej.",
+              "prediction": "Wrong word: hynakšy\nCorrect word: hynakšy",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0369",
+              "input": "Cakaj, mam něco zymnego za tebje.",
+              "prediction": "Wrong word: zymnego\nCorrect word: zimnego",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0451",
+              "input": "Wóna wusměrijo swóju źěłabnosć na głownu zgromaźinu, kótaruž co pśedsedaŕstwo zwołaś.",
+              "prediction": "Wrong word: zgromaźinu\nCorrect word: zgromaźinu",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0503",
+              "input": "Wjele pśepijanka jo kelnaŕka kóńc tyźenja dostała?",
+              "prediction": "Wrong word: pśepijanka\nCorrect word: pśepijanka",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0576",
+              "input": "Dalej EFA Nimsku napomina, z konwencije rezultěrujuce samopóstajeńske pšawa Serbow pśipóznaś.",
+              "prediction": "Wrong word: pšawa\nCorrect word: pśawa",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0642",
+              "input": "Ale wjasele jo było hyšći wětše, ako jo ten samy wjacor kněz direktor pśišeł.",
+              "prediction": "Wrong word: wjacor\nCorrect word: wjacor",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            },
+            {
+              "id": "dsb_sc_dev:0691",
+              "input": "Zasajźeńske móžnosći a šanse na wikach wóźika ako alternatiwneje formy pógónjenja su cora rozpominali pśedewześarje a wědomnostniki.",
+              "prediction": "Wrong word: pógónjenja\nCorrect word: pógona",
+              "reference": "Wrong word: CORRECT\nCorrect word: CORRECT"
+            }
+          ],
+          "full_sentence_rewrite_rate": 0.0,
+          "gold_correct": 597,
+          "gold_error": 570,
+          "malformed_output_rate": 0.0,
+          "no_error_accuracy": 0.9363484087102177,
+          "pred_correct": 1085,
+          "pred_error": 82,
+          "total": 1167,
+          "wrong_word_exact": 14
+        }
+      },
+      "task": "SC"
+    }
+  },
+  "eval_table": [
+    {
+      "GC": 33.08423913043478,
+      "MR": 8.333333333333332,
+      "MT": 27.47689647534206,
+      "QA": 43.39622641509434,
+      "SC": 33.68476383569873,
+      "model": "prompt_only_qwen35_2b",
+      "overall": 29.19509183798065,
+      "path": "results/competitive_reboot/eval/sorbian/prompt_only_qwen35_2b.json"
+    },
+    {
+      "GC": 33.49323708544501,
+      "MR": 4.166666666666666,
+      "MT": 43.33515622655367,
+      "QA": 48.42767295597484,
+      "SC": 34.70848605376354,
+      "model": "stage_b_mt_large",
+      "overall": 32.826243797680746,
+      "path": "results/competitive_reboot/eval/sorbian/stage_b_mt_large.json"
+    },
+    {
+      "GC": 1.9417475728155338,
+      "MR": 6.25,
+      "MT": 43.79011459182747,
+      "QA": 47.16981132075472,
+      "SC": 7.098116607319062,
+      "model": "stage_c_instruction_replay",
+      "overall": 21.249958018543353,
+      "path": "results/competitive_reboot/eval/sorbian/stage_c_instruction_replay.json"
+    }
+  ],
+  "git_commit": "2c30c192934506d15864e4ad2f1d0a8a71d1eaa0",
+  "mr_categories": {
+    "prompt_only_qwen35_2b": {
+      "correct": 4,
+      "verbose_or_explanation": 12,
+      "wrong_final_numeric_answer": 32
+    },
+    "stage_b_mt_large": {
+      "correct": 2,
+      "verbose_or_explanation": 5,
+      "wrong_final_numeric_answer": 41
+    },
+    "stage_c_instruction_replay": {
+      "correct": 3,
+      "verbose_or_explanation": 7,
+      "wrong_final_numeric_answer": 38
+    }
+  },
+  "mt": {
+    "direction_summary": {
+      "de->dsb": {
+        "examples": 1204,
+        "mean_delta_chrf": 16.414148901452663,
+        "mean_prompt_only_chrf": 16.845961053863835,
+        "mean_stage_b_chrf": 33.260109955316494
+      },
+      "de->hsb": {
+        "examples": 1231,
+        "mean_delta_chrf": 20.867962151669353,
+        "mean_prompt_only_chrf": 18.243807096697925,
+        "mean_stage_b_chrf": 39.111769248367274
+      },
+      "dsb->de": {
+        "examples": 1204,
+        "mean_delta_chrf": 20.40640506289885,
+        "mean_prompt_only_chrf": 29.26832057769919,
+        "mean_stage_b_chrf": 49.67472564059804
+      },
+      "dsb->hsb": {
+        "examples": 1167,
+        "mean_delta_chrf": 6.2143850073922415,
+        "mean_prompt_only_chrf": 51.0267895578304,
+        "mean_stage_b_chrf": 57.241174565222636
+      },
+      "hsb->de": {
+        "examples": 1231,
+        "mean_delta_chrf": 20.783409835192508,
+        "mean_prompt_only_chrf": 37.32412652413426,
+        "mean_stage_b_chrf": 58.10753635932676
+      },
+      "hsb->dsb": {
+        "examples": 1167,
+        "mean_delta_chrf": 7.895385713799198,
+        "mean_prompt_only_chrf": 48.21428134405023,
+        "mean_stage_b_chrf": 56.10966705784943
+      }
+    },
+    "regressions": [
+      {
+        "delta_chrf": -54.548330776457384,
+        "direction": "dsb->de",
+        "id": "de-dsb-0763:dsb->de",
+        "prompt_only_chrf": 100.0,
+        "prompt_only_prediction": "Schau in den Spiegel!",
+        "reference": "Schau in den Spiegel!",
+        "source": "Glědaj do glědałka!",
+        "stage_b_chrf": 45.451669223542616,
+        "stage_b_prediction": "Schau in die Glühbirne!"
+      },
+      {
+        "delta_chrf": -53.822966018753256,
+        "direction": "dsb->hsb",
+        "id": "hsb-dsb-0283:dsb->hsb",
+        "prompt_only_chrf": 62.54400195512411,
+        "prompt_only_prediction": "Kak to wšo gromaźe słuša, kak to jadno pódpěrujo to druge?",
+        "reference": "Kak to wšo hromadźe słuša, kak to jedne to druhe podpěruje?",
+        "source": "Kak to wšo gromaźe słuša, kak to jadno pódpěrujo to druge?",
+        "stage_b_chrf": 8.721035936370852,
+        "stage_b_prediction": "Kak to wšo wšitko wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno wjedno w"
+      },
+      {
+        "delta_chrf": -48.111918941608494,
+        "direction": "dsb->hsb",
+        "id": "hsb-dsb-2781:dsb->hsb",
+        "prompt_only_chrf": 53.70913334825993,
+        "prompt_only_prediction": "Na koncu pak klincy kužde Försterojc kśidło abo kuždy klawisz tak, až luźe na wšych kontinentach swěta rad kupuju toś ten muzikowy instrument.",
+        "reference": "Na kóncu pak klinči kóžde Försterec křidło abo kóždy klawěr tak, zo ludźo na wšěch kontinentach swěta tónle hudźbny nastroj rady kupuja.",
+        "source": "Na kóńcu pak klincy kužde Försterojc kśidło abo kuždy klawěr tak, až luźe na wšych kontinentach swěta rad kupuju toś ten muzikowy instrument.",
+        "stage_b_chrf": 5.597214406651437,
+        "stage_b_prediction": "Na kónc pak klanki kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž kaž"
+      },
+      {
+        "delta_chrf": -44.4171948222228,
+        "direction": "dsb->hsb",
+        "id": "hsb-dsb-2386:dsb->hsb",
+        "prompt_only_chrf": 60.442982921473565,
+        "prompt_only_prediction": "W Małej Nydeji swěśi źinsa we Łužycy a za jeje granicami znaty dudak a dudytwaŕc swój wósymźasety narodny źeń.",
+        "reference": "W Małej Nydeji swjeći dźensa we Łužicy a za jeje mjezami znaty dudak a dudytwarc swoje wosomdźesaćiny.",
+        "source": "W Małej Nydeji swěśi źinsa we Łužycy a za jeje granicami znaty dudak a dudytwaŕc swój wósymźasety narodny źeń.",
+        "stage_b_chrf": 16.025788099250768,
+        "stage_b_prediction": "W Malaj Njedźe so wosmidsaty narodny dźeń wotmě."
+      },
+      {
+        "delta_chrf": -43.70512795977564,
+        "direction": "dsb->de",
+        "id": "de-dsb-1823:dsb->de",
+        "prompt_only_chrf": 60.296251453748695,
+        "prompt_only_prediction": "Grozy tšach, dokulaž składuju na Wětrowskej deponiji wótpadanki něgajšnych jědrowych milinaŕnjow, mjazy drugim z dolnoserbskeho Stade.",
+        "reference": "Hrozy strach, dokelž składuja na Wětrowskej deponiji wotpadki něhdyšich jadrowych milinarnjow, mjez druhim z delnjosakskeho Stade.",
+        "source": "Grozy tšach, dokulaž składuju na Wětrowskej deponiji wótpadanki něgajšnych jědrowych milinaŕnjow, mjazy drugim z dolnoserbskego Stade.",
+        "stage_b_chrf": 16.59112349397306,
+        "stage_b_prediction": "Die Gefahr besteht, da sie auf der Wetzlar Deponie Abwässer von laufenden Abwasseranlagen, unter anderem aus dem sorbischen Stade, entsorgen."
+      },
+      {
+        "delta_chrf": -43.1614096883847,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-3514:hsb->dsb",
+        "prompt_only_chrf": 45.24558054265606,
+        "prompt_only_prediction": "Pjesćdźesat serbskich wěriwych z wědoma so jutrońičku k tradicijalnej ranej nutrnosći na Rownjanskim pohrjebnišću, kotruž z nimi Slepjanska fararka, predikant a jeho syn swjećachu.",
+        "reference": "Pěśašesćźaset serbskich wěrjecych jo se zejšło jatšownicu k tradicionalnej zajtšnej nabóžinje na Rowniskem kjarchobje, kótaruž su z nimi slěpjańska faraŕka, predikant a jogo syn swěśili.",
+        "source": "Pjećašěsćdźesat serbskich wěriwych zeńdźe so jutrowničku k tradicionalnej rańšej nutrnosći na Rownjanskim pohrjebnišću, kotruž z nimi Slepjanska fararka, predikant a jeho syn swjećachu.",
+        "stage_b_chrf": 2.084170854271357,
+        "stage_b_prediction": "Pśiśěśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśośiśoś"
+      },
+      {
+        "delta_chrf": -42.53818213533845,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-1922:hsb->dsb",
+        "prompt_only_chrf": 57.61483454849204,
+        "prompt_only_prediction": "Gestikulaciska rěč wobsedźi mnohe gesty, wužiwa pak tež mimiku a cyłe ćěło.",
+        "reference": "Gestikulaciska rěc wobsejźi wjele gestow, wužywa pak teke mimiku a cełe śěło.",
+        "source": "Gestikulaciska rěč wobsedźi mnohe gesty, wužiwa pak tež mimiku a cyłe ćěło.",
+        "stage_b_chrf": 15.076652413153587,
+        "stage_b_prediction": "Gestikulaciska rěc wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wóse"
+      },
+      {
+        "delta_chrf": -42.230046170007746,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-3992:hsb->dsb",
+        "prompt_only_chrf": 59.485630872700554,
+        "prompt_only_prediction": "Po nimale dwaceći lět trajacym wobnowjenju su radnicu loni dypkownje składnostnje stoteje róčnicy atentata zjawnosći zaso přepodali.",
+        "reference": "Pó pśisamem dwaźasća lět trajucem wobnowjenju su radnicu łoni dypkownje pśi góźbje stoteje wrośenice atentata zjawnosći zasej pśepódali.",
+        "source": "Po nimale dwaceći lět trajacym wobnowjenju su radnicu loni dypkownje składnostnje stoteje róčnicy atentata zjawnosći zaso přepodali.",
+        "stage_b_chrf": 17.255584702692808,
+        "stage_b_prediction": "Pśecej někotare sto lětšych wobnoweńśe su radnicu lěta wěcej wótpokaznje stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniśelne stótniś"
+      },
+      {
+        "delta_chrf": -41.41163648448434,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-1907:hsb->dsb",
+        "prompt_only_chrf": 52.879280798443105,
+        "prompt_only_prediction": "Wobšěrny program wobsahowaše mjez druhim wjedźenje po měsće Budyšinje a po tamnišim Serbskim muzeju.",
+        "reference": "Wobšyrny program jo wopśimjeł mjazy drugim wjeźenje pó měsće Budyšynje a pó tamnjejšem Serbskem muzeju.",
+        "source": "Wobšěrny program wobsahowaše mjez druhim wjedźenje po měsće Budyšinje a po tamnišim Serbskim muzeju.",
+        "stage_b_chrf": 11.467644313958763,
+        "stage_b_prediction": "Wšykny program wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje wósebnje w"
+      },
+      {
+        "delta_chrf": -41.224551523015535,
+        "direction": "dsb->hsb",
+        "id": "hsb-dsb-1775:dsb->hsb",
+        "prompt_only_chrf": 47.25256722773626,
+        "prompt_only_prediction": "Nježli móžu přemyslowaś, chto móžu se how zabłuźiś, spóznajom mójeho syna.",
+        "reference": "Prjedy hač móžu přemyslować, štó by so tu zabłudźić móhł, spóznaju swojeho syna.",
+        "source": "Nježli mógu pśemyslowaś, chto mógał se how zabłuźiś, spóznajom mójogo syna.",
+        "stage_b_chrf": 6.0280157047207235,
+        "stage_b_prediction": "Nježli móhł so wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmołwity wotmo"
+      },
+      {
+        "delta_chrf": -40.80531631818792,
+        "direction": "dsb->hsb",
+        "id": "hsb-dsb-1761:dsb->hsb",
+        "prompt_only_chrf": 49.17288432028939,
+        "prompt_only_prediction": "To tej dwě swěcce som w dowolu kupiła we wósebnej loźe za swěcki, wónej wobstojtej jano z pcołkowego wóska.",
+        "reference": "Tutej dwě swěčce sym w dowolu we wosebitym wobchodźe za swěčki kupiła, wonej wobstejitej jenož z pčołkaceho wóska.",
+        "source": "Toś tej dwě swěcce som w dowolu kupiła we wósebnej loźe za swěcki, wónej wobstojtej jano z pcołkowego wóska.",
+        "stage_b_chrf": 8.367568002101471,
+        "stage_b_prediction": "Tón dźeń dźědźeń wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmołwja wotmo"
+      },
+      {
+        "delta_chrf": -40.12684978285404,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-1051:hsb->dsb",
+        "prompt_only_chrf": 97.8481017347797,
+        "prompt_only_prediction": "W tym zwisku móhli tež dale přemyslować, hač namakamy formy, nječłonow a zajimcow zwonka Domowiny lěpje do rozsudow sobu zapřijeć.",
+        "reference": "W tutym zwisku móhli tež dale přemyslować, hač namakamy formy, nječłonow a zajimcow zwonka Domowiny lěpje do rozsudow sobu zapřijeć.",
+        "source": "W tutym zwisku móhli tež dale přemyslować, hač namakamy formy, nječłonow a zajimcow zwonka Domowiny lěpje do rozsudow sobu zapřijeć.",
+        "stage_b_chrf": 57.721251951925666,
+        "stage_b_prediction": "W tom smjerće mógu teke dalej pśemyslowaś, až namakamy formy, njeśělniki a zajimcow wótna Domowiny lěpše do rozsudow sobu zapśiś."
+      },
+      {
+        "delta_chrf": -39.515665010409634,
+        "direction": "dsb->de",
+        "id": "de-dsb-1638:dsb->de",
+        "prompt_only_chrf": 59.00042705555683,
+        "prompt_only_prediction": "abcčćdeěfghijklłmnńoópqrŕsšśtuvwxyzžźABCČĆDEĚFGHIJKLŁMNŃOÓPQRŔSŠŚTUVWXYZŽŹ",
+        "reference": "abcčćdeeffghijklmnńoópqrřsštuvxyzABCČĆDEĚFHIJKLŁMNŃOÓPQR EXSTUVWXYZE",
+        "source": "abcčćdeěfghijklłmnńoópqrŕsšśtuvwxyzžźABCČĆDEĚFGHIJKLŁMNŃOÓPQRŔSŠŚTUVWXYZŽŹ",
+        "stage_b_chrf": 19.484762045147196,
+        "stage_b_prediction": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      },
+      {
+        "delta_chrf": -36.97054468713809,
+        "direction": "dsb->hsb",
+        "id": "hsb-dsb-1391:dsb->hsb",
+        "prompt_only_chrf": 48.76098554806803,
+        "prompt_only_prediction": "Britiske Labour-kněžaŕstwo hraje při wojowanju přesěwo wobsěta, kak dejło hynac byś, přědnikojsku rolu.",
+        "reference": "Britiske Labour-knježerstwo hraje při boju přećiwo zanjerodźenju wobswěta, kak měło hinak być, pućrubarsku rólu.",
+        "source": "Britiske Labour-kněžaŕstwo grajo pśi wójowanju pśeśiwo zanjerěšenju wobswěta, kak dejało hynac byś, prědnikojsku rolu.",
+        "stage_b_chrf": 11.790440860929944,
+        "stage_b_prediction": "Britiske Labour-křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho křesćanskeho k"
+      },
+      {
+        "delta_chrf": -36.59491200597259,
+        "direction": "dsb->hsb",
+        "id": "hsb-dsb-0362:dsb->hsb",
+        "prompt_only_chrf": 65.54444646004919,
+        "prompt_only_prediction": "Wóźeński system ma se kuždolětnje pó danych financielnych móžnosćach wudopołniś a rozšyriś.",
+        "reference": "Wodźenski system ma so kóždolětnje po datych financielnych móžnosćach wudospołnjować a rozšěrić.",
+        "source": "Wóźeński system ma se kuždolětnje pó danych financielnych móžnosćach wudopołniś a rozšyriś.",
+        "stage_b_chrf": 28.9495344540766,
+        "stage_b_prediction": "Wězowcy system ma so přez dźěćiwo wotměć a rozšěrować."
+      },
+      {
+        "delta_chrf": -36.19124583556313,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-2322:hsb->dsb",
+        "prompt_only_chrf": 40.592990869362886,
+        "prompt_only_prediction": "W środku stały przy tym twórby młodek, które były wspólne wustajeńca z Choćebuskim Serbskim muzeum.",
+        "reference": "W srjejźišću su stojali pśi tom twóŕby mólaŕki, což jo była zgromadna wustajeńca z chóśebuskim Serbskim muzejom.",
+        "source": "W srjedźišću stejachu při tym twórby molerki, štož bě zhromadna wustajeńca z Choćebuskim Serbskim muzejom.",
+        "stage_b_chrf": 4.401745033799753,
+        "stage_b_prediction": "W serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem"
+      },
+      {
+        "delta_chrf": -36.1748445359622,
+        "direction": "dsb->hsb",
+        "id": "hsb-dsb-1232:dsb->hsb",
+        "prompt_only_chrf": 41.041830073789725,
+        "prompt_only_prediction": "Za toś to wobšyrne pśedewześe co ministaŕstwo znowa pśedpołožyś pśedłogu nowele šulskeje kazni.",
+        "reference": "Za tele wobšěrne předewzaće chce ministerstwo klětu naćisk nowele šulskeho zakonja předpołožić.",
+        "source": "Za toś to wobšyrne pśedewześe co ministaŕstwo znowa pśedpołožyś pśedłogu nowele šulskeje kazni.",
+        "stage_b_chrf": 4.866985537827526,
+        "stage_b_prediction": "Za tohodla wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotměny wotmě"
+      },
+      {
+        "delta_chrf": -35.963724104179754,
+        "direction": "dsb->hsb",
+        "id": "hsb-dsb-3105:dsb->hsb",
+        "prompt_only_chrf": 72.49351848855633,
+        "prompt_only_prediction": "Kšamaŕske a skótne wiki w Wósporku, Barće a w Dźěžach my wuli.",
+        "reference": "Klamarske a skótne wiki we Wósporku, Barće a w Dźěžach znajachmy.",
+        "source": "Kšamaŕske a skótne wiki we Wósporku, Barće a w Dźěžach smy znali.",
+        "stage_b_chrf": 36.52979438437658,
+        "stage_b_prediction": "Kšamaŕske a skótske wěcy w Hospodźe, Běchach a w Dźěšicach smy znali."
+      },
+      {
+        "delta_chrf": -35.927759931621644,
+        "direction": "hsb->de",
+        "id": "de-hsb-1345:hsb->de",
+        "prompt_only_chrf": 59.13890548721906,
+        "prompt_only_prediction": "Möglich, dass hier jemand eine Katze herumläuft, die will kommen.",
+        "reference": "Möglich, dass hier jemandes Katze herum kriecht, sie wollte gehen.",
+        "source": "Móžno, zo tu něčeja kóčka wokoło łazy, wona chcyše hić.",
+        "stage_b_chrf": 23.21114555559742,
+        "stage_b_prediction": "Vielleicht hat jemand einen Hund neben dem Fenster, er will laufen."
+      },
+      {
+        "delta_chrf": -35.61900544837041,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-3342:hsb->dsb",
+        "prompt_only_chrf": 45.31731294951593,
+        "prompt_only_prediction": "Serbja ma težinaši poćah k zhromadnej zańdźenosći hač na přikład k wšoněmskim stawiznam.",
+        "reference": "Serby maju togodla hynakšy póśěg k zgromadnej zachadnosći ako na pśikład k cełonimskim stawiznam.",
+        "source": "Serbja maja tuž hinaši poćah k zhromadnej zańdźenosći hač na přikład k wšoněmskim stawiznam.",
+        "stage_b_chrf": 9.69830750114552,
+        "stage_b_prediction": "Serby maju tuž wšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pśedewšedny pś"
+      },
+      {
+        "delta_chrf": -35.48205484009874,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-3253:hsb->dsb",
+        "prompt_only_chrf": 58.85661540832393,
+        "prompt_only_prediction": "Swjetowa politika i njeno wuskutki na narodne mjeńšiny su sobotu u srjedźišću seminara.",
+        "reference": "Swětowa politika a jeje wustatkowanja na narodne mjeńšyny su stojali sobotu w srjejźišću seminara.",
+        "source": "Swětowa politika a jeje wuskutki na narodne mjeńšiny stejachu sobotu w srjedźišću seminara.",
+        "stage_b_chrf": 23.37456056822519,
+        "stage_b_prediction": "Swětowa politika a jej wukonjenja na narodne mańšyny su sobotu w serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbskem serbs"
+      },
+      {
+        "delta_chrf": -34.564806748267024,
+        "direction": "hsb->de",
+        "id": "de-hsb-3921:hsb->de",
+        "prompt_only_chrf": 73.19881136217987,
+        "prompt_only_prediction": "Ja, das ist wirklich passiert!",
+        "reference": "Ja, es ist wirklich so passiert!",
+        "source": "Haj, tak je so to woprawdźe stało!",
+        "stage_b_chrf": 38.63400461391284,
+        "stage_b_prediction": "Ja, so ist es eigentlich so geworden!"
+      },
+      {
+        "delta_chrf": -32.18978438003596,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-0451:hsb->dsb",
+        "prompt_only_chrf": 65.39764359931888,
+        "prompt_only_prediction": "Kamše su jednu njedźelu w tej a druhu njedźelu w druhej cyrkwi.",
+        "reference": "Namše su jadnu njeźelu w tej a drugu njeźelu w drugej cerkwi.",
+        "source": "Kemše su jednu njedźelu w tej a druhu njedźelu w druhej cyrkwi.",
+        "stage_b_chrf": 33.20785921928292,
+        "stage_b_prediction": "Měśo jo był jeden dnja w tej a druhdy dnja w druhej cyrkwje."
+      },
+      {
+        "delta_chrf": -31.831715223968,
+        "direction": "de->hsb",
+        "id": "de-hsb-3666:de->hsb",
+        "prompt_only_chrf": 39.92478139638447,
+        "prompt_only_prediction": "Chcemy,aby tymu raz wšitko pójdźe wóna, – potwierdźa Eugène Bruins.",
+        "reference": "\"Nadźijamy so, zo tónkróć wšitko derje póńdźe,\" Eugène Bruins potwjerdźa.",
+        "source": "\"Wir hoffen, dass dieses Mal alles gut geht,\" bekräftigt Eugène Bruins.",
+        "stage_b_chrf": 8.093066172416467,
+        "stage_b_prediction": "„My chcušmy, zo by so tohodla wšitko dale wělo dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale dale"
+      },
+      {
+        "delta_chrf": -31.62492060340705,
+        "direction": "hsb->dsb",
+        "id": "hsb-dsb-1680:hsb->dsb",
+        "prompt_only_chrf": 39.243862685557076,
+        "prompt_only_prediction": "Hižo jako Šuler chodźeše rady do lěsa a zaběraše so z rostlinami.",
+        "reference": "Južo ako wuknik jo chójźił rad do góle a jo se z rostlinami zaběrał.",
+        "source": "Hižo jako šuler chodźeše rady do lěsa a zaběraše so z rostlinami.",
+        "stage_b_chrf": 7.6189420821500295,
+        "stage_b_prediction": "Jako šuler jo se wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda wóda w"
+      }
+    ],
+    "strong_improvements": [
+      {
+        "delta_chrf": 92.49000964585917,
+        "direction": "dsb->de",
+        "id": "de-dsb-1279:dsb->de",
+        "prompt_only_chrf": 7.509990354140829,
+        "prompt_only_prediction": "Ja njok wěcej jěsć!",
+        "reference": "Ich will nicht mehr essen!",
+        "source": "Ja njok wěcej jěsć!",
+        "stage_b_chrf": 100.0,
+        "stage_b_prediction": "Ich will nicht mehr essen!"
+      },
+      {
+        "delta_chrf": 92.46031746031746,
+        "direction": "dsb->de",
+        "id": "de-dsb-2943:dsb->de",
+        "prompt_only_chrf": 7.5396825396825395,
+        "prompt_only_prediction": "Ja.",
+        "reference": "Aber ja.",
+        "source": "Ale jo.",
+        "stage_b_chrf": 100.0,
+        "stage_b_prediction": "Aber ja."
+      },
+      {
+        "delta_chrf": 88.84991744366744,
+        "direction": "hsb->de",
+        "id": "de-hsb-0775:hsb->de",
+        "prompt_only_chrf": 11.150082556332556,
+        "prompt_only_prediction": "Tam steh je waleje jězdźidłow z wulkimi a šěrkimi swětłomjetakami.",
+        "reference": "Dort standen viele Fahrzeuge mit großen und breiten Scheinwerfern.",
+        "source": "Tam stejachu wjele jězdźidłow z wulkimi a šěrokimi swětłomjetakami.",
+        "stage_b_chrf": 100.0,
+        "stage_b_prediction": "Dort standen viele Fahrzeuge mit großen und breiten Scheinwerfern."
+      },
+      {
+        "delta_chrf": 88.3867091437514,
+        "direction": "hsb->de",
+        "id": "de-hsb-2614:hsb->de",
+        "prompt_only_chrf": 11.613290856248602,
+        "prompt_only_prediction": "Tut wosebite wudaće pak njemóžeš we wšědnym knihikupstwje kupić.",
+        "reference": "Diese besondere Ausgabe kann man aber nicht im normalen Buchhandel kaufen.",
+        "source": "Tute wosebite wudaće pak njemóžeš we wšědnym knihikupstwje kupić.",
+        "stage_b_chrf": 100.0,
+        "stage_b_prediction": "Diese besondere Ausgabe kann man aber nicht im normalen Buchhandel kaufen."
+      },
+      {
+        "delta_chrf": 87.60947681404758,
+        "direction": "de->hsb",
+        "id": "de-hsb-0974:de->hsb",
+        "prompt_only_chrf": 6.362417109736961,
+        "prompt_only_prediction": "Wjersport je wjech wjech wjech je wjech je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je je",
+        "reference": "Wodosport je w Drježdźanach na někotrych jězorach móžny.",
+        "source": "Wassersport ist in Dresden auf einigen Seen möglich.",
+        "stage_b_chrf": 93.97189392378455,
+        "stage_b_prediction": "Woda sport je w Drježdźanach na někotrych jězorach móžny."
+      },
+      {
+        "delta_chrf": 86.35806176071563,
+        "direction": "hsb->de",
+        "id": "de-hsb-3234:hsb->de",
+        "prompt_only_chrf": 13.641938239284377,
+        "prompt_only_prediction": "Hrajerjo schreitet den Herbstbrot.",
+        "reference": "Die Spieler bilden einen Sitzkreis.",
+        "source": "Hrajerjo tworja sedźenski kruh.",
+        "stage_b_chrf": 100.0,
+        "stage_b_prediction": "Die Spieler bilden einen Sitzkreis."
+      },
+      {
+        "delta_chrf": 85.8089133089133,
+        "direction": "de->dsb",
+        "id": "de-dsb-0470:de->dsb",
+        "prompt_only_chrf": 14.191086691086694,
+        "prompt_only_prediction": "To je jeje.",
+        "reference": "To jo naša mama.",
+        "source": "Das ist unsere Mutter.",
+        "stage_b_chrf": 100.0,
+        "stage_b_prediction": "To jo naša mama."
+      },
+      {
+        "delta_chrf": 82.85766778194726,
+        "direction": "de->hsb",
+        "id": "de-hsb-2765:de->hsb",
+        "prompt_only_chrf": 7.457154344876112,
+        "prompt_only_prediction": "Twaroń to wółk, a to wółk.",
+        "reference": "Tón dźeń je oficialny start za našu staciju.",
+        "source": "Dieser Tag ist dann der offizielle Start für unsere Station.",
+        "stage_b_chrf": 90.31482212682337,
+        "stage_b_prediction": "Tutón dźeń je potom oficialny start za našu staciju."
+      },
+      {
+        "delta_chrf": 82.2945969327155,
+        "direction": "dsb->de",
+        "id": "de-dsb-0759:dsb->de",
+        "prompt_only_chrf": 17.705403067284493,
+        "prompt_only_prediction": "Um 5 Euro zu zahlen.",
+        "reference": "Das kostet fünf Euro.",
+        "source": "To płaśi pěś euro.",
+        "stage_b_chrf": 100.0,
+        "stage_b_prediction": "Das kostet fünf Euro."
+      },
+      {
+        "delta_chrf": 82.03527930963774,
+        "direction": "hsb->de",
+        "id": "de-hsb-3805:hsb->de",
+        "prompt_only_chrf": 3.1829940737791023,
+        "prompt_only_prediction": "Posudź: Woum Iech wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi wäi w",
+        "reference": "Beurteile: Welche Bedeutung haben die Spiele heute?",
+        "source": "Posudź: Kotry wuznam maja hry dźensa?",
+        "stage_b_chrf": 85.21827338341684,
+        "stage_b_prediction": "Frage: Welche Bedeutung haben die Spiele heute?"
+      },
+      {
+        "delta_chrf": 80.56322296394903,
+        "direction": "hsb->de",
+        "id": "de-hsb-0004:hsb->de",
+        "prompt_only_chrf": 14.428723283641537,
+        "prompt_only_prediction": "Takle ličimy: Jedyn, dwaj, tři, štyri, pjeć, šěsć, sydom, wosom, dźewjeć, dźesać.",
+        "reference": "So zählen wir: Eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn.",
+        "source": "Takle ličimy: Jedyn, dwaj, tři, štyri, pjeć, šěsć, sydom, wosom, dźewjeć, dźesać.",
+        "stage_b_chrf": 94.99194624759056,
+        "stage_b_prediction": "So zählen wir: Einen, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn."
+      },
+      {
+        "delta_chrf": 79.62261503928171,
+        "direction": "de->dsb",
+        "id": "de-dsb-2943:de->dsb",
+        "prompt_only_chrf": 20.37738496071829,
+        "prompt_only_prediction": "Ale.",
+        "reference": "Ale jo.",
+        "source": "Aber ja.",
+        "stage_b_chrf": 100.0,
+        "stage_b_prediction": "Ale jo."
+      },
+      {
+        "delta_chrf": 78.0716831164361,
+        "direction": "hsb->de",
+        "id": "de-hsb-0375:hsb->de",
+        "prompt_only_chrf": 8.562074251847278,
+        "prompt_only_prediction": "Tak lütjetjech, krotch, wäicht mat fir d'Wierch an der lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lëtzebuergescher Lët",
+        "reference": "So spart ihr Zeit, die ihr für die Arbeit in der Mittagspause besser nutzen könnt.",
+        "source": "Tak lutujeće čas, kotryž móžeće za dźěło w připołdnišej přestawce lěpje wužiwać.",
+        "stage_b_chrf": 86.63375736828338,
+        "stage_b_prediction": "So verbringt ihr Zeit, die ihr für die Arbeit in der Nachmittagspause besser nutzen könnt."
+      },
+      {
+        "delta_chrf": 77.94537086717617,
+        "direction": "dsb->de",
+        "id": "de-dsb-1262:dsb->de",
+        "prompt_only_chrf": 12.078438802576734,
+        "prompt_only_prediction": "Ja jěm nejlubjej kurjece měso z pomfrytkami.",
+        "reference": "Ich esse am liebsten Hähnchen mit Pommes.",
+        "source": "Ja jěm nejlubjej kurjece měso z pomfrytkami.",
+        "stage_b_chrf": 90.0238096697529,
+        "stage_b_prediction": "Ich esse am liebsten Hähnchenfleisch mit Pommes."
+      },
+      {
+        "delta_chrf": 77.63577206805283,
+        "direction": "hsb->de",
+        "id": "de-hsb-0809:hsb->de",
+        "prompt_only_chrf": 6.7716175181467735,
+        "prompt_only_prediction": "Der Kanzlerka wě, datt datt keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng keng k",
+        "reference": "Die Kanzlerin weiß das, so muss sie das jetzt auch sagen.",
+        "source": "Kanclerka to wě, tak dyrbi to nětko tež prajić.",
+        "stage_b_chrf": 84.4073895861996,
+        "stage_b_prediction": "Die Kanzlerin weiß das, so muss sie es auch jetzt sagen."
+      },
+      {
+        "delta_chrf": 76.45922330860593,
+        "direction": "dsb->de",
+        "id": "de-dsb-3052:dsb->de",
+        "prompt_only_chrf": 16.508835420967262,
+        "prompt_only_prediction": "Srjejź 18. stolěs ludnosć w Europje mócnje rozrosła.",
+        "reference": "Seit der Mitte des 18. Jahrhunderts wuchs die Bevölkerung in Europa stark.",
+        "source": "Srjejź 18. stolěśa ludnosć w Europje jo mócnje rozrosła.",
+        "stage_b_chrf": 92.96805872957319,
+        "stage_b_prediction": "In der Mitte des 18. Jahrhunderts wuchs die Bevölkerung in Europa stark an."
+      },
+      {
+        "delta_chrf": 75.38572273410955,
+        "direction": "de->hsb",
+        "id": "de-hsb-3631:de->hsb",
+        "prompt_only_chrf": 1.2237136465324383,
+        "prompt_only_prediction": "Wjerska, wjejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejejeje",
+        "reference": "NDR, mob z Rostock-Lichtenhagena a wina CDU so tu wuzběhuja.",
+        "source": "Die DDR, der Mob von Rostock-Lichtenhagen und die Schuld der CDU werden hier hervorgehoben.",
+        "stage_b_chrf": 76.60943638064198,
+        "stage_b_prediction": "Němska, mob z Rostock-Lichtenhagen a wina CDU so tu wuwića."
+      },
+      {
+        "delta_chrf": 74.6036001800037,
+        "direction": "hsb->de",
+        "id": "de-hsb-0312:hsb->de",
+        "prompt_only_chrf": 13.447374048678848,
+        "prompt_only_prediction": "Die Wobdźělnicy běchu sej přezjedni, zo trjeba rěč wotpowědne wuměnjenja a ma dale wobstać.",
+        "reference": "Die Teilnehmer waren sich einig, dass die Sprache entsprechende Voraussetzungen benötigt und weiter bestehen soll.",
+        "source": "Wobdźělnicy běchu sej přezjedni, zo trjeba rěč wotpowědne wuměnjenja a ma dale wobstać.",
+        "stage_b_chrf": 88.05097422868255,
+        "stage_b_prediction": "Die Teilnehmer waren sich einig, dass die Sprache entsprechende Voraussetzungen hat und weiter bestehen muss."
+      },
+      {
+        "delta_chrf": 74.4208165497999,
+        "direction": "de->dsb",
+        "id": "de-dsb-3433:de->dsb",
+        "prompt_only_chrf": 2.316471567473571,
+        "prompt_only_prediction": "Akum, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń, kóń,",
+        "reference": "A gaž se něco změnijo, zgónijoš to ako prědny.",
+        "source": "Und wenn sich etwas ändert, erfährst du es als Erster.",
+        "stage_b_chrf": 76.73728811727347,
+        "stage_b_prediction": "A gaž se něco změnijo, wěśośo to ako prědny."
+      },
+      {
+        "delta_chrf": 74.31633245857962,
+        "direction": "de->dsb",
+        "id": "de-dsb-3419:de->dsb",
+        "prompt_only_chrf": 16.78858114633398,
+        "prompt_only_prediction": "Klautserver",
+        "reference": "Klucowy serwer",
+        "source": "Schlüsselserver",
+        "stage_b_chrf": 91.1049136049136,
+        "stage_b_prediction": "klucowy serwer"
+      },
+      {
+        "delta_chrf": 73.99255220090323,
+        "direction": "hsb->de",
+        "id": "de-hsb-1455:hsb->de",
+        "prompt_only_chrf": 2.5077518273863024,
+        "prompt_only_prediction": "Wannn wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit d'Wäit",
+        "reference": "Es ist leider auch heute noch sehr aktuell.",
+        "source": "Wona je nažel tež dźensa hišće jara aktualna.",
+        "stage_b_chrf": 76.50030402828953,
+        "stage_b_prediction": "Sie ist auch heute noch sehr aktuell."
+      },
+      {
+        "delta_chrf": 73.61347315108523,
+        "direction": "dsb->de",
+        "id": "de-dsb-1233:dsb->de",
+        "prompt_only_chrf": 11.545444134268841,
+        "prompt_only_prediction": "Rücken auf!",
+        "reference": "Legt die Hände auf den Tisch!",
+        "source": "Połožćo ruce na blido!",
+        "stage_b_chrf": 85.15891728535406,
+        "stage_b_prediction": "Legen Sie die Hände auf den Tisch!"
+      },
+      {
+        "delta_chrf": 73.37975170829822,
+        "direction": "dsb->de",
+        "id": "de-dsb-1929:dsb->de",
+        "prompt_only_chrf": 15.19458173540703,
+        "prompt_only_prediction": "Tuchylu wuknjo na našej šule celkownje 110 wuknikow.",
+        "reference": "Zurzeit lernen an unserer Schule insgesamt 110 Schüler.",
+        "source": "Tuchylu wuknjo na našej šuli cełkownje 110 wuknikow.",
+        "stage_b_chrf": 88.57433344370524,
+        "stage_b_prediction": "Hier lernen an unserer Schule insgesamt 110 Schüler."
+      },
+      {
+        "delta_chrf": 73.1379365476866,
+        "direction": "dsb->de",
+        "id": "de-dsb-0823:dsb->de",
+        "prompt_only_chrf": 7.129961899698743,
+        "prompt_only_prediction": "Kótaru barwu maju te smužki?",
+        "reference": "Welche Farbe haben die drei Streifen?",
+        "source": "Kótaru barwu maju te smužki?",
+        "stage_b_chrf": 80.26789844738535,
+        "stage_b_prediction": "Welche Farbe haben diese Streifen?"
+      },
+      {
+        "delta_chrf": 72.7023062753049,
+        "direction": "hsb->de",
+        "id": "de-hsb-1796:hsb->de",
+        "prompt_only_chrf": 11.815185722844433,
+        "prompt_only_prediction": "Wšojedne, što ty prajiš, budu to tak činić, kaž to za prawje mam.",
+        "reference": "Egal, was du sagst, ich werde das so machen, wie ich es für richtig halte.",
+        "source": "Wšojedne, što ty prajiš, budu to tak činić, kaž to za prawje mam.",
+        "stage_b_chrf": 84.51749199814934,
+        "stage_b_prediction": "Ich weiß, was du sagst, ich werde das so tun, wie ich es für richtig halte."
+      }
+    ]
+  },
+  "raw_inputs": {
+    "prompt_only_qwen35_2b": "results/stage_b_rescue/error_analysis/raw_inputs/prompt_only_qwen35_2b_raw.jsonl",
+    "stage_b_mt_large": "results/stage_b_rescue/error_analysis/raw_inputs/stage_b_mt_large_raw.jsonl",
+    "stage_c_instruction_replay": "results/stage_b_rescue/error_analysis/raw_inputs/stage_c_instruction_replay_raw.jsonl"
+  }
+}

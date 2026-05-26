@@ -1,4 +1,4 @@
-.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-data-sanity triage-raw-oracle triage-raw-predictions triage-overfit triage-overfit-dry-run check-checkpoint-loading report-phase3-sanity report-edit-data-balance report-mr-data-quality retrain-uk-fixed-dryrun retrain-sorbian-fixed-dryrun eval-phase3-fixed-uk eval-phase3-fixed-sorbian report-phase3-fixed phase4-status phase4-cleanup-check phase4-build-probe phase4-eval-prompt-only phase4-prompt-sweep phase4-analyze-failures phase4-micro-ablation-dryrun phase4-rank-candidates phase4-check-gates phase4-report phase4-clean-failed competitive-cleanup competitive-download-data competitive-filter-data competitive-build-mixtures competitive-validate-data competitive-train-sorbian competitive-train-uk competitive-eval-sorbian competitive-eval-uk competitive-compare competitive-dashboard competitive-clean-failed competitive-package-sorbian competitive-package-uk
+.PHONY: validate inspect-data prepare-data smoke-test report-data-quality check-governance check-overlap build-final-mixtures eval-base-uk eval-base-sorbian build-andromeda-jobs triage-oracle triage-data-sanity triage-raw-oracle triage-raw-predictions triage-overfit triage-overfit-dry-run check-checkpoint-loading report-phase3-sanity report-edit-data-balance report-mr-data-quality retrain-uk-fixed-dryrun retrain-sorbian-fixed-dryrun eval-phase3-fixed-uk eval-phase3-fixed-sorbian report-phase3-fixed phase4-status phase4-cleanup-check phase4-build-probe phase4-eval-prompt-only phase4-prompt-sweep phase4-analyze-failures phase4-micro-ablation-dryrun phase4-rank-candidates phase4-check-gates phase4-report phase4-clean-failed competitive-cleanup competitive-download-data competitive-filter-data competitive-build-mixtures competitive-validate-data competitive-train-sorbian competitive-train-uk competitive-eval-sorbian competitive-eval-uk competitive-compare competitive-dashboard competitive-clean-failed competitive-package-sorbian competitive-package-uk stage-b-status stage-b-cleanup stage-b-error-analysis stage-b-build-repair-data stage-b-prompt-sweep stage-b-scale-sweep stage-b-train-mr-repair stage-b-train-edit-repair stage-b-train-combined-repair stage-b-merge-repairs stage-b-probe-eval stage-b-full-eval stage-b-dashboard stage-b-clean-failed stage-b-package
 
 validate:
 	python3 scripts/validate_data_governance.py
@@ -207,3 +207,49 @@ competitive-package-sorbian:
 
 competitive-package-uk:
 	python3 scripts/competitive_package_model.py --track uk --model-dir checkpoints/competitive_reboot/uk/final --output-dir results/competitive_reboot/package --dry-run
+
+stage-b-status:
+	python3 scripts/run_stage_b_rescue.py status
+
+stage-b-cleanup:
+	python3 scripts/run_stage_b_rescue.py cleanup
+
+stage-b-error-analysis:
+	python3 scripts/stage_b_error_analysis.py
+
+stage-b-build-repair-data:
+	python3 scripts/build_stage_b_repair_data.py
+
+stage-b-prompt-sweep:
+	python3 scripts/stage_b_prompt_sweep.py
+
+stage-b-scale-sweep:
+	python3 scripts/stage_b_scale_sweep.py
+
+stage-b-train-mr-repair:
+	python3 scripts/train_stage_b_repair.py --config configs/train/stage_b_rescue/sorbian_mr_repair_tiny.yaml --dry-run --max-examples 8
+
+stage-b-train-edit-repair:
+	python3 scripts/train_stage_b_repair.py --config configs/train/stage_b_rescue/sorbian_edit_repair_tiny.yaml --dry-run --max-examples 8
+
+stage-b-train-combined-repair:
+	python3 scripts/train_stage_b_repair.py --config configs/train/stage_b_rescue/sorbian_combined_repair_tiny.yaml --dry-run --max-examples 8
+
+stage-b-merge-repairs:
+	python3 scripts/merge_stage_b_repair.py
+
+stage-b-probe-eval:
+	python3 scripts/build_stage_b_rescue_probe.py
+
+stage-b-full-eval:
+	python3 scripts/stage_b_full_eval_candidates.py --candidate stage_b_mt_large /scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+
+stage-b-dashboard:
+	python3 scripts/stage_b_error_analysis.py
+	python3 scripts/merge_stage_b_repair.py
+
+stage-b-clean-failed:
+	python3 scripts/competitive_cleanup_failed.py --execute
+
+stage-b-package:
+	python3 scripts/stage_b_package_candidate.py --model-dir /scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large --dry-run

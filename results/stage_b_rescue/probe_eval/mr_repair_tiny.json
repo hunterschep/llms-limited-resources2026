@@ -1,0 +1,62 @@
+{
+  "adapter": null,
+  "adapter_scale": null,
+  "aggregate": {
+    "GC_score": 33.33333333333333,
+    "MR_score": 6.25,
+    "MT_score": 43.21627045879751,
+    "QA_score": 48.42767295597484,
+    "SC_score": 36.55913978494624,
+    "overall_score": 33.55728330661039
+  },
+  "direction_scores": {
+    "de->dsb": {
+      "bleu": 6.957623872155645,
+      "chrf++": 26.834008194409222
+    },
+    "de->hsb": {
+      "bleu": 5.98603335433483,
+      "chrf++": 29.493723423701585
+    },
+    "dsb->de": {
+      "bleu": 19.65742737186478,
+      "chrf++": 45.26891155631238
+    },
+    "dsb->hsb": {
+      "bleu": 18.58050692301009,
+      "chrf++": 50.06126795200069
+    },
+    "hsb->de": {
+      "bleu": 29.02171476786182,
+      "chrf++": 52.93677820049947
+    },
+    "hsb->dsb": {
+      "bleu": 16.676773356833845,
+      "chrf++": 49.774495076053974
+    }
+  },
+  "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/stage_b_rescue/sorbian/mr_repair_tiny",
+  "oracle": false,
+  "slurm_job_id": "2505471",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.6666666666666666
+    },
+    "MR": {
+      "accuracy": 0.0625
+    },
+    "MT": {
+      "bleu": 16.405077524185614,
+      "chrf++": 43.21627045879751
+    },
+    "QA": {
+      "accuracy": 0.48427672955974843
+    },
+    "SC": {
+      "correction_f1": 0.06451612903225806,
+      "detection_f1": 0.6666666666666666
+    }
+  },
+  "track": "sorbian"
+}

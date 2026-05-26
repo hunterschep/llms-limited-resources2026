@@ -1,0 +1,11 @@
+timestamp=20260526T195637Z
+git_commit=2c30c192934506d15864e4ad2f1d0a8a71d1eaa0
+queue_before=0
+queue_after=0
+checkpoint_storage_before=3.7G
+checkpoint_storage_after=3.7G
+home_results_storage_before=26M
+home_results_storage_after=26M
+preserved_checkpoint=/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+deleted=/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/uk (empty directory)
+created=/scratch/scheppat/projects/wmt26_lrllm/checkpoints/stage_b_rescue/sorbian /scratch/scheppat/projects/wmt26_lrllm/results/stage_b_rescue /home/scheppat/workspace/projects/wmt26_lrllm/results/stage_b_rescue

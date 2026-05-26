@@ -1,0 +1,62 @@
+{
+  "adapter": null,
+  "adapter_scale": null,
+  "aggregate": {
+    "GC_score": 33.49323708544501,
+    "MR_score": 4.166666666666666,
+    "MT_score": 43.929082094218224,
+    "QA_score": 48.42767295597484,
+    "SC_score": 34.70848605376354,
+    "overall_score": 32.94502897121366
+  },
+  "direction_scores": {
+    "de->dsb": {
+      "bleu": 7.1016551735789335,
+      "chrf++": 28.69463110483612
+    },
+    "de->hsb": {
+      "bleu": 9.10111605359881,
+      "chrf++": 32.61804827669113
+    },
+    "dsb->de": {
+      "bleu": 21.35891242529691,
+      "chrf++": 45.84895216464244
+    },
+    "dsb->hsb": {
+      "bleu": 20.010851872683116,
+      "chrf++": 50.171058284126545
+    },
+    "hsb->de": {
+      "bleu": 27.43962885203061,
+      "chrf++": 52.11281156877767
+    },
+    "hsb->dsb": {
+      "bleu": 18.436635934506143,
+      "chrf++": 48.72045995974095
+    }
+  },
+  "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large",
+  "oracle": false,
+  "slurm_job_id": "2505476",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0081799591002045,
+      "detection_f1": 0.6616847826086957
+    },
+    "MR": {
+      "accuracy": 0.041666666666666664
+    },
+    "MT": {
+      "bleu": 18.165285257690005,
+      "chrf++": 43.929082094218224
+    },
+    "QA": {
+      "accuracy": 0.48427672955974843
+    },
+    "SC": {
+      "correction_f1": 0.0378657487091222,
+      "detection_f1": 0.6563039723661486
+    }
+  },
+  "track": "sorbian"
+}

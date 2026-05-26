@@ -1,0 +1,19 @@
+track: sorbian
+model: Qwen/Qwen3.5-2B
+max_new_tokens: 96
+batch_size: 16
+split: locked_validation
+datasets:
+  MT:
+    - data/processed/sorbian/mt_locked_validation.jsonl
+  QA:
+    - data/processed/sorbian/qa_locked_validation.jsonl
+  SC:
+    - data/processed/sorbian/sc_locked_validation.jsonl
+  GC:
+    - data/processed/sorbian/gc_locked_validation.jsonl
+  MR:
+    - data/processed/sorbian/mr_locked_validation.jsonl
+scoring:
+  convention: 0-100
+  overall: equal_weighted_mean_of_MT_QA_SC_GC_MR

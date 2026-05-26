@@ -1,0 +1,17 @@
+track: sorbian
+anchor: checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+exclude:
+  - checkpoints/competitive_reboot/sorbian/stage_c_instruction_replay
+  - checkpoints/phase3
+  - checkpoints/phase4
+candidate_deltas:
+  mr_repair: checkpoints/stage_b_rescue/sorbian/mr_repair_tiny
+  edit_repair: checkpoints/stage_b_rescue/sorbian/edit_repair_tiny
+coefficients:
+  mr: [0.1, 0.2, 0.3, 0.5]
+  edit: [0.1, 0.2, 0.3, 0.5]
+gate:
+  probe_first: true
+  mt_min_chrf: 41.0
+  overall_must_beat_stage_b: true
+  forbid_stage_c: true

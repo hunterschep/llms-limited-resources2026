@@ -19,6 +19,9 @@ results/**
 !results/**/*.jsonl
 !results/**/*.md
 !results/cleanup/*.txt
+!results/stage_b_rescue/cleanup/*.txt
+results/stage_b_rescue/**/*_raw.jsonl
+results/stage_b_rescue/error_analysis/raw_inputs/*.jsonl
 logs/
 
 andromeda/logs/*

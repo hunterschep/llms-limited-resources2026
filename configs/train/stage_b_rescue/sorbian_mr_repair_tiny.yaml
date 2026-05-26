@@ -1,0 +1,29 @@
+run_name: stage_b_rescue_sorbian_mr_repair_tiny
+track: sorbian
+stage: stage_b_rescue_mr_repair
+model_config: configs/model/qwen35_2b.yaml
+base_model_path: checkpoints/competitive_reboot/sorbian/stage_b_mt_large
+fallback_to_base_if_missing: false
+output_dir: checkpoints/stage_b_rescue/sorbian/mr_repair_tiny
+train_files:
+  - data/processed/stage_b_rescue/sorbian/mr_repair.jsonl
+  - data/processed/stage_b_rescue/sorbian/mt_anchor.jsonl
+sampling: task_balanced_with_caps
+max_examples_per_task: 500
+method: lora_sft
+adapter: lora
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.03
+target_modules: [q_proj, v_proj, o_proj]
+max_steps: 450
+learning_rate: 0.000008
+batch_size: 1
+gradient_accumulation_steps: 16
+max_length: 1536
+seed: 2611
+dry_run: false
+stage_b_rescue_policy:
+  forbid_stage_c_base: true
+  preserve_mt_anchor: true
+  target: recover MR without dropping MT below 41.0

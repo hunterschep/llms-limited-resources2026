@@ -1,0 +1,10 @@
+{
+  "dry_run": true,
+  "model_dir": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/stage_b_rescue/sorbian/edit_repair_tiny",
+  "required_files_checked": [
+    "config.json",
+    "tokenizer_config.json"
+  ],
+  "status": "dry_run_only",
+  "track": "sorbian"
+}
