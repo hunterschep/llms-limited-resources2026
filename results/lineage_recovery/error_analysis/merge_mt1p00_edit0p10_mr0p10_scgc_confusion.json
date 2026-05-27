@@ -1,0 +1,270 @@
+{
+  "GC": {
+    "category_counts": {
+      "correct_error_correction": 2,
+      "false_positive_error": 489,
+      "malformed_output": 13,
+      "right_wrong_word_wrong_correction": 59,
+      "wrong_wrong_word": 422
+    },
+    "malformed_output_rate": 0.013197969543147208,
+    "no_error_accuracy": 0.0,
+    "rows": 985,
+    "sample_failures": [
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0003",
+        "raw_prediction": "Wrong word: principoweho\nCorrect word: principowego"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0005",
+        "raw_prediction": "Wrong word: najnjewoblubowaniši\nCorrect word: najnjesmjeršy"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: Miłoraza\nCorrect word: Miłorazu",
+        "id": "hsb_gc_dev:0006",
+        "raw_prediction": "Wrong word: wjedźe\nCorrect word: wjedźe"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0010",
+        "raw_prediction": "Wrong word: prajił\nCorrect word: pisał"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: nowember\nCorrect word: nowembru",
+        "id": "hsb_gc_dev:0011",
+        "raw_prediction": "Wrong word: organizuje\nCorrect word: organizuje"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0013",
+        "raw_prediction": "Wrong word: wuzwoleny\nCorrect word: wuzwóleny"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0018",
+        "raw_prediction": "Wrong word: zalěze na wólšu\nCorrect word: zależe na wólšu"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0019",
+        "raw_prediction": "Wrong word: w funkciji statneho sekretara.\nCorrect word: w funkciji statnego sekretara."
+      },
+      {
+        "category": "right_wrong_word_wrong_correction",
+        "gold_target": "Wrong word: wjesnjanosty\nCorrect word: wjesnjanosta",
+        "id": "hsb_gc_dev:0020",
+        "raw_prediction": "Wrong word: wjesnjanosty\nCorrect word: wjesnjanosťow"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: překomplikowane\nCorrect word: překomplikowana",
+        "id": "hsb_gc_dev:0023",
+        "raw_prediction": "Wrong word: awtoritarne\nCorrect word: autoritarne"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0027",
+        "raw_prediction": "Wrong word: k swačinje\nCorrect word: k swačině"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0031",
+        "raw_prediction": "Wrong word: projekće\nCorrect word: projekcie"
+      },
+      {
+        "category": "right_wrong_word_wrong_correction",
+        "gold_target": "Wrong word: wuskutk\nCorrect word: wuskutkom",
+        "id": "hsb_gc_dev:0034",
+        "raw_prediction": "Wrong word: wuskutk\nCorrect word: skutek"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: smartfonje\nCorrect word: smartfonom",
+        "id": "hsb_gc_dev:0035",
+        "raw_prediction": "Wrong word: Wšojedne\nCorrect word: Wszedne"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0044",
+        "raw_prediction": "Wrong word: nadawki\nCorrect word: nadawki"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0051",
+        "raw_prediction": "Wrong word: nastajenje\nCorrect word: nastupenje"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: chemiskoh\nCorrect word: chemiskeje",
+        "id": "hsb_gc_dev:0053",
+        "raw_prediction": "Wrong word: wjazby\nCorrect word: wjazby"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: wosobinu\nCorrect word: wosobina",
+        "id": "hsb_gc_dev:0056",
+        "raw_prediction": "Wrong word: za to\nCorrect word: za to"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0057",
+        "raw_prediction": "Wrong word: bratrow\nCorrect word: bratow"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_gc_dev:0058",
+        "raw_prediction": "Wrong word: ćopłotu\nCorrect word: ciepło"
+      }
+    ]
+  },
+  "SC": {
+    "category_counts": {
+      "correct_error_correction": 17,
+      "false_positive_error": 590,
+      "malformed_output": 12,
+      "right_wrong_word_wrong_correction": 87,
+      "wrong_wrong_word": 461
+    },
+    "malformed_output_rate": 0.010282776349614395,
+    "no_error_accuracy": 0.0,
+    "rows": 1167,
+    "sample_failures": [
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0001",
+        "raw_prediction": "Wrong word: zamołwitosć\nCorrect word: rozmłownosć\n\nWrong word: zasadne\nCorrect word: zasadne"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0004",
+        "raw_prediction": "Wrong word: Leonardo DiCaprio\nCorrect word: Leonardo DiCaprio"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: bcuhu\nCorrect word: buchu",
+        "id": "hsb_sc_dev:0005",
+        "raw_prediction": "Wrong word: statysacy\nCorrect word: staty"
+      },
+      {
+        "category": "right_wrong_word_wrong_correction",
+        "gold_target": "Wrong word: mpłě\nCorrect word: małe",
+        "id": "hsb_sc_dev:0006",
+        "raw_prediction": "Wrong word: mpłě\nCorrect word: młode"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0008",
+        "raw_prediction": "Wrong word: naprawy\nCorrect word: naprawy\n\nWrong word: medicinsko-fachowym\nCorrect word: medikinsko-fachowym\n\nWrong word: koncipować\nCorrect word: koncipować\n\nWrong word: přewjesć\nCorrect word: přewjesć"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: sorabddistiskeho\nCorrect word: sorabistiskeho",
+        "id": "hsb_sc_dev:0015",
+        "raw_prediction": "Wrong word: Lipšćanskeho\nCorrect word: Lipšicanskeho"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: słółca\nCorrect word: słónca",
+        "id": "hsb_sc_dev:0020",
+        "raw_prediction": "Wrong word: započina\nCorrect word: zaczyna"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0023",
+        "raw_prediction": "Wrong word: stupnicy\nCorrect word: stupniki"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0024",
+        "raw_prediction": "Wrong word: znamjo\nCorrect word: znamko"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: jaok\nCorrect word: jako",
+        "id": "hsb_sc_dev:0028",
+        "raw_prediction": "Wrong word: płaći\nCorrect word: płaci"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: wusěwdčenja\nCorrect word: wuswědčenja",
+        "id": "hsb_sc_dev:0029",
+        "raw_prediction": "Wrong word: wobkrućenu\nCorrect word: wobkrućenu\n\nWrong word: wusěwdčenja\nCorrect word: wusěwdčenja\n\nWrong word: wobkrućeny\nCorrect word: wobkrućeny\n\nWrong word: wotpisk\nCorrect word: wotpisk"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: dopsołnje\nCorrect word: dospołnje",
+        "id": "hsb_sc_dev:0032",
+        "raw_prediction": "Wrong word: lutowanki\nCorrect word: lutowanki"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: mětsno\nCorrect word: městno",
+        "id": "hsb_sc_dev:0034",
+        "raw_prediction": "Wrong word: móhłrjec\nCorrect word: moglić"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0036",
+        "raw_prediction": "Wrong word: namjetow\nCorrect word: namjetow"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0041",
+        "raw_prediction": "Wrong word: nastupa słužbneje jězby\nCorrect word: nastupa słužbnej jězby"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0042",
+        "raw_prediction": "Wrong word: njekřesćanskim\nCorrect word: nekršćanskim"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0045",
+        "raw_prediction": "Wrong word: fachowcow\nCorrect word: fachowców\n\nWrong word: nadawki\nCorrect word: nadawki"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: worzrodóźenja\nCorrect word: wozrodźenja",
+        "id": "hsb_sc_dev:0046",
+        "raw_prediction": "Wrong word: swětej\nCorrect word: swěte"
+      },
+      {
+        "category": "wrong_wrong_word",
+        "gold_target": "Wrong word: architřecktow\nCorrect word: architektow",
+        "id": "hsb_sc_dev:0048",
+        "raw_prediction": "Wrong word: podłožkami\nCorrect word: podłožkami"
+      },
+      {
+        "category": "false_positive_error",
+        "gold_target": "Wrong word: CORRECT\nCorrect word: CORRECT",
+        "id": "hsb_sc_dev:0050",
+        "raw_prediction": "Wrong word: Klukšu.\nCorrect word: Klucku."
+      }
+    ]
+  }
+}

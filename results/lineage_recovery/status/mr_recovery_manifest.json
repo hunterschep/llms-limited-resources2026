@@ -1,6 +1,6 @@
 {
   "config": "configs/data/mr_recovery_sorbian.yaml",
-  "git_commit": "6b389f1795aeabbb0dcf22c86ade71a12da54711",
+  "git_commit": "51541b04f5f92b184010a313ce5d5529273a2938",
   "outputs": {
     "mr_final_answer": {
       "by_source_id_top20": {
@@ -15,16 +15,17 @@
     },
     "mt_anchor": {
       "by_source_id_top20": {
-        "official:train_de-dsb_2026": 1326,
-        "official:train_de-hsb_2026": 1315,
-        "official:train_hsb-dsb_2026": 1359
+        "external:wmt22_sorbian_data_scripted": 1819,
+        "official:train_de-dsb_2026": 553,
+        "official:train_de-hsb_2026": 268,
+        "official:train_hsb-dsb_2026": 1360
       },
       "by_task": {
         "MT": 4000
       },
       "path": "data/processed/lineage_recovery/sorbian/mr_recovery/mt_anchor.jsonl",
       "rows": 4000,
-      "sha256": "598a850087e4065c5fcd28e22070635458fd90734153dddf55e9f9670fc83a7d"
+      "sha256": "3fa4fdd3074f1509bc51b4a371ccbdc393d71fc34a799a1e6968a9951de5f460"
     }
   },
   "policy": {

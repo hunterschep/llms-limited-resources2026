@@ -7,6 +7,11 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+import sys
+
+sys.path.insert(0, str(ROOT / "src"))
+
+from wmt26.eval.metrics import parse_edit_output  # noqa: E402
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -21,11 +26,17 @@ def read_jsonl(path: Path) -> list[dict]:
 def classify(row: dict) -> str:
     pred = row.get("parsed_prediction") or {}
     gold = row.get("parsed_reference") or {}
+    if not pred:
+        wrong, correct = parse_edit_output(row.get("raw_prediction", row.get("prediction", "")))
+        pred = {"wrong_word": wrong, "correct_word": correct}
+    if not gold:
+        wrong, correct = parse_edit_output(row.get("gold_target", row.get("reference", "")))
+        gold = {"wrong_word": wrong, "correct_word": correct}
     pred_wrong = pred.get("wrong_word", "CORRECT")
     pred_correct = pred.get("correct_word", "CORRECT")
     gold_wrong = gold.get("wrong_word", "CORRECT")
     gold_correct = gold.get("correct_word", "CORRECT")
-    raw = str(row.get("raw_prediction", ""))
+    raw = str(row.get("raw_prediction", row.get("prediction", "")))
     pred_error = pred_wrong != "CORRECT"
     gold_error = gold_wrong != "CORRECT"
     if "\n" not in raw or "Wrong word" not in raw or "Correct word" not in raw:
@@ -55,7 +66,14 @@ def summarize(rows: list[dict]) -> dict:
         counts: dict[str, int] = defaultdict(int)
         for row in task_rows:
             counts[classify(row)] += 1
-        clean_rows = [row for row in task_rows if (row.get("parsed_reference") or {}).get("wrong_word") == "CORRECT"]
+        clean_rows = []
+        for row in task_rows:
+            parsed_reference = row.get("parsed_reference") or {}
+            if not parsed_reference:
+                wrong, correct = parse_edit_output(row.get("gold_target", row.get("reference", "")))
+                parsed_reference = {"wrong_word": wrong, "correct_word": correct}
+            if parsed_reference.get("wrong_word") == "CORRECT":
+                clean_rows.append(row)
         clean_ok = sum(1 for row in clean_rows if classify(row) == "correct_no_error")
         malformed = counts.get("malformed_output", 0) + counts.get("full_sentence_or_verbose_output", 0)
         report[task] = {
@@ -67,8 +85,8 @@ def summarize(rows: list[dict]) -> dict:
                 {
                     "id": row.get("id"),
                     "category": classify(row),
-                    "gold_target": row.get("gold_target"),
-                    "raw_prediction": row.get("raw_prediction"),
+                    "gold_target": row.get("gold_target", row.get("reference")),
+                    "raw_prediction": row.get("raw_prediction", row.get("prediction")),
                 }
                 for row in task_rows
                 if classify(row) not in {"correct_no_error", "correct_error_correction"}

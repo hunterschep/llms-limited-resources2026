@@ -1,0 +1,128 @@
+{
+  "alphas": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "eval_config": "configs/eval/lineage_sorbian_probe.yaml",
+  "execute": true,
+  "model_a": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged",
+  "model_b": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged",
+  "results": [
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 35.572097788312526,
+      "QA": 46.540880503144656,
+      "SC": 36.55913978494624,
+      "checkpoint_deleted_after_probe": true,
+      "decision": "",
+      "exists": true,
+      "model": "stagea_stageb_alpha_0.20",
+      "overall": 31.23442361528068,
+      "path": "results/lineage_recovery/interpolation/stagea_stageb_alpha_0.20.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 38.10402486454685,
+      "QA": 46.540880503144656,
+      "SC": 36.55913978494624,
+      "decision": "",
+      "exists": true,
+      "model": "stagea_stageb_alpha_0.30",
+      "overall": 31.74080903052755,
+      "path": "results/lineage_recovery/interpolation/stagea_stageb_alpha_0.30.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 39.17310078727798,
+      "QA": 49.056603773584904,
+      "SC": 36.55913978494624,
+      "decision": "",
+      "exists": true,
+      "model": "stagea_stageb_alpha_0.40",
+      "overall": 32.457768869161825,
+      "path": "results/lineage_recovery/interpolation/stagea_stageb_alpha_0.40.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 40.7146027981799,
+      "QA": 49.056603773584904,
+      "SC": 37.33333333333333,
+      "decision": "",
+      "exists": true,
+      "model": "stagea_stageb_alpha_0.50",
+      "overall": 32.920907981019624,
+      "path": "results/lineage_recovery/interpolation/stagea_stageb_alpha_0.50.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 41.17818840011867,
+      "QA": 48.42767295597484,
+      "SC": 38.095238095238095,
+      "decision": "",
+      "exists": true,
+      "model": "stagea_stageb_alpha_0.60",
+      "overall": 33.04021989026632,
+      "path": "results/lineage_recovery/interpolation/stagea_stageb_alpha_0.60.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 41.56553737417642,
+      "QA": 46.540880503144656,
+      "SC": 38.84514435695538,
+      "decision": "",
+      "exists": true,
+      "model": "stagea_stageb_alpha_0.70",
+      "overall": 33.30697911352196,
+      "path": "results/lineage_recovery/interpolation/stagea_stageb_alpha_0.70.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 42.678680548038415,
+      "QA": 47.79874213836478,
+      "SC": 39.58333333333333,
+      "decision": "",
+      "exists": true,
+      "model": "stagea_stageb_alpha_0.80",
+      "overall": 33.92881787061397,
+      "path": "results/lineage_recovery/interpolation/stagea_stageb_alpha_0.80.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 44.31817187048547,
+      "QA": 48.42767295597484,
+      "SC": 38.095238095238095,
+      "decision": "",
+      "exists": true,
+      "model": "stagea_stageb_alpha_0.90",
+      "overall": 34.08488325100635,
+      "path": "results/lineage_recovery/interpolation/stagea_stageb_alpha_0.90.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 8.333333333333332,
+      "MT": 44.280166709397534,
+      "QA": 48.42767295597484,
+      "SC": 38.095238095238095,
+      "decision": "",
+      "exists": true,
+      "model": "stagea_stageb_alpha_1.00",
+      "overall": 34.49394888545543,
+      "path": "results/lineage_recovery/interpolation/stagea_stageb_alpha_1.00.json"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "dry_run": true,
+  "missing": [],
+  "model_dir": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10",
+  "packageable": true,
+  "policy": {
+    "no_live_rag": true,
+    "no_public_upload_without_approval": true,
+    "no_task_specific_adapter_switching": true,
+    "one_model": true,
+    "qwen35_le_2b": true
+  }
+}

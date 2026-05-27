@@ -1,32 +1,34 @@
 {
   "config": "configs/data/edit_calibration_sorbian.yaml",
-  "git_commit": "6b389f1795aeabbb0dcf22c86ade71a12da54711",
+  "git_commit": "51541b04f5f92b184010a313ce5d5529273a2938",
   "outputs": {
     "clean_40_error_60": {
       "by_source_id_top20": {
+        "external:wmt22_sorbian_data_scripted": 204,
         "official:sorb_mono_dsb": 169,
         "official:sorb_mono_hsb": 191,
-        "official:train_de-dsb_2026": 117,
-        "official:train_de-hsb_2026": 121,
-        "official:train_hsb-dsb_2026": 50
+        "official:train_de-dsb_2026": 42,
+        "official:train_de-hsb_2026": 26,
+        "official:train_hsb-dsb_2026": 16
       },
       "by_task": {
-        "GC": 328,
-        "SC": 320
+        "GC": 319,
+        "SC": 329
       },
       "clean_rows": 288,
       "error_rows": 360,
       "path": "data/processed/lineage_recovery/sorbian/edit_calibration/clean_40_error_60.jsonl",
       "rows": 648,
-      "sha256": "4b0fbb3f5646dacab99a1820f5176f6be1febc3fe55086c376ca914311f545e3"
+      "sha256": "10f99dc152a12fc610ac546f192f05e6a5893b3584f761a206aa1c59052d414d"
     },
     "clean_50_error_50": {
       "by_source_id_top20": {
+        "external:wmt22_sorbian_data_scripted": 260,
         "official:sorb_mono_dsb": 169,
         "official:sorb_mono_hsb": 191,
-        "official:train_de-dsb_2026": 142,
-        "official:train_de-hsb_2026": 151,
-        "official:train_hsb-dsb_2026": 67
+        "official:train_de-dsb_2026": 48,
+        "official:train_de-hsb_2026": 33,
+        "official:train_hsb-dsb_2026": 19
       },
       "by_task": {
         "GC": 360,
@@ -36,15 +38,16 @@
       "error_rows": 360,
       "path": "data/processed/lineage_recovery/sorbian/edit_calibration/clean_50_error_50.jsonl",
       "rows": 720,
-      "sha256": "34e6ac7fc0772207f596b38821313e60698e227f57f79ce45cd8bd161d5eea43"
+      "sha256": "f55daad2ddc04666b5bb8a75d65db11e2c1e8de39d9ca1bd67673f96cd0c1dfb"
     },
     "clean_60_error_40": {
       "by_source_id_top20": {
+        "external:wmt22_sorbian_data_scripted": 260,
         "official:sorb_mono_dsb": 169,
         "official:sorb_mono_hsb": 191,
-        "official:train_de-dsb_2026": 142,
-        "official:train_de-hsb_2026": 151,
-        "official:train_hsb-dsb_2026": 67
+        "official:train_de-dsb_2026": 48,
+        "official:train_de-hsb_2026": 33,
+        "official:train_hsb-dsb_2026": 19
       },
       "by_task": {
         "GC": 360,
@@ -54,34 +57,36 @@
       "error_rows": 360,
       "path": "data/processed/lineage_recovery/sorbian/edit_calibration/clean_60_error_40.jsonl",
       "rows": 720,
-      "sha256": "7f825c381f938e8d6dae2c6de098de0eb9d7758722ee8b74437239681515abf7"
+      "sha256": "7e0a4c690de3bb6b8ec9e87c62e962984df8652fe1d27533ac99e7a4f146e785"
     },
     "format_repair": {
       "by_source_id_top20": {
         "external:gsm8k_train": 13,
-        "official:sorb_mono_dsb": 6,
+        "external:wmt22_sorbian_data_scripted": 24,
+        "official:sorb_mono_dsb": 11,
         "official:sorb_mono_hsb": 7,
-        "official:train_de-dsb_2026": 20,
-        "official:train_de-hsb_2026": 20,
-        "official:train_hsb-dsb_2026": 14
+        "official:train_de-dsb_2026": 8,
+        "official:train_de-hsb_2026": 4,
+        "official:train_hsb-dsb_2026": 13
       },
       "by_task": {
-        "GC": 17,
+        "GC": 9,
         "MR": 13,
         "MT": 36,
-        "SC": 14
+        "SC": 22
       },
-      "clean_rows": 18,
-      "error_rows": 62,
+      "clean_rows": 13,
+      "error_rows": 67,
       "path": "data/processed/lineage_recovery/sorbian/edit_calibration/format_repair.jsonl",
       "rows": 80,
-      "sha256": "2d7829803ed111a4a583abee63ac69bec34a15845d4ea54d71b72af2ca145903"
+      "sha256": "33bf4236a5774a2e621e362c9758689be989e6ade243dac3486fce435954bde0"
     },
     "mt_anchor": {
       "by_source_id_top20": {
-        "official:train_de-dsb_2026": 1334,
-        "official:train_de-hsb_2026": 1356,
-        "official:train_hsb-dsb_2026": 1310
+        "external:wmt22_sorbian_data_scripted": 1854,
+        "official:train_de-dsb_2026": 594,
+        "official:train_de-hsb_2026": 264,
+        "official:train_hsb-dsb_2026": 1288
       },
       "by_task": {
         "MT": 4000
@@ -90,7 +95,7 @@
       "error_rows": 4000,
       "path": "data/processed/lineage_recovery/sorbian/edit_calibration/mt_anchor.jsonl",
       "rows": 4000,
-      "sha256": "6b72c3626020d286819a6ac2f4b9010caf357d6918af75a4014b03b98f76d7e5"
+      "sha256": "fce60a323d56dca45f836672179186143932118b21a323a3472ee64424cb0c7d"
     }
   },
   "policy": {

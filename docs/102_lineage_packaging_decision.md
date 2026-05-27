@@ -1,6 +1,16 @@
 # Lineage Packaging Decision
 
-Packaging is blocked until lineage recovery produces a candidate stronger than `edit_repair_tiny`, or until the project explicitly decides that `edit_repair_tiny` remains the best available model.
+Packaging dry-run is cleared for the selected lineage-recovery Sorbian candidate.
+
+Selected checkpoint:
+
+`/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10`
+
+Selected score:
+
+| Overall | MT | QA | SC | GC | MR |
+|---:|---:|---:|---:|---:|---:|
+| 34.417 | 44.035 | 48.428 | 35.711 | 33.493 | 10.417 |
 
 Requirements:
 
@@ -16,5 +26,16 @@ Requirements:
 - exact commands included
 - package loads with Transformers
 - package can run all five Sorbian tasks
+
+Dry-run status:
+
+- `scripts/lineage_package_candidate.py --dry-run`: passed.
+- `scripts/lineage_validate_package.py`: passed.
+- Required files checked: `config.json`, `tokenizer_config.json`.
+- Public upload: not performed.
+
+Known package risk:
+
+- The selected checkpoint is packageable as one model, but SC/GC no-error behavior remains unresolved. The model predicts an edit for every SC/GC locked-validation item.
 
 Do not upload publicly without explicit approval.

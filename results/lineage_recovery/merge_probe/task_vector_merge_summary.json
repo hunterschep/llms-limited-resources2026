@@ -1,0 +1,213 @@
+{
+  "anchor_model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged",
+  "candidates": [
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 42.25470690048061,
+      "QA": 47.79874213836478,
+      "SC": 38.095238095238095,
+      "coefficients": {
+        "edit": 0.05,
+        "mr": 0.05,
+        "mt": 0.8
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt0p80_edit0p05_mr0p05",
+      "overall": 33.129737426816696,
+      "path": "results/lineage_recovery/merge_probe/mt0p80_edit0p05_mr0p05.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 42.84379490937793,
+      "QA": 47.16981132075472,
+      "SC": 38.095238095238095,
+      "coefficients": {
+        "edit": 0.05,
+        "mr": 0.1,
+        "mt": 0.8
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt0p80_edit0p05_mr0p10",
+      "overall": 33.53843553174081,
+      "path": "results/lineage_recovery/merge_probe/mt0p80_edit0p05_mr0p10.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 42.40703456892961,
+      "QA": 47.79874213836478,
+      "SC": 38.84514435695538,
+      "coefficients": {
+        "edit": 0.1,
+        "mr": 0.05,
+        "mt": 0.8
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt0p80_edit0p10_mr0p05",
+      "overall": 33.72685087951662,
+      "path": "results/lineage_recovery/merge_probe/mt0p80_edit0p10_mr0p05.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 8.333333333333332,
+      "MT": 42.3155044555746,
+      "QA": 47.16981132075472,
+      "SC": 38.84514435695538,
+      "coefficients": {
+        "edit": 0.1,
+        "mr": 0.1,
+        "mt": 0.8
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt0p80_edit0p10_mr0p10",
+      "overall": 33.99942535999027,
+      "path": "results/lineage_recovery/merge_probe/mt0p80_edit0p10_mr0p10.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 8.333333333333332,
+      "MT": 43.919673733250534,
+      "QA": 47.79874213836478,
+      "SC": 38.095238095238095,
+      "coefficients": {
+        "edit": 0.05,
+        "mr": 0.05,
+        "mt": 0.9
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt0p90_edit0p05_mr0p05",
+      "overall": 34.296064126704024,
+      "path": "results/lineage_recovery/merge_probe/mt0p90_edit0p05_mr0p05.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 43.972129359266766,
+      "QA": 48.42767295597484,
+      "SC": 38.095238095238095,
+      "coefficients": {
+        "edit": 0.05,
+        "mr": 0.1,
+        "mt": 0.9
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt0p90_edit0p05_mr0p10",
+      "overall": 34.015674748762606,
+      "path": "results/lineage_recovery/merge_probe/mt0p90_edit0p05_mr0p10.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 43.562576878919444,
+      "QA": 49.056603773584904,
+      "SC": 38.84514435695538,
+      "coefficients": {
+        "edit": 0.1,
+        "mr": 0.05,
+        "mt": 0.9
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt0p90_edit0p10_mr0p05",
+      "overall": 34.20953166855861,
+      "path": "results/lineage_recovery/merge_probe/mt0p90_edit0p10_mr0p05.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 43.801963469253494,
+      "QA": 47.79874213836478,
+      "SC": 38.84514435695538,
+      "coefficients": {
+        "edit": 0.1,
+        "mr": 0.1,
+        "mt": 0.9
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt0p90_edit0p10_mr0p10",
+      "overall": 34.00583665958139,
+      "path": "results/lineage_recovery/merge_probe/mt0p90_edit0p10_mr0p10.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 44.085582797397144,
+      "QA": 48.42767295597484,
+      "SC": 38.095238095238095,
+      "coefficients": {
+        "edit": 0.05,
+        "mr": 0.05,
+        "mt": 1.0
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt1p00_edit0p05_mr0p05",
+      "overall": 34.03836543638869,
+      "path": "results/lineage_recovery/merge_probe/mt1p00_edit0p05_mr0p05.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 43.81799966658787,
+      "QA": 48.42767295597484,
+      "SC": 38.095238095238095,
+      "coefficients": {
+        "edit": 0.05,
+        "mr": 0.1,
+        "mt": 1.0
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt1p00_edit0p05_mr0p10",
+      "overall": 33.984848810226836,
+      "path": "results/lineage_recovery/merge_probe/mt1p00_edit0p05_mr0p10.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 10.416666666666668,
+      "MT": 44.06457154018622,
+      "QA": 48.42767295597484,
+      "SC": 38.095238095238095,
+      "coefficients": {
+        "edit": 0.1,
+        "mr": 0.05,
+        "mt": 1.0
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt1p00_edit0p10_mr0p05",
+      "overall": 34.86749651827983,
+      "path": "results/lineage_recovery/merge_probe/mt1p00_edit0p10_mr0p05.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 10.416666666666668,
+      "MT": 44.2476085358999,
+      "QA": 48.42767295597484,
+      "SC": 38.095238095238095,
+      "coefficients": {
+        "edit": 0.1,
+        "mr": 0.1,
+        "mt": 1.0
+      },
+      "decision": "",
+      "exists": true,
+      "model": "mt1p00_edit0p10_mr0p10",
+      "overall": 34.90410391742257,
+      "path": "results/lineage_recovery/merge_probe/mt1p00_edit0p10_mr0p10.json"
+    }
+  ],
+  "edit_model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/edit_calibration_tiny/final_merged",
+  "execute": true,
+  "mr_model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/mr_recovery_tiny/final_merged",
+  "mt_model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged"
+}

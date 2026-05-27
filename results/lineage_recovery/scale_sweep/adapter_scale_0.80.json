@@ -1,0 +1,62 @@
+{
+  "adapter": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_adapter",
+  "adapter_scale": 0.8,
+  "aggregate": {
+    "GC_score": 33.33333333333333,
+    "MR_score": 8.333333333333332,
+    "MT_score": 42.77121448380906,
+    "QA_score": 47.79874213836478,
+    "SC_score": 38.84514435695538,
+    "overall_score": 34.21635352915918
+  },
+  "direction_scores": {
+    "de->dsb": {
+      "bleu": 5.78322017694438,
+      "chrf++": 28.186044403637535
+    },
+    "de->hsb": {
+      "bleu": 8.803946968864397,
+      "chrf++": 31.16654585605439
+    },
+    "dsb->de": {
+      "bleu": 19.20335376641498,
+      "chrf++": 43.83702001243064
+    },
+    "dsb->hsb": {
+      "bleu": 16.209647211083897,
+      "chrf++": 47.809083628676
+    },
+    "hsb->de": {
+      "bleu": 26.082352132787854,
+      "chrf++": 52.36452519665372
+    },
+    "hsb->dsb": {
+      "bleu": 12.212702840039253,
+      "chrf++": 48.5418277262936
+    }
+  },
+  "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged",
+  "oracle": false,
+  "slurm_job_id": "2505645",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.6666666666666666
+    },
+    "MR": {
+      "accuracy": 0.08333333333333333
+    },
+    "MT": {
+      "bleu": 15.255815336712505,
+      "chrf++": 42.77121448380906
+    },
+    "QA": {
+      "accuracy": 0.4779874213836478
+    },
+    "SC": {
+      "correction_f1": 0.11023622047244094,
+      "detection_f1": 0.6666666666666666
+    }
+  },
+  "track": "sorbian"
+}

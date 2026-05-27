@@ -1,0 +1,11 @@
+{
+  "git_commit": "22f9c4d1f1c7d35127f66a4c0ef82318cab4997e",
+  "local_git_status": "unavailable: project directory is not a git checkout",
+  "paths": {
+    "edit_repair_tiny": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/stage_b_rescue/sorbian/edit_repair_tiny",
+    "lineage_stage_a_parent": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged",
+    "lineage_stage_b_merged": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged",
+    "original_stage_b": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large"
+  },
+  "timestamp": "2026-05-26T21:52:10.258996+00:00"
+}

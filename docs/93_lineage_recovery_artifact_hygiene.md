@@ -44,3 +44,30 @@ python3 -m compileall scripts src
 ```
 
 The lineage scripts refuse references to `stage_c_instruction_replay`, `checkpoints/phase3`, and `checkpoints/phase4` in active training/merge configs.
+
+## Final Cleanup
+
+Final cleanup manifest:
+
+`results/lineage_recovery/cleanup/andromeda_cleanup_manifest_20260527T002401Z.txt`
+
+Storage:
+
+- Before lineage cleanup: `114G` under `/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery`.
+- After lineage cleanup: `47G` under the same root.
+
+Deleted:
+
+- failed StageA/StageB interpolation materializations
+- failed task-vector merge probe materializations
+
+Preserved:
+
+- original competitive reboot Stage B checkpoint
+- prior `edit_repair_tiny` checkpoint
+- lineage Stage A parent and adapter checkpoints
+- lineage Stage B adapter, merged, and intermediate checkpoints
+- edit and MR repair delta checkpoints needed to reproduce the selected task-vector merge
+- selected task-vector merge checkpoint
+
+No Andromeda jobs were queued or running after cleanup.

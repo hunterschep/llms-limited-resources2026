@@ -1,0 +1,142 @@
+{
+  "adapter": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_adapter",
+  "adapter_exists": true,
+  "eval_config": "configs/eval/lineage_sorbian_probe.yaml",
+  "execute": true,
+  "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged",
+  "model_exists": true,
+  "results": [
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 35.72619056123558,
+      "QA": 47.79874213836478,
+      "SC": 37.33333333333333,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_0.20",
+      "overall": 31.671653206586733,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_0.20.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 37.670887362595806,
+      "QA": 48.42767295597484,
+      "SC": 37.33333333333333,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_0.30",
+      "overall": 32.18637873038079,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_0.30.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 39.40786496836651,
+      "QA": 48.42767295597484,
+      "SC": 36.55913978494624,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_0.40",
+      "overall": 32.378935541857516,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_0.40.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 40.55529061280174,
+      "QA": 47.79874213836478,
+      "SC": 38.095238095238095,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_0.50",
+      "overall": 32.78985416928093,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_0.50.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 41.257729085669695,
+      "QA": 47.16981132075472,
+      "SC": 38.84514435695538,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_0.60",
+      "overall": 32.95453695267595,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_0.60.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 4.166666666666666,
+      "MT": 41.422524138075595,
+      "QA": 47.16981132075472,
+      "SC": 38.84514435695538,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_0.70",
+      "overall": 32.98749596315714,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_0.70.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 8.333333333333332,
+      "MT": 42.77121448380906,
+      "QA": 47.79874213836478,
+      "SC": 38.84514435695538,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_0.80",
+      "overall": 34.21635352915918,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_0.80.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 6.25,
+      "MT": 43.60550831174384,
+      "QA": 47.79874213836478,
+      "SC": 38.84514435695538,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_0.90",
+      "overall": 33.96654562807946,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_0.90.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 8.333333333333332,
+      "MT": 44.14249294894635,
+      "QA": 48.42767295597484,
+      "SC": 38.095238095238095,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_1.00",
+      "overall": 34.46641413336519,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_1.00.json"
+    },
+    {
+      "GC": 33.33333333333333,
+      "MR": 8.333333333333332,
+      "MT": 44.3657460493764,
+      "QA": 48.42767295597484,
+      "SC": 36.55913978494624,
+      "decision": "",
+      "exists": true,
+      "model": "adapter_scale_1.10",
+      "overall": 34.203845091392836,
+      "path": "results/lineage_recovery/scale_sweep/adapter_scale_1.10.json"
+    }
+  ],
+  "scales": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0,
+    1.1
+  ]
+}

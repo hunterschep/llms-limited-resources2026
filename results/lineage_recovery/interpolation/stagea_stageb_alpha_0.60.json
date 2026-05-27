@@ -1,0 +1,62 @@
+{
+  "adapter": null,
+  "adapter_scale": null,
+  "aggregate": {
+    "GC_score": 33.33333333333333,
+    "MR_score": 4.166666666666666,
+    "MT_score": 41.17818840011867,
+    "QA_score": 48.42767295597484,
+    "SC_score": 38.095238095238095,
+    "overall_score": 33.04021989026632
+  },
+  "direction_scores": {
+    "de->dsb": {
+      "bleu": 4.695605473251774,
+      "chrf++": 24.073224319806776
+    },
+    "de->hsb": {
+      "bleu": 9.05998514391472,
+      "chrf++": 29.981139061319094
+    },
+    "dsb->de": {
+      "bleu": 18.568745587741137,
+      "chrf++": 44.21447965357298
+    },
+    "dsb->hsb": {
+      "bleu": 14.98550191867431,
+      "chrf++": 46.659897536944
+    },
+    "hsb->de": {
+      "bleu": 23.556402956079594,
+      "chrf++": 49.935642352955156
+    },
+    "hsb->dsb": {
+      "bleu": 11.918317676198656,
+      "chrf++": 47.54808403012299
+    }
+  },
+  "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/interpolation/stagea_stageb_alpha_0.60",
+  "oracle": false,
+  "slurm_job_id": "2505661",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.6666666666666666
+    },
+    "MR": {
+      "accuracy": 0.041666666666666664
+    },
+    "MT": {
+      "bleu": 14.286792272212656,
+      "chrf++": 41.17818840011867
+    },
+    "QA": {
+      "accuracy": 0.48427672955974843
+    },
+    "SC": {
+      "correction_f1": 0.09523809523809523,
+      "detection_f1": 0.6666666666666666
+    }
+  },
+  "track": "sorbian"
+}

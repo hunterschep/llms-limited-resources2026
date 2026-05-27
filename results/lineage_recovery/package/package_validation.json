@@ -1,0 +1,11 @@
+{
+  "exists": true,
+  "load_checked": false,
+  "load_ok": null,
+  "model_dir": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10",
+  "ok": true,
+  "required_files": {
+    "config.json": true,
+    "tokenizer_config.json": true
+  }
+}

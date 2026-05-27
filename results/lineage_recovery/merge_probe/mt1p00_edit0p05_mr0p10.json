@@ -1,0 +1,62 @@
+{
+  "adapter": null,
+  "adapter_scale": null,
+  "aggregate": {
+    "GC_score": 33.33333333333333,
+    "MR_score": 6.25,
+    "MT_score": 43.81799966658787,
+    "QA_score": 48.42767295597484,
+    "SC_score": 38.095238095238095,
+    "overall_score": 33.984848810226836
+  },
+  "direction_scores": {
+    "de->dsb": {
+      "bleu": 4.76946448376594,
+      "chrf++": 26.955254661781918
+    },
+    "de->hsb": {
+      "bleu": 11.051249781088732,
+      "chrf++": 31.720103451768818
+    },
+    "dsb->de": {
+      "bleu": 20.781928915348537,
+      "chrf++": 45.0525352717447
+    },
+    "dsb->hsb": {
+      "bleu": 17.098251671240725,
+      "chrf++": 48.65859899587781
+    },
+    "hsb->de": {
+      "bleu": 29.18812277333535,
+      "chrf++": 54.337032824390995
+    },
+    "hsb->dsb": {
+      "bleu": 16.28771504500024,
+      "chrf++": 50.696254843715174
+    }
+  },
+  "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p05_mr0p10",
+  "oracle": false,
+  "slurm_job_id": "2505674",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.6666666666666666
+    },
+    "MR": {
+      "accuracy": 0.0625
+    },
+    "MT": {
+      "bleu": 17.477462808586644,
+      "chrf++": 43.81799966658787
+    },
+    "QA": {
+      "accuracy": 0.48427672955974843
+    },
+    "SC": {
+      "correction_f1": 0.09523809523809523,
+      "detection_f1": 0.6666666666666666
+    }
+  },
+  "track": "sorbian"
+}

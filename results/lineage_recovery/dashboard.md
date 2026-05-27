@@ -1,0 +1,42 @@
+# Lineage Recovery Dashboard
+
+| model | overall | MT | QA | SC | GC | MR | path |
+|---|---|---|---|---|---|---|---|
+| mt1p00_edit0p10_mr0p10 | 34.904 | 44.248 | 48.428 | 38.095 | 33.333 | 10.417 | results/lineage_recovery/merge_probe/mt1p00_edit0p10_mr0p10.json |
+| edit_calibration_tiny | 34.870 | 44.076 | 48.428 | 38.095 | 33.333 | 10.417 | results/lineage_recovery/probe_eval/edit_calibration_tiny.json |
+| mt1p00_edit0p10_mr0p05 | 34.867 | 44.065 | 48.428 | 38.095 | 33.333 | 10.417 | results/lineage_recovery/merge_probe/mt1p00_edit0p10_mr0p05.json |
+| stagea_stageb_alpha_1.00 | 34.494 | 44.280 | 48.428 | 38.095 | 33.333 | 8.333 | results/lineage_recovery/interpolation/stagea_stageb_alpha_1.00.json |
+| adapter_scale_1.00 | 34.466 | 44.142 | 48.428 | 38.095 | 33.333 | 8.333 | results/lineage_recovery/scale_sweep/adapter_scale_1.00.json |
+| reproduced_stage_b_probe | 34.465 | 44.137 | 48.428 | 38.095 | 33.333 | 8.333 | results/lineage_recovery/eval/reproduced_stage_b_probe.json |
+| merge_mt1p00_edit0p10_mr0p10 | 34.417 | 44.035 | 48.428 | 35.711 | 33.493 | 10.417 | results/lineage_recovery/full_eval/merge_mt1p00_edit0p10_mr0p10.json |
+| mt0p90_edit0p05_mr0p05 | 34.296 | 43.920 | 47.799 | 38.095 | 33.333 | 8.333 | results/lineage_recovery/merge_probe/mt0p90_edit0p05_mr0p05.json |
+| adapter_scale_0.80 | 34.216 | 42.771 | 47.799 | 38.845 | 33.333 | 8.333 | results/lineage_recovery/scale_sweep/adapter_scale_0.80.json |
+| mt0p90_edit0p10_mr0p05 | 34.210 | 43.563 | 49.057 | 38.845 | 33.333 | 6.250 | results/lineage_recovery/merge_probe/mt0p90_edit0p10_mr0p05.json |
+| adapter_scale_1.10 | 34.204 | 44.366 | 48.428 | 36.559 | 33.333 | 8.333 | results/lineage_recovery/scale_sweep/adapter_scale_1.10.json |
+| stagea_stageb_alpha_0.90 | 34.085 | 44.318 | 48.428 | 38.095 | 33.333 | 6.250 | results/lineage_recovery/interpolation/stagea_stageb_alpha_0.90.json |
+| mt1p00_edit0p05_mr0p05 | 34.038 | 44.086 | 48.428 | 38.095 | 33.333 | 6.250 | results/lineage_recovery/merge_probe/mt1p00_edit0p05_mr0p05.json |
+| mt0p90_edit0p05_mr0p10 | 34.016 | 43.972 | 48.428 | 38.095 | 33.333 | 6.250 | results/lineage_recovery/merge_probe/mt0p90_edit0p05_mr0p10.json |
+| mt0p90_edit0p10_mr0p10 | 34.006 | 43.802 | 47.799 | 38.845 | 33.333 | 6.250 | results/lineage_recovery/merge_probe/mt0p90_edit0p10_mr0p10.json |
+| mt0p80_edit0p10_mr0p10 | 33.999 | 42.316 | 47.170 | 38.845 | 33.333 | 8.333 | results/lineage_recovery/merge_probe/mt0p80_edit0p10_mr0p10.json |
+| mr_recovery_tiny | 33.994 | 43.863 | 48.428 | 38.095 | 33.333 | 6.250 | results/lineage_recovery/probe_eval/mr_recovery_tiny.json |
+| mt1p00_edit0p05_mr0p10 | 33.985 | 43.818 | 48.428 | 38.095 | 33.333 | 6.250 | results/lineage_recovery/merge_probe/mt1p00_edit0p05_mr0p10.json |
+| adapter_scale_0.90 | 33.967 | 43.606 | 47.799 | 38.845 | 33.333 | 6.250 | results/lineage_recovery/scale_sweep/adapter_scale_0.90.json |
+| adapter_scale_0.80 | 33.957 | 42.829 | 47.170 | 35.876 | 33.493 | 10.417 | results/lineage_recovery/full_eval/adapter_scale_0.80.json |
+| stagea_stageb_alpha_0.80 | 33.929 | 42.679 | 47.799 | 39.583 | 33.333 | 6.250 | results/lineage_recovery/interpolation/stagea_stageb_alpha_0.80.json |
+| mt0p80_edit0p10_mr0p05 | 33.727 | 42.407 | 47.799 | 38.845 | 33.333 | 6.250 | results/lineage_recovery/merge_probe/mt0p80_edit0p10_mr0p05.json |
+| reproduced_stage_b | 33.628 | 44.094 | 48.428 | 35.876 | 33.493 | 6.250 | results/lineage_recovery/full_eval/reproduced_stage_b.json |
+| edit_calibration_tiny | 33.584 | 44.036 | 48.428 | 35.711 | 33.493 | 6.250 | results/lineage_recovery/full_eval/edit_calibration_tiny.json |
+| mt0p80_edit0p05_mr0p10 | 33.538 | 42.844 | 47.170 | 38.095 | 33.333 | 6.250 | results/lineage_recovery/merge_probe/mt0p80_edit0p05_mr0p10.json |
+| stagea_stageb_alpha_0.70 | 33.307 | 41.566 | 46.541 | 38.845 | 33.333 | 6.250 | results/lineage_recovery/interpolation/stagea_stageb_alpha_0.70.json |
+| mt0p80_edit0p05_mr0p05 | 33.130 | 42.255 | 47.799 | 38.095 | 33.333 | 4.167 | results/lineage_recovery/merge_probe/mt0p80_edit0p05_mr0p05.json |
+| stagea_stageb_alpha_0.60 | 33.040 | 41.178 | 48.428 | 38.095 | 33.333 | 4.167 | results/lineage_recovery/interpolation/stagea_stageb_alpha_0.60.json |
+| adapter_scale_0.70 | 32.987 | 41.423 | 47.170 | 38.845 | 33.333 | 4.167 | results/lineage_recovery/scale_sweep/adapter_scale_0.70.json |
+| adapter_scale_0.60 | 32.955 | 41.258 | 47.170 | 38.845 | 33.333 | 4.167 | results/lineage_recovery/scale_sweep/adapter_scale_0.60.json |
+| stagea_stageb_alpha_0.50 | 32.921 | 40.715 | 49.057 | 37.333 | 33.333 | 4.167 | results/lineage_recovery/interpolation/stagea_stageb_alpha_0.50.json |
+| adapter_scale_0.50 | 32.790 | 40.555 | 47.799 | 38.095 | 33.333 | 4.167 | results/lineage_recovery/scale_sweep/adapter_scale_0.50.json |
+| stagea_stageb_alpha_0.40 | 32.458 | 39.173 | 49.057 | 36.559 | 33.333 | 4.167 | results/lineage_recovery/interpolation/stagea_stageb_alpha_0.40.json |
+| adapter_scale_0.40 | 32.379 | 39.408 | 48.428 | 36.559 | 33.333 | 4.167 | results/lineage_recovery/scale_sweep/adapter_scale_0.40.json |
+| adapter_scale_0.30 | 32.186 | 37.671 | 48.428 | 37.333 | 33.333 | 4.167 | results/lineage_recovery/scale_sweep/adapter_scale_0.30.json |
+| stagea_stageb_alpha_0.30 | 31.741 | 38.104 | 46.541 | 36.559 | 33.333 | 4.167 | results/lineage_recovery/interpolation/stagea_stageb_alpha_0.30.json |
+| adapter_scale_0.20 | 31.672 | 35.726 | 47.799 | 37.333 | 33.333 | 4.167 | results/lineage_recovery/scale_sweep/adapter_scale_0.20.json |
+| stagea_stageb_alpha_0.20 | 31.234 | 35.572 | 46.541 | 36.559 | 33.333 | 4.167 | results/lineage_recovery/interpolation/stagea_stageb_alpha_0.20.json |

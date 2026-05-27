@@ -8,6 +8,11 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+import sys
+
+sys.path.insert(0, str(ROOT / "src"))
+
+from wmt26.eval.metrics import normalize_mr_answer  # noqa: E402
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -20,9 +25,9 @@ def read_jsonl(path: Path) -> list[dict]:
 
 
 def classify(row: dict) -> str:
-    pred = str(row.get("raw_prediction", ""))
-    norm_pred = str(row.get("normalized_prediction", ""))
-    norm_ref = str(row.get("normalized_reference", ""))
+    pred = str(row.get("raw_prediction", row.get("prediction", "")))
+    norm_pred = str(row.get("normalized_prediction") or normalize_mr_answer(pred))
+    norm_ref = str(row.get("normalized_reference") or normalize_mr_answer(row.get("gold_target", row.get("reference", ""))))
     if norm_pred == norm_ref:
         if pred.strip() == str(row.get("gold_target", "")).strip():
             return "exact_normalized_match"
@@ -47,10 +52,10 @@ def summarize(rows: list[dict]) -> dict:
             {
                 "id": row.get("id"),
                 "category": classify(row),
-                "gold_target": row.get("gold_target"),
-                "raw_prediction": row.get("raw_prediction"),
-                "normalized_prediction": row.get("normalized_prediction"),
-                "normalized_reference": row.get("normalized_reference"),
+                "gold_target": row.get("gold_target", row.get("reference")),
+                "raw_prediction": row.get("raw_prediction", row.get("prediction")),
+                "normalized_prediction": row.get("normalized_prediction") or normalize_mr_answer(row.get("raw_prediction", row.get("prediction", ""))),
+                "normalized_reference": row.get("normalized_reference") or normalize_mr_answer(row.get("gold_target", row.get("reference", ""))),
             }
             for row in mr_rows
             if classify(row) not in {"exact_normalized_match", "parser_normalization_rescued"}

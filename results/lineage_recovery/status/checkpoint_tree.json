@@ -1,0 +1,78 @@
+{
+  "checks": {
+    "edit_repair_tiny_preserved": {
+      "any_files": {},
+      "exists": true,
+      "is_dir": true,
+      "ok": true,
+      "path": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/stage_b_rescue/sorbian/edit_repair_tiny",
+      "required_files": {
+        "config.json": true
+      }
+    },
+    "original_stage_b_preserved": {
+      "any_files": {},
+      "exists": true,
+      "is_dir": true,
+      "ok": true,
+      "path": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/competitive_reboot/sorbian/stage_b_mt_large",
+      "required_files": {
+        "config.json": true
+      }
+    },
+    "stage_a_adapter": {
+      "any_files": {
+        "adapter_model.bin": false,
+        "adapter_model.safetensors": true
+      },
+      "exists": true,
+      "is_dir": true,
+      "ok": true,
+      "path": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_adapter/final_adapter",
+      "required_files": {
+        "adapter_config.json": true,
+        "lineage_manifest.json": true
+      }
+    },
+    "stage_a_parent": {
+      "any_files": {},
+      "exists": true,
+      "is_dir": true,
+      "ok": true,
+      "path": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_a_dapt_parent/final_merged",
+      "required_files": {
+        "config.json": true,
+        "lineage_manifest.json": true
+      }
+    },
+    "stage_b_adapter": {
+      "any_files": {
+        "adapter_model.bin": false,
+        "adapter_model.safetensors": true
+      },
+      "exists": true,
+      "is_dir": true,
+      "ok": true,
+      "path": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_adapter",
+      "required_files": {
+        "adapter_config.json": true,
+        "lineage_manifest.json": true
+      }
+    },
+    "stage_b_merged": {
+      "any_files": {},
+      "exists": true,
+      "is_dir": true,
+      "ok": true,
+      "path": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged",
+      "required_files": {
+        "config.json": true,
+        "lineage_manifest.json": true
+      }
+    }
+  },
+  "git_commit": "51541b04f5f92b184010a313ce5d5529273a2938",
+  "lineage_remote_root": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian",
+  "ok": true,
+  "slurm_job_id": "2505542"
+}

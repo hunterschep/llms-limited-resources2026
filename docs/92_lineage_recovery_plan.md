@@ -1,6 +1,6 @@
 # Lineage Recovery Plan
 
-Current commit: `4ee7665a6f122168c853c4dddf726f7e9ca3c6ab`.
+Starting commit recorded from prior closeout: `4ee7665a6f122168c853c4dddf726f7e9ca3c6ab`.
 
 This phase starts from the completed Stage-B rescue state. The best retained Sorbian model is `edit_repair_tiny`, but it is not final-competitive. The structural failure to fix now is checkpoint lineage: the original Stage B adapter exists, but its Stage A parent was pruned, so adapter-scale and parent/interpolation surgery could not be run safely.
 
@@ -44,3 +44,16 @@ Hard rejects:
 ## Source Constraints
 
 Official constraints are from the [WMT26 task page](https://www2.statmt.org/wmt26/limited-resources-llm.html) and [official WMT26 GitHub](https://github.com/TUM-NLP/llms-limited-resources2026). The base remains [Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B). Forbidden data includes original, translated, modified, or derived [PolyMath](https://huggingface.co/datasets/Qwen/PolyMath).
+
+## Closeout
+
+Lineage recovery produced a stronger Sorbian candidate:
+
+`/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10`
+
+| Model | Overall | MT | QA | SC | GC | MR | Decision |
+|---|---:|---:|---:|---:|---:|---:|---|
+| edit_repair_tiny | 33.177 | 43.345 | 48.428 | 34.370 | 33.493 | 6.250 | prior best |
+| selected lineage merge | 34.417 | 44.035 | 48.428 | 35.711 | 33.493 | 10.417 | new best |
+
+The selected merge clears the preferred overall threshold `34.195`, keeps MT above `41.0`, and recovers MR above prompt-only. The important remaining caveat is SC/GC no-error behavior: no-error accuracy remains `0.000` for both SC and GC, matching the prompt-only and Stage B pathology.
