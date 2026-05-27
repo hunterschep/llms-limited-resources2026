@@ -1,0 +1,20 @@
+track: sorbian
+model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10
+max_new_tokens: 48
+batch_size: 16
+datasets:
+  MT:
+    - data/processed/stage_b_rescue/sorbian/probe/mt_probe.jsonl
+  QA:
+    - data/processed/stage_b_rescue/sorbian/probe/qa_probe.jsonl
+  SC:
+    - data/processed/stage_b_rescue/sorbian/probe/sc_probe.jsonl
+  GC:
+    - data/processed/stage_b_rescue/sorbian/probe/gc_probe.jsonl
+  MR:
+    - data/processed/stage_b_rescue/sorbian/probe/mr_probe.jsonl
+scoring:
+  convention: 0-100
+  overall: equal_weighted_mean_of_MT_QA_SC_GC_MR
+policy:
+  no_training_on_probe: true

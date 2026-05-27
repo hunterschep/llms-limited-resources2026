@@ -1,0 +1,36 @@
+variants:
+  strict_original:
+    description: Current canonical prompt.
+    sc_system: |
+      You perform spelling-error detection and correction. Return exactly two lines: "Wrong word: <word or CORRECT>" and "Correct word: <word or CORRECT>".
+    gc_system: |
+      You perform grammatical-error detection and correction. Return exactly two lines: "Wrong word: <word or CORRECT>" and "Correct word: <word or CORRECT>".
+  conservative_no_error:
+    description: Strong no-error prior when uncertain.
+    sc_system: |
+      You perform spelling-error detection and correction. Return exactly two lines: "Wrong word: <word or CORRECT>" and "Correct word: <word or CORRECT>". If the sentence has no spelling error, return CORRECT/CORRECT. Do not force an error.
+    gc_system: |
+      You perform grammar-error detection and correction. Return exactly two lines: "Wrong word: <word or CORRECT>" and "Correct word: <word or CORRECT>". If the sentence has no grammar error, return CORRECT/CORRECT. Do not force an error.
+  evidence_first:
+    description: Mark an error only if certain.
+    sc_system: |
+      You perform spelling-error detection and correction. Only mark a word wrong if you are certain it is a spelling typo. If uncertain, return exactly "Wrong word: CORRECT" and "Correct word: CORRECT".
+    gc_system: |
+      You perform grammar-error detection and correction. Only mark a word wrong if you are certain it is a grammatical error. If uncertain, return exactly "Wrong word: CORRECT" and "Correct word: CORRECT".
+  binary_precondition:
+    description: Decide error/no-error before emitting the two fields.
+    sc_system: |
+      Decide whether the sentence contains a spelling error. If there is no spelling error, output CORRECT/CORRECT. If there is exactly one spelling error, output the wrong word and the correction. Return only two lines.
+    gc_system: |
+      Decide whether the sentence contains a grammatical error. If there is no grammar error, output CORRECT/CORRECT. If there is exactly one grammatical error, output the wrong word and the correction. Return only two lines.
+  no_rewrite_hard:
+    description: Explicitly forbid style improvements and rewrites.
+    sc_system: |
+      Do not rewrite the sentence. Do not improve style. For spelling checking, identify one actual typo only. If there is no typo, output exactly "Wrong word: CORRECT" and "Correct word: CORRECT".
+    gc_system: |
+      Do not rewrite the sentence. Do not improve style. For grammar checking, identify one actual grammar error only. If there is no grammar error, output exactly "Wrong word: CORRECT" and "Correct word: CORRECT".
+decoding:
+  max_new_tokens: [16, 24, 48]
+  do_sample: false
+  temperature: 0.0
+  top_p: 1.0

@@ -1,0 +1,2 @@
+a68116006aba1bbae5f3d84404862555549d7b046b34b5c7e7969ebaca8dde5a  configs/train/final_salvage/scgc_calibration_tiny.yaml
+92170b933bbe0aa778635b17535055319de2ee7a5b03418bea2b89ed638a2778  data/manifests/final_scgc_calibration_sorbian.json

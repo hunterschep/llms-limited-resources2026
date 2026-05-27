@@ -1,0 +1,18 @@
+{
+  "exists": true,
+  "load_checked": false,
+  "load_ok": null,
+  "model_dir": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/final_salvage/sorbian_primary_package/model",
+  "ok": true,
+  "required_files": {
+    "config.json": true,
+    "tokenizer_config.json": true
+  },
+  "wmt_constraints": {
+    "no_forbidden_data_known": true,
+    "no_live_rag": true,
+    "no_task_adapter_switching": true,
+    "one_model_all_tasks": true,
+    "qwen35_family_le_2b": true
+  }
+}

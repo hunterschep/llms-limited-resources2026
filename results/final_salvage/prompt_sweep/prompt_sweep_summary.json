@@ -1,0 +1,845 @@
+{
+  "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10",
+  "results": [
+    {
+      "aggregate": {
+        "GC_score": 0.0,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 0.8264462809917356,
+        "overall_score": 0.1652892561983471
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 120,
+            "detection_fp": 2,
+            "detection_tn": 118,
+            "detection_tp": 0,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 238,
+            "pred_error": 2,
+            "total": 240,
+            "wrong_word_exact": 0
+          },
+          "no_error_accuracy": 0.9833333333333333
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 119,
+            "detection_fp": 0,
+            "detection_tn": 120,
+            "detection_tp": 1,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 239,
+            "pred_error": 1,
+            "total": 240,
+            "wrong_word_exact": 0
+          },
+          "no_error_accuracy": 1.0
+        }
+      },
+      "max_new_tokens": 16,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.0
+        },
+        "SC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.01652892561983471
+        }
+      },
+      "variant": "binary_precondition"
+    },
+    {
+      "aggregate": {
+        "GC_score": 0.0,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 0.8264462809917356,
+        "overall_score": 0.1652892561983471
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 120,
+            "detection_fp": 2,
+            "detection_tn": 118,
+            "detection_tp": 0,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 238,
+            "pred_error": 2,
+            "total": 240,
+            "wrong_word_exact": 0
+          },
+          "no_error_accuracy": 0.9833333333333333
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 119,
+            "detection_fp": 0,
+            "detection_tn": 120,
+            "detection_tp": 1,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 239,
+            "pred_error": 1,
+            "total": 240,
+            "wrong_word_exact": 0
+          },
+          "no_error_accuracy": 1.0
+        }
+      },
+      "max_new_tokens": 24,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.0
+        },
+        "SC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.01652892561983471
+        }
+      },
+      "variant": "binary_precondition"
+    },
+    {
+      "aggregate": {
+        "GC_score": 0.0,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 0.8264462809917356,
+        "overall_score": 0.1652892561983471
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 120,
+            "detection_fp": 2,
+            "detection_tn": 118,
+            "detection_tp": 0,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 238,
+            "pred_error": 2,
+            "total": 240,
+            "wrong_word_exact": 0
+          },
+          "no_error_accuracy": 0.9833333333333333
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 119,
+            "detection_fp": 0,
+            "detection_tn": 120,
+            "detection_tp": 1,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 239,
+            "pred_error": 1,
+            "total": 240,
+            "wrong_word_exact": 0
+          },
+          "no_error_accuracy": 1.0
+        }
+      },
+      "max_new_tokens": 48,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.0
+        },
+        "SC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.01652892561983471
+        }
+      },
+      "variant": "binary_precondition"
+    },
+    {
+      "aggregate": {
+        "GC_score": 33.496900826446286,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 33.77773567927254,
+        "overall_score": 13.454927301143766
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 1,
+            "detection_fn": 5,
+            "detection_fp": 117,
+            "detection_tn": 3,
+            "detection_tp": 115,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 8,
+            "pred_error": 232,
+            "total": 240,
+            "wrong_word_exact": 10
+          },
+          "no_error_accuracy": 0.025
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 1,
+            "detection_fn": 5,
+            "detection_fp": 114,
+            "detection_tn": 6,
+            "detection_tp": 115,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 11,
+            "pred_error": 229,
+            "total": 240,
+            "wrong_word_exact": 22
+          },
+          "no_error_accuracy": 0.05
+        }
+      },
+      "max_new_tokens": 16,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.01652892561983471,
+          "detection_f1": 0.6534090909090909
+        },
+        "SC": {
+          "correction_f1": 0.01652892561983471,
+          "detection_f1": 0.659025787965616
+        }
+      },
+      "variant": "no_rewrite_hard"
+    },
+    {
+      "aggregate": {
+        "GC_score": 32.67045454545455,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 34.59063366057588,
+        "overall_score": 13.452217641206085
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 5,
+            "detection_fp": 117,
+            "detection_tn": 3,
+            "detection_tp": 115,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 8,
+            "pred_error": 232,
+            "total": 240,
+            "wrong_word_exact": 10
+          },
+          "no_error_accuracy": 0.025
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 2,
+            "detection_fn": 5,
+            "detection_fp": 114,
+            "detection_tn": 6,
+            "detection_tp": 115,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 11,
+            "pred_error": 229,
+            "total": 240,
+            "wrong_word_exact": 22
+          },
+          "no_error_accuracy": 0.05
+        }
+      },
+      "max_new_tokens": 24,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6534090909090909
+        },
+        "SC": {
+          "correction_f1": 0.03278688524590164,
+          "detection_f1": 0.659025787965616
+        }
+      },
+      "variant": "no_rewrite_hard"
+    },
+    {
+      "aggregate": {
+        "GC_score": 32.67045454545455,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 34.59063366057588,
+        "overall_score": 13.452217641206085
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 5,
+            "detection_fp": 117,
+            "detection_tn": 3,
+            "detection_tp": 115,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 8,
+            "pred_error": 232,
+            "total": 240,
+            "wrong_word_exact": 10
+          },
+          "no_error_accuracy": 0.025
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 2,
+            "detection_fn": 5,
+            "detection_fp": 114,
+            "detection_tn": 6,
+            "detection_tp": 115,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 11,
+            "pred_error": 229,
+            "total": 240,
+            "wrong_word_exact": 22
+          },
+          "no_error_accuracy": 0.05
+        }
+      },
+      "max_new_tokens": 48,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6534090909090909
+        },
+        "SC": {
+          "correction_f1": 0.03278688524590164,
+          "detection_f1": 0.659025787965616
+        }
+      },
+      "variant": "no_rewrite_hard"
+    },
+    {
+      "aggregate": {
+        "GC_score": 33.42618384401114,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 33.33333333333333,
+        "overall_score": 13.351903435468893
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 119,
+            "detection_tn": 1,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 1,
+            "pred_error": 239,
+            "total": 240,
+            "wrong_word_exact": 3
+          },
+          "no_error_accuracy": 0.008333333333333333
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 2
+          },
+          "no_error_accuracy": 0.0
+        }
+      },
+      "max_new_tokens": 16,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6685236768802229
+        },
+        "SC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6666666666666666
+        }
+      },
+      "variant": "evidence_first"
+    },
+    {
+      "aggregate": {
+        "GC_score": 33.42618384401114,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 33.33333333333333,
+        "overall_score": 13.351903435468893
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 119,
+            "detection_tn": 1,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 1,
+            "pred_error": 239,
+            "total": 240,
+            "wrong_word_exact": 3
+          },
+          "no_error_accuracy": 0.008333333333333333
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 2
+          },
+          "no_error_accuracy": 0.0
+        }
+      },
+      "max_new_tokens": 24,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6685236768802229
+        },
+        "SC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6666666666666666
+        }
+      },
+      "variant": "evidence_first"
+    },
+    {
+      "aggregate": {
+        "GC_score": 33.42618384401114,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 33.33333333333333,
+        "overall_score": 13.351903435468893
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 119,
+            "detection_tn": 1,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 1,
+            "pred_error": 239,
+            "total": 240,
+            "wrong_word_exact": 3
+          },
+          "no_error_accuracy": 0.008333333333333333
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 2
+          },
+          "no_error_accuracy": 0.0
+        }
+      },
+      "max_new_tokens": 48,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6685236768802229
+        },
+        "SC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6666666666666666
+        }
+      },
+      "variant": "evidence_first"
+    },
+    {
+      "aggregate": {
+        "GC_score": 33.33333333333333,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 38.095238095238095,
+        "overall_score": 14.285714285714283
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 21
+          },
+          "no_error_accuracy": 0.0
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 6,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 28
+          },
+          "no_error_accuracy": 0.0
+        }
+      },
+      "max_new_tokens": 48,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6666666666666666
+        },
+        "SC": {
+          "correction_f1": 0.09523809523809523,
+          "detection_f1": 0.6666666666666666
+        }
+      },
+      "variant": "strict_original"
+    },
+    {
+      "aggregate": {
+        "GC_score": 33.33333333333333,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 38.095238095238095,
+        "overall_score": 14.285714285714283
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 13
+          },
+          "no_error_accuracy": 0.0
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 6,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 24
+          },
+          "no_error_accuracy": 0.0
+        }
+      },
+      "max_new_tokens": 24,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6666666666666666
+        },
+        "SC": {
+          "correction_f1": 0.09523809523809523,
+          "detection_f1": 0.6666666666666666
+        }
+      },
+      "variant": "conservative_no_error"
+    },
+    {
+      "aggregate": {
+        "GC_score": 33.33333333333333,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 38.095238095238095,
+        "overall_score": 14.285714285714283
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 13
+          },
+          "no_error_accuracy": 0.0
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 6,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 24
+          },
+          "no_error_accuracy": 0.0
+        }
+      },
+      "max_new_tokens": 48,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6666666666666666
+        },
+        "SC": {
+          "correction_f1": 0.09523809523809523,
+          "detection_f1": 0.6666666666666666
+        }
+      },
+      "variant": "conservative_no_error"
+    },
+    {
+      "aggregate": {
+        "GC_score": 33.33333333333333,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 37.33333333333333,
+        "overall_score": 14.133333333333331
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 21
+          },
+          "no_error_accuracy": 0.0
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 5,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 29
+          },
+          "no_error_accuracy": 0.0
+        }
+      },
+      "max_new_tokens": 24,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6666666666666666
+        },
+        "SC": {
+          "correction_f1": 0.07999999999999999,
+          "detection_f1": 0.6666666666666666
+        }
+      },
+      "variant": "strict_original"
+    },
+    {
+      "aggregate": {
+        "GC_score": 34.15977961432507,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 34.97267759562842,
+        "overall_score": 13.826491441990697
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 1,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 21
+          },
+          "no_error_accuracy": 0.0
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 2,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 25
+          },
+          "no_error_accuracy": 0.0
+        }
+      },
+      "max_new_tokens": 16,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.01652892561983471,
+          "detection_f1": 0.6666666666666666
+        },
+        "SC": {
+          "correction_f1": 0.03278688524590164,
+          "detection_f1": 0.6666666666666666
+        }
+      },
+      "variant": "strict_original"
+    },
+    {
+      "aggregate": {
+        "GC_score": 33.33333333333333,
+        "MR_score": 0.0,
+        "MT_score": 0.0,
+        "QA_score": 0.0,
+        "SC_score": 35.77235772357724,
+        "overall_score": 13.821138211382111
+      },
+      "extra": {
+        "GC": {
+          "diagnostics": {
+            "correction_exact": 0,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 13
+          },
+          "no_error_accuracy": 0.0
+        },
+        "SC": {
+          "diagnostics": {
+            "correction_exact": 3,
+            "detection_fn": 0,
+            "detection_fp": 120,
+            "detection_tn": 0,
+            "detection_tp": 120,
+            "gold_correct": 120,
+            "gold_error": 120,
+            "pred_correct": 0,
+            "pred_error": 240,
+            "total": 240,
+            "wrong_word_exact": 24
+          },
+          "no_error_accuracy": 0.0
+        }
+      },
+      "max_new_tokens": 16,
+      "task_scores": {
+        "GC": {
+          "correction_f1": 0.0,
+          "detection_f1": 0.6666666666666666
+        },
+        "SC": {
+          "correction_f1": 0.04878048780487806,
+          "detection_f1": 0.6666666666666666
+        }
+      },
+      "variant": "conservative_no_error"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "adapter": null,
+  "adapter_scale": null,
+  "aggregate": {
+    "GC_score": 33.33333333333333,
+    "MR_score": 6.25,
+    "MT_score": 42.29624981290265,
+    "QA_score": 49.056603773584904,
+    "SC_score": 38.095238095238095,
+    "overall_score": 33.806285003011794
+  },
+  "direction_scores": {
+    "de->dsb": {
+      "bleu": 5.1551744828511445,
+      "chrf++": 26.020616854051692
+    },
+    "de->hsb": {
+      "bleu": 10.371104753084568,
+      "chrf++": 31.50306918827685
+    },
+    "dsb->de": {
+      "bleu": 17.922812505408555,
+      "chrf++": 41.52273715753702
+    },
+    "dsb->hsb": {
+      "bleu": 16.275621241166625,
+      "chrf++": 46.03130702970417
+    },
+    "hsb->de": {
+      "bleu": 29.354789698523135,
+      "chrf++": 54.04597773477311
+    },
+    "hsb->dsb": {
+      "bleu": 15.224128093064966,
+      "chrf++": 48.559672066961895
+    }
+  },
+  "model": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/final_salvage/sorbian/scgc_calibration_merge/scgc_alpha_0p05",
+  "oracle": false,
+  "slurm_job_id": "2505802",
+  "task_scores": {
+    "GC": {
+      "correction_f1": 0.0,
+      "detection_f1": 0.6666666666666666
+    },
+    "MR": {
+      "accuracy": 0.0625
+    },
+    "MT": {
+      "bleu": 16.551637087787814,
+      "chrf++": 42.29624981290265
+    },
+    "QA": {
+      "accuracy": 0.49056603773584906
+    },
+    "SC": {
+      "correction_f1": 0.09523809523809523,
+      "detection_f1": 0.6666666666666666
+    }
+  },
+  "track": "sorbian"
+}

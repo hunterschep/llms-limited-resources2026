@@ -1,0 +1,29 @@
+run_name: final_salvage_scgc_calibration_tiny
+track: sorbian
+stage: final_salvage_scgc_calibration
+model_config: configs/model/qwen35_2b.yaml
+base_model_path: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10
+fallback_to_base_if_missing: false
+output_dir: checkpoints/final_salvage/sorbian/scgc_calibration_tiny
+train_files:
+  - data/processed/final_salvage/sorbian/scgc_calibration/clean_70_error_30.jsonl
+  - data/processed/final_salvage/sorbian/scgc_calibration/anchor_replay.jsonl
+sampling: direct_files
+method: lora_sft_assistant_only
+adapter: lora
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+target_modules: [q_proj, v_proj, o_proj]
+max_steps: 260
+learning_rate: 0.000003
+batch_size: 1
+gradient_accumulation_steps: 16
+max_length: 1536
+seed: 2712
+dry_run: false
+final_salvage_policy:
+  parent: selected_lineage_merge
+  forbid_stage_c: true
+  preserve_mt_anchor: true
+  target: teach CORRECT/CORRECT no-error behavior without MT/MR damage

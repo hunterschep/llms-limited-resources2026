@@ -1,0 +1,83 @@
+{
+  "config": "configs/data/final_scgc_calibration_sorbian.yaml",
+  "outputs": {
+    "anchor_replay": {
+      "by_source_id_top20": {
+        "external:gsm8k_train": 173,
+        "official:sorb_mono_dsb": 6,
+        "official:sorb_mono_hsb": 7,
+        "official:train_de-dsb_2026": 294,
+        "official:train_de-hsb_2026": 277,
+        "official:train_hsb-dsb_2026": 283
+      },
+      "by_task": {
+        "GC": 17,
+        "MR": 173,
+        "MT": 836,
+        "SC": 14
+      },
+      "clean_rows": 18,
+      "error_rows": 13,
+      "path": "data/processed/final_salvage/sorbian/scgc_calibration/anchor_replay.jsonl",
+      "rows": 1040
+    },
+    "clean_50_error_50": {
+      "by_source_id_top20": {
+        "official:sorb_mono_dsb": 215,
+        "official:sorb_mono_hsb": 235,
+        "official:train_de-dsb_2026": 187,
+        "official:train_de-hsb_2026": 188,
+        "official:train_hsb-dsb_2026": 75
+      },
+      "by_task": {
+        "GC": 456,
+        "SC": 444
+      },
+      "clean_rows": 450,
+      "error_rows": 450,
+      "path": "data/processed/final_salvage/sorbian/scgc_calibration/clean_50_error_50.jsonl",
+      "rows": 900
+    },
+    "clean_60_error_40": {
+      "by_source_id_top20": {
+        "official:sorb_mono_dsb": 169,
+        "official:sorb_mono_hsb": 191,
+        "official:train_de-dsb_2026": 212,
+        "official:train_de-hsb_2026": 231,
+        "official:train_hsb-dsb_2026": 97
+      },
+      "by_task": {
+        "GC": 434,
+        "SC": 466
+      },
+      "clean_rows": 540,
+      "error_rows": 360,
+      "path": "data/processed/final_salvage/sorbian/scgc_calibration/clean_60_error_40.jsonl",
+      "rows": 900
+    },
+    "clean_70_error_30": {
+      "by_source_id_top20": {
+        "official:sorb_mono_dsb": 128,
+        "official:sorb_mono_hsb": 142,
+        "official:train_de-dsb_2026": 257,
+        "official:train_de-hsb_2026": 263,
+        "official:train_hsb-dsb_2026": 110
+      },
+      "by_task": {
+        "GC": 446,
+        "SC": 454
+      },
+      "clean_rows": 630,
+      "error_rows": 270,
+      "path": "data/processed/final_salvage/sorbian/scgc_calibration/clean_70_error_30.jsonl",
+      "rows": 900
+    }
+  },
+  "policy": {
+    "exact_two_line_targets": true,
+    "no_extra_certificate_questions": true,
+    "no_forbidden_polymath": true,
+    "no_locked_validation_training": true,
+    "no_stage_c_replay": true
+  }
+}

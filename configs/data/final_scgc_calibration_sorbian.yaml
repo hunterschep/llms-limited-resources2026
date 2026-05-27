@@ -1,0 +1,26 @@
+track: sorbian
+seed: 2711
+sources:
+  lineage_edit_calibration: data/processed/lineage_recovery/sorbian/edit_calibration/clean_60_error_40.jsonl
+  lineage_format_repair: data/processed/lineage_recovery/sorbian/edit_calibration/format_repair.jsonl
+  mt_anchor: data/processed/lineage_recovery/sorbian/edit_calibration/mt_anchor.jsonl
+  qa_anchor: data/processed/sorbian/qa_train.jsonl
+  mr_anchor: data/processed/lineage_recovery/sorbian/mr_recovery/mr_final_answer.jsonl
+outputs:
+  root: data/processed/final_salvage/sorbian/scgc_calibration
+ratios:
+  clean_70_error_30: {clean: 0.70, error: 0.30}
+  clean_60_error_40: {clean: 0.60, error: 0.40}
+  clean_50_error_50: {clean: 0.50, error: 0.50}
+limits:
+  edit_examples_per_ratio: 900
+  format_examples: 80
+  mt_anchor_examples: 800
+  qa_anchor_examples: 120
+  mr_anchor_examples: 160
+policy:
+  no_locked_validation_training: true
+  no_stage_c_replay: true
+  no_extra_certificate_questions: true
+  no_forbidden_polymath: true
+  exact_two_line_targets: true

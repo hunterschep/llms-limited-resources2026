@@ -1,0 +1,2 @@
+f9ba93e4ce496cab2e2314bf52d2ed11bb7162fdbb9bcb6dfd5ad5fd315ab803  configs/prompts/final_salvage_scgc.yaml
+48cbfa179074fea0a4c2e4afe87b4c03b77487580896e1cdd729092d3793c536  configs/eval/final_salvage_scgc_probe.yaml

@@ -20,8 +20,11 @@ results/**
 !results/**/*.md
 !results/cleanup/*.txt
 !results/stage_b_rescue/cleanup/*.txt
+!results/final_salvage/cleanup/*.txt
+!results/final_salvage/status/*.txt
 results/stage_b_rescue/**/*_raw.jsonl
 results/stage_b_rescue/error_analysis/raw_inputs/*.jsonl
+results/final_salvage/**/*_raw.jsonl
 logs/
 
 andromeda/logs/*

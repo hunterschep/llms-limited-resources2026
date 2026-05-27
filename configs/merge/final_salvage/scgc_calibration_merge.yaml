@@ -1,0 +1,11 @@
+anchor_model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10
+calibrated_model: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/final_salvage/sorbian/scgc_calibration_tiny/final_merged
+output_root: /scratch/scheppat/projects/wmt26_lrllm/checkpoints/final_salvage/sorbian/scgc_calibration_merge
+results_dir: results/final_salvage/calibration_merge
+probe_config: configs/eval/final_salvage_scgc_probe.yaml
+alphas: [0.05, 0.10, 0.15, 0.20, 0.30, 0.50, 1.00]
+gates:
+  sc_no_error_min: 0.20
+  gc_no_error_min: 0.20
+  mt_drop_max: 0.5
+  mr_drop_max: 1.0

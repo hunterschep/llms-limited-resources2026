@@ -304,3 +304,46 @@ lineage-clean-failed:
 
 lineage-package:
 	python3 scripts/lineage_package_candidate.py --model-dir /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/stage_b_mt/final_merged --dry-run
+
+final-salvage-status:
+	python3 scripts/run_final_salvage.py scgc-audit --output-dir results/final_salvage/status/scgc_audit_snapshot
+
+final-salvage-cleanup:
+	python3 scripts/run_final_salvage.py scgc-audit --output-dir results/final_salvage/cleanup/scgc_audit_snapshot
+
+final-salvage-scgc-audit:
+	python3 scripts/final_salvage_scgc_audit.py
+
+final-salvage-prompt-sweep:
+	python3 scripts/final_salvage_scgc_prompt_sweep.py --per-task-limit 8
+
+final-salvage-build-calibration-data:
+	python3 scripts/build_final_scgc_calibration_data.py
+
+final-salvage-train-calibration:
+	python3 scripts/train_final_scgc_calibration.py --dry-run --max-examples 4
+
+final-salvage-merge-calibration:
+	python3 scripts/merge_final_scgc_calibration.py --limit 1
+
+final-salvage-eval:
+	python3 scripts/final_salvage_eval_candidates.py
+
+final-salvage-risk-decision:
+	python3 scripts/final_salvage_scgc_audit.py --output-dir results/final_salvage/risk_decision_audit
+
+final-salvage-package-sorbian:
+	python3 scripts/final_salvage_package_model.py --model-dir /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10 --package-dir /scratch/scheppat/projects/wmt26_lrllm/checkpoints/final_salvage/sorbian_primary_package --track sorbian --label primary
+
+final-salvage-package-uk:
+	mkdir -p results/final_salvage/package
+	printf '%s\n' '{"track":"ukrainian","decision":"prompt_only_fallback_only","model":"Qwen/Qwen3.5-2B"}' > results/final_salvage/package/uk_prompt_only_decision.json
+
+final-salvage-validate-package:
+	python3 scripts/final_salvage_validate_package.py --model-dir /scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10
+
+final-salvage-clean-failed:
+	python3 scripts/run_final_salvage.py scgc-audit --output-dir results/final_salvage/cleanup/final_audit_snapshot
+
+final-salvage-report:
+	python3 scripts/final_salvage_eval_candidates.py

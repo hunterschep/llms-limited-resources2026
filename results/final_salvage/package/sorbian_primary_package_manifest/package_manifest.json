@@ -1,0 +1,15 @@
+{
+  "copy": true,
+  "label": "primary",
+  "package_dir": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/final_salvage/sorbian_primary_package",
+  "packaged_model_path": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/final_salvage/sorbian_primary_package/model",
+  "source_model_dir": "/scratch/scheppat/projects/wmt26_lrllm/checkpoints/lineage_recovery/sorbian/task_vector_merge_probe/mt1p00_edit0p10_mr0p10",
+  "track": "sorbian",
+  "wmt_constraints": {
+    "no_live_rag": true,
+    "no_public_upload_without_approval": true,
+    "no_task_adapter_switching": true,
+    "one_model_all_tasks": true,
+    "qwen35_family_le_2b": true
+  }
+}
